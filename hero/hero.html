@@ -183,6 +183,17 @@
         color: var(--text3);
         font-weight: 500;
       }
+      .hero-stats {
+        display: flex;
+        gap: 2.5rem;
+        border-top: 1px solid var(--border);
+        padding-top: 2rem;
+      }
+
+      .stat-item:not(:last-child) {
+        padding-right: 2rem;
+        border-right: 1px solid var(--border);
+      }
       /* ===== SECTIONS ===== */
       section {
         padding: 100px 5%;
@@ -1529,6 +1540,16 @@
           gap: 1rem;
         }
       }
+
+      .scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: var(--grad);
+        width: 0%;
+        z-index: 1000;
+      }
     </style>
   </head>
   <body>
@@ -1564,6 +1585,7 @@
         >Let's Talk →</a
       >
     </div>
+    <div class="scroll-progress"></div>
 
     <!-- HERO -->
     <section id="hero">
@@ -1601,6 +1623,7 @@
               </svg>
               Let's Build Your Brand
             </a>
+
             <a href="#portfolio" class="btn-secondary">View Our Work →</a>
           </div>
           <div class="hero-proof">
@@ -2219,9 +2242,9 @@
             <div class="section-label">Our Work</div>
             <h2>Projects We're<br /><span class="grad-text">Proud Of</span></h2>
           </div>
-          <a href="#contact" class="btn-secondary reveal"
-            >Start Your Project →</a
-          >
+          <a href="portfolio.html" class="btn-secondary">
+            View All Projects →
+          </a>
         </div>
         <div class="portfolio-grid">
           <!-- Card 1 -->
@@ -3704,6 +3727,13 @@
           btn.disabled = false;
         }, 3000);
       }
+
+      window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / docHeight) * 100;
+        document.querySelector(".scroll-progress").style.width = progress + "%";
+      });
     </script>
   </body>
 </html>
