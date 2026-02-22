@@ -3,62 +3,3530 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Protorev Digital</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <title>Protorev Digital — We Build Digital Experiences</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
       rel="stylesheet"
     />
+    <style>
+      :root {
+        --bg: #f8f8fc;
+        --bg2: #ffffff;
+        --surface: #ffffff;
+        --surface2: #f2f2f8;
+        --border: #e8e8f0;
+        --text: #0f0f1a;
+        --text2: #4a4a6a;
+        --text3: #8888aa;
+        --accent: #5b4aff;
+        --accent2: #8b5cf6;
+        --accent3: #06b6d4;
+        --grad: linear-gradient(135deg, #5b4aff 0%, #8b5cf6 50%, #06b6d4 100%);
+        --grad-soft: linear-gradient(
+          135deg,
+          rgba(91, 74, 255, 0.08) 0%,
+          rgba(139, 92, 246, 0.06) 100%
+        );
+        --shadow-sm:
+          0 1px 3px rgba(15, 15, 26, 0.06), 0 1px 2px rgba(15, 15, 26, 0.04);
+        --shadow:
+          0 4px 16px rgba(91, 74, 255, 0.08), 0 2px 8px rgba(15, 15, 26, 0.06);
+        --shadow-lg:
+          0 20px 60px rgba(91, 74, 255, 0.12), 0 8px 24px rgba(15, 15, 26, 0.08);
+        --radius: 16px;
+        --radius-sm: 10px;
+        --radius-lg: 24px;
+        --font: "Sora", sans-serif;
+        --font-body: "DM Sans", sans-serif;
+      }
 
-    <link rel="stylesheet" href="hero.css" />
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* ===== NAV ===== */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(248, 248, 252, 0.85);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+        padding: 0 5%;
+        height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: box-shadow 0.3s;
+      }
+      nav.scrolled {
+        box-shadow: var(--shadow);
+      }
+      .nav-logo {
+        font-family: var(--font);
+        font-weight: 700;
+        font-size: 1.2rem;
+        letter-spacing: -0.02em;
+        background: var(--grad);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-decoration: none;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text2);
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+      .nav-cta {
+        background: var(--grad);
+        color: white;
+        border: none;
+        padding: 0.5rem 1.25rem;
+        border-radius: 50px;
+        font-family: var(--font);
+        font-weight: 600;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition:
+          opacity 0.2s,
+          transform 0.2s,
+          box-shadow 0.2s;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 4px 16px rgba(91, 74, 255, 0.35);
+      }
+      .nav-cta:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+        box-shadow: 0 8px 24px rgba(91, 74, 255, 0.4);
+      }
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .hamburger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--text);
+        border-radius: 2px;
+        transition: 0.3s;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 68px;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        background: var(--bg2);
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem 5%;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu a {
+        color: var(--text2);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      /* ===== SECTIONS ===== */
+      section {
+        padding: 100px 5%;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--accent);
+        background: rgba(91, 74, 255, 0.08);
+        padding: 6px 14px;
+        border-radius: 50px;
+        margin-bottom: 1rem;
+      }
+      .section-label::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font);
+        letter-spacing: -0.03em;
+        line-height: 1.15;
+      }
+      h1 {
+        font-size: clamp(2.4rem, 5.5vw, 4rem);
+        font-weight: 800;
+      }
+      h2 {
+        font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+        font-weight: 700;
+      }
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+      .grad-text {
+        background: var(--grad);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--grad);
+        color: white;
+        padding: 0.85rem 2rem;
+        border-radius: 50px;
+        font-family: var(--font);
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 24px rgba(91, 74, 255, 0.35);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s,
+          opacity 0.2s;
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px rgba(91, 74, 255, 0.45);
+      }
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: transparent;
+        color: var(--text);
+        padding: 0.85rem 2rem;
+        border-radius: 50px;
+        font-family: var(--font);
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        border: 2px solid var(--border);
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          color 0.2s,
+          transform 0.2s;
+      }
+      .btn-secondary:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: translateY(-2px);
+      }
+
+      /* ===== HERO ===== */
+      #hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 4rem;
+        padding-top: 120px;
+        padding-bottom: 80px;
+        position: relative;
+        overflow: hidden;
+      }
+      #hero::before {
+        content: "";
+        position: absolute;
+        top: -200px;
+        right: -200px;
+        width: 700px;
+        height: 700px;
+        background: radial-gradient(
+          circle,
+          rgba(91, 74, 255, 0.07) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      #hero::after {
+        content: "";
+        position: absolute;
+        bottom: -100px;
+        left: -100px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(6, 182, 212, 0.06) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        padding: 8px 16px;
+        border-radius: 50px;
+        margin-bottom: 1.5rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: var(--text2);
+        box-shadow: var(--shadow-sm);
+      }
+      .hero-badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #22c55e;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+      .hero-title {
+        margin-bottom: 1.25rem;
+      }
+      .hero-sub {
+        font-size: 1.1rem;
+        color: var(--text2);
+        line-height: 1.7;
+        max-width: 480px;
+        margin-bottom: 2.5rem;
+        font-weight: 300;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+      }
+      .hero-stats {
+        display: flex;
+        gap: 2.5rem;
+      }
+      .stat-item {
+      }
+      .stat-num {
+        font-family: var(--font);
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--text);
+      }
+      .stat-label {
+        font-size: 0.8rem;
+        color: var(--text3);
+      }
+
+      /* Hero Illustration */
+      .hero-illustration {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .hero-illus-wrap {
+        position: relative;
+        width: 100%;
+        max-width: 520px;
+      }
+      .hero-illus-card {
+        background: white;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-lg);
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-illus-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--grad);
+      }
+      .floating-badge {
+        position: absolute;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 10px 14px;
+        box-shadow: var(--shadow);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        animation: float 3s ease-in-out infinite;
+      }
+      .floating-badge:nth-child(2) {
+        animation-delay: 1s;
+      }
+      .floating-badge:nth-child(3) {
+        animation-delay: 2s;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+      .fb1 {
+        top: -20px;
+        left: 20px;
+      }
+      .fb2 {
+        bottom: -15px;
+        right: 30px;
+      }
+      .fb3 {
+        top: 50%;
+        right: -30px;
+        transform: translateY(-50%);
+      }
+
+      /* ===== SERVICES ===== */
+      #services {
+        background: var(--bg2);
+      }
+      .services-header {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 4rem;
+      }
+      .services-header p {
+        color: var(--text2);
+        margin-top: 1rem;
+      }
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+      .service-card {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.75rem;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s,
+          border-color 0.3s;
+        cursor: default;
+      }
+      .service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg);
+        border-color: rgba(91, 74, 255, 0.2);
+      }
+      .service-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.25rem;
+        background: var(--grad-soft);
+      }
+      .service-icon svg {
+        width: 22px;
+        height: 22px;
+        stroke: var(--accent);
+      }
+      .service-card h3 {
+        margin-bottom: 0.5rem;
+      }
+      .service-card p {
+        font-size: 0.875rem;
+        color: var(--text2);
+        line-height: 1.65;
+      }
+
+      /* ===== PORTFOLIO ===== */
+      #portfolio {
+        background: var(--bg);
+      }
+      .portfolio-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .portfolio-card {
+        background: white;
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-sm);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        cursor: pointer;
+        group: true;
+      }
+      .portfolio-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+      }
+      .portfolio-card:first-child {
+        grid-column: span 2;
+      }
+      .portfolio-thumb {
+        height: 220px;
+        position: relative;
+        overflow: hidden;
+      }
+      .portfolio-card:first-child .portfolio-thumb {
+        height: 280px;
+      }
+      .portfolio-thumb-bg {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.4s;
+        position: relative;
+        overflow: hidden;
+      }
+      .portfolio-card:hover .portfolio-thumb-bg {
+        transform: scale(1.04);
+      }
+      .portfolio-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(15, 15, 26, 0.55);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .portfolio-card:hover .portfolio-overlay {
+        opacity: 1;
+      }
+      .portfolio-overlay-btn {
+        background: white;
+        color: var(--text);
+        padding: 10px 22px;
+        border-radius: 50px;
+        font-family: var(--font);
+        font-weight: 600;
+        font-size: 0.8rem;
+        transform: translateY(10px);
+        transition: transform 0.3s;
+      }
+      .portfolio-card:hover .portfolio-overlay-btn {
+        transform: translateY(0);
+      }
+      .portfolio-info {
+        padding: 1.25rem;
+      }
+      .portfolio-tag {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 4px 10px;
+        border-radius: 50px;
+        margin-bottom: 0.5rem;
+      }
+      .portfolio-card h3 {
+        font-size: 1rem;
+      }
+
+      /* ===== PROCESS ===== */
+      #process {
+        background: var(--bg2);
+      }
+      .process-header {
+        text-align: center;
+        max-width: 560px;
+        margin: 0 auto 4rem;
+      }
+      .process-header p {
+        color: var(--text2);
+        margin-top: 1rem;
+      }
+      .process-steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        position: relative;
+      }
+      .process-steps::before {
+        content: "";
+        position: absolute;
+        top: 36px;
+        left: calc(12.5% + 24px);
+        right: calc(12.5% + 24px);
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          var(--accent),
+          var(--accent2),
+          var(--accent3)
+        );
+        opacity: 0.3;
+        z-index: 0;
+      }
+      .process-step {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+      .step-num-wrap {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: white;
+        border: 2px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        position: relative;
+        box-shadow: var(--shadow);
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s;
+      }
+      .process-step:hover .step-num-wrap {
+        border-color: var(--accent);
+        box-shadow:
+          0 0 0 6px rgba(91, 74, 255, 0.1),
+          var(--shadow);
+      }
+      .step-num-wrap svg {
+        width: 28px;
+        height: 28px;
+        stroke: var(--accent);
+      }
+      .step-num {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--grad);
+        color: white;
+        font-family: var(--font);
+        font-size: 0.65rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .process-step h3 {
+        margin-bottom: 0.5rem;
+      }
+      .process-step p {
+        font-size: 0.85rem;
+        color: var(--text2);
+        line-height: 1.65;
+      }
+
+      /* ===== ABOUT ===== */
+      #about {
+        background: var(--bg);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 5rem;
+      }
+      .about-visual {
+        position: relative;
+      }
+      .about-main-card {
+        background: white;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .about-card-float {
+        position: absolute;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1rem 1.25rem;
+        box-shadow: var(--shadow);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 180px;
+      }
+      .about-cf1 {
+        bottom: -20px;
+        left: -20px;
+      }
+      .about-cf2 {
+        top: -20px;
+        right: -20px;
+      }
+      .acf-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .acf-icon svg {
+        width: 20px;
+        height: 20px;
+        stroke: white;
+      }
+      .acf-label {
+        font-size: 0.7rem;
+        color: var(--text3);
+      }
+      .acf-val {
+        font-family: var(--font);
+        font-weight: 700;
+        font-size: 0.95rem;
+      }
+      .about-content h2 {
+        margin-bottom: 1.25rem;
+      }
+      .about-content p {
+        color: var(--text2);
+        margin-bottom: 1.25rem;
+        line-height: 1.75;
+      }
+      .about-values {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 2rem;
+      }
+      .about-value {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: var(--surface2);
+        border-radius: var(--radius-sm);
+        padding: 12px 16px;
+        border: 1px solid var(--border);
+      }
+      .av-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: var(--grad-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .av-icon svg {
+        width: 16px;
+        height: 16px;
+        stroke: var(--accent);
+      }
+      .about-value span {
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+
+      /* ===== TESTIMONIALS ===== */
+      #testimonials {
+        background: var(--bg2);
+      }
+      .testimonials-header {
+        text-align: center;
+        max-width: 540px;
+        margin: 0 auto 3.5rem;
+      }
+      .testimonials-header p {
+        color: var(--text2);
+        margin-top: 1rem;
+      }
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .testi-card {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2rem;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+      .testi-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow);
+      }
+      .testi-stars {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 1rem;
+      }
+      .testi-stars svg {
+        width: 16px;
+        height: 16px;
+        fill: #f59e0b;
+        stroke: none;
+      }
+      .testi-quote {
+        font-size: 0.95rem;
+        color: var(--text2);
+        line-height: 1.75;
+        margin-bottom: 1.5rem;
+        font-style: italic;
+      }
+      .testi-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .testi-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font);
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: white;
+        flex-shrink: 0;
+      }
+      .testi-name {
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+      .testi-role {
+        font-size: 0.8rem;
+        color: var(--text3);
+      }
+
+      /* ===== CLIENTS ===== */
+      #clients {
+        background: var(--bg);
+        padding: 60px 5%;
+      }
+      .clients-label {
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--text3);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 2.5rem;
+      }
+      .clients-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem 4rem;
+      }
+      .client-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        filter: grayscale(100%) opacity(0.4);
+        transition: filter 0.3s;
+        cursor: default;
+      }
+      .client-logo:hover {
+        filter: grayscale(0%) opacity(1);
+      }
+      .client-logo-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .client-logo-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+      .client-logo-name {
+        font-family: var(--font);
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      /* ===== FAQ ===== */
+      #faq {
+        background: var(--bg2);
+      }
+      .faq-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: start;
+      }
+      .faq-left h2 {
+        margin-bottom: 1rem;
+      }
+      .faq-left p {
+        color: var(--text2);
+        line-height: 1.75;
+        margin-bottom: 2rem;
+      }
+      .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .faq-item {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+      .faq-item.open {
+        border-color: rgba(91, 74, 255, 0.25);
+      }
+      .faq-q {
+        width: 100%;
+        text-align: left;
+        padding: 1.1rem 1.25rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text);
+        transition: color 0.2s;
+      }
+      .faq-item.open .faq-q {
+        color: var(--accent);
+      }
+      .faq-q-icon {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--surface2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background 0.2s,
+          transform 0.3s;
+      }
+      .faq-item.open .faq-q-icon {
+        background: var(--accent);
+        transform: rotate(45deg);
+      }
+      .faq-q-icon svg {
+        width: 12px;
+        height: 12px;
+        stroke: var(--text3);
+      }
+      .faq-item.open .faq-q-icon svg {
+        stroke: white;
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+          padding 0.3s;
+        padding: 0 1.25rem;
+        font-size: 0.875rem;
+        color: var(--text2);
+        line-height: 1.75;
+      }
+      .faq-item.open .faq-a {
+        max-height: 200px;
+        padding: 0 1.25rem 1.1rem;
+      }
+
+      /* ===== CONTACT ===== */
+      #contact {
+        background: var(--bg);
+      }
+      .contact-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+        gap: 5rem;
+        align-items: start;
+      }
+      .contact-left h2 {
+        margin-bottom: 1rem;
+      }
+      .contact-left p {
+        color: var(--text2);
+        line-height: 1.75;
+        margin-bottom: 2.5rem;
+      }
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .contact-info-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--text2);
+        font-size: 0.9rem;
+      }
+      .contact-info-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: var(--grad-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .contact-info-icon svg {
+        width: 18px;
+        height: 18px;
+        stroke: var(--accent);
+      }
+      .contact-form {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 2.5rem;
+        box-shadow: var(--shadow);
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 1rem;
+      }
+      .form-group label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--text2);
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 0.75rem 1rem;
+        font-family: var(--font-body);
+        font-size: 0.875rem;
+        color: var(--text);
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+        width: 100%;
+        appearance: none;
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: var(--text3);
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(91, 74, 255, 0.1);
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+      .form-group select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238888aa' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        padding-right: 36px;
+      }
+      .form-submit {
+        width: 100%;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: var(--text);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 60px 5% 30px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+      .footer-brand-logo {
+        font-family: var(--font);
+        font-weight: 700;
+        font-size: 1.3rem;
+        background: var(--grad);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        display: inline-block;
+      }
+      .footer-brand p {
+        font-size: 0.85rem;
+        line-height: 1.75;
+        max-width: 240px;
+      }
+      .footer-social {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+      }
+      .footer-social a {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+      }
+      .footer-social a:hover {
+        background: var(--accent);
+      }
+      .footer-social svg {
+        width: 16px;
+        height: 16px;
+        stroke: rgba(255, 255, 255, 0.7);
+      }
+      .footer-col h4 {
+        font-family: var(--font);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 1rem;
+      }
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        list-style: none;
+      }
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+        font-size: 0.85rem;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: white;
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .footer-bottom p {
+        font-size: 0.8rem;
+      }
+      .footer-bottom-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .footer-bottom-links a {
+        color: rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+        font-size: 0.8rem;
+        transition: color 0.2s;
+      }
+      .footer-bottom-links a:hover {
+        color: white;
+      }
+
+      /* ===== ANIMATIONS ===== */
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+          transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+      .reveal-d1 {
+        transition-delay: 0.1s;
+      }
+      .reveal-d2 {
+        transition-delay: 0.2s;
+      }
+      .reveal-d3 {
+        transition-delay: 0.3s;
+      }
+      .reveal-d4 {
+        transition-delay: 0.4s;
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 1024px) {
+        .portfolio-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .portfolio-card:first-child {
+          grid-column: span 2;
+        }
+        .process-steps {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .process-steps::before {
+          display: none;
+        }
+        #about {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .testimonials-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 768px) {
+        section {
+          padding: 70px 5%;
+        }
+        #hero {
+          grid-template-columns: 1fr;
+          padding-top: 100px;
+          text-align: center;
+        }
+        .hero-illustration {
+          display: none;
+        }
+        .hero-btns {
+          justify-content: center;
+        }
+        .hero-stats {
+          justify-content: center;
+        }
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+        .portfolio-card:first-child {
+          grid-column: span 1;
+        }
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+        .faq-wrap {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .contact-wrap {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        .nav-links,
+        .nav-cta-wrap {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .portfolio-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+      @media (max-width: 480px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .process-steps {
+          grid-template-columns: 1fr;
+        }
+        .hero-stats {
+          flex-wrap: wrap;
+          gap: 1.5rem;
+        }
+        .clients-grid {
+          gap: 2rem 2.5rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <header class="header">
-      <div class="container nav">
-        <div class="logo">
-          <div class="logo-icon"></div>
-          <span class="logo-text">
-            <span class="brand">Protorev</span>
-            <span class="sub">Digital</span>
-          </span>
-        </div>
-
-        <nav class="menu">
-          <a href="#">Services</a>
-          <a href="#">Work</a>
-          <a href="#">Process</a>
-          <a href="#">About</a>
-        </nav>
-
-        <a href="#" class="btn-primary">Get Started →</a>
+    <!-- NAV -->
+    <nav id="navbar">
+      <a href="#" class="nav-logo">Protorev Digital</a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta-wrap">
+        <a href="#contact" class="nav-cta">Let's Talk →</a>
       </div>
-    </header>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
 
-    <section class="hero">
-      <div class="container hero-wrapper">
-        <div class="hero-content">
-          <span class="tag">OUR EXPERTISE</span>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#services" onclick="toggleMenu()">Services</a>
+      <a href="#portfolio" onclick="toggleMenu()">Work</a>
+      <a href="#process" onclick="toggleMenu()">Process</a>
+      <a href="#about" onclick="toggleMenu()">About</a>
+      <a href="#contact" onclick="toggleMenu()">Contact</a>
+      <a
+        href="#contact"
+        class="btn-primary"
+        onclick="toggleMenu()"
+        style="text-align: center; justify-content: center"
+        >Let's Talk →</a
+      >
+    </div>
 
-          <h1>
-            Elevating Brands <br />
-            Through Design <br />
-            & Technology.
+    <!-- HERO -->
+    <section id="hero">
+      <div class="container" style="display: contents">
+        <div class="hero-content reveal">
+          <div class="hero-badge">
+            <div class="hero-badge-dot"></div>
+            Available for new projects
+          </div>
+          <h1 class="hero-title">
+            We Build Digital<br /><span class="grad-text">Experiences</span
+            ><br />That Elevate Brands.
           </h1>
-
-          <p>
-            We build digital experiences that captivate and high-performance:
-            development.
+          <p class="hero-sub">
+            Protorev Digital helps startups, businesses, and e-commerce brands
+            grow through exceptional design, strategic branding, and powerful
+            web solutions.
           </p>
-
-          <a href="#" class="btn-secondary">View Our Work →</a>
+          <div class="hero-btns">
+            <a href="#contact" class="btn-primary">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path
+                  d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+                />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>
+              Let's Build Your Brand
+            </a>
+            <a href="#portfolio" class="btn-secondary">View Our Work →</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-num">180+</div>
+              <div class="stat-label">Projects Delivered</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">96%</div>
+              <div class="stat-label">Client Satisfaction</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">8yr</div>
+              <div class="stat-label">Experience</div>
+            </div>
+          </div>
         </div>
-
-        <div class="hero-image">
-          <!-- Replace with your exact mockup image -->
-          <img src="device.png" alt="Device Mockup" />
+        <div class="hero-illustration reveal reveal-d2">
+          <div class="hero-illus-wrap">
+            <div class="floating-badge fb1">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#5b4aff"
+                stroke-width="2"
+              >
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                <polyline points="16 7 22 7 22 13" />
+              </svg>
+              <span>+42% Growth</span>
+            </div>
+            <div class="hero-illus-card">
+              <!-- SVG Illustration -->
+              <svg
+                viewBox="0 0 440 320"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%"
+              >
+                <defs>
+                  <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop
+                      offset="0%"
+                      stop-color="#5b4aff"
+                      stop-opacity="0.15"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#06b6d4"
+                      stop-opacity="0.08"
+                    />
+                  </linearGradient>
+                  <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#5b4aff" />
+                    <stop offset="100%" stop-color="#8b5cf6" />
+                  </linearGradient>
+                  <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#8b5cf6" />
+                    <stop offset="100%" stop-color="#06b6d4" />
+                  </linearGradient>
+                </defs>
+                <!-- BG circle -->
+                <circle cx="220" cy="160" r="140" fill="url(#g1)" />
+                <!-- Browser frame -->
+                <rect
+                  x="60"
+                  y="50"
+                  width="320"
+                  height="220"
+                  rx="12"
+                  fill="white"
+                  stroke="#e8e8f0"
+                  stroke-width="1.5"
+                />
+                <rect
+                  x="60"
+                  y="50"
+                  width="320"
+                  height="32"
+                  rx="12"
+                  fill="#f2f2f8"
+                />
+                <rect x="60" y="70" width="320" height="12" fill="#f2f2f8" />
+                <circle cx="85" cy="66" r="5" fill="#ff6b6b" opacity="0.7" />
+                <circle cx="100" cy="66" r="5" fill="#f59e0b" opacity="0.7" />
+                <circle cx="115" cy="66" r="5" fill="#22c55e" opacity="0.7" />
+                <rect
+                  x="135"
+                  y="60"
+                  width="150"
+                  height="12"
+                  rx="6"
+                  fill="#e8e8f0"
+                />
+                <!-- Nav bar in browser -->
+                <rect
+                  x="75"
+                  y="95"
+                  width="290"
+                  height="28"
+                  rx="6"
+                  fill="#f8f8fc"
+                />
+                <rect
+                  x="85"
+                  y="103"
+                  width="50"
+                  height="10"
+                  rx="3"
+                  fill="url(#g2)"
+                />
+                <rect
+                  x="165"
+                  y="103"
+                  width="35"
+                  height="10"
+                  rx="3"
+                  fill="#e8e8f0"
+                />
+                <rect
+                  x="210"
+                  y="103"
+                  width="35"
+                  height="10"
+                  rx="3"
+                  fill="#e8e8f0"
+                />
+                <rect
+                  x="255"
+                  y="103"
+                  width="35"
+                  height="10"
+                  rx="3"
+                  fill="#e8e8f0"
+                />
+                <rect
+                  x="310"
+                  y="101"
+                  width="45"
+                  height="14"
+                  rx="7"
+                  fill="url(#g2)"
+                />
+                <!-- Hero in browser -->
+                <rect
+                  x="75"
+                  y="135"
+                  width="140"
+                  height="16"
+                  rx="4"
+                  fill="#0f0f1a"
+                  opacity="0.8"
+                />
+                <rect
+                  x="75"
+                  y="158"
+                  width="110"
+                  height="16"
+                  rx="4"
+                  fill="#0f0f1a"
+                  opacity="0.7"
+                />
+                <rect
+                  x="75"
+                  y="182"
+                  width="180"
+                  height="8"
+                  rx="3"
+                  fill="#e8e8f0"
+                />
+                <rect
+                  x="75"
+                  y="196"
+                  width="160"
+                  height="8"
+                  rx="3"
+                  fill="#e8e8f0"
+                />
+                <rect
+                  x="75"
+                  y="214"
+                  width="70"
+                  height="22"
+                  rx="11"
+                  fill="url(#g2)"
+                />
+                <rect
+                  x="155"
+                  y="214"
+                  width="60"
+                  height="22"
+                  rx="11"
+                  fill="none"
+                  stroke="#e8e8f0"
+                  stroke-width="1.5"
+                />
+                <!-- Right card in browser -->
+                <rect
+                  x="240"
+                  y="135"
+                  width="125"
+                  height="120"
+                  rx="10"
+                  fill="url(#g1)"
+                  stroke="#e8e8f0"
+                  stroke-width="1"
+                />
+                <rect
+                  x="255"
+                  y="152"
+                  width="95"
+                  height="8"
+                  rx="3"
+                  fill="url(#g2)"
+                  opacity="0.6"
+                />
+                <rect
+                  x="255"
+                  y="168"
+                  width="75"
+                  height="6"
+                  rx="3"
+                  fill="#e8e8f0"
+                />
+                <rect
+                  x="255"
+                  y="182"
+                  width="85"
+                  height="6"
+                  rx="3"
+                  fill="#e8e8f0"
+                />
+                <!-- Chart -->
+                <polyline
+                  points="255,228 270,215 285,220 305,200 325,205 345,185 355,192"
+                  fill="none"
+                  stroke="url(#g3)"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <circle cx="345" cy="185" r="4" fill="#5b4aff" />
+                <!-- Floating elements -->
+                <rect
+                  x="20"
+                  y="180"
+                  width="50"
+                  height="50"
+                  rx="12"
+                  fill="white"
+                  stroke="#e8e8f0"
+                  stroke-width="1"
+                />
+                <circle cx="45" cy="198" r="8" fill="url(#g2)" opacity="0.2" />
+                <rect
+                  x="35"
+                  y="213"
+                  width="20"
+                  height="4"
+                  rx="2"
+                  fill="#e8e8f0"
+                />
+                <rect
+                  x="38"
+                  y="220"
+                  width="14"
+                  height="3"
+                  rx="1.5"
+                  fill="#e8e8f0"
+                />
+                <rect
+                  x="370"
+                  y="120"
+                  width="52"
+                  height="52"
+                  rx="12"
+                  fill="white"
+                  stroke="#e8e8f0"
+                  stroke-width="1"
+                />
+                <rect
+                  x="380"
+                  y="132"
+                  width="32"
+                  height="4"
+                  rx="2"
+                  fill="url(#g2)"
+                  opacity="0.6"
+                />
+                <rect
+                  x="380"
+                  y="142"
+                  width="24"
+                  height="4"
+                  rx="2"
+                  fill="#e8e8f0"
+                />
+                <rect
+                  x="380"
+                  y="152"
+                  width="28"
+                  height="4"
+                  rx="2"
+                  fill="#e8e8f0"
+                />
+                <rect
+                  x="380"
+                  y="162"
+                  width="20"
+                  height="10"
+                  rx="5"
+                  fill="url(#g2)"
+                />
+              </svg>
+            </div>
+            <div class="floating-badge fb2">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#22c55e"
+                stroke-width="2"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span>Project Launched!</span>
+            </div>
+            <div class="floating-badge fb3">
+              <div
+                style="
+                  width: 28px;
+                  height: 28px;
+                  border-radius: 50%;
+                  background: linear-gradient(135deg, #5b4aff, #8b5cf6);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2.5"
+                >
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                  <path d="M2 17l10 5 10-5" />
+                  <path d="M2 12l10 5 10-5" />
+                </svg>
+              </div>
+              <span style="font-size: 0.72rem">Design System</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="services-header reveal">
+          <div class="section-label">What We Do</div>
+          <h2>
+            Creative Services Built for <span class="grad-text">Growth</span>
+          </h2>
+          <p>
+            From your first logo to a full digital ecosystem — we craft every
+            touchpoint with intention and excellence.
+          </p>
+        </div>
+        <div class="services-grid">
+          <!-- Card 1 -->
+          <div class="service-card reveal reveal-d1">
+            <div class="service-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                <path d="M2 17l10 5 10-5" />
+                <path d="M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <h3>Logo Design</h3>
+            <p>
+              Distinctive, memorable marks crafted to represent your brand's
+              essence and stand apart in any market.
+            </p>
+          </div>
+          <!-- Card 2 -->
+          <div class="service-card reveal reveal-d2">
+            <div class="service-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4l3 3" />
+                <path d="M3.05 11A9 9 0 1 1 5 19" />
+              </svg>
+            </div>
+            <h3>Branding & Identity</h3>
+            <p>
+              Complete brand systems — typography, color palettes, voice, and
+              guidelines — that create lasting impressions.
+            </p>
+          </div>
+          <!-- Card 3 -->
+          <div class="service-card reveal reveal-d3">
+            <div class="service-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8" />
+                <path d="M12 17v4" />
+              </svg>
+            </div>
+            <h3>Social Media Design</h3>
+            <p>
+              Scroll-stopping content templates and campaigns designed to grow
+              your audience and build community.
+            </p>
+          </div>
+          <!-- Card 4 -->
+          <div class="service-card reveal reveal-d1">
+            <div class="service-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                />
+              </svg>
+            </div>
+            <h3>Package Design</h3>
+            <p>
+              Shelf-ready packaging that tells your product's story and converts
+              browsers into loyal buyers.
+            </p>
+          </div>
+          <!-- Card 5 -->
+          <div class="service-card reveal reveal-d2">
+            <div class="service-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+              </svg>
+            </div>
+            <h3>Print Media</h3>
+            <p>
+              Brochures, flyers, business cards, and more — beautifully designed
+              for the real world.
+            </p>
+          </div>
+          <!-- Card 6 -->
+          <div class="service-card reveal reveal-d3">
+            <div class="service-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M3 9h18" />
+                <path d="M9 21V9" />
+              </svg>
+            </div>
+            <h3>UI/UX Design</h3>
+            <p>
+              Intuitive, beautiful interfaces that delight users and drive
+              meaningful engagement and conversions.
+            </p>
+          </div>
+          <!-- Card 7 — wide -->
+          <div
+            class="service-card reveal reveal-d1"
+            style="
+              grid-column: 1 / -1;
+              display: flex;
+              gap: 2rem;
+              align-items: center;
+              flex-wrap: wrap;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+                flex: 1;
+                min-width: 220px;
+              "
+            >
+              <div class="service-icon" style="margin-bottom: 0">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+              </div>
+              <h3>Web Design & Development</h3>
+              <p>
+                Performance-first websites and web apps built on modern tech,
+                tailored for conversion and growth.
+              </p>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap">
+              <span
+                style="
+                  background: var(--grad-soft);
+                  color: var(--accent);
+                  padding: 6px 14px;
+                  border-radius: 50px;
+                  font-size: 0.75rem;
+                  font-weight: 600;
+                "
+                >React</span
+              >
+              <span
+                style="
+                  background: var(--grad-soft);
+                  color: var(--accent);
+                  padding: 6px 14px;
+                  border-radius: 50px;
+                  font-size: 0.75rem;
+                  font-weight: 600;
+                "
+                >Next.js</span
+              >
+              <span
+                style="
+                  background: var(--grad-soft);
+                  color: var(--accent);
+                  padding: 6px 14px;
+                  border-radius: 50px;
+                  font-size: 0.75rem;
+                  font-weight: 600;
+                "
+                >Webflow</span
+              >
+              <span
+                style="
+                  background: var(--grad-soft);
+                  color: var(--accent);
+                  padding: 6px 14px;
+                  border-radius: 50px;
+                  font-size: 0.75rem;
+                  font-weight: 600;
+                "
+                >Shopify</span
+              >
+              <span
+                style="
+                  background: var(--grad-soft);
+                  color: var(--accent);
+                  padding: 6px 14px;
+                  border-radius: 50px;
+                  font-size: 0.75rem;
+                  font-weight: 600;
+                "
+                >WordPress</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <div class="container">
+        <div class="portfolio-header">
+          <div class="reveal">
+            <div class="section-label">Our Work</div>
+            <h2>Projects We're<br /><span class="grad-text">Proud Of</span></h2>
+          </div>
+          <a href="#contact" class="btn-secondary reveal"
+            >Start Your Project →</a
+          >
+        </div>
+        <div class="portfolio-grid">
+          <!-- Card 1 -->
+          <div class="portfolio-card reveal">
+            <div class="portfolio-thumb">
+              <div
+                class="portfolio-thumb-bg"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    #0f0f1a 0%,
+                    #1e1b4b 40%,
+                    #312e81 100%
+                  );
+                "
+              >
+                <svg
+                  viewBox="0 0 500 280"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="width: 85%; opacity: 0.9"
+                >
+                  <defs>
+                    <linearGradient
+                      id="pg1"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%"
+                    >
+                      <stop offset="0%" stop-color="#5b4aff" />
+                      <stop offset="100%" stop-color="#06b6d4" />
+                    </linearGradient>
+                  </defs>
+                  <circle
+                    cx="250"
+                    cy="140"
+                    r="80"
+                    fill="none"
+                    stroke="url(#pg1)"
+                    stroke-width="1.5"
+                    opacity="0.4"
+                  />
+                  <circle
+                    cx="250"
+                    cy="140"
+                    r="110"
+                    fill="none"
+                    stroke="url(#pg1)"
+                    stroke-width="0.8"
+                    opacity="0.25"
+                  />
+                  <text
+                    x="250"
+                    y="125"
+                    text-anchor="middle"
+                    font-family="serif"
+                    font-size="52"
+                    font-weight="700"
+                    fill="white"
+                    letter-spacing="-2"
+                  >
+                    Nexora
+                  </text>
+                  <text
+                    x="250"
+                    y="158"
+                    text-anchor="middle"
+                    font-family="sans-serif"
+                    font-size="11"
+                    fill="rgba(255,255,255,0.5)"
+                    letter-spacing="5"
+                  >
+                    FINANCIAL TECH
+                  </text>
+                  <line
+                    x1="190"
+                    y1="170"
+                    x2="310"
+                    y2="170"
+                    stroke="url(#pg1)"
+                    stroke-width="1.5"
+                    opacity="0.6"
+                  />
+                </svg>
+                <div class="portfolio-overlay">
+                  <div class="portfolio-overlay-btn">View Case Study →</div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <span
+                class="portfolio-tag"
+                style="background: rgba(91, 74, 255, 0.1); color: var(--accent)"
+                >Branding</span
+              >
+              <h3>Nexora Financial — Brand Identity</h3>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="portfolio-card reveal reveal-d1">
+            <div class="portfolio-thumb">
+              <div
+                class="portfolio-thumb-bg"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    #064e3b,
+                    #065f46,
+                    #047857
+                  );
+                "
+              >
+                <svg
+                  viewBox="0 0 240 220"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="width: 65%"
+                >
+                  <rect
+                    x="20"
+                    y="20"
+                    width="200"
+                    height="180"
+                    rx="16"
+                    fill="rgba(255,255,255,0.06)"
+                    stroke="rgba(255,255,255,0.15)"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="120"
+                    y="75"
+                    text-anchor="middle"
+                    font-family="sans-serif"
+                    font-size="11"
+                    fill="rgba(255,255,255,0.5)"
+                    letter-spacing="4"
+                  >
+                    BOTANICAL
+                  </text>
+                  <text
+                    x="120"
+                    y="110"
+                    text-anchor="middle"
+                    font-family="serif"
+                    font-size="30"
+                    font-weight="700"
+                    fill="white"
+                  >
+                    Veridia
+                  </text>
+                  <text
+                    x="120"
+                    y="135"
+                    text-anchor="middle"
+                    font-family="sans-serif"
+                    font-size="9"
+                    fill="rgba(255,255,255,0.4)"
+                    letter-spacing="3"
+                  >
+                    ORGANIC TEA
+                  </text>
+                  <circle
+                    cx="120"
+                    cy="158"
+                    r="12"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.3)"
+                    stroke-width="1"
+                  />
+                  <path
+                    d="M115 158 Q120 148 125 158"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.4)"
+                    stroke-width="1.2"
+                  />
+                </svg>
+                <div class="portfolio-overlay">
+                  <div class="portfolio-overlay-btn">View Case Study →</div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <span
+                class="portfolio-tag"
+                style="background: rgba(16, 185, 129, 0.1); color: #10b981"
+                >Packaging</span
+              >
+              <h3>Veridia Tea — Package Design</h3>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="portfolio-card reveal reveal-d2">
+            <div class="portfolio-thumb">
+              <div
+                class="portfolio-thumb-bg"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    #1a1a2e,
+                    #16213e,
+                    #0f3460
+                  );
+                "
+              >
+                <svg
+                  viewBox="0 0 240 220"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="width: 65%"
+                >
+                  <rect
+                    x="30"
+                    y="20"
+                    width="180"
+                    height="120"
+                    rx="10"
+                    fill="rgba(255,255,255,0.05)"
+                    stroke="rgba(255,255,255,0.1)"
+                    stroke-width="1"
+                  />
+                  <rect
+                    x="40"
+                    y="30"
+                    width="160"
+                    height="16"
+                    rx="3"
+                    fill="rgba(255,255,255,0.08)"
+                  />
+                  <rect
+                    x="40"
+                    y="54"
+                    width="70"
+                    height="60"
+                    rx="6"
+                    fill="rgba(91,74,255,0.3)"
+                  />
+                  <rect
+                    x="120"
+                    y="54"
+                    width="80"
+                    height="26"
+                    rx="3"
+                    fill="rgba(255,255,255,0.06)"
+                  />
+                  <rect
+                    x="120"
+                    y="86"
+                    width="60"
+                    height="26"
+                    rx="3"
+                    fill="rgba(255,255,255,0.06)"
+                  />
+                  <rect
+                    x="30"
+                    y="155"
+                    width="180"
+                    height="10"
+                    rx="3"
+                    fill="rgba(255,255,255,0.06)"
+                  />
+                  <rect
+                    x="30"
+                    y="173"
+                    width="120"
+                    height="10"
+                    rx="3"
+                    fill="rgba(255,255,255,0.04)"
+                  />
+                  <rect
+                    x="30"
+                    y="191"
+                    width="80"
+                    height="16"
+                    rx="8"
+                    fill="url(#pg1)"
+                  />
+                </svg>
+                <div class="portfolio-overlay">
+                  <div class="portfolio-overlay-btn">View Case Study →</div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <span
+                class="portfolio-tag"
+                style="background: rgba(6, 182, 212, 0.1); color: #06b6d4"
+                >UI/UX</span
+              >
+              <h3>Orion SaaS — Dashboard UI</h3>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="portfolio-card reveal reveal-d1">
+            <div class="portfolio-thumb">
+              <div
+                class="portfolio-thumb-bg"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    #1f0a2e,
+                    #2d1b4e,
+                    #3d1f6e
+                  );
+                "
+              >
+                <svg
+                  viewBox="0 0 240 220"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="width: 65%"
+                >
+                  <text
+                    x="120"
+                    y="100"
+                    text-anchor="middle"
+                    font-family="sans-serif"
+                    font-size="48"
+                    font-weight="900"
+                    fill="rgba(255,255,255,0.12)"
+                    letter-spacing="-3"
+                  >
+                    LUXE
+                  </text>
+                  <text
+                    x="120"
+                    y="105"
+                    text-anchor="middle"
+                    font-family="serif"
+                    font-size="28"
+                    font-weight="400"
+                    fill="white"
+                    letter-spacing="8"
+                  >
+                    MIRA
+                  </text>
+                  <text
+                    x="120"
+                    y="125"
+                    text-anchor="middle"
+                    font-family="sans-serif"
+                    font-size="8"
+                    fill="rgba(255,255,255,0.4)"
+                    letter-spacing="5"
+                  >
+                    BEAUTY & CARE
+                  </text>
+                  <line
+                    x1="90"
+                    y1="138"
+                    x2="150"
+                    y2="138"
+                    stroke="rgba(255,255,255,0.2)"
+                    stroke-width="1"
+                  />
+                  <circle cx="85" cy="70" r="2" fill="#c084fc" opacity="0.6" />
+                  <circle
+                    cx="155"
+                    cy="150"
+                    r="3"
+                    fill="#8b5cf6"
+                    opacity="0.5"
+                  />
+                  <circle
+                    cx="170"
+                    cy="80"
+                    r="1.5"
+                    fill="#06b6d4"
+                    opacity="0.6"
+                  />
+                </svg>
+                <div class="portfolio-overlay">
+                  <div class="portfolio-overlay-btn">View Case Study →</div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <span
+                class="portfolio-tag"
+                style="background: rgba(192, 132, 252, 0.1); color: #c084fc"
+                >Branding</span
+              >
+              <h3>Mira Beauty — Brand & Identity</h3>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div class="portfolio-card reveal reveal-d2">
+            <div class="portfolio-thumb">
+              <div
+                class="portfolio-thumb-bg"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    #0c1a35,
+                    #1a2f5e,
+                    #1e3a8a
+                  );
+                "
+              >
+                <svg
+                  viewBox="0 0 240 220"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="width: 65%"
+                >
+                  <rect
+                    x="25"
+                    y="30"
+                    width="190"
+                    height="130"
+                    rx="12"
+                    fill="rgba(255,255,255,0.04)"
+                    stroke="rgba(255,255,255,0.08)"
+                    stroke-width="1"
+                  />
+                  <rect
+                    x="35"
+                    y="40"
+                    width="170"
+                    height="22"
+                    rx="4"
+                    fill="rgba(255,255,255,0.06)"
+                  />
+                  <polyline
+                    points="35,110 65,85 95,95 130,70 160,80 190,55 210,65"
+                    fill="none"
+                    stroke="#3b82f6"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <polyline
+                    points="35,130 65,120 95,125 130,110 160,115 190,100 210,105"
+                    fill="none"
+                    stroke="rgba(59,130,246,0.4)"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                  <circle cx="190" cy="55" r="4" fill="#3b82f6" />
+                  <rect
+                    x="35"
+                    y="170"
+                    width="170"
+                    height="8"
+                    rx="2"
+                    fill="rgba(255,255,255,0.04)"
+                  />
+                </svg>
+                <div class="portfolio-overlay">
+                  <div class="portfolio-overlay-btn">View Case Study →</div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <span
+                class="portfolio-tag"
+                style="background: rgba(59, 130, 246, 0.1); color: #3b82f6"
+                >Web</span
+              >
+              <h3>Meridian Analytics — Web App</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="container">
+        <div class="process-header reveal">
+          <div class="section-label">How We Work</div>
+          <h2>Our Creative <span class="grad-text">Process</span></h2>
+          <p>
+            A proven four-step journey from insight to impact — built to deliver
+            exceptional results, every time.
+          </p>
+        </div>
+        <div class="process-steps">
+          <div class="process-step reveal reveal-d1">
+            <div class="step-num-wrap">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <div class="step-num">01</div>
+            </div>
+            <h3>Discover</h3>
+            <p>
+              We dig deep into your brand, audience, goals, and market.
+              Discovery shapes strategy and prevents costly mistakes.
+            </p>
+          </div>
+          <div class="process-step reveal reveal-d2">
+            <div class="step-num-wrap">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M2 20h.01" />
+                <path d="M7 20v-4" />
+                <path d="M12 20v-8" />
+                <path d="M17 20V8" />
+                <path d="M22 4v16" />
+              </svg>
+              <div class="step-num">02</div>
+            </div>
+            <h3>Strategize</h3>
+            <p>
+              We map out a clear roadmap — positioning, messaging, creative
+              direction, and timeline. Strategy meets creativity.
+            </p>
+          </div>
+          <div class="process-step reveal reveal-d3">
+            <div class="step-num-wrap">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 20h9" />
+                <path
+                  d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
+                />
+              </svg>
+              <div class="step-num">03</div>
+            </div>
+            <h3>Design & Develop</h3>
+            <p>
+              Pixels meet purpose. We craft and build with precision — refining
+              through feedback until it's exactly right.
+            </p>
+          </div>
+          <div class="process-step reveal reveal-d4">
+            <div class="step-num-wrap">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 2L11 13" />
+                <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+              </svg>
+              <div class="step-num">04</div>
+            </div>
+            <h3>Launch & Grow</h3>
+            <p>
+              We ship. Then we stick around — providing ongoing support,
+              analytics, and optimization to fuel your long-term growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="about-visual reveal">
+        <div class="about-main-card">
+          <svg
+            viewBox="0 0 400 300"
+            xmlns="http://www.w3.org/2000/svg"
+            style="width: 100%; height: 100%"
+          >
+            <defs>
+              <linearGradient id="abg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#5b4aff" stop-opacity="0.08" />
+                <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.05" />
+              </linearGradient>
+              <linearGradient id="abg2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#5b4aff" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#abg1)" />
+            <!-- Creative workspace illustration -->
+            <rect
+              x="40"
+              y="180"
+              width="320"
+              height="80"
+              rx="8"
+              fill="rgba(91,74,255,0.06)"
+              stroke="rgba(91,74,255,0.1)"
+              stroke-width="1"
+            />
+            <!-- Monitor -->
+            <rect
+              x="80"
+              y="100"
+              width="160"
+              height="110"
+              rx="8"
+              fill="white"
+              stroke="#e8e8f0"
+              stroke-width="1.5"
+            />
+            <rect
+              x="80"
+              y="100"
+              width="160"
+              height="20"
+              rx="8"
+              fill="#f2f2f8"
+            />
+            <rect x="80" y="110" width="160" height="10" fill="#f2f2f8" />
+            <rect
+              x="90"
+              y="128"
+              width="140"
+              height="8"
+              rx="2"
+              fill="url(#abg2)"
+              opacity="0.5"
+            />
+            <rect x="90" y="142" width="110" height="6" rx="2" fill="#e8e8f0" />
+            <rect x="90" y="154" width="130" height="6" rx="2" fill="#e8e8f0" />
+            <rect x="90" y="166" width="90" height="6" rx="2" fill="#e8e8f0" />
+            <rect
+              x="90"
+              y="178"
+              width="50"
+              height="14"
+              rx="7"
+              fill="url(#abg2)"
+            />
+            <rect
+              x="150"
+              y="210"
+              width="20"
+              height="15"
+              rx="2"
+              fill="#e8e8f0"
+            />
+            <rect x="120" y="225" width="80" height="6" rx="2" fill="#e8e8f0" />
+            <!-- Pen / tablet -->
+            <rect
+              x="270"
+              y="120"
+              width="70"
+              height="95"
+              rx="8"
+              fill="white"
+              stroke="#e8e8f0"
+              stroke-width="1.5"
+            />
+            <rect
+              x="278"
+              y="130"
+              width="54"
+              height="40"
+              rx="4"
+              fill="rgba(91,74,255,0.08)"
+            />
+            <circle cx="305" cy="185" r="8" fill="rgba(91,74,255,0.15)" />
+            <circle cx="305" cy="185" r="4" fill="url(#abg2)" />
+            <rect x="282" y="198" width="46" height="4" rx="2" fill="#f0f0f8" />
+            <rect x="282" y="207" width="32" height="4" rx="2" fill="#f0f0f8" />
+            <!-- Color palettes -->
+            <circle
+              cx="60"
+              cy="130"
+              r="20"
+              fill="rgba(91,74,255,0.12)"
+              stroke="rgba(91,74,255,0.2)"
+              stroke-width="1"
+            />
+            <circle cx="54" cy="125" r="8" fill="#5b4aff" opacity="0.7" />
+            <circle cx="66" cy="125" r="8" fill="#8b5cf6" opacity="0.7" />
+            <circle cx="60" cy="136" r="8" fill="#06b6d4" opacity="0.7" />
+            <!-- Floating stars -->
+            <circle cx="220" cy="80" r="3" fill="#5b4aff" opacity="0.4" />
+            <circle cx="350" cy="110" r="2" fill="#06b6d4" opacity="0.5" />
+            <circle cx="50" cy="85" r="2" fill="#8b5cf6" opacity="0.4" />
+          </svg>
+        </div>
+        <div class="about-card-float about-cf1">
+          <div
+            class="acf-icon"
+            style="background: linear-gradient(135deg, #5b4aff, #8b5cf6)"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+            </svg>
+          </div>
+          <div>
+            <div class="acf-label">Projects Launched</div>
+            <div class="acf-val">180+</div>
+          </div>
+        </div>
+        <div class="about-card-float about-cf2">
+          <div
+            class="acf-icon"
+            style="background: linear-gradient(135deg, #06b6d4, #3b82f6)"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <div>
+            <div class="acf-label">Happy Clients</div>
+            <div class="acf-val">120+</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-content reveal reveal-d2">
+        <div class="section-label">Our Story</div>
+        <h2>
+          Built on Creativity,<br />Driven by
+          <span class="grad-text">Results</span>
+        </h2>
+        <p>
+          Protorev Digital was founded on a simple belief: great design is great
+          business. We started as a small team of passionate designers and
+          developers who wanted to bridge the gap between beautiful aesthetics
+          and measurable business outcomes.
+        </p>
+        <p>
+          Today, we partner with startups, growing businesses, and established
+          brands — working as an extension of their team rather than an external
+          vendor. We invest in understanding your audience, your goals, and the
+          nuances of your market before we create a single pixel.
+        </p>
+        <div class="about-values">
+          <div class="about-value">
+            <div class="av-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <span
+              >Quality over quantity — we take on projects we truly believe
+              in</span
+            >
+          </div>
+          <div class="about-value">
+            <div class="av-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              </svg>
+            </div>
+            <span>Collaboration and transparency are core to how we work</span>
+          </div>
+          <div class="about-value">
+            <div class="av-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                <polyline points="16 7 22 7 22 13" />
+              </svg>
+            </div>
+            <span>Long-term partnerships over one-off transactions</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <div class="container">
+        <div class="testimonials-header reveal">
+          <div class="section-label">Client Love</div>
+          <h2>What Our Clients <span class="grad-text">Say</span></h2>
+          <p>We let our work speak — but our clients say it better.</p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testi-card reveal reveal-d1">
+            <div class="testi-stars">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+            </div>
+            <p class="testi-quote">
+              "Protorev completely transformed how our brand shows up online.
+              Our website went from something we were embarrassed to share to
+              something we're proud to put on every pitch deck. Their team is
+              thoughtful, fast, and genuinely talented."
+            </p>
+            <div class="testi-author">
+              <div
+                class="testi-avatar"
+                style="background: linear-gradient(135deg, #5b4aff, #8b5cf6)"
+              >
+                SM
+              </div>
+              <div>
+                <div class="testi-name">Sarah Mitchell</div>
+                <div class="testi-role">CEO, Nexora Financial</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card reveal reveal-d2">
+            <div class="testi-stars">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+            </div>
+            <p class="testi-quote">
+              "Working with Protorev was the best investment we made in our
+              brand. They didn't just design our packaging — they helped us
+              understand our customers better. Sales are up 38% since we
+              relaunched."
+            </p>
+            <div class="testi-author">
+              <div
+                class="testi-avatar"
+                style="background: linear-gradient(135deg, #06b6d4, #3b82f6)"
+              >
+                JR
+              </div>
+              <div>
+                <div class="testi-name">James Rockwell</div>
+                <div class="testi-role">Founder, Veridia Botanicals</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card reveal reveal-d3">
+            <div class="testi-stars">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+            </div>
+            <p class="testi-quote">
+              "From our first discovery call, I knew Protorev was different.
+              They asked smart questions, challenged our assumptions in the best
+              way, and delivered a SaaS UI that our users absolutely love.
+              Retention improved noticeably within weeks."
+            </p>
+            <div class="testi-author">
+              <div
+                class="testi-avatar"
+                style="background: linear-gradient(135deg, #ec4899, #f43f5e)"
+              >
+                AL
+              </div>
+              <div>
+                <div class="testi-name">Aria Lindholm</div>
+                <div class="testi-role">CPO, Orion Analytics</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTS -->
+    <section id="clients">
+      <div class="container">
+        <div class="clients-label">
+          Trusted by growing brands & ambitious teams
+        </div>
+        <div class="clients-grid">
+          <div class="client-logo">
+            <div class="client-logo-icon" style="background: #f1f5f9">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#475569"
+                stroke-width="2"
+              >
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+            </div>
+            <div class="client-logo-name">Nexora</div>
+          </div>
+          <div class="client-logo">
+            <div class="client-logo-icon" style="background: #f0fdf4">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#166534"
+                stroke-width="2"
+              >
+                <path d="M12 2a10 10 0 1 0 10 10" />
+                <path d="M12 6v6l4 2" />
+              </svg>
+            </div>
+            <div class="client-logo-name">Veridia</div>
+          </div>
+          <div class="client-logo">
+            <div class="client-logo-icon" style="background: #eff6ff">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#1d4ed8"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="3" />
+                <path
+                  d="M12 2v3m0 14v3m-8.66-7H2m20 0h-1.34M5.64 5.64l1.42 1.42m9.9 9.9 1.42 1.42M5.64 18.36l1.42-1.42M18.36 5.64l-1.42 1.42"
+                />
+              </svg>
+            </div>
+            <div class="client-logo-name">Orion</div>
+          </div>
+          <div class="client-logo">
+            <div class="client-logo-icon" style="background: #fdf4ff">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7e22ce"
+                stroke-width="2"
+              >
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                />
+              </svg>
+            </div>
+            <div class="client-logo-name">Mira</div>
+          </div>
+          <div class="client-logo">
+            <div class="client-logo-icon" style="background: #fff7ed">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#c2410c"
+                stroke-width="2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M3 9h18" />
+                <path d="M9 21V9" />
+              </svg>
+            </div>
+            <div class="client-logo-name">Meridian</div>
+          </div>
+          <div class="client-logo">
+            <div class="client-logo-icon" style="background: #f0f9ff">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#0369a1"
+                stroke-width="2"
+              >
+                <path
+                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                />
+              </svg>
+            </div>
+            <div class="client-logo-name">Helix</div>
+          </div>
+          <div class="client-logo">
+            <div class="client-logo-icon" style="background: #fef9ee">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#b45309"
+                stroke-width="2"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </div>
+            <div class="client-logo-name">Pulse</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="faq-wrap">
+          <div class="faq-left reveal">
+            <div class="section-label">FAQ</div>
+            <h2>Got <span class="grad-text">Questions?</span></h2>
+            <p>
+              We get a lot of the same questions, so we've answered them here.
+              If you don't see yours, just reach out — we're genuinely friendly.
+            </p>
+            <a href="#contact" class="btn-primary" style="margin-top: 0.5rem"
+              >Ask Us Anything →</a
+            >
+          </div>
+          <div class="faq-list reveal reveal-d2">
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">
+                How long does a website take to build?
+                <div class="faq-q-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                </div>
+              </button>
+              <div class="faq-a">
+                Timelines depend on scope, but a typical brochure website takes
+                3–5 weeks. A more complex web app or e-commerce build ranges
+                from 6–12 weeks. We'll always give you a clear timeline upfront
+                after our discovery call.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">
+                Do you offer ongoing support after launch?
+                <div class="faq-q-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                </div>
+              </button>
+              <div class="faq-a">
+                Yes! We offer flexible retainer packages for ongoing design
+                updates, development support, and creative maintenance. Many of
+                our clients keep us on retainer because having a dedicated
+                creative team available is simply invaluable.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">
+                Do you work with startups and early-stage brands?
+                <div class="faq-q-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                </div>
+              </button>
+              <div class="faq-a">
+                Absolutely. We love working with startups and have
+                startup-friendly packages designed to deliver maximum value at
+                critical early stages. Getting your brand right from the start
+                saves significant time and money later.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">
+                What is your pricing structure?
+                <div class="faq-q-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                </div>
+              </button>
+              <div class="faq-a">
+                We work on a project basis with clear, fixed-scope quotes — no
+                surprise invoices. For ongoing work, we offer monthly retainers.
+                Every project gets a detailed proposal before any commitment. We
+                believe in radical transparency around pricing.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">
+                Can you redesign my existing brand?
+                <div class="faq-q-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                </div>
+              </button>
+              <div class="faq-a">
+                Definitely. Brand evolution is some of our most exciting work.
+                We approach rebrands with care — preserving what's working and
+                amplifying it, while modernizing what isn't. We'll do a thorough
+                audit before recommending any changes.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-wrap">
+          <div class="contact-left reveal">
+            <div class="section-label">Contact Us</div>
+            <h2>Let's Build Something <span class="grad-text">Great</span></h2>
+            <p>
+              Ready to elevate your brand? Tell us about your project and we'll
+              get back to you within one business day with a thoughtful response
+              — not a template.
+            </p>
+            <div class="contact-info">
+              <div class="contact-info-item">
+                <div class="contact-info-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </div>
+                <span>hello@protorevdigital.com</span>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-.85a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
+                    />
+                  </svg>
+                </div>
+                <span>+1 (800) 555 — PROTO</span>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <span>Remote-first · Available Worldwide</span>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form reveal reveal-d2">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" placeholder="Jane Doe" />
+              </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="jane@company.com" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Company / Brand Name</label>
+              <input type="text" placeholder="Acme Inc." />
+            </div>
+            <div class="form-group">
+              <label>Service You're Interested In</label>
+              <select>
+                <option value="" disabled selected>Select a service…</option>
+                <option>Logo Design</option>
+                <option>Branding & Identity</option>
+                <option>Social Media Design</option>
+                <option>Package Design</option>
+                <option>Print Media</option>
+                <option>UI/UX Design</option>
+                <option>Web Design & Development</option>
+                <option>Full Brand & Web Package</option>
+                <option>Not sure yet — let's talk</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Tell Us About Your Project</label>
+              <textarea
+                placeholder="What are you building? What's your timeline? Any context helps…"
+              ></textarea>
+            </div>
+            <button
+              class="btn-primary form-submit"
+              onclick="handleSubmit(this)"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              >
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+              Start Your Project
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-brand-logo">Protorev Digital</div>
+            <p>
+              We build digital experiences that elevate brands — through
+              thoughtful design, strategic branding, and powerful web
+              development.
+            </p>
+            <div class="footer-social">
+              <a href="#" aria-label="Twitter">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
+                  />
+                </svg>
+              </a>
+              <a href="#" aria-label="Instagram">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </a>
+              <a href="#" aria-label="LinkedIn">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+              <a href="#" aria-label="Dribbble">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path
+                    d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul class="footer-links">
+              <li><a href="#services">Logo Design</a></li>
+              <li><a href="#services">Branding & Identity</a></li>
+              <li><a href="#services">Social Media Design</a></li>
+              <li><a href="#services">Package Design</a></li>
+              <li><a href="#services">UI/UX Design</a></li>
+              <li><a href="#services">Web Development</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul class="footer-links">
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#portfolio">Our Work</a></li>
+              <li><a href="#process">Process</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Get In Touch</h4>
+            <ul class="footer-links">
+              <li><a href="#contact">Start a Project</a></li>
+              <li>
+                <a href="mailto:hello@protorevdigital.com"
+                  >hello@protorevdigital.com</a
+                >
+              </li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press Kit</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Protorev Digital. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Nav scroll
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("navbar")
+          .classList.toggle("scrolled", window.scrollY > 10);
+      });
+
+      // Mobile menu
+      function toggleMenu() {
+        document.getElementById("mobileMenu").classList.toggle("open");
+      }
+
+      // FAQ accordion
+      function toggleFaq(btn) {
+        const item = btn.closest(".faq-item");
+        const isOpen = item.classList.contains("open");
+        document
+          .querySelectorAll(".faq-item")
+          .forEach((i) => i.classList.remove("open"));
+        if (!isOpen) item.classList.add("open");
+      }
+
+      // Scroll reveal
+      const revealEls = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+      );
+      revealEls.forEach((el) => observer.observe(el));
+
+      // Form submit
+      function handleSubmit(btn) {
+        btn.innerHTML =
+          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Message Sent!';
+        btn.style.background = "linear-gradient(135deg,#22c55e,#16a34a)";
+        btn.disabled = true;
+        setTimeout(() => {
+          btn.innerHTML =
+            '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Start Your Project';
+          btn.style.background = "";
+          btn.disabled = false;
+        }, 3000);
+      }
+    </script>
   </body>
 </html>
