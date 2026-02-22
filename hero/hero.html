@@ -60,6 +60,13 @@
         overflow-x: hidden;
       }
 
+      .portfolio-metric {
+        font-size: 0.8rem;
+        color: var(--accent);
+        font-weight: 600;
+        margin-top: 0.4rem;
+      }
+
       /* ===== NAV ===== */
       nav {
         position: fixed;
@@ -166,6 +173,16 @@
         font-weight: 500;
       }
 
+      .hero-proof::before {
+        content: "★ ";
+        color: var(--accent);
+      }
+      .hero-proof {
+        margin-bottom: 2.5rem;
+        font-size: 0.85rem;
+        color: var(--text3);
+        font-weight: 500;
+      }
       /* ===== SECTIONS ===== */
       section {
         padding: 100px 5%;
@@ -353,7 +370,7 @@
         line-height: 1.7;
         max-width: 480px;
         margin-bottom: 2.5rem;
-        font-weight: 300;
+        font-weight: 400;
       }
       .hero-btns {
         display: flex;
@@ -439,7 +456,7 @@
         }
       }
       .fb1 {
-        top: -20px;
+        top: -35px;
         left: 20px;
       }
       .fb2 {
@@ -877,6 +894,19 @@
         font-size: 0.9rem;
         color: white;
         flex-shrink: 0;
+      }
+      .testi-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+
+      .testi-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
       .testi-name {
         font-weight: 600;
@@ -1544,13 +1574,15 @@
             Available for new projects
           </div>
           <h1 class="hero-title">
-            We Build Digital<br /><span class="grad-text">Experiences</span
-            ><br />That Elevate Brands.
+            We Design High-Converting <br />
+            <span class="grad-text">Brands & Websites</span><br />
+            Built for Growth.
           </h1>
+
           <p class="hero-sub">
-            Protorev Digital helps startups, businesses, and e-commerce brands
-            grow through exceptional design, strategic branding, and powerful
-            web solutions.
+            From brand identity to performance-driven websites, we help
+            ambitious startups and businesses scale faster with strategy-first
+            design and modern web development.
           </p>
           <div class="hero-btns">
             <a href="#contact" class="btn-primary">
@@ -1570,6 +1602,10 @@
               Let's Build Your Brand
             </a>
             <a href="#portfolio" class="btn-secondary">View Our Work →</a>
+          </div>
+          <div class="hero-proof">
+            Trusted by 120+ growing brands across fintech, e-commerce &
+            startups.
           </div>
           <div class="hero-stats">
             <div class="stat-item">
@@ -2373,6 +2409,9 @@
                 >Packaging</span
               >
               <h3>Veridia Tea — Package Design</h3>
+              <div class="portfolio-metric">
+                Increased conversions by 42% within 3 months.
+              </div>
             </div>
           </div>
           <!-- Card 3 -->
@@ -3027,11 +3066,8 @@
               thoughtful, fast, and genuinely talented."
             </p>
             <div class="testi-author">
-              <div
-                class="testi-avatar"
-                style="background: linear-gradient(135deg, #5b4aff, #8b5cf6)"
-              >
-                SM
+              <div class="testi-avatar">
+                <img src="https://i.pravatar.cc/80?img=12" alt="Arjun Mehta" />
               </div>
               <div>
                 <div class="testi-name">Sarah Mitchell</div>
