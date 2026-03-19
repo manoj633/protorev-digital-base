@@ -1626,6 +1626,107 @@
       .nav-logo:hover img {
         transform: scale(1.03);
       }
+
+      /* ===== MODERN PORTFOLIO CARD ===== */
+
+      .modern-card {
+        border-radius: 20px;
+        overflow: hidden;
+        background: #111;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition:
+          transform 0.35s ease,
+          box-shadow 0.35s ease;
+      }
+
+      .modern-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+      }
+
+      /* TOP PREVIEW */
+      .portfolio-preview {
+        position: relative;
+        height: 220px;
+        overflow: hidden;
+      }
+
+      .portfolio-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .modern-card:hover img {
+        transform: scale(1.05);
+      }
+
+      /* LIGHT BADGE */
+      .theme-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: white;
+        color: #111;
+        font-size: 12px;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-weight: 600;
+      }
+
+      /* BOTTOM CONTENT */
+      .portfolio-content {
+        padding: 1.5rem;
+        background: linear-gradient(180deg, #1a1a1a, #0d0d0d);
+      }
+
+      .portfolio-content h3 {
+        color: white;
+        margin: 0.4rem 0;
+      }
+
+      .portfolio-content p {
+        font-size: 0.85rem;
+        color: #aaa;
+        margin-bottom: 1rem;
+      }
+
+      .portfolio-tag {
+        display: inline-block;
+        font-size: 0.7rem;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        color: #ccc;
+      }
+
+      /* COLOR DOTS */
+      .color-dots {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 1rem;
+      }
+
+      .color-dots span {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* LINK */
+      .portfolio-link {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.85rem;
+        transition: opacity 0.2s;
+      }
+
+      .portfolio-link:hover {
+        opacity: 0.7;
+      }
     </style>
   </head>
   <body>
@@ -2783,43 +2884,35 @@
             </div>
           </div>
           <!-- Card 6 -->
-          <div class="portfolio-card">
-            <div class="portfolio-thumb">
-              <div
-                class="portfolio-thumb-bg"
-                style="
-                  background: linear-gradient(
-                    135deg,
-                    rgba(232, 223, 212, 0.2),
-                    rgba(200, 140, 80, 0.15)
-                  );
-                "
-              >
-                <span style="font-size: 1.2rem; font-weight: 600">
-                  Lumiere
-                </span>
-              </div>
-
-              <div class="portfolio-overlay">
-                <a
-                  href="./Demo/Lumiere/index.html"
-                  class="portfolio-overlay-btn"
-                  target="_blank"
-                >
-                  View Project →
-                </a>
-              </div>
+          <div class="portfolio-card modern-card">
+            <!-- TOP PREVIEW -->
+            <div class="portfolio-preview">
+              <img
+                src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=1200&auto=format&fit=crop"
+              />
+              <div class="theme-badge">Light</div>
             </div>
 
-            <div class="portfolio-info">
-              <span
-                class="portfolio-tag"
-                style="background: rgba(200, 140, 80, 0.12); color: #a87442"
+            <!-- BOTTOM INFO -->
+            <div class="portfolio-content">
+              <span class="portfolio-tag">Jewelry</span>
+              <h3>Lumiere Experience</h3>
+              <p>Cinematic Scroll + Luxury UI</p>
+
+              <div class="color-dots">
+                <span style="background: #e8dfd4"></span>
+                <span style="background: #c88c50"></span>
+                <span style="background: #000"></span>
+                <span style="background: #fff"></span>
+              </div>
+
+              <a
+                href="./demo/Lumiere/index.html"
+                target="_blank"
+                class="portfolio-link"
               >
-                Luxury / Jewelry
-              </span>
-              <h3>Lumiere — Jewelry Experience</h3>
-              <div class="portfolio-metric">Scroll-based cinematic intro</div>
+                View Project →
+              </a>
             </div>
           </div>
         </div>
