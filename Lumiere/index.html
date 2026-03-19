@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      if (localStorage.getItem("lumiere_intro_seen")) {
+        window.location.replace("homepage.html");
+      }
+    </script>
+    <title>Jewelry Story | Elegance in Motion</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+      :root {
+        --gold: #e8dfd4;
+        --bg-dark: #0a0a0a;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg-dark);
+        font-family: "Playfair Display", serif;
+        color: var(--gold);
+        overflow-x: hidden;
+      }
+
+      /* HERO */
+
+      .hero {
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+          url("bg.png");
+
+        background-size: cover;
+        background-position: center;
+
+        z-index: 1;
+
+        transform: scale(1.1);
+      }
+
+      #enterBtn {
+        top: -50px;
+      }
+      /* SLIDES */
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .slide {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        padding: 0 20px;
+      }
+
+      .slide2,
+      .slide3 {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      /* TEXT */
+
+      .hero-text {
+        font-size: clamp(36px, 5vw, 72px);
+        line-height: 1.15;
+        letter-spacing: -0.025em;
+        text-shadow:
+          0 0 10px rgba(255, 255, 255, 0.15),
+          0 0 30px rgba(255, 220, 170, 0.08);
+      }
+
+      .line-wrapper {
+        overflow: hidden;
+        margin-bottom: 0.2em;
+      }
+
+      .line {
+        display: block;
+        transform: translateY(110%);
+        opacity: 0;
+        filter: blur(6px);
+      }
+
+      /* SCROLL */
+
+      .scroll-hint {
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        opacity: 0.6;
+        z-index: 10;
+      }
+
+      /* DIAMOND */
+
+      .diamond-wrapper {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 30px;
+      }
+
+      .diamond {
+        width: clamp(100px, 10vw, 150px);
+
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.25));
+
+        transform: translateY(30px) scale(0.9);
+
+        opacity: 0;
+
+        will-change: transform;
+      }
+
+      /* SPARKLES */
+
+      .sparkle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+
+        background: radial-gradient(
+          circle,
+          white 0%,
+          rgba(255, 255, 255, 0.4) 40%,
+          transparent 70%
+        );
+        border-radius: 50%;
+
+        opacity: 0;
+        transform: scale(0);
+      }
+
+      .sparkle1 {
+        top: 10%;
+        left: 30%;
+      }
+      .sparkle2 {
+        top: 45%;
+        right: 20%;
+      }
+      .sparkle3 {
+        bottom: 10%;
+        left: 55%;
+      }
+
+      /* SLIDE 3 */
+
+      .slide3 .hero-text {
+        max-width: 950px;
+        margin: auto;
+      }
+
+      /* necklace */
+
+      .necklace {
+        width: clamp(380px, 30vw, 560px);
+        margin-bottom: 70px;
+
+        filter: drop-shadow(0 0 40px rgba(255, 210, 150, 0.35));
+
+        transform: translateY(40px) scale(0.9);
+        opacity: 0;
+      }
+
+      /* glow */
+
+      .slide3::before {
+        content: "";
+        position: absolute;
+
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 600px;
+        height: 600px;
+
+        background: radial-gradient(
+          circle,
+          rgba(255, 200, 120, 0.25),
+          transparent 60%
+        );
+
+        filter: blur(80px);
+
+        z-index: 0;
+      }
+
+      /* CTA */
+
+      .cta {
+        padding: 16px 38px;
+
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        letter-spacing: 0.04em;
+
+        color: #f3e9dd;
+
+        border-radius: 6px;
+        border: 1px solid rgba(232, 200, 150, 0.6);
+
+        background: linear-gradient(
+          180deg,
+          rgba(200, 140, 80, 0.45) 0%,
+          rgba(150, 90, 40, 0.45) 100%
+        );
+
+        box-shadow:
+          inset 0 1px 2px rgba(255, 255, 255, 0.2),
+          inset 0 -2px 6px rgba(0, 0, 0, 0.4),
+          0 0 25px rgba(232, 180, 120, 0.25);
+
+        backdrop-filter: blur(3px);
+
+        cursor: pointer;
+        transition: all 0.35s ease;
+      }
+
+      .cta:hover {
+        background: linear-gradient(
+          180deg,
+          rgba(220, 160, 100, 0.6) 0%,
+          rgba(170, 100, 50, 0.6) 100%
+        );
+
+        box-shadow:
+          inset 0 1px 3px rgba(255, 255, 255, 0.25),
+          inset 0 -3px 8px rgba(0, 0, 0, 0.5),
+          0 0 40px rgba(232, 180, 120, 0.45);
+
+        transform: translateY(-2px);
+      }
+
+      #transition-overlay {
+        position: fixed;
+        inset: 0;
+        background: #000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 1s ease;
+        z-index: 9999;
+      }
+
+      .slide3 {
+        pointer-events: auto;
+        z-index: 5;
+      }
+
+      .slide1,
+      .slide2 {
+        pointer-events: none;
+      }
+
+      .cta {
+        position: relative;
+        z-index: 10;
+      }
+
+      .hero-bg {
+        pointer-events: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="hero">
+      <div class="hero-bg"></div>
+
+      <div class="scroll-hint">Scroll to begin</div>
+
+      <div class="hero-content">
+        <!-- SLIDE 1 -->
+
+        <div class="slide slide1">
+          <div class="hero-text">
+            <div class="line-wrapper">
+              <span class="line s1">Every piece</span>
+            </div>
+
+            <div class="line-wrapper">
+              <span class="line s1">begins with a moment.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 2 -->
+
+        <div class="slide slide2">
+          <div class="diamond-wrapper">
+            <img class="diamond" src="jewel.png" />
+
+            <span class="sparkle sparkle1"></span>
+            <span class="sparkle sparkle2"></span>
+            <span class="sparkle sparkle3"></span>
+          </div>
+
+          <div class="hero-text">
+            <div class="line-wrapper">
+              <span class="line s2">Moments fade.</span>
+            </div>
+
+            <div class="line-wrapper">
+              <span class="line s2">Memories remain.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 3 -->
+
+        <div class="slide slide3">
+          <div class="diamond-wrapper">
+            <img class="necklace" src="necklace.png" />
+          </div>
+
+          <div class="hero-text">
+            <div class="line-wrapper">
+              <span class="line s3">We turn memories</span>
+            </div>
+
+            <div class="line-wrapper">
+              <span class="line s3">into something you can wear.</span>
+            </div>
+
+            <div style="margin-top: 45px">
+              <button id="enterBtn" class="cta">Discover the Collection</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "top top",
+          end: "+=4200",
+          scrub: 2,
+          pin: true,
+        },
+      });
+
+      /* slide1 */
+
+      tl.to(".s1", {
+        y: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        stagger: 0.35,
+        duration: 1.4,
+        ease: "power3.out",
+      })
+
+        .to(".hero-bg", { scale: 1, duration: 2 }, 0)
+
+        .to(".scroll-hint", { opacity: 0 }, 0)
+
+        /* slide1 exit */
+
+        .to(
+          ".slide1",
+          {
+            y: -80,
+            opacity: 0,
+            duration: 1.2,
+          },
+          "+=0.6",
+        )
+
+        /* slide2 */
+
+        .to(".slide2", { opacity: 1 })
+
+        .to(".diamond", {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1.8,
+          ease: "power3.out",
+          onComplete: startFloating,
+        })
+
+        .to(".s2", {
+          y: 0,
+          opacity: 1,
+          filter: "blur(0px)",
+          stagger: 0.35,
+          duration: 1.4,
+        })
+
+        /* slide3 */
+
+        .to(
+          ".slide2",
+          {
+            y: -80,
+            opacity: 0,
+            duration: 1.2,
+          },
+          "+=0.8",
+        )
+
+        .to(".slide3", { opacity: 1 })
+
+        .to(".necklace", {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 2,
+          ease: "power3.out",
+        })
+
+        .to(".s3", {
+          y: 0,
+          opacity: 1,
+          filter: "blur(0px)",
+          stagger: 0.35,
+          duration: 1.4,
+        });
+
+      /* floating diamond */
+
+      function startFloating() {
+        gsap.to(".diamond", {
+          y: "-=10",
+          duration: 2.5,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+      }
+
+      /* INTRO → HOMEPAGE */
+
+      function goToHomepage() {
+        localStorage.setItem("lumiere_intro_seen", "true");
+
+        const overlay = document.getElementById("transition-overlay");
+
+        overlay.style.opacity = "1";
+        overlay.style.pointerEvents = "all";
+
+        setTimeout(() => {
+          window.location.href = "../homepage.html";
+        }, 1200);
+      }
+
+      document
+        .getElementById("enterBtn")
+        .addEventListener("click", goToHomepage);
+    </script>
+    <div id="transition-overlay"></div>
+  </body>
+</html>
