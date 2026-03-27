@@ -34,53 +34,89 @@
 
   <!-- ░░ HERO ░░ -->
   <section class="hero" id="hero">
+
+    <!-- Full-bleed background with Ken Burns -->
     <div class="hero-bg" id="heroBg">
       <img
-        src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920&q=85&auto=format&fit=crop"
-        alt="Luxury Villa" class="hero-img" id="heroImg" loading="eager" />
-      <div class="hero-gradient"></div>
+        src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920&q=90&auto=format&fit=crop"
+        alt="Luxury Villa" class="hero-img" loading="eager" />
     </div>
 
+    <!-- Cinematic gradient layers -->
+    <div class="hero-grad-bottom"></div>
+    <div class="hero-grad-top"></div>
+    <div class="hero-grad-left"></div>
+    <div class="hero-noise"></div>
+
+    <!-- Floating location badge -->
+    <div class="hero-location-badge">
+      <span class="badge-dot"></span>
+      <span>Beverly Hills, California</span>
+    </div>
+
+    <!-- Central content -->
     <div class="hero-content">
-      <p class="hero-eyebrow reveal">Est. 2004 · World-Class Residences</p>
+      <div class="hero-line reveal"></div>
+      <p class="hero-eyebrow reveal">Est. 2004 &nbsp;·&nbsp; World-Class Residences</p>
+
       <h1 class="hero-headline reveal">
         Where Luxury<br /><em>Meets Legacy.</em>
       </h1>
-      <p class="hero-sub reveal">Not simply homes — curated statements of life, ambition, and permanence.<br />Every property we present is a masterpiece chosen for the few.</p>
+
+      <p class="hero-sub reveal">
+        Not simply homes — curated statements of life,<br />
+        ambition, and permanence. Reserved for the few.
+      </p>
+
       <div class="hero-actions reveal">
-        <a href="#properties" class="btn btn-primary">Explore Properties</a>
-        <a href="#contact" class="btn btn-ghost">Schedule a Private Tour</a>
+        <a href="#properties" class="btn btn-primary">
+          <span class="btn-icon">◈</span> Explore Properties
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          Schedule a Private Tour
+        </a>
       </div>
     </div>
 
     <!-- Stats Bar -->
-    <div class="hero-stats reveal">
+    <div class="hero-stats">
       <div class="stat">
-        <span class="stat-num" data-target="500">0</span><span class="stat-plus">+</span>
+        <div class="stat-row">
+          <span class="stat-num" data-target="500">0</span><span class="stat-plus">+</span>
+        </div>
         <p>Properties Sold</p>
       </div>
       <div class="stat-divider"></div>
       <div class="stat">
-        <span class="stat-num" data-target="28">0</span>
+        <div class="stat-row">
+          <span class="stat-num" data-target="28">0</span>
+        </div>
         <p>Cities Worldwide</p>
       </div>
       <div class="stat-divider"></div>
       <div class="stat">
-        <span class="stat-num" data-target="98">0</span><span class="stat-plus">%</span>
+        <div class="stat-row">
+          <span class="stat-num" data-target="98">0</span><span class="stat-plus">%</span>
+        </div>
         <p>Client Satisfaction</p>
       </div>
       <div class="stat-divider"></div>
       <div class="stat">
-        <span class="stat-num" data-target="20">0</span><span class="stat-plus">+</span>
+        <div class="stat-row">
+          <span class="stat-num" data-target="20">0</span><span class="stat-plus">+</span>
+        </div>
         <p>Years of Excellence</p>
       </div>
     </div>
 
     <!-- Scroll Indicator -->
     <div class="scroll-indicator">
-      <div class="scroll-line"></div>
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
       <span>Scroll</span>
     </div>
+
   </section>
 
   <!-- ░░ FEATURED PROPERTIES ░░ -->
@@ -454,7 +490,7 @@
             <span class="contact-icon">◈</span>
             <div>
               <strong>Enquiries</strong>
-              <p>private@aurumrealty.com</p>
+              <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4232302b3423362702233730372f3027232e363b6c212d2f">[email&#160;protected]</a></p>
             </div>
           </div>
         </div>
@@ -541,11 +577,4 @@
       <p>© 2024 AURUM Luxury Real Estate. All rights reserved.</p>
       <div>
         <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+    

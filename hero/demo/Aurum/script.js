@@ -1,247 +1,209 @@
 /**
  * AURUM LUXURY REAL ESTATE — script.js
- * Handles: Navbar, Ken Burns, Parallax, Scroll Reveal,
- *          Stats Counter, Testimonial Carousel, Lightbox,
- *          Contact Form, Scroll Progress, Hamburger Menu
+ * Clean, reliable reveal system with hero-first animation
  */
 
-/* ──────────────────────────────────────────────────────
-   UTILITIES
-────────────────────────────────────────────────────── */
 const qs  = (sel, ctx = document) => ctx.querySelector(sel);
 const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
-/* ──────────────────────────────────────────────────────
-   SCROLL PROGRESS BAR
-────────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────
+   1. HERO ENTRANCE — CSS animation only, no JS needed
+      We drive hero reveals via CSS keyframes on load
+───────────────────────────────────────────────────── */
+function runHeroEntrance() {
+  const heroReveals = qsa('.hero-content .reveal');
+  heroReveals.forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(32px)';
+    el.style.transition = `opacity 1s cubic-bezier(0.16,1,0.3,1) ${0.2 + i * 0.18}s,
+                           transform 1s cubic-bezier(0.16,1,0.3,1) ${0.2 + i * 0.18}s`;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    });
+  });
+}
+
+/* ─────────────────────────────────────────────────────
+   2. SCROLL PROGRESS
+───────────────────────────────────────────────────── */
 const scrollBar = qs('#scrollProgress');
 function updateScrollProgress() {
-  const scrollTop  = window.scrollY;
-  const docHeight  = document.documentElement.scrollHeight - window.innerHeight;
-  const progress   = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-  scrollBar.style.width = `${progress}%`;
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  scrollBar.style.width = max > 0 ? `${(window.scrollY / max) * 100}%` : '0%';
 }
 
-/* ──────────────────────────────────────────────────────
-   NAVBAR — transparent → scrolled
-────────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────
+   3. NAVBAR
+───────────────────────────────────────────────────── */
 const navbar = qs('#navbar');
 function updateNavbar() {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
 }
 
-/* ──────────────────────────────────────────────────────
-   HAMBURGER MENU
-────────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────
+   4. HAMBURGER
+───────────────────────────────────────────────────── */
 const hamburger = qs('#hamburger');
 const navLinks  = qs('#navLinks');
 
 hamburger.addEventListener('click', () => {
-  const isOpen = hamburger.classList.toggle('open');
-  navLinks.classList.toggle('open', isOpen);
-  document.body.style.overflow = isOpen ? 'hidden' : '';
+  const open = hamburger.classList.toggle('open');
+  navLinks.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
 });
-
-// Close on link click
-qsa('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
+qsa('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
     hamburger.classList.remove('open');
     navLinks.classList.remove('open');
     document.body.style.overflow = '';
   });
 });
 
-/* ──────────────────────────────────────────────────────
-   SCROLL REVEAL — IntersectionObserver
-────────────────────────────────────────────────────── */
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        // For section children that are not pre-tagged
-      }
-    });
-  },
-  { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
-);
-
-// Tag pre-marked reveals
-qsa('.reveal').forEach(el => revealObserver.observe(el));
-
-// Auto-observe section children
-const autoRevealSections = qsa(
-  '.properties-section, .about-section, .collections-section, ' +
-  '.testimonials-section, .gallery-section, .agents-section, .contact-section'
-);
-
-autoRevealSections.forEach(section => {
-  qsa('.property-card, .collection-card, .testimonial-card, .gal-item, .agent-card, .pillar, .contact-item, .stat', section)
-    .forEach((el, i) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(36px)';
-      el.style.transition = `opacity 0.75s cubic-bezier(0.16,1,0.3,1) ${i * 0.07}s, transform 0.75s cubic-bezier(0.16,1,0.3,1) ${i * 0.07}s`;
-      revealObserver.observe(el);
-    });
-});
-
-// Generic reveal for any section header children
-qsa('.section-header, .about-content, .cta-content, .contact-info, .contact-form').forEach(el => {
-  qsa('.section-eyebrow, .section-title, .section-desc, .about-body, h2, p, .btn', el).forEach((child, i) => {
-    child.style.opacity = '0';
-    child.style.transform = 'translateY(24px)';
-    child.style.transition = `opacity 0.7s cubic-bezier(0.16,1,0.3,1) ${i * 0.1}s, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${i * 0.1}s`;
-    revealObserver.observe(child);
+/* ─────────────────────────────────────────────────────
+   5. SECTION SCROLL REVEALS
+───────────────────────────────────────────────────── */
+function prepareScrollReveal(selector, baseDelay, increment) {
+  qsa(selector).forEach((el, i) => {
+    el.dataset.revealDelay = baseDelay + i * increment;
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(28px)';
+    el.style.transition = `opacity 0.85s cubic-bezier(0.16,1,0.3,1) ${el.dataset.revealDelay}s,
+                           transform 0.85s cubic-bezier(0.16,1,0.3,1) ${el.dataset.revealDelay}s`;
   });
-});
+}
 
-// Override IntersectionObserver callback to also handle opacity/transform reset
-const masterRevealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        entry.target.classList.add('visible');
-        masterRevealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-);
+prepareScrollReveal('.section-header .section-eyebrow', 0, 0.12);
+prepareScrollReveal('.section-header .section-title', 0.08, 0.12);
+prepareScrollReveal('.section-header .section-desc', 0.18, 0.12);
+prepareScrollReveal('.property-card', 0, 0.08);
+prepareScrollReveal('.collection-card', 0, 0.08);
+prepareScrollReveal('.testimonial-card', 0, 0.1);
+prepareScrollReveal('.gal-item', 0, 0.06);
+prepareScrollReveal('.agent-card', 0, 0.1);
+prepareScrollReveal('.pillar', 0, 0.12);
+prepareScrollReveal('.about-body', 0, 0.1);
+prepareScrollReveal('.contact-item', 0, 0.1);
+prepareScrollReveal('.about-badge', 0.2, 0);
+prepareScrollReveal('.cta-content .section-eyebrow, .cta-content h2, .cta-content p, .cta-content .btn', 0, 0.12);
+prepareScrollReveal('.contact-info .section-eyebrow, .contact-info .section-title, .contact-info .contact-desc', 0, 0.1);
+prepareScrollReveal('.form-group', 0, 0.06);
 
-// Apply to everything with inline opacity: 0
-document.querySelectorAll('[style*="opacity: 0"]').forEach(el => {
-  masterRevealObserver.observe(el);
-});
-// Also cover class-based reveals
-qsa('.reveal').forEach(el => masterRevealObserver.observe(el));
+const scrollRevealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      scrollRevealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
 
-/* ──────────────────────────────────────────────────────
-   HERO PARALLAX
-────────────────────────────────────────────────────── */
-const heroBg = qs('#heroBg');
+qsa('[data-reveal-delay]').forEach(el => scrollRevealObserver.observe(el));
+
+/* ─────────────────────────────────────────────────────
+   6. PARALLAX
+───────────────────────────────────────────────────── */
+const heroImg = qs('.hero-img');
+const ctaBg   = qs('.cta-bg');
+
 function updateParallax() {
-  if (!heroBg) return;
-  const scrolled = window.scrollY;
-  heroBg.style.transform = `translateY(${scrolled * 0.35}px)`;
+  const sy = window.scrollY;
+  if (heroImg) {
+    heroImg.style.transform = `scale(1.12) translateY(${sy * 0.08}px)`;
+  }
+  if (ctaBg) {
+    const band = ctaBg.closest('.cta-band');
+    if (band) {
+      const rect = band.getBoundingClientRect();
+      ctaBg.style.transform = `translateY(${rect.top * 0.12}px)`;
+    }
+  }
 }
 
-/* ──────────────────────────────────────────────────────
-   CTA BAND PARALLAX
-────────────────────────────────────────────────────── */
-const ctaBg = qs('.cta-bg');
-function updateCtaParallax() {
-  if (!ctaBg) return;
-  const band = ctaBg.closest('.cta-band');
-  if (!band) return;
-  const rect   = band.getBoundingClientRect();
-  const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-  ctaBg.style.transform = `translateY(${center * 0.2}px)`;
-}
-
-/* ──────────────────────────────────────────────────────
-   STATS COUNTER ANIMATION
-────────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────
+   7. STATS COUNTER
+───────────────────────────────────────────────────── */
 let statsAnimated = false;
-const statNums = qsa('.stat-num');
-
 function animateStats() {
   if (statsAnimated) return;
-  const heroStats = qs('.hero-stats');
-  if (!heroStats) return;
-  const rect = heroStats.getBoundingClientRect();
-  if (rect.top < window.innerHeight) {
-    statsAnimated = true;
-    statNums.forEach(el => {
-      const target = parseInt(el.dataset.target, 10);
-      const duration = 1800;
-      const start = performance.now();
-      const ease = t => 1 - Math.pow(1 - t, 3); // ease out cubic
-
-      function tick(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        el.textContent = Math.round(ease(progress) * target);
-        if (progress < 1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-    });
-  }
-}
-
-/* ──────────────────────────────────────────────────────
-   TESTIMONIAL CAROUSEL (mobile)
-────────────────────────────────────────────────────── */
-const testimonialsTrack = qs('#testimonialsTrack');
-const dots = qsa('.dot');
-let activeTestimonial = 0;
-const testimonialCards = qsa('.testimonial-card');
-
-function showTestimonial(index) {
-  if (window.innerWidth > 900) return; // desktop shows all
-  testimonialCards.forEach((c, i) => {
-    c.style.display = i === index ? 'block' : 'none';
+  statsAnimated = true;
+  qsa('.stat-num').forEach(el => {
+    const target  = parseInt(el.dataset.target, 10);
+    const start   = performance.now();
+    const dur     = 2000;
+    const ease    = t => 1 - Math.pow(1 - t, 3);
+    (function tick(now) {
+      const p = Math.min((now - start) / dur, 1);
+      el.textContent = Math.round(ease(p) * target);
+      if (p < 1) requestAnimationFrame(tick);
+    })(start);
   });
-  dots.forEach((d, i) => d.classList.toggle('active', i === index));
-  activeTestimonial = index;
 }
 
-dots.forEach(dot => {
-  dot.addEventListener('click', () => showTestimonial(parseInt(dot.dataset.index, 10)));
-});
+const statsBar = qs('.hero-stats');
+if (statsBar) {
+  new IntersectionObserver(([e], obs) => {
+    if (e.isIntersecting) { setTimeout(animateStats, 500); obs.disconnect(); }
+  }, { threshold: 0.4 }).observe(statsBar);
+}
 
-// Auto-rotate on mobile
-let testimonialInterval = setInterval(() => {
-  if (window.innerWidth <= 900) {
-    showTestimonial((activeTestimonial + 1) % testimonialCards.length);
-  }
+/* ─────────────────────────────────────────────────────
+   8. TESTIMONIAL CAROUSEL (mobile)
+───────────────────────────────────────────────────── */
+const dots             = qsa('.dot');
+const testimonialCards = qsa('.testimonial-card');
+let activeIdx          = 0;
+
+function showCard(i) {
+  if (window.innerWidth > 900) return;
+  testimonialCards.forEach((c, j) => (c.style.display = j === i ? 'block' : 'none'));
+  dots.forEach((d, j) => d.classList.toggle('active', j === i));
+  activeIdx = i;
+}
+dots.forEach(d => d.addEventListener('click', () => showCard(+d.dataset.index)));
+setInterval(() => {
+  if (window.innerWidth <= 900) showCard((activeIdx + 1) % testimonialCards.length);
 }, 5000);
 
-/* ──────────────────────────────────────────────────────
-   LIGHTBOX
-────────────────────────────────────────────────────── */
-const lightbox     = qs('#lightbox');
-const lightboxImg  = qs('#lightboxImg');
+/* ─────────────────────────────────────────────────────
+   9. LIGHTBOX
+───────────────────────────────────────────────────── */
+const lightbox      = qs('#lightbox');
+const lightboxImg   = qs('#lightboxImg');
 const lightboxClose = qs('#lightboxClose');
 
 qsa('.gal-item').forEach(item => {
   item.addEventListener('click', () => {
-    const src = item.dataset.src;
-    lightboxImg.src = src;
+    lightboxImg.src = item.dataset.src;
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
   });
 });
-
 function closeLightbox() {
   lightbox.classList.remove('open');
   document.body.style.overflow = '';
-  setTimeout(() => { lightboxImg.src = ''; }, 400);
+  setTimeout(() => (lightboxImg.src = ''), 400);
 }
-
 lightboxClose.addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) closeLightbox();
-});
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeLightbox();
-});
+lightbox.addEventListener('click', e => e.target === lightbox && closeLightbox());
+document.addEventListener('keydown', e => e.key === 'Escape' && closeLightbox());
 
-/* ──────────────────────────────────────────────────────
-   CONTACT FORM
-────────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────
+   10. CONTACT FORM
+───────────────────────────────────────────────────── */
 const contactForm = qs('#contactForm');
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', e => {
     e.preventDefault();
     const btn = contactForm.querySelector('button[type="submit"]');
-    const original = btn.textContent;
     btn.textContent = 'Enquiry Received ✓';
     btn.style.background = 'var(--gold-dark)';
     btn.disabled = true;
     setTimeout(() => {
-      btn.textContent = original;
+      btn.textContent = 'Send Private Enquiry';
       btn.style.background = '';
       btn.disabled = false;
       contactForm.reset();
@@ -249,95 +211,56 @@ if (contactForm) {
   });
 }
 
-/* ──────────────────────────────────────────────────────
-   LAZY LOADING — native + Intersection fallback
-────────────────────────────────────────────────────── */
-if ('IntersectionObserver' in window) {
-  const lazyImgs = qsa('img[loading="lazy"]');
-  const imgObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        if (img.dataset.src) {
-          img.src = img.dataset.src;
-          img.removeAttribute('data-src');
-        }
-        imgObserver.unobserve(img);
-      }
-    });
-  }, { rootMargin: '200px 0px' });
-  lazyImgs.forEach(img => imgObserver.observe(img));
-}
-
-/* ──────────────────────────────────────────────────────
-   PROPERTY CARD — shimmer glow on hover
-────────────────────────────────────────────────────── */
-qsa('.property-card').forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    card.style.setProperty('--mx', `${x}%`);
-    card.style.setProperty('--my', `${y}%`);
-  });
-});
-
-/* ──────────────────────────────────────────────────────
-   COLLECTION CARDS — subtle depth tilt
-────────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────
+   11. COLLECTION CARD TILT
+───────────────────────────────────────────────────── */
 qsa('.collection-card').forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const cx   = rect.left + rect.width / 2;
-    const cy   = rect.top  + rect.height / 2;
-    const dx   = (e.clientX - cx) / rect.width * 2;
-    const dy   = (e.clientY - cy) / rect.height * 2;
-    card.style.transform = `scale(1.02) rotateY(${dx * 3}deg) rotateX(${-dy * 3}deg)`;
+  card.addEventListener('mousemove', e => {
+    const r  = card.getBoundingClientRect();
+    const dx = (e.clientX - (r.left + r.width  / 2)) / r.width;
+    const dy = (e.clientY - (r.top  + r.height / 2)) / r.height;
+    card.style.transform = `scale(1.025) rotateY(${dx * 4}deg) rotateX(${-dy * 4}deg)`;
+    card.style.transition = 'transform 0.1s';
   });
   card.addEventListener('mouseleave', () => {
-    card.style.transform = 'scale(1) rotateY(0deg) rotateX(0deg)';
+    card.style.transform = '';
     card.style.transition = 'transform 0.6s cubic-bezier(0.16,1,0.3,1)';
   });
 });
 
-/* ──────────────────────────────────────────────────────
-   SCROLL EVENT (throttled via rAF)
-────────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────
+   12. SCROLL LOOP
+───────────────────────────────────────────────────── */
 let ticking = false;
-function onScroll() {
+window.addEventListener('scroll', () => {
   if (!ticking) {
     requestAnimationFrame(() => {
       updateScrollProgress();
       updateNavbar();
       updateParallax();
-      updateCtaParallax();
-      animateStats();
       ticking = false;
     });
     ticking = true;
   }
-}
+}, { passive: true });
 
-window.addEventListener('scroll', onScroll, { passive: true });
-
-/* ──────────────────────────────────────────────────────
-   RESIZE
-────────────────────────────────────────────────────── */
 window.addEventListener('resize', () => {
-  if (window.innerWidth > 900) {
-    // Reset mobile testimonial display
-    testimonialCards.forEach(c => c.style.display = '');
-  } else {
-    showTestimonial(activeTestimonial);
-  }
+  if (window.innerWidth > 900) testimonialCards.forEach(c => (c.style.display = ''));
+  else showCard(activeIdx);
 });
 
-/* ──────────────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────
    INIT
-────────────────────────────────────────────────────── */
-(function init() {
+───────────────────────────────────────────────────── */
+function init() {
   updateNavbar();
   updateScrollProgress();
-  // Trigger first-pass reveals
-  masterRevealObserver.takeRecords?.();
-})();
+  runHeroEntrance();
+  updateParallax();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
