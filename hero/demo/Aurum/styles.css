@@ -41,6 +41,15 @@
 
 html {
   scroll-behavior: smooth;
+  /* Hide scrollbar — Chrome/Safari/Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge legacy */
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -49,36 +58,7 @@ body {
   font-family: var(--sans);
   font-weight: 300;
   overflow-x: hidden;
-  cursor: none;
-}
-
-/* ── CUSTOM CURSOR — leaf teardrop ─────────── */
-.cursor {
-  width: 12px;
-  height: 12px;
-  background: var(--sage-deep);
-  border-radius: 50% 0 50% 50%;
-  transform: translate(-50%, -50%) rotate(-45deg);
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9999;
-  transition: width .25s, height .25s, background .25s;
-}
-
-.cursor-ring {
-  width: 38px;
-  height: 38px;
-  border: 1.5px solid rgba(143, 175, 120, 0.55);
-  border-radius: 50%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width .3s, height .3s;
+  cursor: default;
 }
 
 /* ── NAVIGATION ────────────────────────────── */
@@ -756,7 +736,7 @@ nav.scrolled .nav-links a {
   border: 1.5px solid rgba(143, 175, 120, 0.22);
   background: transparent;
   color: var(--pale-text);
-  cursor: none;
+  cursor: pointer;
   transition: border-color .3s, color .3s, background .3s;
 }
 
@@ -777,7 +757,7 @@ nav.scrolled .nav-links a {
   position: relative;
   aspect-ratio: 3 / 4;
   overflow: hidden;
-  cursor: none;
+  cursor: pointer;
 }
 
 .browse-card img {
@@ -984,7 +964,7 @@ nav.scrolled .nav-links a {
   border-radius: 50%;
   background: transparent;
   border: 1.5px solid var(--sage);
-  cursor: none;
+  cursor: pointer;
   transition: background .3s;
 }
 
@@ -1018,7 +998,7 @@ nav.scrolled .nav-links a {
 .gal-item {
   overflow: hidden;
   position: relative;
-  cursor: none;
+  cursor: pointer;
 }
 
 .gal-item img {
@@ -1135,7 +1115,7 @@ nav.scrolled .nav-links a {
   width: 100%;
   outline: none;
   -webkit-appearance: none;
-  cursor: none;
+  cursor: pointer;
   transition: border-color .3s;
 }
 
@@ -1157,7 +1137,7 @@ nav.scrolled .nav-links a {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--parchment);
-  cursor: none;
+  cursor: pointer;
   align-self: flex-start;
   margin-top: 8px;
   transition: background .3s, transform .2s;
