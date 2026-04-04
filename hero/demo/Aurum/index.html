@@ -31,54 +31,84 @@
 
     <!-- ── HERO ───────────────────────────────── -->
     <section id="hero">
-      <!--
-        Unsplash Source API:
-        https://source.unsplash.com/featured/?{keyword},{width}x{height}
-        Using curated architecture/interior seeds for consistent, relevant imagery.
-      -->
       <div
         class="hero-bg"
         id="heroBg"
         style="
-          background-image: url(&quot;https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1800&q=80&fit=crop&quot;);
+          background-image: url(&quot;https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80&fit=crop&quot;);
         "
       ></div>
       <div class="hero-overlay"></div>
 
-      <div class="hero-content">
-        <div class="hero-eyebrow">Residences of Distinction</div>
-        <h1 class="hero-title">Where stillness<br />becomes <em>home.</em></h1>
-        <p class="hero-sub">
-          Every residence we build begins not with a blueprint — but with a
-          feeling. The hush of morning light. The weight of a doorway that knows
-          you're home.
-        </p>
-        <a href="#projects" class="hero-cta">
-          Explore Residences
-          <svg
-            width="18"
-            height="10"
-            viewBox="0 0 18 10"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M1 5h16M12 1l5 4-5 4"
-              stroke="currentColor"
-              stroke-width="1"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </a>
+      <div class="hero-inner">
+        <!-- LEFT: headline + CTA -->
+        <div class="hero-content">
+          <div class="hero-eyebrow">Residences of Distinction</div>
+          <h1 class="hero-title">
+            Where stillness<br />becomes <em>home.</em>
+          </h1>
+          <p class="hero-sub">
+            Every residence we build begins not with a blueprint — but with a
+            feeling. The hush of morning light. The weight of a doorway that
+            knows you're home.
+          </p>
+          <a href="#projects" class="hero-cta">
+            Explore Residences
+            <svg
+              width="18"
+              height="10"
+              viewBox="0 0 18 10"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M1 5h16M12 1l5 4-5 4"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <!-- RIGHT: featured residence card + badge -->
+        <div class="hero-right">
+          <div class="hero-card">
+            <div class="hero-card-label">Featured Residence</div>
+            <div class="hero-card-name">The Meridian</div>
+            <div class="hero-card-loc">Whitefield, Bengaluru</div>
+            <div class="hero-card-divider"></div>
+            <div class="hero-card-stats">
+              <div class="hero-card-stat">
+                <div class="hero-card-val">2,400 <span>sq ft</span></div>
+                <div class="hero-card-key">Starting Size</div>
+              </div>
+              <div class="hero-card-stat">
+                <div class="hero-card-val">₹4.2 <span>Cr</span></div>
+                <div class="hero-card-key">From</div>
+              </div>
+              <div class="hero-card-stat">
+                <div class="hero-card-val">3–5 <span>BHK</span></div>
+                <div class="hero-card-key">Configurations</div>
+              </div>
+            </div>
+            <a href="#projects" class="hero-card-cta">View Residence →</a>
+          </div>
+
+          <div class="hero-badge">
+            <div class="hero-badge-num">61</div>
+            <div class="hero-badge-text">Projects<br />Delivered</div>
+          </div>
+        </div>
       </div>
 
       <div class="hero-scroll" aria-hidden="true">Scroll to discover</div>
     </section>
 
     <!-- ── PHILOSOPHY ─────────────────────────── -->
-    <section id="philosophy">
-      <div class="phil-text reveal">
+    <section id="philosophy" class="reveal">
+      <div class="phil-text">
         <div class="section-label">Our Philosophy</div>
         <h2 class="phil-heading">
           Built on restraint.<br /><em>Defined by intention.</em>
@@ -112,7 +142,7 @@
         </div>
       </div>
 
-      <div class="phil-image reveal reveal-delay-2">
+      <div class="phil-image">
         <!-- Interior architecture — warm light through tall windows -->
         <img
           src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80&fit=crop"
@@ -540,7 +570,16 @@
           <div class="footer-col-title">Contact</div>
           <ul class="footer-links">
             <li><a href="tel:+918042000000">+91 80 4200 0000</a></li>
-            <li><a href="mailto:hello@aurum.in">hello@aurum.in</a></li>
+            <li>
+              <a
+                href="/cdn-cgi/l/email-protection#ef878a838380af8e9a9d9a82c18681"
+                ><span
+                  class="__cf_email__"
+                  data-cfemail="365e535a5a5976574344435b185f58"
+                  >[email&#160;protected]</span
+                ></a
+              >
+            </li>
             <li>
               <a href="#">Experience Centre,<br />Indiranagar, Bengaluru</a>
             </li>
@@ -555,7 +594,6 @@
         <div class="footer-legal">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Use</a>
-          <a href="#">RERA</a>
         </div>
       </div>
     </footer>

@@ -36,10 +36,8 @@
   }
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  /* ── HERO PARALLAX ───────────────────────── */
+  /* ── HERO KEN-BURNS ONLY (no parallax) ──── */
   const heroBg = document.getElementById("heroBg");
-
-  // Trigger the ken-burns scale-in once the page loads
   window.addEventListener("load", () => {
     if (heroBg) heroBg.classList.add("loaded");
   });
@@ -55,7 +53,7 @@
         }
       });
     },
-    { threshold: 0.1 },
+    { threshold: 0.05 },
   );
   reveals.forEach((el) => revealObserver.observe(el));
 
