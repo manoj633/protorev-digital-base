@@ -1,551 +1,599 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AURUM | Luxury Real Estate</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
-</head>
-<body>
-
-  <!-- ░░ SCROLL PROGRESS ░░ -->
-  <div class="scroll-progress" id="scrollProgress"></div>
-
-  <!-- ░░ NAVBAR ░░ -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">AURUM</a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#properties">Properties</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#collections">Collections</a></li>
-        <li><a href="#agents">Agents</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aurum — Residences of Distinction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ── NAVIGATION ─────────────────────────── -->
+    <nav id="nav">
+      <a href="#hero" class="nav-logo">AURUM</a>
+      <ul class="nav-links">
+        <li><a href="#projects">Residences</a></li>
+        <li><a href="#browse">Browse</a></li>
+        <li><a href="#lifestyle">Living</a></li>
+        <li><a href="#gallery">Gallery</a></li>
       </ul>
-      <a href="#contact" class="nav-cta">Private Consultation</a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+      <a href="#cta" class="nav-cta">Private Tour</a>
+    </nav>
 
-  <!-- ░░ HERO ░░ -->
-  <section class="hero" id="hero">
-    <div class="hero-bg" id="heroBg">
-      <img
-        src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920&q=85&auto=format&fit=crop"
-        alt="Luxury Villa" class="hero-img" id="heroImg" loading="eager" />
-      <div class="hero-gradient"></div>
-    </div>
+    <!-- ── HERO ───────────────────────────────── -->
+    <section id="hero">
+      <div
+        class="hero-bg"
+        id="heroBg"
+        style="
+          background-image: url(&quot;https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80&fit=crop&quot;);
+        "
+      ></div>
+      <div class="hero-overlay"></div>
 
-    <div class="hero-content">
-      <p class="hero-eyebrow reveal">Est. 2004 · World-Class Residences</p>
-      <h1 class="hero-headline reveal">
-        Where Luxury<br /><em>Meets Legacy.</em>
-      </h1>
-      <p class="hero-sub reveal">Not simply homes — curated statements of life, ambition, and permanence.<br />Every property we present is a masterpiece chosen for the few.</p>
-      <div class="hero-actions reveal">
-        <a href="#properties" class="btn btn-primary">Explore Properties</a>
-        <a href="#contact" class="btn btn-ghost">Schedule a Private Tour</a>
-      </div>
-    </div>
+      <div class="hero-inner">
+        <!-- LEFT: headline + CTA -->
+        <div class="hero-content">
+          <div class="hero-eyebrow">Residences of Distinction</div>
+          <h1 class="hero-title">
+            Where stillness<br />becomes <em>home.</em>
+          </h1>
+          <p class="hero-sub">
+            Every residence we build begins not with a blueprint — but with a
+            feeling. The hush of morning light. The weight of a doorway that
+            knows you're home.
+          </p>
+          <a href="#projects" class="hero-cta">
+            Explore Residences
+            <svg
+              width="18"
+              height="10"
+              viewBox="0 0 18 10"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M1 5h16M12 1l5 4-5 4"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
 
-    <!-- Stats Bar -->
-    <div class="hero-stats reveal">
-      <div class="stat">
-        <span class="stat-num" data-target="500">0</span><span class="stat-plus">+</span>
-        <p>Properties Sold</p>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-num" data-target="28">0</span>
-        <p>Cities Worldwide</p>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-num" data-target="98">0</span><span class="stat-plus">%</span>
-        <p>Client Satisfaction</p>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-num" data-target="20">0</span><span class="stat-plus">+</span>
-        <p>Years of Excellence</p>
-      </div>
-    </div>
-
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
-    </div>
-  </section>
-
-  <!-- ░░ FEATURED PROPERTIES ░░ -->
-  <section class="section properties-section" id="properties">
-    <div class="section-header">
-      <p class="section-eyebrow">Curated Selection</p>
-      <h2 class="section-title">Featured <em>Properties</em></h2>
-      <p class="section-desc">Each residence is handpicked for its architectural brilliance and lifestyle offering.</p>
-    </div>
-
-    <div class="properties-grid">
-
-      <article class="property-card large">
-        <div class="prop-img-wrap">
-          <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=80&auto=format&fit=crop" alt="Malibu Villa" loading="lazy" />
-          <div class="prop-overlay">
-            <span class="prop-tag">New Listing</span>
-            <div class="prop-quick">
-              <span>🛏 6 Beds</span>
-              <span>🚿 7 Baths</span>
-              <span>📐 11,200 sq ft</span>
+        <!-- RIGHT: featured residence card + badge -->
+        <div class="hero-right">
+          <div class="hero-card">
+            <div class="hero-card-label">Featured Residence</div>
+            <div class="hero-card-name">The Meridian</div>
+            <div class="hero-card-loc">Whitefield, Bengaluru</div>
+            <div class="hero-card-divider"></div>
+            <div class="hero-card-stats">
+              <div class="hero-card-stat">
+                <div class="hero-card-val">2,400 <span>sq ft</span></div>
+                <div class="hero-card-key">Starting Size</div>
+              </div>
+              <div class="hero-card-stat">
+                <div class="hero-card-val">₹4.2 <span>Cr</span></div>
+                <div class="hero-card-key">From</div>
+              </div>
+              <div class="hero-card-stat">
+                <div class="hero-card-val">3–5 <span>BHK</span></div>
+                <div class="hero-card-key">Configurations</div>
+              </div>
             </div>
+            <a href="#projects" class="hero-card-cta">View Residence →</a>
+          </div>
+
+          <div class="hero-badge">
+            <div class="hero-badge-num">61</div>
+            <div class="hero-badge-text">Projects<br />Delivered</div>
           </div>
         </div>
-        <div class="prop-info">
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">Scroll to discover</div>
+    </section>
+
+    <!-- ── PHILOSOPHY ─────────────────────────── -->
+    <section id="philosophy" class="reveal">
+      <div class="phil-text">
+        <div class="section-label">Our Philosophy</div>
+        <h2 class="phil-heading">
+          Built on restraint.<br /><em>Defined by intention.</em>
+        </h2>
+        <div class="phil-body">
+          <p>
+            We don't build homes. We shape environments where life unfolds —
+            slowly, intentionally, beautifully. Every space we create carries
+            the weight of deliberate thought and the lightness of considered
+            design.
+          </p>
+          <p>
+            For over two decades, Aurum has been synonymous with architectural
+            integrity and enduring value. Our work speaks not through excess,
+            but through precision.
+          </p>
+        </div>
+        <div class="phil-stats">
           <div>
-            <p class="prop-location">Malibu, California</p>
-            <h3 class="prop-name">Casa Serenata</h3>
+            <div class="stat-num">24</div>
+            <div class="stat-label">Years of Legacy</div>
           </div>
-          <p class="prop-price">$18,500,000</p>
-        </div>
-      </article>
-
-      <article class="property-card">
-        <div class="prop-img-wrap">
-          <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=700&q=80&auto=format&fit=crop" alt="Miami Penthouse" loading="lazy" />
-          <div class="prop-overlay">
-            <span class="prop-tag">Sky Penthouse</span>
-            <div class="prop-quick">
-              <span>🛏 4 Beds</span>
-              <span>🚿 5 Baths</span>
-              <span>📐 6,800 sq ft</span>
-            </div>
-          </div>
-        </div>
-        <div class="prop-info">
           <div>
-            <p class="prop-location">Miami, Florida</p>
-            <h3 class="prop-name">Zenith Residences</h3>
+            <div class="stat-num">61</div>
+            <div class="stat-label">Projects Delivered</div>
           </div>
-          <p class="prop-price">$12,200,000</p>
-        </div>
-      </article>
-
-      <article class="property-card">
-        <div class="prop-img-wrap">
-          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80&auto=format&fit=crop" alt="Beverly Hills Estate" loading="lazy" />
-          <div class="prop-overlay">
-            <span class="prop-tag">Modern Estate</span>
-            <div class="prop-quick">
-              <span>🛏 5 Beds</span>
-              <span>🚿 6 Baths</span>
-              <span>📐 8,500 sq ft</span>
-            </div>
-          </div>
-        </div>
-        <div class="prop-info">
           <div>
-            <p class="prop-location">Beverly Hills, California</p>
-            <h3 class="prop-name">The Meridian</h3>
-          </div>
-          <p class="prop-price">$22,900,000</p>
-        </div>
-      </article>
-
-      <article class="property-card">
-        <div class="prop-img-wrap">
-          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=80&auto=format&fit=crop" alt="Hamptons Waterfront" loading="lazy" />
-          <div class="prop-overlay">
-            <span class="prop-tag">Waterfront</span>
-            <div class="prop-quick">
-              <span>🛏 7 Beds</span>
-              <span>🚿 8 Baths</span>
-              <span>📐 14,000 sq ft</span>
-            </div>
-          </div>
-        </div>
-        <div class="prop-info">
-          <div>
-            <p class="prop-location">The Hamptons, New York</p>
-            <h3 class="prop-name">Shoreline Manor</h3>
-          </div>
-          <p class="prop-price">$31,000,000</p>
-        </div>
-      </article>
-
-    </div>
-
-    <div class="section-cta">
-      <a href="#" class="btn btn-outline">View All Properties</a>
-    </div>
-  </section>
-
-  <!-- ░░ ABOUT ░░ -->
-  <section class="section about-section" id="about">
-    <div class="about-inner">
-      <div class="about-visual">
-        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80&auto=format&fit=crop" alt="Luxury Interior" loading="lazy" class="about-img-main" />
-        <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400&q=80&auto=format&fit=crop" alt="Detail" loading="lazy" class="about-img-accent" />
-        <div class="about-badge">
-          <span class="badge-num">20</span>
-          <span class="badge-txt">Years of<br/>Excellence</span>
-        </div>
-      </div>
-      <div class="about-content">
-        <p class="section-eyebrow">Our Story</p>
-        <h2 class="section-title">Craftsmanship,<br /><em>Trust & Legacy</em></h2>
-        <p class="about-body">AURUM was founded on a singular conviction — that the world's finest residences deserve more than a transaction. They deserve a story. For two decades, we have united discerning buyers with architectural masterpieces across the globe, guided by an uncompromising standard of discretion, excellence, and personal service.</p>
-        <p class="about-body">Our team of seasoned advisors speaks the language of luxury — understanding not merely the measurements of a property, but the life it will hold, the legacy it will create.</p>
-        <div class="about-pillars">
-          <div class="pillar">
-            <span class="pillar-icon">◈</span>
-            <h4>Curated Portfolio</h4>
-            <p>Only the finest 2% of properties presented to the world's most selective buyers.</p>
-          </div>
-          <div class="pillar">
-            <span class="pillar-icon">◈</span>
-            <h4>White-Glove Service</h4>
-            <p>Every client receives dedicated, bespoke advisory from first inquiry to final key.</p>
-          </div>
-        </div>
-        <a href="#contact" class="btn btn-primary">Discover Our Approach</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ░░ SIGNATURE COLLECTIONS ░░ -->
-  <section class="section collections-section" id="collections">
-    <div class="section-header">
-      <p class="section-eyebrow">Exclusive Access</p>
-      <h2 class="section-title">Signature <em>Collections</em></h2>
-    </div>
-    <div class="collections-grid">
-
-      <div class="collection-card" style="--bg: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80&auto=format&fit=crop')">
-        <div class="coll-overlay"></div>
-        <div class="coll-content">
-          <p class="coll-count">34 Properties</p>
-          <h3>Waterfront Villas</h3>
-          <a href="#" class="coll-link">Explore →</a>
-        </div>
-      </div>
-
-      <div class="collection-card" style="--bg: url('https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?w=800&q=80&auto=format&fit=crop')">
-        <div class="coll-overlay"></div>
-        <div class="coll-content">
-          <p class="coll-count">21 Properties</p>
-          <h3>Sky Penthouses</h3>
-          <a href="#" class="coll-link">Explore →</a>
-        </div>
-      </div>
-
-      <div class="collection-card" style="--bg: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80&auto=format&fit=crop')">
-        <div class="coll-overlay"></div>
-        <div class="coll-content">
-          <p class="coll-count">47 Properties</p>
-          <h3>Modern Estates</h3>
-          <a href="#" class="coll-link">Explore →</a>
-        </div>
-      </div>
-
-      <div class="collection-card" style="--bg: url('https://images.unsplash.com/photo-1574359411659-15573a27fd0c?w=800&q=80&auto=format&fit=crop')">
-        <div class="coll-overlay"></div>
-        <div class="coll-content">
-          <p class="coll-count">16 Properties</p>
-          <h3>Historic Manors</h3>
-          <a href="#" class="coll-link">Explore →</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ░░ TESTIMONIALS ░░ -->
-  <section class="section testimonials-section">
-    <div class="section-header">
-      <p class="section-eyebrow">Client Voices</p>
-      <h2 class="section-title">Words of <em>Trust</em></h2>
-    </div>
-    <div class="testimonials-track" id="testimonialsTrack">
-
-      <div class="testimonial-card">
-        <div class="quote-mark">"</div>
-        <p class="testimonial-text">AURUM didn't just find us a home — they found us our world. The level of care and discretion throughout was unlike anything we've experienced in 30 years of acquisitions.</p>
-        <div class="testimonial-author">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80&auto=format&fit=crop&face" alt="Client" loading="lazy" />
-          <div>
-            <strong>Jonathan Hale</strong>
-            <p>Chairman, Hale Capital Group</p>
+            <div class="stat-num">3.2k</div>
+            <div class="stat-label">Families Housed</div>
           </div>
         </div>
       </div>
 
-      <div class="testimonial-card">
-        <div class="quote-mark">"</div>
-        <p class="testimonial-text">A seamless, extraordinary journey from our first call to the moment we opened our new doors. AURUM operates at a level no other agency can match — true white glove from start to finish.</p>
-        <div class="testimonial-author">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80&auto=format&fit=crop&face" alt="Client" loading="lazy" />
-          <div>
-            <strong>Sophia Laurent</strong>
-            <p>Creative Director, Maison Laurent</p>
-          </div>
-        </div>
+      <div class="phil-image">
+        <!-- Interior architecture — warm light through tall windows -->
+        <img
+          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80&fit=crop"
+          alt="Architectural detail of an Aurum residence"
+          loading="lazy"
+        />
+        <div class="phil-image-accent"></div>
       </div>
+    </section>
 
-      <div class="testimonial-card">
-        <div class="quote-mark">"</div>
-        <p class="testimonial-text">In a single weekend, they presented three properties that perfectly embodied our vision. The Meridian was exactly what we had only imagined possible. Genuinely life-changing service.</p>
-        <div class="testimonial-author">
-          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80&auto=format&fit=crop&face" alt="Client" loading="lazy" />
-          <div>
-            <strong>Marcus Eriksson</strong>
-            <p>Founder, Nordic Ventures</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="testimonial-dots" id="testimonialDots">
-      <button class="dot active" data-index="0"></button>
-      <button class="dot" data-index="1"></button>
-      <button class="dot" data-index="2"></button>
-    </div>
-  </section>
-
-  <!-- ░░ GALLERY ░░ -->
-  <section class="section gallery-section">
-    <div class="section-header">
-      <p class="section-eyebrow">Visual Portfolio</p>
-      <h2 class="section-title">A Life of <em>Beauty</em></h2>
-    </div>
-    <div class="gallery-masonry">
-      <div class="gal-item tall" data-src="https://images.unsplash.com/photo-1600607687939-ce8a6d1b3b30?w=900&q=85&auto=format&fit=crop">
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6d1b3b30?w=600&q=75&auto=format&fit=crop" alt="Interior" loading="lazy" />
-        <div class="gal-overlay"><span>+</span></div>
-      </div>
-      <div class="gal-item" data-src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=900&q=85&auto=format&fit=crop">
-        <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=600&q=75&auto=format&fit=crop" alt="Pool" loading="lazy" />
-        <div class="gal-overlay"><span>+</span></div>
-      </div>
-      <div class="gal-item" data-src="https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=900&q=85&auto=format&fit=crop">
-        <img src="https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=600&q=75&auto=format&fit=crop" alt="Living Room" loading="lazy" />
-        <div class="gal-overlay"><span>+</span></div>
-      </div>
-      <div class="gal-item wide" data-src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&q=85&auto=format&fit=crop">
-        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=75&auto=format&fit=crop" alt="Skyline" loading="lazy" />
-        <div class="gal-overlay"><span>+</span></div>
-      </div>
-      <div class="gal-item" data-src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900&q=85&auto=format&fit=crop">
-        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&q=75&auto=format&fit=crop" alt="Architecture" loading="lazy" />
-        <div class="gal-overlay"><span>+</span></div>
-      </div>
-      <div class="gal-item tall" data-src="https://images.unsplash.com/photo-1628592102751-ba83b0314276?w=900&q=85&auto=format&fit=crop">
-        <img src="https://images.unsplash.com/photo-1628592102751-ba83b0314276?w=600&q=75&auto=format&fit=crop" alt="Villa" loading="lazy" />
-        <div class="gal-overlay"><span>+</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ░░ LIGHTBOX ░░ -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightboxClose">✕</button>
-    <img src="" alt="Lightbox" id="lightboxImg" />
-  </div>
-
-  <!-- ░░ AGENTS ░░ -->
-  <section class="section agents-section" id="agents">
-    <div class="section-header">
-      <p class="section-eyebrow">Expert Advisors</p>
-      <h2 class="section-title">Agent <em>Spotlight</em></h2>
-      <p class="section-desc">Our team of world-class advisors brings unparalleled expertise and personal dedication to every acquisition.</p>
-    </div>
-    <div class="agents-grid">
-
-      <div class="agent-card">
-        <div class="agent-img-wrap">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format&fit=crop&face" alt="Agent" loading="lazy" />
-          <div class="agent-social">
-            <a href="#">in</a>
-            <a href="#">@</a>
-          </div>
-        </div>
-        <div class="agent-info">
-          <h3>Alexander Vonn</h3>
-          <p class="agent-title">Senior Luxury Advisor</p>
-          <p class="agent-stats"><span>$420M</span> in Sales · <span>14</span> Years</p>
-          <p class="agent-bio">Specializing in coastal estates and architectural marvels across California and the Hamptons.</p>
-        </div>
-      </div>
-
-      <div class="agent-card">
-        <div class="agent-img-wrap">
-          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80&auto=format&fit=crop&face" alt="Agent" loading="lazy" />
-          <div class="agent-social">
-            <a href="#">in</a>
-            <a href="#">@</a>
-          </div>
-        </div>
-        <div class="agent-info">
-          <h3>Isabelle Moreau</h3>
-          <p class="agent-title">Director of European Estates</p>
-          <p class="agent-stats"><span>$610M</span> in Sales · <span>18</span> Years</p>
-          <p class="agent-bio">A connoisseur of European heritage properties, leading acquisitions from Paris to the Côte d'Azur.</p>
-        </div>
-      </div>
-
-      <div class="agent-card">
-        <div class="agent-img-wrap">
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80&auto=format&fit=crop&face" alt="Agent" loading="lazy" />
-          <div class="agent-social">
-            <a href="#">in</a>
-            <a href="#">@</a>
-          </div>
-        </div>
-        <div class="agent-info">
-          <h3>Damian Cross</h3>
-          <p class="agent-title">Penthouse & Urban Specialist</p>
-          <p class="agent-stats"><span>$290M</span> in Sales · <span>11</span> Years</p>
-          <p class="agent-bio">The go-to authority for sky penthouses and landmark urban residences in New York and Miami.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ░░ CTA BAND ░░ -->
-  <section class="cta-band">
-    <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1920&q=80&auto=format&fit=crop" alt="Dream Home" loading="lazy" class="cta-bg" />
-    <div class="cta-overlay"></div>
-    <div class="cta-content">
-      <p class="section-eyebrow light">Begin Your Journey</p>
-      <h2>Your Dream Home<br /><em>Awaits.</em></h2>
-      <p>The world's most extraordinary residences — reserved for those who seek nothing less than everything.</p>
-      <a href="#contact" class="btn btn-gold">Get in Touch</a>
-    </div>
-  </section>
-
-  <!-- ░░ CONTACT ░░ -->
-  <section class="section contact-section" id="contact">
-    <div class="contact-inner">
-      <div class="contact-info">
-        <p class="section-eyebrow">Reach Out</p>
-        <h2 class="section-title">Connect with<br /><em>AURUM</em></h2>
-        <p class="contact-desc">We respond to every enquiry within 24 hours. For immediate assistance, contact us directly.</p>
-        <div class="contact-details">
-          <div class="contact-item">
-            <span class="contact-icon">◈</span>
-            <div>
-              <strong>Global Headquarters</strong>
-              <p>1 Park Avenue, New York, NY 10016</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">◈</span>
-            <div>
-              <strong>Private Line</strong>
-              <p>+1 (212) 555-AURUM</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">◈</span>
-            <div>
-              <strong>Enquiries</strong>
-              <p>private@aurumrealty.com</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <form class="contact-form" id="contactForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" placeholder="Jonathan" required />
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" placeholder="Hale" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="jonathan@example.com" required />
-        </div>
-        <div class="form-group">
-          <label>Property Interest</label>
-          <select>
-            <option value="" disabled selected>Select a collection</option>
-            <option>Waterfront Villas</option>
-            <option>Sky Penthouses</option>
-            <option>Modern Estates</option>
-            <option>Historic Manors</option>
-            <option>Custom Search</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Tell us about your ideal residence…" rows="4"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary full-width">Send Private Enquiry</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- ░░ FOOTER ░░ -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <p class="footer-logo">AURUM</p>
-        <p class="footer-tagline">The Finest Residences, Curated for the Few.</p>
-        <div class="footer-social">
-          <a href="#">Ig</a>
-          <a href="#">Fb</a>
-          <a href="#">Li</a>
-          <a href="#">Tw</a>
-        </div>
-      </div>
-      <div class="footer-links">
+    <!-- ── FEATURED PROJECTS ──────────────────── -->
+    <section id="projects">
+      <div class="projects-header reveal">
         <div>
-          <h4>Properties</h4>
-          <ul>
-            <li><a href="#">Featured</a></li>
-            <li><a href="#">Waterfront Villas</a></li>
-            <li><a href="#">Penthouses</a></li>
-            <li><a href="#">Estates</a></li>
+          <div class="section-label">Selected Works</div>
+          <h2 class="projects-title">Featured Residences</h2>
+        </div>
+        <a href="#browse" class="projects-link">View All Projects →</a>
+      </div>
+
+      <!-- Project 1 -->
+      <div class="featured-project reveal">
+        <div class="proj-img">
+          <!-- Modern villa exterior with cantilevered terrace -->
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80&fit=crop"
+            alt="The Meridian"
+            loading="lazy"
+          />
+          <div class="proj-overlay"></div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-tag">Flagship Residence · 2024</div>
+          <h3 class="proj-name">The Meridian</h3>
+          <div class="proj-location">Whitefield, Bengaluru</div>
+          <p class="proj-desc">
+            A landmark of considered restraint — where cantilevered terraces
+            frame the horizon and double-height living spaces dissolve the
+            boundary between inside and sky.
+          </p>
+          <div class="proj-details">
+            <div class="proj-detail-item">
+              <div class="proj-detail-val">3–5</div>
+              <div class="proj-detail-key">Bedrooms</div>
+            </div>
+            <div class="proj-detail-item">
+              <div class="proj-detail-val">2,400+</div>
+              <div class="proj-detail-key">Sq Ft</div>
+            </div>
+            <div class="proj-detail-item">
+              <div class="proj-detail-val">From ₹4.2Cr</div>
+              <div class="proj-detail-key">Starting Price</div>
+            </div>
+          </div>
+          <a href="#" class="proj-cta">
+            View Residence
+            <svg
+              width="16"
+              height="8"
+              viewBox="0 0 16 8"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M1 4h14M10 1l4 3-4 3"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="featured-project reverse reveal">
+        <div class="proj-img">
+          <!-- Lush green garden residence -->
+          <img
+            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80&fit=crop"
+            alt="Halcyon Grove"
+            loading="lazy"
+          />
+          <div class="proj-overlay"></div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-tag">Garden Residences · 2023</div>
+          <h3 class="proj-name">Halcyon Grove</h3>
+          <div class="proj-location">Sarjapur Road, Bengaluru</div>
+          <p class="proj-desc">
+            An intimate enclave of 48 residences surrounded by curated green
+            corridors. Architecture that recedes so nature may step forward —
+            where your garden is part of the structure.
+          </p>
+          <div class="proj-details">
+            <div class="proj-detail-item">
+              <div class="proj-detail-val">4</div>
+              <div class="proj-detail-key">Bedrooms</div>
+            </div>
+            <div class="proj-detail-item">
+              <div class="proj-detail-val">3,200+</div>
+              <div class="proj-detail-key">Sq Ft</div>
+            </div>
+            <div class="proj-detail-item">
+              <div class="proj-detail-val">From ₹6.8Cr</div>
+              <div class="proj-detail-key">Starting Price</div>
+            </div>
+          </div>
+          <a href="#" class="proj-cta">
+            View Residence
+            <svg
+              width="16"
+              height="8"
+              viewBox="0 0 16 8"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M1 4h14M10 1l4 3-4 3"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── BROWSE ──────────────────────────────── -->
+    <section id="browse">
+      <div class="browse-header reveal">
+        <div class="section-label">All Residences</div>
+        <h2 class="browse-title">Explore by Interest</h2>
+        <p class="browse-sub">Filter to find the residence that resonates.</p>
+      </div>
+
+      <div class="filters reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="apartment">Apartments</button>
+        <button class="filter-btn" data-filter="villa">Villas</button>
+        <button class="filter-btn" data-filter="penthouse">Penthouses</button>
+        <button class="filter-btn" data-filter="plot">Plotted</button>
+      </div>
+
+      <div class="browse-grid" id="browseGrid">
+        <div class="browse-card" data-type="penthouse">
+          <img
+            src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80&fit=crop"
+            alt="Atelier Sky"
+            loading="lazy"
+          />
+          <div class="browse-card-overlay">
+            <div class="bc-tag">Penthouse</div>
+            <div class="bc-name">Atelier Sky</div>
+            <div class="bc-loc">Indiranagar, Bengaluru</div>
+            <div class="bc-price">From ₹12.4 Cr</div>
+          </div>
+        </div>
+
+        <div class="browse-card" data-type="villa">
+          <img
+            src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80&fit=crop"
+            alt="Terrain House"
+            loading="lazy"
+          />
+          <div class="browse-card-overlay">
+            <div class="bc-tag">Villa</div>
+            <div class="bc-name">Terrain House</div>
+            <div class="bc-loc">Kanakapura Road, Bengaluru</div>
+            <div class="bc-price">From ₹8.2 Cr</div>
+          </div>
+        </div>
+
+        <div class="browse-card" data-type="apartment">
+          <img
+            src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80&fit=crop"
+            alt="The Lumen"
+            loading="lazy"
+          />
+          <div class="browse-card-overlay">
+            <div class="bc-tag">Apartment</div>
+            <div class="bc-name">The Lumen</div>
+            <div class="bc-loc">HSR Layout, Bengaluru</div>
+            <div class="bc-price">From ₹3.6 Cr</div>
+          </div>
+        </div>
+
+        <div class="browse-card" data-type="apartment">
+          <img
+            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80&fit=crop"
+            alt="Solaris"
+            loading="lazy"
+          />
+          <div class="browse-card-overlay">
+            <div class="bc-tag">Apartment</div>
+            <div class="bc-name">Solaris</div>
+            <div class="bc-loc">Koramangala, Bengaluru</div>
+            <div class="bc-price">From ₹4.9 Cr</div>
+          </div>
+        </div>
+
+        <div class="browse-card" data-type="plot">
+          <img
+            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80&fit=crop"
+            alt="Verdant Fields"
+            loading="lazy"
+          />
+          <div class="browse-card-overlay">
+            <div class="bc-tag">Plotted</div>
+            <div class="bc-name">Verdant Fields</div>
+            <div class="bc-loc">Devanahalli, Bengaluru</div>
+            <div class="bc-price">From ₹1.8 Cr</div>
+          </div>
+        </div>
+
+        <div class="browse-card" data-type="villa">
+          <img
+            src="https://images.unsplash.com/photo-1449844908441-8829872d2607?w=600&q=80&fit=crop"
+            alt="Caldera"
+            loading="lazy"
+          />
+          <div class="browse-card-overlay">
+            <div class="bc-tag">Villa</div>
+            <div class="bc-name">Caldera</div>
+            <div class="bc-loc">Yelahanka, Bengaluru</div>
+            <div class="bc-price">From ₹9.5 Cr</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LIFESTYLE ───────────────────────────── -->
+    <section id="lifestyle">
+      <div class="lifestyle-intro reveal">
+        <div class="section-label">The Aurum Life</div>
+        <h2>Living, refined.</h2>
+      </div>
+
+      <div class="lifestyle-row text-left">
+        <div class="ls-text reveal">
+          <div class="section-label">Morning</div>
+          <h3 class="ls-heading">
+            Light that arrives<br /><em>without asking.</em>
+          </h3>
+          <p class="ls-body">
+            East-facing living spaces are oriented to receive the first hours of
+            daylight — warm, unhurried, generous. The morning in an Aurum home
+            is something you experience before you think about it.
+          </p>
+        </div>
+        <div class="ls-img">
+          <!-- Warm morning light through tall interior windows -->
+          <img
+            src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&q=80&fit=crop"
+            alt="Morning light through an open living space"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <div class="lifestyle-row">
+        <div class="ls-img">
+          <!-- Lush private garden with architectural elements -->
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&fit=crop"
+            alt="Private green sanctuary"
+            loading="lazy"
+          />
+        </div>
+        <div class="ls-text reveal">
+          <div class="section-label">Outdoors</div>
+          <h3 class="ls-heading">Private green<br /><em>sanctuaries.</em></h3>
+          <p class="ls-body">
+            Each community is designed around curated landscape corridors — not
+            as decoration, but as living infrastructure. Space to breathe, to
+            slow down, and to remember what matters.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TESTIMONIALS ────────────────────────── -->
+    <section id="testimonials">
+      <div class="testimonials-inner">
+        <div class="gold-line"></div>
+        <div id="testiQuote" class="testi-quote">
+          "Moving into The Meridian didn't feel like buying a home. It felt like
+          arriving at a version of ourselves we'd been working towards for
+          years."
+        </div>
+        <div id="testiAuthor" class="testi-author">
+          Arjun &amp; Meera Raghunathan
+        </div>
+        <div id="testiRole" class="testi-role">
+          The Meridian, Whitefield · 2023
+        </div>
+        <div class="testi-dots" id="testiDots">
+          <div
+            class="testi-dot active"
+            data-i="0"
+            aria-label="Testimonial 1"
+          ></div>
+          <div class="testi-dot" data-i="1" aria-label="Testimonial 2"></div>
+          <div class="testi-dot" data-i="2" aria-label="Testimonial 3"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── GALLERY ─────────────────────────────── -->
+    <section id="gallery">
+      <div class="gallery-header reveal">
+        <div class="section-label">Visual Journal</div>
+        <h2 class="gallery-title">Spaces That Stay With You</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gal-item">
+          <!-- Wide shot: dramatic cantilevered modern home -->
+          <img
+            src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1000&q=80&fit=crop"
+            alt="Aurum residence exterior"
+            loading="lazy"
+          />
+        </div>
+        <div class="gal-item">
+          <!-- Intimate: warm interior living room with green plants -->
+          <img
+            src="https://images.unsplash.com/photo-1616137466211-f939a420be84?w=800&q=80&fit=crop"
+            alt="Interior living space"
+            loading="lazy"
+          />
+        </div>
+        <div class="gal-item">
+          <!-- Detail: concrete and greenery architecture -->
+          <img
+            src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=700&q=80&fit=crop"
+            alt="Architectural detail"
+            loading="lazy"
+          />
+        </div>
+        <div class="gal-item">
+          <!-- Garden terrace at dusk -->
+          <img
+            src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=700&q=80&fit=crop"
+            alt="Evening terrace"
+            loading="lazy"
+          />
+        </div>
+        <div class="gal-item">
+          <!-- Bedroom: serene minimal with natural light -->
+          <img
+            src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=700&q=80&fit=crop"
+            alt="Serene bedroom"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CALL TO ACTION ──────────────────────── -->
+    <section id="cta">
+      <div class="reveal">
+        <div class="section-label" style="color: var(--sage)">Begin Here</div>
+        <h2 class="cta-heading">Schedule a<br /><em>private tour.</em></h2>
+        <p class="cta-body">
+          Our advisors are available for confidential, unhurried conversations.
+          No pressure. Just clarity about what's possible.
+        </p>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="cta-form">
+          <div class="cta-row">
+            <input type="text" class="cta-input" placeholder="First Name" />
+            <input type="text" class="cta-input" placeholder="Last Name" />
+          </div>
+          <input type="email" class="cta-input" placeholder="Email Address" />
+          <input type="tel" class="cta-input" placeholder="Phone Number" />
+          <select class="cta-select">
+            <option value="" disabled selected>
+              Select Residence of Interest
+            </option>
+            <option>The Meridian</option>
+            <option>Halcyon Grove</option>
+            <option>Atelier Sky</option>
+            <option>The Lumen</option>
+            <option>Caldera</option>
+          </select>
+          <button class="cta-btn">Request Private Tour</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ──────────────────────────────── -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-logo">AURUM</span>
+          <p class="footer-tagline">
+            An address that reflects more than status — it reflects intent.
+            Building with care since 2001.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Residences</div>
+          <ul class="footer-links">
+            <li><a href="#">The Meridian</a></li>
+            <li><a href="#">Halcyon Grove</a></li>
+            <li><a href="#">Atelier Sky</a></li>
+            <li><a href="#">The Lumen</a></li>
+            <li><a href="#">Caldera</a></li>
           </ul>
         </div>
         <div>
-          <h4>Company</h4>
-          <ul>
-            <li><a href="#">About AURUM</a></li>
-            <li><a href="#">Our Agents</a></li>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="#">Philosophy</a></li>
+            <li><a href="#">Our Process</a></li>
+            <li><a href="#">Sustainability</a></li>
             <li><a href="#">Press</a></li>
             <li><a href="#">Careers</a></li>
           </ul>
         </div>
         <div>
-          <h4>Services</h4>
-          <ul>
-            <li><a href="#">Buyer Advisory</a></li>
-            <li><a href="#">Seller Representation</a></li>
-            <li><a href="#">Investment Consulting</a></li>
-            <li><a href="#">Private Tours</a></li>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><a href="tel:+918042000000">+91 80 4200 0000</a></li>
+            <li>
+              <a
+                href="/cdn-cgi/l/email-protection#ef878a838380af8e9a9d9a82c18681"
+                ><span
+                  class="__cf_email__"
+                  data-cfemail="365e535a5a5976574344435b185f58"
+                  >[email&#160;protected]</span
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#">Experience Centre,<br />Indiranagar, Bengaluru</a>
+            </li>
           </ul>
         </div>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2024 AURUM Luxury Real Estate. All rights reserved.</p>
-      <div>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-      </div>
-    </div>
-  </footer>
 
-  <script src="script.js"></script>
-</body>
+      <div class="footer-bottom">
+        <span class="footer-copy"
+          >© 2024 Aurum Developments Pvt. Ltd. All rights reserved.</span
+        >
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
