@@ -33,17 +33,11 @@
   const nav = document.getElementById("nav");
   function onScroll() {
     nav.classList.toggle("scrolled", window.scrollY > 60);
-    parallaxHero();
   }
   window.addEventListener("scroll", onScroll, { passive: true });
 
   /* ── HERO PARALLAX ───────────────────────── */
   const heroBg = document.getElementById("heroBg");
-
-  function parallaxHero() {
-    if (!heroBg) return;
-    heroBg.style.transform = `scale(1) translateY(${window.scrollY * 0.28}px)`;
-  }
 
   // Trigger the ken-burns scale-in once the page loads
   window.addEventListener("load", () => {

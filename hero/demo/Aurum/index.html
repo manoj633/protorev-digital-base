@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -32,27 +32,26 @@
     <!-- ── HERO ───────────────────────────────── -->
     <section id="hero">
       <!--
-      Picsum seed-based URLs are deterministic:
-      https://picsum.photos/seed/{seed}/{width}/{height}
-      No API key needed, always returns the same image for a given seed.
-    -->
+        Unsplash Source API:
+        https://source.unsplash.com/featured/?{keyword},{width}x{height}
+        Using curated architecture/interior seeds for consistent, relevant imagery.
+      -->
       <div
         class="hero-bg"
         id="heroBg"
         style="
-          background-image: url(&quot;https://picsum.photos/seed/aurum-hero/1800/1000&quot;);
+          background-image: url(&quot;https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1800&q=80&fit=crop&quot;);
         "
       ></div>
       <div class="hero-overlay"></div>
 
       <div class="hero-content">
         <div class="hero-eyebrow">Residences of Distinction</div>
-        <h1 class="hero-title">
-          Where space becomes<br />a <em>statement.</em>
-        </h1>
+        <h1 class="hero-title">Where stillness<br />becomes <em>home.</em></h1>
         <p class="hero-sub">
-          Designed for those who value light, stillness, and the kind of
-          craftsmanship that endures quietly for generations.
+          Every residence we build begins not with a blueprint — but with a
+          feeling. The hush of morning light. The weight of a doorway that knows
+          you're home.
         </p>
         <a href="#projects" class="hero-cta">
           Explore Residences
@@ -114,8 +113,9 @@
       </div>
 
       <div class="phil-image reveal reveal-delay-2">
+        <!-- Interior architecture — warm light through tall windows -->
         <img
-          src="https://picsum.photos/seed/aurum-phil/800/1067"
+          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80&fit=crop"
           alt="Architectural detail of an Aurum residence"
           loading="lazy"
         />
@@ -136,8 +136,9 @@
       <!-- Project 1 -->
       <div class="featured-project reveal">
         <div class="proj-img">
+          <!-- Modern villa exterior with cantilevered terrace -->
           <img
-            src="https://picsum.photos/seed/aurum-p1/1200/800"
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80&fit=crop"
             alt="The Meridian"
             loading="lazy"
           />
@@ -189,8 +190,9 @@
       <!-- Project 2 -->
       <div class="featured-project reverse reveal">
         <div class="proj-img">
+          <!-- Lush green garden residence -->
           <img
-            src="https://picsum.photos/seed/aurum-p2/1200/800"
+            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80&fit=crop"
             alt="Halcyon Grove"
             loading="lazy"
           />
@@ -259,7 +261,7 @@
       <div class="browse-grid" id="browseGrid">
         <div class="browse-card" data-type="penthouse">
           <img
-            src="https://picsum.photos/seed/aurum-c1/600/800"
+            src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80&fit=crop"
             alt="Atelier Sky"
             loading="lazy"
           />
@@ -273,7 +275,7 @@
 
         <div class="browse-card" data-type="villa">
           <img
-            src="https://picsum.photos/seed/aurum-c2/600/800"
+            src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80&fit=crop"
             alt="Terrain House"
             loading="lazy"
           />
@@ -287,7 +289,7 @@
 
         <div class="browse-card" data-type="apartment">
           <img
-            src="https://picsum.photos/seed/aurum-c3/600/800"
+            src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80&fit=crop"
             alt="The Lumen"
             loading="lazy"
           />
@@ -301,7 +303,7 @@
 
         <div class="browse-card" data-type="apartment">
           <img
-            src="https://picsum.photos/seed/aurum-c4/600/800"
+            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80&fit=crop"
             alt="Solaris"
             loading="lazy"
           />
@@ -315,7 +317,7 @@
 
         <div class="browse-card" data-type="plot">
           <img
-            src="https://picsum.photos/seed/aurum-c5/600/800"
+            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80&fit=crop"
             alt="Verdant Fields"
             loading="lazy"
           />
@@ -329,7 +331,7 @@
 
         <div class="browse-card" data-type="villa">
           <img
-            src="https://picsum.photos/seed/aurum-c6/600/800"
+            src="https://images.unsplash.com/photo-1449844908441-8829872d2607?w=600&q=80&fit=crop"
             alt="Caldera"
             loading="lazy"
           />
@@ -363,8 +365,9 @@
           </p>
         </div>
         <div class="ls-img">
+          <!-- Warm morning light through tall interior windows -->
           <img
-            src="https://picsum.photos/seed/aurum-ls1/900/700"
+            src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&q=80&fit=crop"
             alt="Morning light through an open living space"
             loading="lazy"
           />
@@ -373,8 +376,9 @@
 
       <div class="lifestyle-row">
         <div class="ls-img">
+          <!-- Lush private garden with architectural elements -->
           <img
-            src="https://picsum.photos/seed/aurum-ls2/900/700"
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&fit=crop"
             alt="Private green sanctuary"
             loading="lazy"
           />
@@ -422,41 +426,46 @@
     <section id="gallery">
       <div class="gallery-header reveal">
         <div class="section-label">Visual Journal</div>
-        <h2 class="gallery-title">Architecture Through Light</h2>
+        <h2 class="gallery-title">Spaces That Stay With You</h2>
       </div>
       <div class="gallery-grid">
         <div class="gal-item">
+          <!-- Wide shot: dramatic cantilevered modern home -->
           <img
-            src="https://picsum.photos/seed/aurum-g1/1000/600"
-            alt="Gallery image 1"
+            src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1000&q=80&fit=crop"
+            alt="Aurum residence exterior"
             loading="lazy"
           />
         </div>
         <div class="gal-item">
+          <!-- Intimate: warm interior living room with green plants -->
           <img
-            src="https://picsum.photos/seed/aurum-g2/800/600"
-            alt="Gallery image 2"
+            src="https://images.unsplash.com/photo-1616137466211-f939a420be84?w=800&q=80&fit=crop"
+            alt="Interior living space"
             loading="lazy"
           />
         </div>
         <div class="gal-item">
+          <!-- Detail: concrete and greenery architecture -->
           <img
-            src="https://picsum.photos/seed/aurum-g3/700/900"
-            alt="Gallery image 3"
+            src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=700&q=80&fit=crop"
+            alt="Architectural detail"
             loading="lazy"
           />
         </div>
         <div class="gal-item">
+          <!-- Garden terrace at dusk -->
           <img
-            src="https://picsum.photos/seed/aurum-g4/700/900"
-            alt="Gallery image 4"
+            src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=700&q=80&fit=crop"
+            alt="Evening terrace"
             loading="lazy"
           />
         </div>
         <div class="gal-item">
+          <!-- Bedroom: serene minimal with natural light -->
           <img
-            src="https://picsum.photos/seed/aurum-g5/700/900"
-            alt="Gallery image 5"
+            src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=700&q=80&fit=crop"
+            alt="Serene bedroom"
             loading="lazy"
           />
         </div>
@@ -466,7 +475,7 @@
     <!-- ── CALL TO ACTION ──────────────────────── -->
     <section id="cta">
       <div class="reveal">
-        <div class="section-label" style="color: var(--gold)">Begin Here</div>
+        <div class="section-label" style="color: var(--sage)">Begin Here</div>
         <h2 class="cta-heading">Schedule a<br /><em>private tour.</em></h2>
         <p class="cta-body">
           Our advisors are available for confidential, unhurried conversations.
