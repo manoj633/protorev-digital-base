@@ -13,26 +13,38 @@ window.addEventListener("scroll", () => {
 // ─── SCROLL REVEAL ──────────────────────────────────────────
 const reveals = document.querySelectorAll(".reveal");
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        // stagger siblings inside same parent
-        const siblings = [
-          ...entry.target.parentElement.querySelectorAll(".reveal"),
-        ];
-        const idx = siblings.indexOf(entry.target);
-        setTimeout(() => {
-          entry.target.classList.add("visible");
-        }, idx * 120);
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
-);
+// Fallback: if IntersectionObserver never fires (e.g. hidden iframe),
+// make everything visible after 2s
+const fallbackTimer = setTimeout(() => {
+  reveals.forEach((el) => el.classList.add("visible"));
+}, 2000);
 
-reveals.forEach((el) => observer.observe(el));
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          clearTimeout(fallbackTimer);
+          // small stagger based on position among siblings
+          const siblings = [
+            ...entry.target.parentElement.querySelectorAll(".reveal"),
+          ];
+          const idx = siblings.indexOf(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add("visible");
+          }, idx * 100);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
+  );
+
+  reveals.forEach((el) => observer.observe(el));
+} else {
+  // No IntersectionObserver support — show everything immediately
+  reveals.forEach((el) => el.classList.add("visible"));
+}
 
 // ─── TESTIMONIAL CAROUSEL ───────────────────────────────────
 const testimonials = document.querySelectorAll(".testimonial");
@@ -65,17 +77,21 @@ autoTimer = setInterval(nextSlide, 5000);
 // ─── GALLERY PARALLAX ───────────────────────────────────────
 const galleryItems = document.querySelectorAll(".gallery-item img");
 
-window.addEventListener("scroll", () => {
-  galleryItems.forEach((img) => {
-    const rect = img.parentElement.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      const progress =
-        (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-      const offset = (progress - 0.5) * 30;
-      img.style.transform = `translateY(${offset}px) scale(1.08)`;
-    }
-  });
-});
+window.addEventListener(
+  "scroll",
+  () => {
+    galleryItems.forEach((img) => {
+      const rect = img.parentElement.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const progress =
+          (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+        const offset = (progress - 0.5) * 30;
+        img.style.transform = `translateY(${offset}px) scale(1.08)`;
+      }
+    });
+  },
+  { passive: true },
+);
 
 // ─── SMOOTH SCROLL ──────────────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {

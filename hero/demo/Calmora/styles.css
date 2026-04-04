@@ -4,7 +4,7 @@
   --caramel: #C9A96E;
   --coffee: #2A1F18;
   --espresso: #3D2B1F;
-  --cream: #EDE5D8;
+  --cream: #E8DDD0;
   --mist: rgba(245, 239, 228, 0.06);
 }
 
@@ -40,11 +40,12 @@ a {
 /* ================= SHARED ================= */
 .section-label {
   display: block;
-  font-size: 10px;
-  letter-spacing: 0.3em;
+  font-size: 11px;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--caramel);
   margin-bottom: 24px;
+  font-weight: 500;
 }
 
 .reveal {
@@ -56,6 +57,20 @@ a {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Safety net: if JS never fires, reveal after CSS animation delay */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation: revealFallback 0s ease 2.5s forwards;
+  }
+}
+
+@keyframes revealFallback {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ================= NAV ================= */
@@ -258,10 +273,10 @@ a {
 }
 
 .hero-side p {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.92);
   line-height: 1.75;
   margin-bottom: 24px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .hero-cta {
@@ -415,7 +430,7 @@ a {
 
 .philo-quote {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
+  font-size: 22px;
   font-style: italic;
   color: var(--caramel);
   line-height: 1.6;
@@ -425,9 +440,9 @@ a {
 .philo-content p {
   max-width: 440px;
   line-height: 1.85;
-  color: rgba(61, 43, 31, 0.7);
+  color: rgba(61, 43, 31, 0.85);
   margin-bottom: 36px;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .philo-cta {
@@ -523,9 +538,9 @@ a {
 }
 
 .service-body p {
-  color: rgba(245, 239, 228, 0.55);
+  color: rgba(245, 239, 228, 0.78);
   line-height: 1.85;
-  font-size: 15px;
+  font-size: 16px;
   max-width: 380px;
   margin-bottom: 32px;
 }
@@ -812,8 +827,8 @@ a {
 }
 
 .booking-inner p {
-  color: rgba(245, 239, 228, 0.65);
-  font-size: 15px;
+  color: rgba(245, 239, 228, 0.85);
+  font-size: 16px;
   line-height: 1.75;
   max-width: 360px;
   margin-bottom: 40px;
@@ -862,20 +877,21 @@ a {
 }
 
 .footer-brand p {
-  color: rgba(245, 239, 228, 0.45);
-  font-size: 13px;
+  color: rgba(245, 239, 228, 0.65);
+  font-size: 14px;
   line-height: 1.8;
   margin: 0;
 }
 
 .footer-label {
   display: block;
-  font-size: 9px;
-  letter-spacing: 0.3em;
+  font-size: 10px;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--caramel);
-  opacity: 0.7;
+  opacity: 0.9;
   margin-bottom: 20px;
+  font-weight: 500;
 }
 
 .footer-nav,
@@ -888,8 +904,8 @@ a {
 
 .footer-nav a,
 .footer-contact a {
-  font-size: 13px;
-  color: rgba(245, 239, 228, 0.5);
+  font-size: 14px;
+  color: rgba(245, 239, 228, 0.72);
   transition: color 0.3s;
 }
 
@@ -899,8 +915,8 @@ a {
 }
 
 .footer-contact p {
-  font-size: 13px;
-  color: rgba(245, 239, 228, 0.4);
+  font-size: 14px;
+  color: rgba(245, 239, 228, 0.6);
   line-height: 1.7;
   margin: 4px 0 0;
 }
@@ -911,7 +927,7 @@ a {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--caramel);
-  border: 1px solid rgba(201, 169, 110, 0.4);
+  border: 1px solid rgba(201, 169, 110, 0.6);
   padding: 12px 24px;
   border-radius: 40px;
   transition: all 0.35s ease;
@@ -926,8 +942,8 @@ a {
 }
 
 .footer-note {
-  font-size: 12px;
-  color: rgba(245, 239, 228, 0.3);
+  font-size: 13px;
+  color: rgba(245, 239, 228, 0.45);
   line-height: 1.6;
   margin: 4px 0 0;
 }
@@ -942,9 +958,9 @@ a {
 }
 
 .footer-bottom span {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.1em;
-  color: rgba(245, 239, 228, 0.25);
+  color: rgba(245, 239, 228, 0.4);
 }
 
 /* ================= RESPONSIVE ================= */
@@ -988,9 +1004,12 @@ a {
   .philosophy,
   .services,
   .gallery,
-  .testimonials,
-  .booking-strip {
-    padding: 100px 32px;
+  .testimonials {
+    padding: 80px 24px;
+  }
+
+  .ambient-break {
+    padding: 80px 24px;
   }
 
   .philo-inner {
@@ -1028,20 +1047,45 @@ a {
     grid-row: span 1;
     grid-column: span 1;
     border-radius: 20px;
+    height: 200px;
+  }
+
+  .booking-strip {
+    height: auto;
+    padding: 80px 24px;
   }
 
   .booking-inner {
-    padding: 0 32px;
+    padding: 0;
     max-width: 100%;
   }
 
+  /* ── FOOTER MOBILE FIX ── */
+  .footer {
+    padding: 72px 24px 0;
+  }
+
   .footer-inner {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding-bottom: 56px;
+  }
+
+  .footer-brand {
+    border-bottom: 1px solid rgba(201, 169, 110, 0.12);
+    padding-bottom: 40px;
+  }
+
+  .footer-nav,
+  .footer-contact,
+  .footer-book {
+    gap: 14px;
   }
 
   .footer-bottom {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     text-align: center;
+    padding: 28px 0;
   }
 }
