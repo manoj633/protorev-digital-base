@@ -1,565 +1,235 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calmora Wellness — Where Luxury Meets Serenity</title>
-  <link rel="stylesheet" href="styles.css" />
-  <!-- Google Fonts: Cormorant Garamond (luxury serif) + DM Sans (clean body) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Cormorant:ital@1&display=swap" rel="stylesheet" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calmora Wellness</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
 
-  <!-- ═══════════════════════ SCROLL PROGRESS ═══════════════════════ -->
-  <div class="scroll-progress" id="scrollProgress"></div>
-
-  <!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <span class="logo-icon">✦</span>
-        <span class="logo-text">Calmora</span>
-      </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#treatments">Treatments</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#booking" class="nav-cta">Book Now</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- ═══════════════════════ HERO ═══════════════════════ -->
-  <section class="hero" id="hero">
-    <div class="hero-bg" id="heroBg">
-      <img
-        src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1920&q=85"
-        alt="Luxury spa ambiance"
-        class="hero-img"
-        loading="eager"
-      />
-      <div class="hero-overlay"></div>
-    </div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">Est. 2009 · Award-Winning Wellness Sanctuary</p>
-      <h1 class="hero-headline">
-        <span class="line line-1">Relax.</span>
-        <span class="line line-2">Refresh.</span>
-        <span class="line line-3">Rejuvenate.</span>
-      </h1>
-      <p class="hero-sub">
-        Step into a world where ancient rituals meet modern luxury.<br/>
-        Surrender to stillness. Rediscover yourself.
-      </p>
-      <div class="hero-actions">
-        <a href="#booking" class="btn btn-primary">Book Appointment</a>
-        <a href="#services" class="btn btn-ghost">Explore Services</a>
-      </div>
-    </div>
-    <div class="scroll-indicator">
-      <div class="scroll-mouse">
-        <div class="scroll-wheel"></div>
-      </div>
-      <span>Scroll</span>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════ STATS BAND ═══════════════════════ -->
-  <section class="stats-band reveal">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <span class="stat-number">15+</span>
-        <span class="stat-label">Years of Excellence</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">40K+</span>
-        <span class="stat-label">Guests Transformed</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">28</span>
-        <span class="stat-label">Signature Treatments</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">98%</span>
-        <span class="stat-label">Client Satisfaction</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════ SERVICES ═══════════════════════ -->
-  <section class="section" id="services">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-tag">Our Offerings</p>
-        <h2 class="section-title">Curated Wellness Experiences</h2>
-        <p class="section-sub">Each service is thoughtfully designed to restore harmony between body, mind, and spirit.</p>
-      </div>
-      <div class="services-grid">
-
-        <!-- Card 1 -->
-        <article class="service-card reveal" style="--delay:0s">
-          <div class="card-img-wrap">
-            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80" alt="Massage therapy" loading="lazy" />
-            <div class="card-tag">Bestseller</div>
-          </div>
-          <div class="card-body">
-            <h3>Deep Tissue Massage</h3>
-            <p>Release chronic tension and restore muscular balance with our therapeutic deep-tissue technique.</p>
-            <div class="card-footer">
-              <span class="price">From $120</span>
-              <a href="#booking" class="card-link">Reserve →</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="service-card reveal" style="--delay:0.1s">
-          <div class="card-img-wrap">
-            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80" alt="Facial treatment" loading="lazy" />
-          </div>
-          <div class="card-body">
-            <h3>Luminosity Facial</h3>
-            <p>Reveal radiant skin with our signature vitamin-infused brightening facial tailored to your unique skin type.</p>
-            <div class="card-footer">
-              <span class="price">From $95</span>
-              <a href="#booking" class="card-link">Reserve →</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="service-card reveal" style="--delay:0.2s">
-          <div class="card-img-wrap">
-            <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800&q=80" alt="Body wrap" loading="lazy" />
-            <div class="card-tag">New</div>
-          </div>
-          <div class="card-body">
-            <h3>Gold Body Ritual</h3>
-            <p>A decadent full-body exfoliation and 24k gold leaf wrap that leaves skin silky, luminous, and deeply nourished.</p>
-            <div class="card-footer">
-              <span class="price">From $175</span>
-              <a href="#booking" class="card-link">Reserve →</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 4 -->
-        <article class="service-card reveal" style="--delay:0s">
-          <div class="card-img-wrap">
-            <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80" alt="Aromatherapy" loading="lazy" />
-          </div>
-          <div class="card-body">
-            <h3>Aromatic Journey</h3>
-            <p>A sensory voyage using pure botanical essential oils blended to calm your nervous system and elevate your mood.</p>
-            <div class="card-footer">
-              <span class="price">From $110</span>
-              <a href="#booking" class="card-link">Reserve →</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 5 -->
-        <article class="service-card reveal" style="--delay:0.1s">
-          <div class="card-img-wrap">
-            <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&q=80" alt="Hot stone massage" loading="lazy" />
-          </div>
-          <div class="card-body">
-            <h3>Hot Stone Therapy</h3>
-            <p>Smooth basalt stones warmed to perfection melt away muscle tightness while grounding your energy.</p>
-            <div class="card-footer">
-              <span class="price">From $140</span>
-              <a href="#booking" class="card-link">Reserve →</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 6 -->
-        <article class="service-card reveal" style="--delay:0.2s">
-          <div class="card-img-wrap">
-            <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=800&q=80" alt="Couples spa" loading="lazy" />
-            <div class="card-tag">Popular</div>
-          </div>
-          <div class="card-body">
-            <h3>Couples' Sanctuary</h3>
-            <p>A shared retreat for two — side-by-side massages, champagne, and a private soak in our rose-petal bath.</p>
-            <div class="card-footer">
-              <span class="price">From $260</span>
-              <a href="#booking" class="card-link">Reserve →</a>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════ ABOUT ═══════════════════════ -->
-  <section class="about-section" id="about">
-    <div class="about-inner">
-      <div class="about-image reveal">
-        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=900&q=85" alt="Spa ambiance" loading="lazy" />
-        <div class="about-badge">
-          <span class="badge-num">15</span>
-          <span class="badge-text">Years of Pure Luxury</span>
+    <!-- NAVBAR -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <div class="nav-left">
+          <a href="#" class="nav-logo">Calmora</a>
+        </div>
+        <div class="nav-center">
+          <a href="#philosophy">About</a>
+          <a href="#services">Services</a>
+          <a href="#testimonials">Stories</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#footer">Contact</a>
+        </div>
+        <div class="nav-right">
+          <span class="nav-phone">+91 98765 43210</span>
+          <a href="#" class="nav-cta">Book Appointment</a>
         </div>
       </div>
-      <div class="about-text reveal">
-        <p class="section-tag">Our Philosophy</p>
-        <h2 class="section-title">Beauty Is a State of Being, Not Merely Appearance</h2>
-        <p class="about-p">At Calmora, we believe true wellness is a conversation between science and soul. Every treatment is curated to address not just the surface, but the deeper rhythms of your being — your breath, your stress, your vitality.</p>
-        <p class="about-p">Our master therapists are trained in both Western and Eastern modalities, blending clinical precision with ancient wisdom. From the moment you arrive, every detail — the scent in the air, the warmth of the lighting, the softness underfoot — is designed to signal to your body: <em>it is safe to let go.</em></p>
-        <div class="about-pillars">
-          <div class="pillar">
-            <span class="pillar-icon">◈</span>
-            <div>
-              <strong>Mindful Rituals</strong>
-              <p>Treatments grounded in intentional, breath-led practice</p>
-            </div>
-          </div>
-          <div class="pillar">
-            <span class="pillar-icon">◈</span>
-            <div>
-              <strong>Organic Luxury</strong>
-              <p>100% natural, ethically sourced botanical ingredients</p>
-            </div>
-          </div>
-          <div class="pillar">
-            <span class="pillar-icon">◈</span>
-            <div>
-              <strong>Bespoke Care</strong>
-              <p>Every session tailored precisely to you, not a template</p>
-            </div>
-          </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg">
+        <img src="./assets/hero1.png" alt="Spa atmosphere" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="line l1">Rejuvenate your</span>
+          <span class="line l2">body and soul</span>
+          <span class="line l3">in stillness</span>
+        </h1>
+        <div class="hero-side">
+          <p>A nurturing space where your body softens, your breath deepens, and your mind gently returns to stillness. Every ritual is designed to restore what the world takes away.</p>
+          <a href="#services" class="hero-cta">Begin your ritual →</a>
         </div>
-        <a href="#booking" class="btn btn-primary">Begin Your Journey</a>
+      </div>
+      <div class="hero-scroll-hint">
+        <span></span>
+        <p>Scroll</p>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- PHILOSOPHY SECTION -->
+    <section class="philosophy" id="philosophy">
+      <div class="philo-inner">
+        <div class="philo-visual">
+          <div class="philo-blob"></div>
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="Ritual stones" class="philo-img" />
+        </div>
+        <div class="philo-content reveal">
+          <span class="section-label">Our Philosophy</span>
+          <h2>A return<br /><em>to stillness</em></h2>
+          <p class="philo-quote">Not everything needs to be rushed.<br />Not everything needs to be fixed.</p>
+          <p>At Calmora, we believe in the quiet return — where the body softens, the breath deepens, and stillness is no longer something you seek, but something you remember.</p>
+          <a href="#" class="philo-cta">Discover our philosophy →</a>
+        </div>
+      </div>
+      <div class="philo-ambient"></div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+      <div class="services-header reveal">
+        <span class="section-label">Rituals &amp; Offerings</span>
+        <h2>Each session is<br /><em>a ceremony</em></h2>
+      </div>
+
+      <div class="service-item reveal">
+        <div class="service-num">01</div>
+        <div class="service-body">
+          <h3>Sacred Oil Ritual</h3>
+          <p>A slow, grounding experience using warm botanical oils to release stored tension. The body remembers what the mind forgets — ease, surrender, weight finally set down.</p>
+          <a href="#" class="service-link">Reserve this ritual →</a>
+        </div>
+        <div class="service-visual">
+          <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=700&q=80" alt="Oil ritual" />
+          <div class="service-img-overlay"></div>
+        </div>
+      </div>
+
+      <div class="service-divider"></div>
+
+      <div class="service-item reverse reveal">
+        <div class="service-num">02</div>
+        <div class="service-body">
+          <h3>Deep Release Therapy</h3>
+          <p>Focused pressure and intentional touch to restore movement and balance. Not force — but conversation between hands and tissue, until something old finally loosens.</p>
+          <a href="#" class="service-link">Reserve this ritual →</a>
+        </div>
+        <div class="service-visual">
+          <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=700&q=80" alt="Deep release therapy" />
+          <div class="service-img-overlay"></div>
+        </div>
+      </div>
+
+      <div class="service-divider"></div>
+
+      <div class="service-item reveal">
+        <div class="service-num">03</div>
+        <div class="service-body">
+          <h3>Restorative Stillness Session</h3>
+          <p>A guided journey into deep rest for the nervous system. Warmth, breath, and silence — carefully arranged to remind the body it is allowed to stop. Fully, completely stop.</p>
+          <a href="#" class="service-link">Reserve this ritual →</a>
+        </div>
+        <div class="service-visual">
+          <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=700&q=80" alt="Restorative session" />
+          <div class="service-img-overlay"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AMBIENT BREAK -->
+    <div class="ambient-break">
+      <div class="ambient-text reveal">
+        <p>"The body holds every story the mind refused to tell."</p>
       </div>
     </div>
-  </section>
 
-  <!-- ═══════════════════════ SIGNATURE TREATMENTS ═══════════════════════ -->
-  <section class="section treatments-section" id="treatments">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-tag">Signature Collection</p>
-        <h2 class="section-title">Our Most Coveted Experiences</h2>
-        <p class="section-sub">Reserved for those who seek the extraordinary. These immersive rituals are the jewels of our collection.</p>
-      </div>
-      <div class="treatments-grid">
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+      <div class="testimonials-inner">
+        <span class="section-label reveal">Quiet Returns</span>
 
-        <article class="treatment-card reveal">
-          <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?w=1000&q=85" alt="Diamond facial" loading="lazy" />
-          <div class="treatment-overlay">
-            <div class="treatment-content">
-              <p class="treatment-tag">90 Minutes · $285</p>
-              <h3>Diamond Radiance Ritual</h3>
-              <p>Microdermabrasion with diamond-tip technology followed by a custom serum infusion. Skin is visibly lifted, tightened, and luminous.</p>
-              <a href="#booking" class="btn btn-ghost-light">Reserve Experience</a>
-            </div>
+        <div class="testimonial-carousel">
+          <div class="testimonial active">
+            <blockquote>"I didn't realize how much I was holding<br />until I let go."</blockquote>
+            <cite>— A quiet return, Mumbai</cite>
           </div>
-        </article>
-
-        <article class="treatment-card reveal" style="--delay:0.15s">
-          <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1000&q=85" alt="Himalayan salt ritual" loading="lazy" />
-          <div class="treatment-overlay">
-            <div class="treatment-content">
-              <p class="treatment-tag">120 Minutes · $320</p>
-              <h3>Himalayan Salt Ceremony</h3>
-              <p>A full-body detox immersion using hand-carved salt stones, mineral-rich muds, and breathwork to purify from within.</p>
-              <a href="#booking" class="btn btn-ghost-light">Reserve Experience</a>
-            </div>
+          <div class="testimonial">
+            <blockquote>"Time moved differently here.<br />Everything slowed — including me."</blockquote>
+            <cite>— First visit, Bangalore</cite>
           </div>
-        </article>
-
-        <article class="treatment-card reveal" style="--delay:0.3s">
-          <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=1000&q=85" alt="Royal hammam" loading="lazy" />
-          <div class="treatment-overlay">
-            <div class="treatment-content">
-              <p class="treatment-tag">150 Minutes · $395</p>
-              <h3>Royal Hammam Journey</h3>
-              <p>Inspired by Ottoman bathing traditions — steam, black soap exfoliation, a kessa glove cleanse, and a rose-water rinse.</p>
-              <a href="#booking" class="btn btn-ghost-light">Reserve Experience</a>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════ TESTIMONIALS ═══════════════════════ -->
-  <section class="section testimonials-section" id="testimonials">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-tag">Guest Stories</p>
-        <h2 class="section-title">Words from Our Beloved Guests</h2>
-      </div>
-      <div class="testimonials-grid">
-
-        <article class="testi-card reveal">
-          <div class="stars">★★★★★</div>
-          <blockquote>"Calmora is unlike any spa I've visited globally. The Diamond Ritual left my skin transformed, but it was the atmosphere — the complete sense of surrender — that I still carry with me."</blockquote>
-          <div class="testi-author">
-            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Sarah M." loading="lazy" />
-            <div>
-              <strong>Sarah M.</strong>
-              <span>Executive Director, New York</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="testi-card reveal" style="--delay:0.1s">
-          <div class="stars">★★★★★</div>
-          <blockquote>"My husband and I did the Couples' Sanctuary for our anniversary. The rose-petal bath, the champagne, the massage — absolute perfection. We've already booked for next year."</blockquote>
-          <div class="testi-author">
-            <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&q=80" alt="Priya K." loading="lazy" />
-            <div>
-              <strong>Priya K.</strong>
-              <span>Interior Designer, London</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="testi-card reveal" style="--delay:0.2s">
-          <div class="stars">★★★★★</div>
-          <blockquote>"The Himalayan Salt Ceremony was genuinely life-changing. I arrived exhausted and left feeling genuinely renewed. The therapist's intuition was extraordinary — she knew exactly where to focus."</blockquote>
-          <div class="testi-author">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="James T." loading="lazy" />
-            <div>
-              <strong>James T.</strong>
-              <span>Architect, Dubai</span>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════ GALLERY ═══════════════════════ -->
-  <section class="section gallery-section" id="gallery">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-tag">The Calmora World</p>
-        <h2 class="section-title">A Visual Journey</h2>
-        <p class="section-sub">Glimpses of the sanctuary that awaits you.</p>
-      </div>
-      <div class="gallery-grid reveal">
-        <div class="gallery-item gi-tall" data-src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1200&q=90">
-          <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80" alt="Massage room" loading="lazy" />
-          <div class="gallery-hover"><span>✦</span></div>
-        </div>
-        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1629196914168-3a2652305f9f?w=1200&q=90">
-          <img src="https://images.unsplash.com/photo-1629196914168-3a2652305f9f?w=600&q=80" alt="Candles" loading="lazy" />
-          <div class="gallery-hover"><span>✦</span></div>
-        </div>
-        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1583241475880-083f84372725?w=1200&q=90">
-          <img src="https://images.unsplash.com/photo-1583241475880-083f84372725?w=600&q=80" alt="Facial treatment" loading="lazy" />
-          <div class="gallery-hover"><span>✦</span></div>
-        </div>
-        <div class="gallery-item gi-wide" data-src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&q=90">
-          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="Spa pool" loading="lazy" />
-          <div class="gallery-hover"><span>✦</span></div>
-        </div>
-        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1200&q=90">
-          <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&q=80" alt="Essential oils" loading="lazy" />
-          <div class="gallery-hover"><span>✦</span></div>
-        </div>
-        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=1200&q=90">
-          <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=80" alt="Hot stones" loading="lazy" />
-          <div class="gallery-hover"><span>✦</span></div>
-        </div>
-      </div>
-    </div>
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-      <button class="lb-close" id="lbClose">✕</button>
-      <button class="lb-prev" id="lbPrev">‹</button>
-      <div class="lb-img-wrap">
-        <img src="" alt="Gallery image" id="lbImg" />
-      </div>
-      <button class="lb-next" id="lbNext">›</button>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════ BOOKING ═══════════════════════ -->
-  <section class="booking-section" id="booking">
-    <div class="booking-inner">
-      <div class="booking-left reveal">
-        <p class="section-tag light">Reserve Your Escape</p>
-        <h2 class="section-title light">Begin Your<br/><em>Calmora</em> Journey</h2>
-        <p class="booking-desc">Our concierge will confirm your appointment within 2 hours and tailor every detail to your preferences.</p>
-        <div class="booking-info">
-          <div class="bk-info-item">
-            <span>✦</span>
-            <p>Complimentary consultation with every booking</p>
-          </div>
-          <div class="bk-info-item">
-            <span>✦</span>
-            <p>Flexible rescheduling up to 24 hours before</p>
-          </div>
-          <div class="bk-info-item">
-            <span>✦</span>
-            <p>Private changing suites & welcome tea ritual</p>
+          <div class="testimonial">
+            <blockquote>"Not a treatment. A remembering.<br />Of what my body already knew."</blockquote>
+            <cite>— Regular guest, Delhi</cite>
           </div>
         </div>
-      </div>
-      <div class="booking-form-wrap reveal">
-        <form class="booking-form" id="bookingForm" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <input type="text" id="firstName" required placeholder=" " />
-              <label for="firstName">First Name</label>
-            </div>
-            <div class="form-group">
-              <input type="text" id="lastName" required placeholder=" " />
-              <label for="lastName">Last Name</label>
-            </div>
-          </div>
-          <div class="form-group">
-            <input type="email" id="email" required placeholder=" " />
-            <label for="email">Email Address</label>
-          </div>
-          <div class="form-group">
-            <input type="tel" id="phone" placeholder=" " />
-            <label for="phone">Phone Number</label>
-          </div>
-          <div class="form-group form-select-wrap">
-            <select id="service" required>
-              <option value="" disabled selected></option>
-              <option value="deep-tissue">Deep Tissue Massage — $120</option>
-              <option value="facial">Luminosity Facial — $95</option>
-              <option value="gold-body">Gold Body Ritual — $175</option>
-              <option value="aromatherapy">Aromatic Journey — $110</option>
-              <option value="hot-stone">Hot Stone Therapy — $140</option>
-              <option value="couples">Couples' Sanctuary — $260</option>
-              <option value="diamond">Diamond Radiance Ritual — $285</option>
-              <option value="himalayan">Himalayan Salt Ceremony — $320</option>
-              <option value="hammam">Royal Hammam Journey — $395</option>
-            </select>
-            <label for="service">Select Service</label>
-            <span class="select-arrow">⌄</span>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <input type="date" id="date" required placeholder=" " />
-              <label for="date">Preferred Date</label>
-            </div>
-            <div class="form-group form-select-wrap">
-              <select id="time">
-                <option value="" disabled selected></option>
-                <option>9:00 AM</option>
-                <option>10:00 AM</option>
-                <option>11:00 AM</option>
-                <option>12:00 PM</option>
-                <option>2:00 PM</option>
-                <option>3:00 PM</option>
-                <option>4:00 PM</option>
-                <option>5:00 PM</option>
-              </select>
-              <label for="time">Preferred Time</label>
-              <span class="select-arrow">⌄</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <textarea id="notes" rows="3" placeholder=" "></textarea>
-            <label for="notes">Special Requests (optional)</label>
-          </div>
-          <button type="submit" class="btn btn-primary btn-full">
-            <span class="btn-text">Confirm Reservation</span>
-            <span class="btn-arrow">→</span>
-          </button>
-          <p class="form-note">Your details are held in strictest confidence.</p>
-        </form>
-        <div class="booking-success" id="bookingSuccess">
-          <div class="success-icon">✦</div>
-          <h3>Your sanctuary awaits.</h3>
-          <p>Thank you for choosing Calmora. Our concierge will reach you within 2 hours to confirm every detail of your experience.</p>
+
+        <div class="testimonial-dots">
+          <button class="dot active" data-index="0"></button>
+          <button class="dot" data-index="1"></button>
+          <button class="dot" data-index="2"></button>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════════════ CONTACT + FOOTER ═══════════════════════ -->
-  <footer class="footer" id="contact">
-    <div class="footer-map">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2!2d-73.9897!3d40.7484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU0LjIiTiA3M8KwNTknMjIuOSJX!5e0!3m2!1sen!2sus!4v1"
-        width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy"
-        title="Calmora Wellness Location">
-      </iframe>
-    </div>
-    <div class="footer-body">
-      <div class="footer-brand">
-        <a href="#" class="nav-logo footer-logo">
-          <span class="logo-icon">✦</span>
-          <span class="logo-text">Calmora</span>
-        </a>
-        <p class="footer-tagline">Where luxury meets serenity.<br/>Your sanctuary of pure well-being.</p>
-        <div class="social-links">
-          <a href="#" aria-label="Instagram" class="social-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          </a>
-          <a href="#" aria-label="Facebook" class="social-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
-          <a href="#" aria-label="Pinterest" class="social-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.852 0 1.265.64 1.265 1.408 0 .858-.546 2.14-.828 3.33-.236.995.499 1.806 1.476 1.806 1.772 0 3.136-1.867 3.136-4.562 0-2.387-1.715-4.057-4.163-4.057-2.837 0-4.5 2.128-4.5 4.328 0 .857.33 1.775.741 2.277a.3.3 0 0 1 .069.284c-.076.315-.244.995-.277 1.134-.044.183-.146.222-.337.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
-          </a>
-          <a href="#" aria-label="TikTok" class="social-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
-          </a>
+    <!-- GALLERY -->
+    <section class="gallery" id="gallery">
+      <div class="gallery-header reveal">
+        <span class="section-label">The Space</span>
+        <h2>Where light<br /><em>moves slowly</em></h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item g-tall reveal">
+          <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=600&q=80" alt="Spa space" />
+          <div class="gallery-overlay"><span>Arrival</span></div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Candles" />
+          <div class="gallery-overlay"><span>Ritual</span></div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=80" alt="Stones and oils" />
+          <div class="gallery-overlay"><span>Elements</span></div>
+        </div>
+        <div class="gallery-item g-wide reveal">
+          <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=900&q=80" alt="Treatment room" />
+          <div class="gallery-overlay"><span>Stillness</span></div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="Botanical oils" />
+          <div class="gallery-overlay"><span>Botanicals</span></div>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Experiences</h4>
-        <ul>
-          <li><a href="#services">Massage Therapy</a></li>
-          <li><a href="#services">Facial Treatments</a></li>
-          <li><a href="#services">Body Rituals</a></li>
-          <li><a href="#services">Couples' Packages</a></li>
-          <li><a href="#treatments">Signature Collection</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>The Spa</h4>
-        <ul>
-          <li><a href="#about">Our Philosophy</a></li>
-          <li><a href="#">Our Team</a></li>
-          <li><a href="#">Gift Cards</a></li>
-          <li><a href="#">Memberships</a></li>
-          <li><a href="#">Press</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Visit Us</h4>
-        <address>
-          <p>128 Serenity Lane<br/>Manhattan, New York 10001</p>
-          <p><a href="tel:+12125550199">+1 (212) 555-0199</a></p>
-          <p><a href="mailto:hello@calmorawellness.com">hello@calmorawellness.com</a></p>
-          <p class="hours">Mon – Sat: 9AM – 8PM<br/>Sunday: 10AM – 6PM</p>
-        </address>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 Calmora Wellness. All rights reserved. Crafted with care.</p>
-      <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookie Preferences</a>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <script src="script.js"></script>
-</body>
-</html>
+    <!-- BOOKING CTA STRIP -->
+    <section class="booking-strip">
+      <div class="booking-inner reveal">
+        <h2>Your ritual<br /><em>awaits.</em></h2>
+        <p>Reserve your time in stillness. Spaces are limited and kept intimate by design.</p>
+        <a href="#" class="booking-cta">Begin your ritual →</a>
+      </div>
+      <div class="booking-visual">
+        <img src="https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=1800&q=80" alt="Spa ambience" />
+        <div class="booking-overlay"></div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="#" class="footer-logo">Calmora</a>
+          <p>A ritual space for quiet return.<br />Open Tuesday – Sunday, 9am – 8pm.</p>
+        </div>
+
+        <div class="footer-nav">
+          <span class="footer-label">Navigate</span>
+          <a href="#philosophy">Philosophy</a>
+          <a href="#services">Services</a>
+          <a href="#testimonials">Stories</a>
+          <a href="#gallery">Gallery</a>
+        </div>
+
+        <div class="footer-contact">
+          <span class="footer-label">Reach Us</span>
+          <a href="tel:+919876543210">+91 98765 43210</a>
+          <a href="/cdn-cgi/l/email-protection#563e333a3a391635373a3b3924377835393b"><span class="__cf_email__" data-cfemail="a8c0cdc4c4c7e8cbc9c4c5c7dac986cbc7c5">[email&#160;protected]</span></a>
+          <p>12 Sankey Road, Bangalore<br />Karnataka, India 560052</p>
+        </div>
+
+        <div class="footer-book">
+          <span class="footer-label">Begin</span>
+          <a href="#" class="footer-cta">Book a Session →</a>
+          <p class="footer-note">Spaces are kept small<br />by design.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 Calmora. All rights reserved.</span
