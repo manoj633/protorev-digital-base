@@ -122,7 +122,7 @@ const lbNext    = $('#lbNext');
 const galleryItems = $$('.gallery-item');
 
 let currentIndex = 0;
-const galleryImages = galleryItems.map(item => item.getAttribute('data-src'));
+const galleryImages = galleryItems.map(item => item.getAttribute('data-src')).filter(Boolean);
 
 function openLightbox(index) {
   currentIndex = index;
