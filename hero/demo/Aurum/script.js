@@ -119,6 +119,42 @@
 
   resetTimer();
 
+  /* ── HAMBURGER MENU ──────────────────────── */
+  const hamburger = document.getElementById("navHamburger");
+  const navLinks = document.getElementById("navLinks");
+  const mobileLinks = document.querySelectorAll(".nav-mobile-link");
+
+  function closeMenu() {
+    hamburger.classList.remove("open");
+    navLinks.classList.remove("open");
+    document.body.classList.remove("nav-open");
+    hamburger.setAttribute("aria-expanded", "false");
+  }
+
+  function openMenu() {
+    hamburger.classList.add("open");
+    navLinks.classList.add("open");
+    document.body.classList.add("nav-open");
+    hamburger.setAttribute("aria-expanded", "true");
+  }
+
+  if (hamburger) {
+    hamburger.addEventListener("click", () => {
+      const isOpen = hamburger.classList.contains("open");
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    // Close menu when any nav link is clicked
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    // Close on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  }
+
   /* ── CTA FORM (basic feedback) ───────────── */
   const ctaBtn = document.querySelector(".cta-btn");
   if (ctaBtn) {

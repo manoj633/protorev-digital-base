@@ -16,13 +16,26 @@
     <!-- ── NAVIGATION ─────────────────────────── -->
     <nav id="nav">
       <a href="#hero" class="nav-logo">AURUM</a>
-      <ul class="nav-links">
-        <li><a href="#projects">Residences</a></li>
-        <li><a href="#browse">Browse</a></li>
-        <li><a href="#lifestyle">Living</a></li>
-        <li><a href="#gallery">Gallery</a></li>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#projects" class="nav-mobile-link">Residences</a></li>
+        <li><a href="#browse" class="nav-mobile-link">Browse</a></li>
+        <li><a href="#lifestyle" class="nav-mobile-link">Living</a></li>
+        <li><a href="#gallery" class="nav-mobile-link">Gallery</a></li>
+        <li class="nav-mobile-cta-item">
+          <a href="#cta" class="nav-cta nav-mobile-link">Private Tour</a>
+        </li>
       </ul>
-      <a href="#cta" class="nav-cta">Private Tour</a>
+      <a href="#cta" class="nav-cta nav-cta-desktop">Private Tour</a>
+      <button
+        class="nav-hamburger"
+        id="navHamburger"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
 
     <!-- ── HERO ───────────────────────────────── -->
