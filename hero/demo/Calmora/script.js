@@ -2,13 +2,16 @@
 const nav = document.querySelector(".nav");
 const philosophy = document.querySelector(".philosophy");
 
-window.addEventListener("scroll", () => {
-  nav.classList.toggle("scrolled", window.scrollY > 40);
-  if (philosophy) {
-    const trigger = philosophy.offsetTop - 100;
-    nav.classList.toggle("light", window.scrollY > trigger);
-  }
-});
+function updateNav() {
+  const scrolled = window.scrollY > 40;
+  const lightTrigger = philosophy ? philosophy.offsetTop - 100 : Infinity;
+  const isLight = window.scrollY > lightTrigger;
+
+  nav.classList.toggle("scrolled", scrolled);
+}
+
+window.addEventListener("scroll", updateNav, { passive: true });
+updateNav();
 
 // ─── SCROLL REVEAL ──────────────────────────────────────────
 const reveals = document.querySelectorAll(".reveal");
