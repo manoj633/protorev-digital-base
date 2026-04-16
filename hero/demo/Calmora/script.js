@@ -1,3 +1,22 @@
+// ─── HAMBURGER MENU ─────────────────────────────────────────
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu");
+
+hamburger.addEventListener("click", () => {
+  const isOpen = mobileMenu.classList.toggle("open");
+  hamburger.classList.toggle("open", isOpen);
+  document.body.style.overflow = isOpen ? "hidden" : "";
+});
+
+// Close menu on link click
+document.querySelectorAll(".mobile-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.remove("open");
+    hamburger.classList.remove("open");
+    document.body.style.overflow = "";
+  });
+});
+
 // ─── NAV BEHAVIOR ───────────────────────────────────────────
 const nav = document.querySelector(".nav");
 const philosophy = document.querySelector(".philosophy");

@@ -963,6 +963,94 @@ a {
   color: rgba(245, 239, 228, 0.4);
 }
 
+/* ================= HAMBURGER MENU ================= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 1100;
+  flex-shrink: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--ivory);
+  transition: transform 0.35s ease, opacity 0.35s ease, background 0.4s;
+  transform-origin: center;
+}
+
+.nav.light .hamburger span {
+  background: var(--espresso);
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--coffee);
+  z-index: 1050;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  opacity: 0;
+  transform: translateY(-16px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.mobile-menu a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--ivory);
+  opacity: 0.85;
+  transition: opacity 0.3s, color 0.3s;
+  text-transform: none;
+}
+
+.mobile-menu a:hover {
+  opacity: 1;
+  color: var(--caramel);
+}
+
+.mobile-menu .mobile-phone {
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  color: rgba(245, 239, 228, 0.5);
+  font-family: 'DM Sans', sans-serif;
+  margin-top: 16px;
+}
+
 /* ================= RESPONSIVE ================= */
 @media (max-width: 1024px) {
   .nav-center {
@@ -984,21 +1072,56 @@ a {
     display: none;
   }
 
+  .hamburger {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+
   .nav-inner {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
+    gap: 16px;
+    padding: 0 24px;
   }
 
   .nav-phone {
     display: none;
   }
 
+  .nav-right {
+    gap: 16px;
+  }
+
+  .nav-cta {
+    padding: 9px 18px;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    white-space: nowrap;
+    text-align: center;
+  }
+
   .hero-content {
     grid-template-columns: 1fr;
     padding: 120px 32px 80px;
+    gap: 32px;
+    align-content: end;
+  }
+
+  .hero-title {
+    font-size: clamp(44px, 13vw, 64px);
+    line-height: 1.0;
+    align-self: auto;
   }
 
   .hero-side {
     max-width: 100%;
+    align-self: auto;
+  }
+
+  .hero-side p {
+    font-size: 15px;
   }
 
   .philosophy,
@@ -1042,12 +1165,18 @@ a {
     grid-template-rows: auto;
   }
 
+  .gallery-item {
+    height: auto;
+    aspect-ratio: 3 / 4;
+  }
+
   .gallery-item.g-tall,
   .gallery-item.g-wide {
     grid-row: span 1;
     grid-column: span 1;
     border-radius: 20px;
-    height: 200px;
+    height: auto;
+    aspect-ratio: 3 / 4;
   }
 
   .booking-strip {
@@ -1060,6 +1189,10 @@ a {
     max-width: 100%;
   }
 
+  .booking-overlay {
+    background: rgba(42, 31, 24, 0.75);
+  }
+
   /* ── FOOTER MOBILE FIX ── */
   .footer {
     padding: 72px 24px 0;
@@ -1069,6 +1202,7 @@ a {
     grid-template-columns: 1fr;
     gap: 48px;
     padding-bottom: 56px;
+    text-align: center;
   }
 
   .footer-brand {
@@ -1080,6 +1214,12 @@ a {
   .footer-contact,
   .footer-book {
     gap: 14px;
+    align-items: center;
+  }
+
+  .footer-cta {
+    width: auto;
+    align-self: center;
   }
 
   .footer-bottom {
