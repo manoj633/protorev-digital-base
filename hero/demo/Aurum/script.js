@@ -119,6 +119,41 @@
 
   resetTimer();
 
+  /* ── HAMBURGER / MOBILE DRAWER ──────────── */
+  const hamburger = document.getElementById("navHamburger");
+  const drawer = document.getElementById("navDrawer");
+  const scrim = document.getElementById("navScrim");
+  const drawerClose = document.getElementById("navDrawerClose");
+
+  function openDrawer() {
+    hamburger.classList.add("open");
+    hamburger.setAttribute("aria-expanded", "true");
+    drawer.classList.add("open");
+    drawer.setAttribute("aria-hidden", "false");
+    scrim.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeDrawer() {
+    hamburger.classList.remove("open");
+    hamburger.setAttribute("aria-expanded", "false");
+    drawer.classList.remove("open");
+    drawer.setAttribute("aria-hidden", "true");
+    scrim.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  hamburger.addEventListener("click", () => {
+    drawer.classList.contains("open") ? closeDrawer() : openDrawer();
+  });
+
+  scrim.addEventListener("click", closeDrawer);
+  drawerClose.addEventListener("click", closeDrawer);
+
+  drawer.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeDrawer);
+  });
+
   /* ── CTA FORM (basic feedback) ───────────── */
   const ctaBtn = document.querySelector(".cta-btn");
   if (ctaBtn) {
