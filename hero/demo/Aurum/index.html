@@ -56,13 +56,17 @@
 
     <!-- ── HERO ───────────────────────────────── -->
     <section id="hero">
-      <div
+      <video
         class="hero-bg"
         id="heroBg"
-        style="
-          background-image: url(&quot;https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80&fit=crop&quot;);
-        "
-      ></div>
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80&fit=crop"
+      >
+        <source src="hero.mp4" type="video/mp4" />
+      </video>
       <div class="hero-overlay"></div>
 
       <div class="hero-inner">
@@ -127,8 +131,6 @@
           </div>
         </div>
       </div>
-
-      <div class="hero-scroll" aria-hidden="true">Scroll to discover</div>
     </section>
 
     <!-- ── PHILOSOPHY ─────────────────────────── -->

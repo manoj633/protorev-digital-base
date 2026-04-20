@@ -13,12 +13,6 @@
   }
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  /* ── HERO KEN-BURNS ONLY (no parallax) ──── */
-  const heroBg = document.getElementById("heroBg");
-  window.addEventListener("load", () => {
-    if (heroBg) heroBg.classList.add("loaded");
-  });
-
   /* ── SCROLL REVEAL ───────────────────────── */
   const reveals = document.querySelectorAll(".reveal");
   const revealObserver = new IntersectionObserver(

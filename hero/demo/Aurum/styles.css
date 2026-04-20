@@ -150,9 +150,13 @@ nav.scrolled .nav-links a {
 .hero-bg {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  object-fit: cover;
+  object-position: center;
 }
 
 .hero-overlay {
@@ -1288,6 +1292,7 @@ footer {
 .reveal-delay-3 {
   transition-delay: 0.45s;
 }
+
 /* =============================================
    RESPONSIVE — Mobile & Tablet
    ============================================= */
@@ -1338,9 +1343,11 @@ nav.scrolled .nav-hamburger span {
 .nav-hamburger.open span:nth-child(1) {
   transform: translateY(6.5px) rotate(45deg);
 }
+
 .nav-hamburger.open span:nth-child(2) {
   opacity: 0;
 }
+
 .nav-hamburger.open span:nth-child(3) {
   transform: translateY(-6.5px) rotate(-45deg);
 }
@@ -1490,7 +1497,7 @@ nav.scrolled .nav-hamburger span {
   }
 
   .nav-links,
-  nav > .nav-cta {
+  nav>.nav-cta {
     display: none;
   }
 
