@@ -19,6 +19,24 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        /* Custom Scrollbar */
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d4af37; 
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #b5952f; 
+        }
+        .custom-scrollbar {
+            scrollbar-width: thin;
+            scrollbar-color: #d4af37 transparent;
+        }
     </style>
 <script id="tailwind-config">
         tailwind.config = {
@@ -136,14 +154,14 @@
 <!-- Hero Section -->
 <section class="relative h-screen w-full flex items-center justify-center overflow-hidden hero-gradient">
 <div class="absolute inset-0 z-0">
-<div class="absolute top-[15%] left-[10%] w-64 h-64 opacity-20 transform -rotate-12">
-<img class="w-full h-full object-contain" data-alt="Exquisite white porcelain saucer with delicate gold leaf rim floating against a soft cream studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7AS_8N13gWaLL2ERdkSRmOthKvv9cDjw2WqcwY6fFnX8UxsD4VuLlzawwoV0MtgM3Dni8gagcFKcV7M8oAeXHyqGJ6RwEdzM69md5RyhElFF5FOFYjNuhH4_bF-7Ln2N1Nky7cOr6TI5wbpiZ_0d38jq0BNWwp1xEzdohdC7mzYIMCRJXmgvg-5En98g6ZXo23z7kIpVVzvmPMUrREN7gkTtysF4zNXEzZYyV4DRY-eg4ZngHVF9ewAKfoSiZKDOXrjSOetVw3jxZ"/>
+<div class="parallax-layer absolute top-[15%] left-[10%] w-64 h-64 opacity-20" data-speed="-0.15">
+<img class="w-full h-full object-contain transform -rotate-12" data-alt="Exquisite white porcelain saucer with delicate gold leaf rim floating against a soft cream studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7AS_8N13gWaLL2ERdkSRmOthKvv9cDjw2WqcwY6fFnX8UxsD4VuLlzawwoV0MtgM3Dni8gagcFKcV7M8oAeXHyqGJ6RwEdzM69md5RyhElFF5FOFYjNuhH4_bF-7Ln2N1Nky7cOr6TI5wbpiZ_0d38jq0BNWwp1xEzdohdC7mzYIMCRJXmgvg-5En98g6ZXo23z7kIpVVzvmPMUrREN7gkTtysF4zNXEzZYyV4DRY-eg4ZngHVF9ewAKfoSiZKDOXrjSOetVw3jxZ"/>
 </div>
-<div class="absolute bottom-[20%] right-[12%] w-80 h-80 opacity-25 transform rotate-45">
-<img class="w-full h-full object-contain" data-alt="Luxury bone china soup bowl with intricate gold filigree patterns floating in a soft ethereal lighting environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_xrhnGlB0069DRA1sfNoX4-VgKxA7pIWa7TsZfRGlAvkl7yqBgdzdvZu3jOBhpfhp7r6UWaUTSn17eUafwtB56QggoLJlnvBXnZqYhZyCJl5WMubvpW170f_U8AnK6V4EAkDHcvA5_8ko_JEZiKqLZ-5Guvm0g2-jGxHTAmjDeAYOkrQbqZbdz6zjK0QYzTHZ6NAC9HQRK6OdnSf7ssR_lGvJ1h2kyrvzkioRvTEXcmTTfwyDNUjdKDUrhuTq8ONdXvzx9v_Ei6Ov"/>
+<div class="parallax-layer absolute bottom-[20%] right-[12%] w-80 h-80 opacity-25" data-speed="0.2">
+<img class="w-full h-full object-contain transform rotate-45" data-alt="Luxury bone china soup bowl with intricate gold filigree patterns floating in a soft ethereal lighting environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_xrhnGlB0069DRA1sfNoX4-VgKxA7pIWa7TsZfRGlAvkl7yqBgdzdvZu3jOBhpfhp7r6UWaUTSn17eUafwtB56QggoLJlnvBXnZqYhZyCJl5WMubvpW170f_U8AnK6V4EAkDHcvA5_8ko_JEZiKqLZ-5Guvm0g2-jGxHTAmjDeAYOkrQbqZbdz6zjK0QYzTHZ6NAC9HQRK6OdnSf7ssR_lGvJ1h2kyrvzkioRvTEXcmTTfwyDNUjdKDUrhuTq8ONdXvzx9v_Ei6Ov"/>
 </div>
-<div class="absolute top-[40%] right-[5%] w-48 h-48 opacity-15 transform -rotate-6">
-<img class="w-full h-full object-contain" data-alt="Minimalist luxury white espresso cup with a thin gold handle suspended in mid-air with soft diffused shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfZu_yKORHForiB6Bc6kCf5LyfF3wfAopgR4Q5GNvw2-04B3b6ia1DpKn-OycPmEwyt_V8-m2E9-EWRHu4EqtRfd4HxTynT6OP14nWqA1L7kIPD8VVS1eWctFaCN4bCZ2FqtahjB2FyPZT3eafVckPKYkrLHmXn-E3hl5_rIsEqBFZVM2bNrCi3-PLq98TkPGyWvwhELRtq2ISibrXA787ZB0GEvRkDZN9rajIDB1p-3wQmPJoxRUzIvHXFN3d7xL2bJjjiCcbBVgC"/>
+<div class="parallax-layer absolute top-[40%] right-[5%] w-48 h-48 opacity-15" data-speed="-0.1">
+<img class="w-full h-full object-contain transform -rotate-6" data-alt="Minimalist luxury white espresso cup with a thin gold handle suspended in mid-air with soft diffused shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfZu_yKORHForiB6Bc6kCf5LyfF3wfAopgR4Q5GNvw2-04B3b6ia1DpKn-OycPmEwyt_V8-m2E9-EWRHu4EqtRfd4HxTynT6OP14nWqA1L7kIPD8VVS1eWctFaCN4bCZ2FqtahjB2FyPZT3eafVckPKYkrLHmXn-E3hl5_rIsEqBFZVM2bNrCi3-PLq98TkPGyWvwhELRtq2ISibrXA787ZB0GEvRkDZN9rajIDB1p-3wQmPJoxRUzIvHXFN3d7xL2bJjjiCcbBVgC"/>
 </div>
 </div>
 <div class="relative z-10 flex flex-col items-center text-center">
@@ -162,7 +180,7 @@
 </div>
 </section>
 <!-- The Silent Host - Magazine Section -->
-<section class="py-section-gap px-margin-edge bg-surface overflow-hidden">
+<section class="silent-host-section py-section-gap px-margin-edge bg-surface overflow-hidden">
 <div class="max-w-container-max mx-auto">
 <div class="grid grid-cols-12 gap-gutter items-center">
 <div class="col-span-12 md:col-span-5 mb-stack-lg md:mb-0">
@@ -174,7 +192,7 @@
                         </p>
 </div>
 <div class="col-span-12 md:col-span-7 relative">
-<div class="flex gap-gutter overflow-x-auto pb-stack-lg snap-x hide-scrollbar">
+<div class="silent-host-scroll flex gap-gutter overflow-x-auto pb-stack-lg snap-x custom-scrollbar">
 <div class="min-w-[400px] snap-center">
 <img class="w-full aspect-[3/4] object-cover mb-stack-md" data-alt="Close-up of an artisan hand-painting a delicate gold rim on a white porcelain plate with a fine brush in a sunlit atelier" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4pDDds1FWaSo0zgC_6-6HmoSdvnYBqrGYb0hWUrAJrGoOyJie9iDjH3J6goeDjPvVeIAfleKPvVbd3G0Cy6GSj0lXGnSnM_QuBTC3nWrzoYJm6uocIt-yPxsIptDa9eiOn8x93xeVVVk4eNfva_vFozrjg5QkEmcPZhoElqUfOeh2MRZJXXOkHbYSIo4DUWD63-PuH1p8L8dZwkzH9FdjdGtN5PCOlncjxc9t0HlPKRTdBcZWGEO5d3lJVIFAl3V75lBidoZHV6oC"/>
 <span class="font-label-caps text-[10px] text-stone-400">01 / PROVENANCE</span>
@@ -200,28 +218,28 @@
 </div>
 <div class="relative max-w-4xl mx-auto h-[600px] flex items-center justify-center">
 <!-- Stacked Layers Simulation -->
-<div class="absolute transition-all duration-1000 transform -translate-y-48 opacity-40 scale-75">
+<div class="ritual-plate absolute z-0 transition-all duration-[1200ms] ease-out delay-100 scale-75 -translate-y-64 opacity-0" data-start-classes="-translate-y-64 opacity-0" data-end-classes="-translate-y-48 opacity-40">
 <img class="w-96" data-alt="Top view of a large white presentation plate with a gold edge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb3F5pmHU8A9EqPtlN9R7-vrHpe4vYmkfzGDmjmDpLhFXEjF-K0qS-Yz1ZvHULdPc0I5djmYrDx1h63JNtJKXXmym2luk3-W6fCnfDtFC1Q66D61ph6Hpavfl-i_cRVbHWduY5XaZXars07o8-QzIMOLg9OEn5JpqMS7ZzdgN-OIWEzpx2hphhFXzmLDc22j6apHgQ6hAIDTXe1XVQs_Oz-ef0qC-YQpE93SIyBzVN0LCsDuIbFi-M84yUd-e8ylNVONPNSQte5F1X"/>
 </div>
-<div class="absolute transition-all duration-1000 transform -translate-y-24 opacity-70 scale-90">
+<div class="ritual-plate absolute z-10 transition-all duration-[1200ms] ease-out delay-300 scale-90 -translate-y-40 opacity-0" data-start-classes="-translate-y-40 opacity-0" data-end-classes="-translate-y-24 opacity-70">
 <img class="w-80" data-alt="Top view of a medium white dinner plate with a gold edge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjzOO2DnPzJ0xCRKmrhqTpqX3zeuvkQ5awkZHDwNo3ld-7NNwqa9Ex7gng0uw02DZ6QCc3PgZf-t8IWMAnC0YznweJTzN7FgUTQYpf18y3N4a2rGL_d-m7pHdozkvZtFySpvTvZMdQSNJ43h4Jskbn_zHayE5ZDeSAj5x8CgGKbGgWe-mPNFRzaE7o8YkrJC9r6aMSYrbm1l8pnLi0_5PMS9bxdoCm_AoFSS1yUMAUi3paDUm81smteoaRdlJ8TThgvS5mUOuWCMyH"/>
 </div>
-<div class="absolute transition-all duration-1000 transform translate-y-0 z-20">
+<div class="ritual-plate absolute z-20 transition-all duration-[1200ms] ease-out delay-500 scale-100 -translate-y-16 opacity-0" data-start-classes="-translate-y-16 opacity-0" data-end-classes="translate-y-0 opacity-100">
 <img class="w-64" data-alt="Top view of a small white appetizer plate with a gold edge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPwjhYTZh2fAjy8IOJe6Zl747eyGddtFwlxPk716YVLBedY3W8NnJXh9V3AubfVTMRIshztdsZeAAYiP2awudCIevfzzfkSwx_-PhZmOX61Yn4sdWCW2wkw4FFOCkVYtVQKL9W5-7sD4w82aPp484Tg99HF9xbaHYF63y75NvXFPmv2Kfwoc1carLe-SghhXIQVng_E0Sc0Pdytvet2IBIvzxAL2dXPY8FwI8bRp7FQ-99eHHxW5jMlzNUYsXe6KkZKqtKKR6zR2iD"/>
 </div>
-<div class="absolute transition-all duration-1000 transform translate-y-24 z-10 opacity-80">
+<div class="ritual-plate absolute z-30 transition-all duration-[1200ms] ease-out delay-700 scale-100 translate-y-8 opacity-0" data-start-classes="translate-y-8 opacity-0" data-end-classes="translate-y-24 opacity-80">
 <img class="w-48" data-alt="Small white bowl sitting on top of a plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5XnpqvZy0t3z1-nv7nfzWJqBWB8cRqcwL84bIU3at9-ZDSLMtf3eNY43r7z0PUrchlwBZOPemgssAu2lR-RSwrME4LwYvOojfQ9jfzcXg1YIKctLS9hkmgYSmiZcqhn8Hw2kgvTdzONobpOjwdRcr2REPzgnPauoyaIHC1xlJRC8Z0VnQTUjPuXZQi2NPbp1SE6dlYWqGpEKyTv1ibtOh72HxAB-8Bcc3tv-0fTk1lDiv3Stf9bsh9tQoMDsiDWTMEv-Jzh-YPw18"/>
 </div>
 <div class="absolute right-0 top-1/2 -translate-y-1/2 text-left space-y-stack-md hidden md:block">
-<div class="border-l border-tertiary pl-6">
+<div class="ritual-text border-l border-tertiary pl-6 transition-all duration-1000 ease-out delay-200 translate-x-5 opacity-0" data-start-classes="translate-x-5 opacity-0" data-end-classes="translate-x-0 opacity-100">
 <p class="font-label-caps text-xs text-secondary">01</p>
 <p class="font-headline-md text-sm uppercase tracking-widest">Base Layer</p>
 </div>
-<div class="border-l border-stone-200 pl-6 opacity-30">
+<div class="ritual-text border-l border-stone-200 pl-6 transition-all duration-1000 ease-out delay-400 translate-x-5 opacity-0" data-start-classes="translate-x-5 opacity-0" data-end-classes="translate-x-0 opacity-30">
 <p class="font-label-caps text-xs">02</p>
 <p class="font-headline-md text-sm uppercase tracking-widest">Dinner Service</p>
 </div>
-<div class="border-l border-stone-200 pl-6 opacity-30">
+<div class="ritual-text border-l border-stone-200 pl-6 transition-all duration-1000 ease-out delay-[800ms] translate-x-5 opacity-0" data-start-classes="translate-x-5 opacity-0" data-end-classes="translate-x-0 opacity-30">
 <p class="font-label-caps text-xs">03</p>
 <p class="font-headline-md text-sm uppercase tracking-widest">Finishing Bowl</p>
 </div>
@@ -353,4 +371,70 @@
 </div>
 </div>
 </footer>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Hero Parallax Effect
+    const parallaxLayers = document.querySelectorAll('.parallax-layer');
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        parallaxLayers.forEach(layer => {
+            const speed = layer.getAttribute('data-speed');
+            layer.style.transform = `translateY(${scrollY * speed}px)`;
+        });
+    });
+
+    // 2. Horizontal Scroll for Silent Host section linked to vertical scroll
+    const silentHostSection = document.querySelector('.silent-host-section');
+    const scrollContainer = document.querySelector('.silent-host-scroll');
+    if (silentHostSection && scrollContainer) {
+        window.addEventListener('scroll', () => {
+            const rect = silentHostSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            // Only calculate if the section is in the viewport
+            if (rect.top < windowHeight && rect.bottom > 0) {
+                // Determine how far the user has scrolled through the section
+                const totalScroll = rect.height + windowHeight;
+                const currentScroll = windowHeight - rect.top;
+                
+                // Value between 0 and 1 representing scroll progress
+                let percentage = currentScroll / totalScroll;
+                
+                // Calculate max scrollable width
+                const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+                
+                // Add a multiplier (e.g. 1.2) to reach the end slightly before the section leaves view
+                scrollContainer.scrollLeft = percentage * maxScrollLeft * 1.2;
+            }
+        });
+    }
+
+    // 3. Intersection Observer for Choreographed Table Animations
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.3
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const startClasses = entry.target.getAttribute('data-start-classes');
+                const endClasses = entry.target.getAttribute('data-end-classes');
+                
+                if (startClasses && endClasses) {
+                    entry.target.classList.remove(...startClasses.split(' '));
+                    entry.target.classList.add(...endClasses.split(' '));
+                }
+                // Optional: stop observing once animated
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.ritual-plate, .ritual-text').forEach(el => {
+        observer.observe(el);
+    });
+});
+</script>
 </body></html>
