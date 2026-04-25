@@ -1,51 +1,64 @@
-// Nav scroll effect
-window.addEventListener("scroll", () => {
-  document
-    .getElementById("mainNav")
-    .classList.toggle("scrolled", window.scrollY > 20);
-});
+const { animate, scroll, inView } = window.Motion;
 
-// Mobile menu
-function toggleMenu() {
-  document.getElementById("mobileMenu").classList.toggle("open");
-}
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Custom Cursor
+    const cursor = document.getElementById('customCursor');
+    const hoverTargets = document.querySelectorAll('.hover-target, a, button');
 
-// Scroll animations
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) e.target.classList.add("visible");
+    document.addEventListener('mousemove', (e) => {
+        // Smooth cursor follow
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
     });
-  },
-  { threshold: 0.12 },
-);
-document
-  .querySelectorAll(".fade-in, .fade-in-left")
-  .forEach((el) => observer.observe(el));
 
-// Slider
-let currentSlide = 0;
-function getVisible() {
-  if (window.innerWidth < 480) return 1.2;
-  if (window.innerWidth < 768) return 2;
-  if (window.innerWidth < 1024) return 3;
-  return 4;
-}
-function slide(dir) {
-  const track = document.getElementById("sliderTrack");
-  const cards = track.querySelectorAll(".slide-card");
-  const visible = getVisible();
-  const maxSlide = Math.ceil(cards.length - Math.floor(visible));
-  currentSlide = Math.max(0, Math.min(currentSlide + dir, maxSlide));
-  const cardW = track.querySelector(".slide-card").offsetWidth + 1.5;
-  track.style.transform = `translateX(-${currentSlide * cardW}px)`;
-}
-window.addEventListener("resize", () => {
-  currentSlide = 0;
-  slide(0);
-});
+    hoverTargets.forEach(target => {
+        target.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
+        });
+        target.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
+        });
+    });
 
-// Trigger hero fades immediately
-document.querySelectorAll(".hero .fade-in").forEach((el, i) => {
-  setTimeout(() => el.classList.add("visible"), i * 120 + 200);
+    // 2. Navigation Scroll Effect
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    // 3. Initial Hero Reveal
+    animate('.fade-up', 
+        { y: [40, 0], opacity: [0, 1] },
+        { duration: 0.8, easing: [0.16, 1, 0.3, 1], delay: 0.1 }
+    );
+
+    // 4. Parallax Images on Scroll
+    document.querySelectorAll('.parallax-img').forEach((img) => {
+        scroll(
+            animate(img, { y: ["-5%", "5%"] }),
+            {
+                target: img.parentElement,
+                offset: ["start end", "end start"]
+            }
+        );
+    });
+
+    // 5. Scroll Reveal for Sections
+    document.querySelectorAll('section .fade-up').forEach((el) => {
+        // Extract original inline delay if present, else default
+        const delayStr = el.style.transitionDelay || '0s';
+        const delay = parseFloat(delayStr);
+        el.style.transitionDelay = '0s'; // reset to let JS handle it cleanly or just rely on motion
+        
+        inView(el, (info) => {
+            animate(el, 
+                { y: [50, 0], opacity: [0, 1] }, 
+                { duration: 0.8, easing: [0.16, 1, 0.3, 1], delay: delay }
+            );
+        }, { margin: "-50px" });
+    });
 });
