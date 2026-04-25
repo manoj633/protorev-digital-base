@@ -19,6 +19,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .hero-float-img {
+            position: absolute;
+            pointer-events: none;
+            will-change: transform;
+            transition: transform 0.05s linear;
+        }
         /* Custom Scrollbar */
         .custom-scrollbar::-webkit-scrollbar {
             height: 6px;
@@ -152,26 +158,22 @@
 </nav>
 <main>
 <!-- Hero Section -->
-<section class="relative h-screen w-full flex items-center justify-center overflow-hidden hero-gradient">
-<div class="absolute inset-0 z-0">
-<div class="parallax-layer absolute top-[15%] left-[10%] w-64 h-64 opacity-20" data-speed="-0.15">
-<img class="w-full h-full object-contain transform -rotate-12" data-alt="Exquisite white porcelain saucer with delicate gold leaf rim floating against a soft cream studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7AS_8N13gWaLL2ERdkSRmOthKvv9cDjw2WqcwY6fFnX8UxsD4VuLlzawwoV0MtgM3Dni8gagcFKcV7M8oAeXHyqGJ6RwEdzM69md5RyhElFF5FOFYjNuhH4_bF-7Ln2N1Nky7cOr6TI5wbpiZ_0d38jq0BNWwp1xEzdohdC7mzYIMCRJXmgvg-5En98g6ZXo23z7kIpVVzvmPMUrREN7gkTtysF4zNXEzZYyV4DRY-eg4ZngHVF9ewAKfoSiZKDOXrjSOetVw3jxZ"/>
+<div id="hero-scroll-container" class="relative w-full" style="height: 400vh;">
+<section id="hero" class="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden hero-gradient">
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+<img id="hero-img-1" class="absolute hero-float-img w-64 h-64 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7AS_8N13gWaLL2ERdkSRmOthKvv9cDjw2WqcwY6fFnX8UxsD4VuLlzawwoV0MtgM3Dni8gagcFKcV7M8oAeXHyqGJ6RwEdzM69md5RyhElFF5FOFYjNuhH4_bF-7Ln2N1Nky7cOr6TI5wbpiZ_0d38jq0BNWwp1xEzdohdC7mzYIMCRJXmgvg-5En98g6ZXo23z7kIpVVzvmPMUrREN7gkTtysF4zNXEzZYyV4DRY-eg4ZngHVF9ewAKfoSiZKDOXrjSOetVw3jxZ"/>
+<img id="hero-img-2" class="absolute hero-float-img w-80 h-80 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_xrhnGlB0069DRA1sfNoX4-VgKxA7pIWa7TsZfRGlAvkl7yqBgdzdvZu3jOBhpfhp7r6UWaUTSn17eUafwtB56QggoLJlnvBXnZqYhZyCJl5WMubvpW170f_U8AnK6V4EAkDHcvA5_8ko_JEZiKqLZ-5Guvm0g2-jGxHTAmjDeAYOkrQbqZbdz6zjK0QYzTHZ6NAC9HQRK6OdnSf7ssR_lGvJ1h2kyrvzkioRvTEXcmTTfwyDNUjdKDUrhuTq8ONdXvzx9v_Ei6Ov"/>
+<img id="hero-img-3" class="absolute hero-float-img w-48 h-48 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfZu_yKORHForiB6Bc6kCf5LyfF3wfAopgR4Q5GNvw2-04B3b6ia1DpKn-OycPmEwyt_V8-m2E9-EWRHu4EqtRfd4HxTynT6OP14nWqA1L7kIPD8VVS1eWctFaCN4bCZ2FqtahjB2FyPZT3eafVckPKYkrLHmXn-E3hl5_rIsEqBFZVM2bNrCi3-PLq98TkPGyWvwhELRtq2ISibrXA787ZB0GEvRkDZN9rajIDB1p-3wQmPJoxRUzIvHXFN3d7xL2bJjjiCcbBVgC"/>
+<div id="main-plate-wrapper" class="absolute hero-float-img w-[450px] h-[450px] flex items-center justify-center pointer-events-auto">
+<div class="absolute inset-0 bg-white/40 blur-3xl rounded-full scale-110 pointer-events-none"></div>
+<img id="main-plate-img" class="w-full h-full object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.1)]" data-alt="Stunning centered top-down view of a premium bone china dinner plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzUQlwHDShp4eN0-02EQrPKKW-m4dQeQnszRCWr5lN6w-qsr8NAWqeNEw28xiJcsLh_-hTR3MNTE9VER8HhV32ap5ICB8dwbX5ixJb1svP5xY1DsPoapiVEczSlo-EJrSZNUNM7EuuMkpKF0d_IuVtykUkncJ6Kfqo2yepTyUs6UDbTf_Dje6KLV0_NGip9HPKi6_FOJ-dnPdTyCr1dvpqrwhyk-tuDfFYgGsj2eDzc44opV2_s9vYKVJBLztHHuASFCvqopjaG5Ff"/>
 </div>
-<div class="parallax-layer absolute bottom-[20%] right-[12%] w-80 h-80 opacity-25" data-speed="0.2">
-<img class="w-full h-full object-contain transform rotate-45" data-alt="Luxury bone china soup bowl with intricate gold filigree patterns floating in a soft ethereal lighting environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_xrhnGlB0069DRA1sfNoX4-VgKxA7pIWa7TsZfRGlAvkl7yqBgdzdvZu3jOBhpfhp7r6UWaUTSn17eUafwtB56QggoLJlnvBXnZqYhZyCJl5WMubvpW170f_U8AnK6V4EAkDHcvA5_8ko_JEZiKqLZ-5Guvm0g2-jGxHTAmjDeAYOkrQbqZbdz6zjK0QYzTHZ6NAC9HQRK6OdnSf7ssR_lGvJ1h2kyrvzkioRvTEXcmTTfwyDNUjdKDUrhuTq8ONdXvzx9v_Ei6Ov"/>
 </div>
-<div class="parallax-layer absolute top-[40%] right-[5%] w-48 h-48 opacity-15" data-speed="-0.1">
-<img class="w-full h-full object-contain transform -rotate-6" data-alt="Minimalist luxury white espresso cup with a thin gold handle suspended in mid-air with soft diffused shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfZu_yKORHForiB6Bc6kCf5LyfF3wfAopgR4Q5GNvw2-04B3b6ia1DpKn-OycPmEwyt_V8-m2E9-EWRHu4EqtRfd4HxTynT6OP14nWqA1L7kIPD8VVS1eWctFaCN4bCZ2FqtahjB2FyPZT3eafVckPKYkrLHmXn-E3hl5_rIsEqBFZVM2bNrCi3-PLq98TkPGyWvwhELRtq2ISibrXA787ZB0GEvRkDZN9rajIDB1p-3wQmPJoxRUzIvHXFN3d7xL2bJjjiCcbBVgC"/>
-</div>
-</div>
-<div class="relative z-10 flex flex-col items-center text-center">
+<div class="relative z-10 flex flex-col items-center text-center pointer-events-none">
 <span class="font-label-caps text-label-caps text-on-primary-container mb-stack-md block uppercase">The Grand Service No. 1</span>
 <h1 class="font-display-xl text-display-xl text-tertiary mb-stack-lg leading-tight">CHOREOGRAPHED<br/><span class="italic font-light">ELEGANCE</span></h1>
-<div class="relative w-[450px] h-[450px] flex items-center justify-center">
-<div class="absolute inset-0 bg-white/40 blur-3xl rounded-full scale-110"></div>
-<img class="w-full h-full object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.1)] hover:scale-105 transition-transform duration-[2000ms] ease-in-out" data-alt="Stunning centered top-down view of a premium bone china dinner plate with a thick reflective gold rim on a white silk surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzUQlwHDShp4eN0-02EQrPKKW-m4dQeQnszRCWr5lN6w-qsr8NAWqeNEw28xiJcsLh_-hTR3MNTE9VER8HhV32ap5ICB8dwbX5ixJb1svP5xY1DsPoapiVEczSlo-EJrSZNUNM7EuuMkpKF0d_IuVtykUkncJ6Kfqo2yepTyUs6UDbTf_Dje6KLV0_NGip9HPKi6_FOJ-dnPdTyCr1dvpqrwhyk-tuDfFYgGsj2eDzc44opV2_s9vYKVJBLztHHuASFCvqopjaG5Ff"/>
-</div>
-<div class="mt-stack-lg flex flex-col items-center gap-stack-md">
+<div class="w-[450px] h-[450px]"></div>
+<div class="mt-stack-lg flex flex-col items-center gap-stack-md pointer-events-auto">
 <button class="bg-primary text-on-primary px-12 py-4 font-label-caps tracking-[0.2em] uppercase transition-all duration-500 hover:tracking-[0.3em] hover:bg-stone-800">
                         Explore Collection
                     </button>
@@ -179,6 +181,7 @@
 </div>
 </div>
 </section>
+</div>
 <!-- The Silent Host - Magazine Section -->
 <section class="silent-host-section py-section-gap px-margin-edge bg-surface overflow-hidden">
 <div class="max-w-container-max mx-auto">
@@ -372,69 +375,107 @@
 </div>
 </footer>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Hero Parallax Effect
-    const parallaxLayers = document.querySelectorAll('.parallax-layer');
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        parallaxLayers.forEach(layer => {
-            const speed = layer.getAttribute('data-speed');
-            layer.style.transform = `translateY(${scrollY * speed}px)`;
-        });
-    });
+    (function () {
+        // --- 1. Sticky Hero Carousel ---
+        const scrollContainer = document.getElementById('hero-scroll-container');
+        const heroImgs = [
+            { el: document.getElementById('main-plate-wrapper'), baseScale: 1 },
+            { el: document.getElementById('hero-img-1'), baseScale: 1.75 },
+            { el: document.getElementById('hero-img-2'), baseScale: 1.4 },
+            { el: document.getElementById('hero-img-3'), baseScale: 2.34 }
+        ];
 
-    // 2. Horizontal Scroll for Silent Host section linked to vertical scroll
-    const silentHostSection = document.querySelector('.silent-host-section');
-    const scrollContainer = document.querySelector('.silent-host-scroll');
-    if (silentHostSection && scrollContainer) {
-        window.addEventListener('scroll', () => {
-            const rect = silentHostSection.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-            
-            // Only calculate if the section is in the viewport
-            if (rect.top < windowHeight && rect.bottom > 0) {
-                // Determine how far the user has scrolled through the section
-                const totalScroll = rect.height + windowHeight;
-                const currentScroll = windowHeight - rect.top;
-                
-                // Value between 0 and 1 representing scroll progress
-                let percentage = currentScroll / totalScroll;
-                
-                // Calculate max scrollable width
-                const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-                
-                // Add a multiplier (e.g. 1.2) to reach the end slightly before the section leaves view
-                scrollContainer.scrollLeft = percentage * maxScrollLeft * 1.2;
-            }
-        });
-    }
+        const POSITIONS = [
+            { x: 0, y: 0, r: 0, s: 1, o: 1, z: 20 }, // Center
+            { x: -35, y: -35, r: -12, s: 0.5, o: 0.2, z: 0 }, // Top Left
+            { x: 30, y: 30, r: 45, s: 0.6, o: 0.25, z: 0 }, // Bottom Right
+            { x: 40, y: -10, r: -6, s: 0.8, o: 0.15, z: 0 } // Right
+        ];
 
-    // 3. Intersection Observer for Choreographed Table Animations
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.3
-    };
+        // --- 2. Silent Host Horizontal Scroll ---
+        const silentHostSection = document.querySelector('.silent-host-section');
+        const silentHostScroll = document.querySelector('.silent-host-scroll');
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const startClasses = entry.target.getAttribute('data-start-classes');
-                const endClasses = entry.target.getAttribute('data-end-classes');
+        function onScroll() {
+            // Update Hero Carousel
+            if (scrollContainer) {
+                const rect = scrollContainer.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                const totalScroll = rect.height - windowHeight;
+                let progress = 0;
                 
-                if (startClasses && endClasses) {
-                    entry.target.classList.remove(...startClasses.split(' '));
-                    entry.target.classList.add(...endClasses.split(' '));
+                if (rect.top <= 0) {
+                    progress = Math.min(1, Math.abs(rect.top) / totalScroll);
                 }
-                // Optional: stop observing once animated
-                observer.unobserve(entry.target);
+                
+                const totalStates = POSITIONS.length;
+                const offset = progress * (totalStates - 1); 
+                
+                heroImgs.forEach((img, idx) => {
+                    let vIdx = idx - offset;
+                    while (vIdx < 0) vIdx += totalStates;
+                    while (vIdx >= totalStates) vIdx -= totalStates;
+                    
+                    const idx1 = Math.floor(vIdx);
+                    let idx2 = idx1 + 1;
+                    if (idx2 >= totalStates) idx2 = 0;
+                    
+                    const p = vIdx - idx1;
+                    const ease = (1 - Math.cos(Math.PI * p)) / 2;
+                    
+                    const p1 = POSITIONS[idx1];
+                    const p2 = POSITIONS[idx2];
+                    
+                    const x = p1.x + (p2.x - p1.x) * ease;
+                    const y = p1.y + (p2.y - p1.y) * ease;
+                    const r = p1.r + (p2.r - p1.r) * ease;
+                    const s = (p1.s + (p2.s - p1.s) * ease) * img.baseScale;
+                    const o = p1.o + (p2.o - p1.o) * ease;
+                    const z = p < 0.5 ? p1.z : p2.z;
+                    
+                    if (img.el) {
+                        img.el.style.transform = `translate(${x}vw, ${y}vh) rotate(${r}deg) scale(${s})`;
+                        img.el.style.opacity = o;
+                        img.el.style.zIndex = z;
+                    }
+                });
             }
-        });
-    }, observerOptions);
 
-    document.querySelectorAll('.ritual-plate, .ritual-text').forEach(el => {
-        observer.observe(el);
-    });
-});
+            // Update Silent Host Scroll
+            if (silentHostSection && silentHostScroll) {
+                const rect = silentHostSection.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    const totalScroll = rect.height + windowHeight;
+                    const currentScroll = windowHeight - rect.top;
+                    const percentage = currentScroll / totalScroll;
+                    const maxScrollLeft = silentHostScroll.scrollWidth - silentHostScroll.clientWidth;
+                    silentHostScroll.scrollLeft = percentage * maxScrollLeft * 1.2;
+                }
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll(); // initialize positions
+
+        // --- 3. Choreographed Table Intersection Observer ---
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const startClasses = entry.target.getAttribute('data-start-classes');
+                    const endClasses = entry.target.getAttribute('data-end-classes');
+                    if (startClasses && endClasses) {
+                        entry.target.classList.remove(...startClasses.split(' '));
+                        entry.target.classList.add(...endClasses.split(' '));
+                    }
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.ritual-plate, .ritual-text').forEach(el => {
+            observer.observe(el);
+        });
+    })();
 </script>
 </body></html>
