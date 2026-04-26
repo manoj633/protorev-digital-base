@@ -156,23 +156,23 @@
 </div>
 </div>
 </nav>
-<main>
+<main class="pt-24">
 <!-- Hero Section -->
 <div id="hero-scroll-container" class="relative w-full" style="height: 400vh;">
-<section id="hero" class="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden hero-gradient">
+<section id="hero" class="sticky top-24 h-[calc(100svh-96px)] w-full flex items-start justify-center overflow-hidden hero-gradient pt-12 pb-12">
 <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
 <img id="hero-img-1" class="absolute hero-float-img w-64 h-64 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7AS_8N13gWaLL2ERdkSRmOthKvv9cDjw2WqcwY6fFnX8UxsD4VuLlzawwoV0MtgM3Dni8gagcFKcV7M8oAeXHyqGJ6RwEdzM69md5RyhElFF5FOFYjNuhH4_bF-7Ln2N1Nky7cOr6TI5wbpiZ_0d38jq0BNWwp1xEzdohdC7mzYIMCRJXmgvg-5En98g6ZXo23z7kIpVVzvmPMUrREN7gkTtysF4zNXEzZYyV4DRY-eg4ZngHVF9ewAKfoSiZKDOXrjSOetVw3jxZ"/>
 <img id="hero-img-2" class="absolute hero-float-img w-80 h-80 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_xrhnGlB0069DRA1sfNoX4-VgKxA7pIWa7TsZfRGlAvkl7yqBgdzdvZu3jOBhpfhp7r6UWaUTSn17eUafwtB56QggoLJlnvBXnZqYhZyCJl5WMubvpW170f_U8AnK6V4EAkDHcvA5_8ko_JEZiKqLZ-5Guvm0g2-jGxHTAmjDeAYOkrQbqZbdz6zjK0QYzTHZ6NAC9HQRK6OdnSf7ssR_lGvJ1h2kyrvzkioRvTEXcmTTfwyDNUjdKDUrhuTq8ONdXvzx9v_Ei6Ov"/>
 <img id="hero-img-3" class="absolute hero-float-img w-48 h-48 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfZu_yKORHForiB6Bc6kCf5LyfF3wfAopgR4Q5GNvw2-04B3b6ia1DpKn-OycPmEwyt_V8-m2E9-EWRHu4EqtRfd4HxTynT6OP14nWqA1L7kIPD8VVS1eWctFaCN4bCZ2FqtahjB2FyPZT3eafVckPKYkrLHmXn-E3hl5_rIsEqBFZVM2bNrCi3-PLq98TkPGyWvwhELRtq2ISibrXA787ZB0GEvRkDZN9rajIDB1p-3wQmPJoxRUzIvHXFN3d7xL2bJjjiCcbBVgC"/>
-<div id="main-plate-wrapper" class="absolute hero-float-img w-[450px] h-[450px] flex items-center justify-center pointer-events-auto">
+<div id="main-plate-wrapper" class="absolute hero-float-img w-[300px] h-[300px] md:w-[450px] md:h-[450px] flex items-center justify-center pointer-events-auto">
 <div class="absolute inset-0 bg-white/40 blur-3xl rounded-full scale-110 pointer-events-none"></div>
 <img id="main-plate-img" class="w-full h-full object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.1)]" data-alt="Stunning centered top-down view of a premium bone china dinner plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzUQlwHDShp4eN0-02EQrPKKW-m4dQeQnszRCWr5lN6w-qsr8NAWqeNEw28xiJcsLh_-hTR3MNTE9VER8HhV32ap5ICB8dwbX5ixJb1svP5xY1DsPoapiVEczSlo-EJrSZNUNM7EuuMkpKF0d_IuVtykUkncJ6Kfqo2yepTyUs6UDbTf_Dje6KLV0_NGip9HPKi6_FOJ-dnPdTyCr1dvpqrwhyk-tuDfFYgGsj2eDzc44opV2_s9vYKVJBLztHHuASFCvqopjaG5Ff"/>
 </div>
 </div>
-<div class="relative z-10 flex flex-col items-center text-center pointer-events-none">
+<div class="relative z-10 flex flex-col items-center text-center pointer-events-none my-auto">
 <span class="font-label-caps text-label-caps text-on-primary-container mb-stack-md block uppercase">The Grand Service No. 1</span>
 <h1 class="font-display-xl text-display-xl text-tertiary mb-stack-lg leading-tight">CHOREOGRAPHED<br/><span class="italic font-light">ELEGANCE</span></h1>
-<div class="w-[450px] h-[450px]"></div>
+<div class="w-[300px] h-[300px] md:w-[450px] md:h-[450px]"></div>
 <div class="mt-stack-lg flex flex-col items-center gap-stack-md pointer-events-auto">
 <button class="bg-primary text-on-primary px-12 py-4 font-label-caps tracking-[0.2em] uppercase transition-all duration-500 hover:tracking-[0.3em] hover:bg-stone-800">
                         Explore Collection
@@ -183,8 +183,9 @@
 </section>
 </div>
 <!-- The Silent Host - Magazine Section -->
-<section class="silent-host-section py-section-gap px-margin-edge bg-surface overflow-hidden">
-<div class="max-w-container-max mx-auto">
+<div id="silent-host-scroll-container" class="relative w-full" style="height: 300vh;">
+<section class="silent-host-section sticky top-24 h-[calc(100svh-96px)] flex flex-col justify-center py-section-gap px-margin-edge bg-surface overflow-hidden">
+<div class="max-w-container-max mx-auto w-full">
 <div class="grid grid-cols-12 gap-gutter items-center">
 <div class="col-span-12 md:col-span-5 mb-stack-lg md:mb-0">
 <span class="font-label-caps text-label-caps text-secondary mb-stack-sm block">THE CURATOR'S NOTE</span>
@@ -194,17 +195,17 @@
                             Our porcelain serves as the invisible stage for your culinary narrative. Meticulously crafted over twelve weeks, each piece is balanced to provide a tactile experience that complements the weight of heritage and the lightness of modern living.
                         </p>
 </div>
-<div class="col-span-12 md:col-span-7 relative">
-<div class="silent-host-scroll flex gap-gutter overflow-x-auto pb-stack-lg snap-x custom-scrollbar">
-<div class="min-w-[400px] snap-center">
+<div class="col-span-12 md:col-span-7 relative overflow-hidden">
+<div class="silent-host-scroll flex gap-gutter flex-nowrap pb-stack-lg" style="will-change: transform; transition: transform 0.1s ease-out;">
+<div class="min-w-[400px]">
 <img class="w-full aspect-[3/4] object-cover mb-stack-md" data-alt="Close-up of an artisan hand-painting a delicate gold rim on a white porcelain plate with a fine brush in a sunlit atelier" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4pDDds1FWaSo0zgC_6-6HmoSdvnYBqrGYb0hWUrAJrGoOyJie9iDjH3J6goeDjPvVeIAfleKPvVbd3G0Cy6GSj0lXGnSnM_QuBTC3nWrzoYJm6uocIt-yPxsIptDa9eiOn8x93xeVVVk4eNfva_vFozrjg5QkEmcPZhoElqUfOeh2MRZJXXOkHbYSIo4DUWD63-PuH1p8L8dZwkzH9FdjdGtN5PCOlncjxc9t0HlPKRTdBcZWGEO5d3lJVIFAl3V75lBidoZHV6oC"/>
 <span class="font-label-caps text-[10px] text-stone-400">01 / PROVENANCE</span>
 </div>
-<div class="min-w-[400px] snap-center pt-stack-lg">
+<div class="min-w-[400px] pt-stack-lg">
 <img class="w-full aspect-[3/4] object-cover mb-stack-md" data-alt="A stack of ivory white china plates with gold edges arranged in an asymmetrical artistic composition on a dark marble surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClqJL8mPiutvJyGdp9COk5TOMErT6yJ8rwcHdMQXBo23Zra8sv7FYh00YGXgDU2NGXgqZt5Q4KYDJ8OqiJf9HDkXEoXsf6ICUed-oyaEQrJUqxB6nbNW9w8i0sM4_c2OE1WF_28phB97-5A5NTa6QIKdsbrPz0RIVhEE3UU5jypruFzqjmaxB-kOar23HwdxjF6X-8T4DWtaBia99YfhzEaJq-MIorU7jRNY81m2H65A1LJ8M2Kz694rbXRd7HQTZw-lwEp1OqvY70"/>
 <span class="font-label-caps text-[10px] text-stone-400">02 / COMPOSITION</span>
 </div>
-<div class="min-w-[400px] snap-center pt-24">
+<div class="min-w-[400px] pt-24 pr-12">
 <img class="w-full aspect-[3/4] object-cover mb-stack-md" data-alt="Macro detail of the texture of bone china showing its translucency and the fine grain of the material under warm spotlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYwySg0yHK8fmuZ5_vFYFirL2O4UiZ1ZJR69namo-F5JdnDmZUgMQbMzB16FJF2rJK7P7ZHAzkXlYtzUGOAZX1MpVKmXvDMkgBaK_2JevwboF5VSKPXuYQhFootcVwj7YNe4rqGowaIn12xLg3iqjs4nIiFlE1rjgHv5s-tWHlRejmtL4wjtqAVQvocVPBiB9rjrPv5YSkdWSI42qY_qAfMY8OakgFi92rbIFars3p66hoHXwGOnFMMdBShyXS8p4rYpLBV2qmZxoq"/>
 <span class="font-label-caps text-[10px] text-stone-400">03 / MATERIALITY</span>
 </div>
@@ -213,6 +214,7 @@
 </div>
 </div>
 </section>
+</div>
 <!-- Choreographed Table Section -->
 <section class="bg-surface-container-low py-section-gap px-margin-edge overflow-hidden">
 <div class="max-w-container-max mx-auto text-center mb-section-gap">
@@ -393,7 +395,7 @@
         ];
 
         // --- 2. Silent Host Horizontal Scroll ---
-        const silentHostSection = document.querySelector('.silent-host-section');
+        const silentHostContainer = document.getElementById('silent-host-scroll-container');
         const silentHostScroll = document.querySelector('.silent-host-scroll');
 
         function onScroll() {
@@ -442,15 +444,23 @@
             }
 
             // Update Silent Host Scroll
-            if (silentHostSection && silentHostScroll) {
-                const rect = silentHostSection.getBoundingClientRect();
+            if (silentHostContainer && silentHostScroll) {
+                const rect = silentHostContainer.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
-                if (rect.top < windowHeight && rect.bottom > 0) {
-                    const totalScroll = rect.height + windowHeight;
-                    const currentScroll = windowHeight - rect.top;
-                    const percentage = currentScroll / totalScroll;
-                    const maxScrollLeft = silentHostScroll.scrollWidth - silentHostScroll.clientWidth;
-                    silentHostScroll.scrollLeft = percentage * maxScrollLeft * 1.2;
+                
+                // container is 300vh. Pinned scroll distance is rect.height - windowHeight.
+                const totalScroll = rect.height - windowHeight;
+                let progress = 0;
+                
+                if (rect.top <= 0) {
+                    progress = Math.min(1, Math.abs(rect.top) / totalScroll);
+                }
+                
+                // Max translation distance
+                const maxTranslate = silentHostScroll.scrollWidth - silentHostScroll.parentElement.clientWidth;
+                
+                if (maxTranslate > 0) {
+                    silentHostScroll.style.transform = `translateX(-${progress * maxTranslate}px)`;
                 }
             }
         }
