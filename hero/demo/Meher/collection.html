@@ -135,7 +135,7 @@
 </div>
 </div>
 </nav>
-<main class="pt-24 overflow-x-hidden">
+<main class="pt-24">
 <!-- Hero Header -->
 <header class="h-[614px] flex flex-col items-center justify-center text-center px-margin-edge bg-surface-bright">
 <span class="font-label-caps text-label-caps text-on-primary-container mb-stack-md">Curation 2024</span>
@@ -143,68 +143,73 @@
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl font-light italic">Explore our masterwork collections, where heritage craftsmanship meets contemporary silhouettes.</p>
 </header>
 <!-- Collections Horizontal Slider -->
-<section class="py-section-gap relative">
-<div class="px-margin-edge mb-stack-lg flex justify-between items-end">
-<div>
-<h2 class="font-headline-lg text-headline-lg text-tertiary">The Collections</h2>
+<!-- Collections Horizontal Slider -->
+<div id="collections-scroll-container" class="relative w-full" style="height: 350vh;">
+    <section class="sticky top-24 h-[calc(100vh-96px)] flex flex-col justify-center py-10 overflow-hidden bg-surface">
+        <div class="px-margin-edge mb-12 flex justify-between items-end">
+            <div>
+                <h2 class="font-headline-lg text-headline-lg text-tertiary">The Collections</h2>
+            </div>
+            <div class="flex gap-4">
+                <div class="w-12 h-12 flex items-center justify-center border border-outline/30 rounded-full">
+                    <span class="material-symbols-outlined text-stone-300">arrow_back</span>
+                </div>
+                <div class="w-12 h-12 flex items-center justify-center border border-outline/30 rounded-full">
+                    <span class="material-symbols-outlined text-stone-300">arrow_forward</span>
+                </div>
+            </div>
+        </div>
+        <div class="collections-slider flex gap-gutter px-margin-edge transition-transform duration-75 ease-out" style="will-change: transform;">
+            <!-- Classic Collection -->
+            <div class="flex-none w-[600px] group cursor-pointer transition-all duration-700 ease-in-out">
+                <div class="relative overflow-hidden mb-stack-md h-[400px]">
+                    <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5Z3b3WlVBYffYZfNG7j6xdwCdB83scF63aD7Q2kOhtXEmnrGKF0ns1fPDmIzh_molaOax61ohEQg-6b0cNLdRms8aGnczscj2-avY7cA2KoqQyyx03AyCpj3umSkBSTT0Mtc7ixl9Fn2IXzubtvrVBaVC90QCuJ3aQoko9dF0MBy9bowKIeu6Rkn9a6mszcSi4UjoS4yjEHmYpaJnkDIqFb8GP6kkJVrVnhbiVWo0Pg05PGxvgbHEN-MLUjHSFqDhT1j9eXrTkRNK"/>
+                    <div class="absolute inset-0 bg-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <span class="bg-surface px-4 py-2 font-label-caps text-[10px] text-tertiary shadow-xl">ESSENTIAL ELEGANCE</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <h3 class="font-headline-md text-2xl">Classic Heritage</h3>
+                    <p class="font-label-caps text-xs pt-1">FROM $1,200</p>
+                </div>
+                <p class="font-body-md text-on-surface-variant mt-2 max-w-md">The foundation of every storied dining room. Pure white translucent bone china with timeless silhouettes.</p>
+            </div>
+            <!-- Gold Rim Collection -->
+            <div class="flex-none w-[600px] group cursor-pointer transition-all duration-700 ease-in-out">
+                <div class="relative overflow-hidden mb-stack-md h-[400px]">
+                    <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADuDs7B02P56t9dOLOB3hOzZ8C6ROUUFj06RvG8RRoXy3rJYm2tqjTp4CbJxxqYlKhwmJkbqRyP-SM7U-InxksN1HwOWSsjMfYzRDQKHAOSd75EkVs6F96I73Ys8MfWCfLMBovwiAa6g3oJ7J4L6Idt512FzOCtpRcRCm9WHnS4vLvjG9F_3qy0EwOlZGwobIRyw4CSufzxCQyAjGj7hnJXteNM8xdze0aJgIIeYVy1dcFT5gRFdCy2aSLxfR7ZDuzEAPtwn6VUrj2"/>
+                    <div class="absolute inset-0 bg-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <span class="bg-surface px-4 py-2 font-label-caps text-[10px] text-tertiary shadow-xl">ARTISAN LUXE</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <h3 class="font-headline-md text-2xl">The Gold Rim</h3>
+                    <p class="font-label-caps text-xs pt-1">FROM $2,800</p>
+                </div>
+                <p class="font-body-md text-on-surface-variant mt-2 max-w-md">Hand-painted 24-karat gold edges that capture the candle light. A dance of opulence and restraint.</p>
+            </div>
+            <!-- Signature Hotel -->
+            <div class="flex-none w-[600px] group cursor-pointer transition-all duration-700 ease-in-out">
+                <div class="relative overflow-hidden mb-stack-md h-[400px]">
+                    <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5Y3th-AMn6rnXGmmFDf2wkFrH-LWWOlK5qXhE3N-9LPK7pAQK0bQGW1y-DdbEncZGV0IUlPQnXPBkEiTBqGyiKHJxyBbzsY1UQZdy-hfIqoIq3BowwmwUm70TUZ3t9-u76XC6FoUEjSaXT8VJ1Ond_Z1uLSzNpkJ9TqTN9d6TzBsHs_MOvIMtE13G1PlVO2LbFN7aR0Hv9XELHFFB9V_24HRg43B0nEcabH8lcWufO0GZEGTO0GHRULrdyu8dLDu5a7_zt6Yvp50r"/>
+                    <div class="absolute inset-0 bg-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <span class="bg-surface px-4 py-2 font-label-caps text-[10px] text-tertiary shadow-xl">CULINARY PRECISION</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <h3 class="font-headline-md text-2xl">Signature Hotel</h3>
+                    <p class="font-label-caps text-xs pt-1">FROM $950</p>
+                </div>
+                <p class="font-body-md text-on-surface-variant mt-2 max-w-md">Durability meets high design. Engineered for the world's most demanding culinary stages.</p>
+            </div>
+            <!-- Empty space to ensure the last card can be fully seen -->
+            <div class="flex-none w-[300px]"></div>
+        </div>
+    </section>
 </div>
-<div class="flex gap-4">
-<button class="w-12 h-12 flex items-center justify-center border border-outline/30 rounded-full hover:border-tertiary transition-colors">
-<span class="material-symbols-outlined">arrow_back</span>
-</button>
-<button class="w-12 h-12 flex items-center justify-center border border-outline/30 rounded-full hover:border-tertiary transition-colors">
-<span class="material-symbols-outlined">arrow_forward</span>
-</button>
-</div>
-</div>
-<div class="flex overflow-x-auto hide-scrollbar gap-gutter px-margin-edge pb-stack-lg">
-<!-- Classic Collection -->
-<div class="flex-none w-[800px] group cursor-pointer transition-all duration-700 ease-in-out">
-<div class="relative overflow-hidden mb-stack-md h-[500px]">
-<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="minimalist set of pure white fine bone china dinnerware on a stone surface with soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5Z3b3WlVBYffYZfNG7j6xdwCdB83scF63aD7Q2kOhtXEmnrGKF0ns1fPDmIzh_molaOax61ohEQg-6b0cNLdRms8aGnczscj2-avY7cA2KoqQyyx03AyCpj3umSkBSTT0Mtc7ixl9Fn2IXzubtvrVBaVC90QCuJ3aQoko9dF0MBy9bowKIeu6Rkn9a6mszcSi4UjoS4yjEHmYpaJnkDIqFb8GP6kkJVrVnhbiVWo0Pg05PGxvgbHEN-MLUjHSFqDhT1j9eXrTkRNK"/>
-<div class="absolute inset-0 bg-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div class="absolute bottom-8 left-8">
-<span class="bg-surface px-4 py-2 font-label-caps text-[10px] text-tertiary shadow-xl">ESSENTIAL ELEGANCE</span>
-</div>
-</div>
-<div class="flex justify-between items-start">
-<h3 class="font-headline-md text-headline-md">Classic Heritage</h3>
-<p class="font-label-caps text-label-caps pt-2">FROM $1,200</p>
-</div>
-<p class="font-body-md text-on-surface-variant mt-2 max-w-lg">The foundation of every storied dining room. Pure white translucent bone china with timeless silhouettes.</p>
-</div>
-<!-- Gold Rim Collection -->
-<div class="flex-none w-[800px] group cursor-pointer transition-all duration-700 ease-in-out">
-<div class="relative overflow-hidden mb-stack-md h-[500px]">
-<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="exquisite luxury plate with intricate 24k gold hand-painted rim detailing on a dark velvet surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADuDs7B02P56t9dOLOB3hOzZ8C6ROUUFj06RvG8RRoXy3rJYm2tqjTp4CbJxxqYlKhwmJkbqRyP-SM7U-InxksN1HwOWSsjMfYzRDQKHAOSd75EkVs6F96I73Ys8MfWCfLMBovwiAa6g3oJ7J4L6Idt512FzOCtpRcRCm9WHnS4vLvjG9F_3qy0EwOlZGwobIRyw4CSufzxCQyAjGj7hnJXteNM8xdze0aJgIIeYVy1dcFT5gRFdCy2aSLxfR7ZDuzEAPtwn6VUrj2"/>
-<div class="absolute inset-0 bg-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div class="absolute bottom-8 left-8">
-<span class="bg-surface px-4 py-2 font-label-caps text-[10px] text-tertiary shadow-xl">ARTISAN LUXE</span>
-</div>
-</div>
-<div class="flex justify-between items-start">
-<h3 class="font-headline-md text-headline-md">The Gold Rim</h3>
-<p class="font-label-caps text-label-caps pt-2">FROM $2,800</p>
-</div>
-<p class="font-body-md text-on-surface-variant mt-2 max-w-lg">Hand-painted 24-karat gold edges that capture the candle light. A dance of opulence and restraint.</p>
-</div>
-<!-- Signature Hotel -->
-<div class="flex-none w-[800px] group cursor-pointer transition-all duration-700 ease-in-out">
-<div class="relative overflow-hidden mb-stack-md h-[500px]">
-<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="sturdy yet refined hotel-grade porcelain dinner set arranged in a professional culinary kitchen setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5Y3th-AMn6rnXGmmFDf2wkFrH-LWWOlK5qXhE3N-9LPK7pAQK0bQGW1y-DdbEncZGV0IUlPQnXPBkEiTBqGyiKHJxyBbzsY1UQZdy-hfIqoIq3BowwmwUm70TUZ3t9-u76XC6FoUEjSaXT8VJ1Ond_Z1uLSzNpkJ9TqTN9d6TzBsHs_MOvIMtE13G1PlVO2LbFN7aR0Hv9XELHFFB9V_24HRg43B0nEcabH8lcWufO0GZEGTO0GHRULrdyu8dLDu5a7_zt6Yvp50r"/>
-<div class="absolute inset-0 bg-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div class="absolute bottom-8 left-8">
-<span class="bg-surface px-4 py-2 font-label-caps text-[10px] text-tertiary shadow-xl">CULINARY PRECISION</span>
-</div>
-</div>
-<div class="flex justify-between items-start">
-<h3 class="font-headline-md text-headline-md">Signature Hotel</h3>
-<p class="font-label-caps text-label-caps pt-2">FROM $950</p>
-</div>
-<p class="font-body-md text-on-surface-variant mt-2 max-w-lg">Durability meets high design. Engineered for the world's most demanding culinary stages.</p>
-</div>
-</div>
-</section>
 <!-- Anatomy of Perfection (Exploded View) -->
 <section class="py-section-gap bg-stone-900 text-stone-50 overflow-hidden relative min-h-[900px] flex items-center">
 <div class="grid grid-cols-12 gap-gutter px-margin-edge w-full items-center">
@@ -350,4 +355,34 @@
 <p class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-400">© 2024 L'ART DE LA TABLE. ATELIER OF ELEGANCE.</p>
 </div>
 </footer>
+<script>
+    (function () {
+        const collectionsContainer = document.getElementById('collections-scroll-container');
+        const collectionsSlider = document.querySelector('.collections-slider');
+
+        function onScroll() {
+            if (collectionsContainer && collectionsSlider) {
+                const rect = collectionsContainer.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                const stickyTop = 96; // matches top-24
+                const sectionHeight = windowHeight - stickyTop;
+                const totalScroll = rect.height - sectionHeight;
+                let progress = 0;
+
+                if (rect.top <= stickyTop) {
+                    progress = Math.min(1, Math.abs(rect.top - stickyTop) / totalScroll);
+                }
+
+                // Calculate horizontal translation
+                const maxTranslate = collectionsSlider.scrollWidth - collectionsSlider.clientWidth;
+                if (maxTranslate > 0) {
+                    collectionsSlider.style.transform = `translateX(-${progress * maxTranslate}px)`;
+                }
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll(); // init
+    })();
+</script>
 </body></html>
