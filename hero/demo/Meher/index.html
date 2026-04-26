@@ -216,49 +216,84 @@
 </section>
 </div>
 <!-- Choreographed Table Section -->
-<section class="bg-surface-container-low py-section-gap px-margin-edge overflow-hidden">
-<div class="max-w-container-max mx-auto text-center mb-section-gap">
-<span class="font-label-caps text-label-caps text-on-primary-container mb-stack-sm block">THE RITUAL</span>
-<h2 class="font-headline-lg text-headline-lg text-tertiary">The Choreographed Table</h2>
+<div id="ritual-scroll-container" class="relative w-full" style="height: 400vh;">
+    <section class="sticky top-24 h-[calc(100vh-96px)] bg-surface-container-low flex flex-col justify-center overflow-hidden z-10">
+        <div class="max-w-container-max mx-auto w-full px-margin-edge grid grid-cols-12 gap-gutter items-center h-full">
+            
+            <!-- Left side: Descriptive Text -->
+            <div class="col-span-12 md:col-span-5 flex flex-col justify-between py-24 h-full">
+                <div>
+                    <span class="font-label-caps text-label-caps text-secondary mb-stack-sm block uppercase">THE RITUAL</span>
+                    <h2 class="font-headline-lg text-headline-lg text-tertiary leading-tight">The Choreographed Table</h2>
+                </div>
+                
+                <div id="ritual-text-steps" class="relative h-[250px] w-full">
+                    <div class="ritual-step absolute inset-0 flex flex-col justify-center transition-all duration-100 ease-out pointer-events-none" data-step="0">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="font-label-caps text-xs text-stone-400">01</span>
+                            <div class="h-[1px] w-8 bg-stone-200"></div>
+                        </div>
+                        <h3 class="font-headline-md text-2xl uppercase tracking-widest mb-4">Base Layer</h3>
+                        <p class="font-body-md text-on-surface-variant max-w-sm">The foundation of the evening. A broad canvas of fine bone china that sets the scale for the journey ahead.</p>
+                    </div>
+                    
+                    <div class="ritual-step absolute inset-0 flex flex-col justify-center transition-all duration-100 ease-out pointer-events-none" data-step="1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="font-label-caps text-xs text-stone-400">02</span>
+                            <div class="h-[1px] w-8 bg-stone-200"></div>
+                        </div>
+                        <h3 class="font-headline-md text-2xl uppercase tracking-widest mb-4">Dinner Service</h3>
+                        <p class="font-body-md text-on-surface-variant max-w-sm">The heart of the meal. Precisely weighted to feel substantial yet ethereal, rimmed with 24k gold.</p>
+                    </div>
+                    
+                    <div class="ritual-step absolute inset-0 flex flex-col justify-center transition-all duration-100 ease-out pointer-events-none" data-step="2">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="font-label-caps text-xs text-stone-400">03</span>
+                            <div class="h-[1px] w-8 bg-stone-200"></div>
+                        </div>
+                        <h3 class="font-headline-md text-2xl uppercase tracking-widest mb-4">Appetizer Plate</h3>
+                        <p class="font-body-md text-on-surface-variant max-w-sm">Intricate patterns for the opening act. A delicate balance of form and function.</p>
+                    </div>
+
+                    <div class="ritual-step absolute inset-0 flex flex-col justify-center transition-all duration-100 ease-out pointer-events-none" data-step="3">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="font-label-caps text-xs text-stone-400">04</span>
+                            <div class="h-[1px] w-8 bg-stone-200"></div>
+                        </div>
+                        <h3 class="font-headline-md text-2xl uppercase tracking-widest mb-4">Finishing Bowl</h3>
+                        <p class="font-body-md text-on-surface-variant max-w-sm">The final touch. A sculptural piece that nests perfectly within the stack, completing the ritual.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="border border-primary text-primary px-12 py-4 font-label-caps tracking-[0.2em] uppercase hover:bg-stone-100 transition-colors">
+                        Build Your Set
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right side: Vertical Carousel Viewport -->
+            <div class="col-span-12 md:col-span-7 relative h-full flex items-center justify-center overflow-hidden">
+                <div id="ritual-carousel-viewport" class="relative w-full h-full flex items-center justify-center">
+                    <!-- Plates will be animated via JS -->
+                    <div class="ritual-carousel-item absolute flex items-center justify-center transition-all duration-100 ease-out" data-plate="0">
+                        <img class="w-[500px] drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb3F5pmHU8A9EqPtlN9R7-vrHpe4vYmkfzGDmjmDpLhFXEjF-K0qS-Yz1ZvHULdPc0I5djmYrDx1h63JNtJKXXmym2luk3-W6fCnfDtFC1Q66D61ph6Hpavfl-i_cRVbHWduY5XaZXars07o8-QzIMOLg9OEn5JpqMS7ZzdgN-OIWEzpx2hphhFXzmLDc22j6apHgQ6hAIDTXe1XVQs_Oz-ef0qC-YQpE93SIyBzVN0LCsDuIbFi-M84yUd-e8ylNVONPNSQte5F1X"/>
+                    </div>
+                    <div class="ritual-carousel-item absolute flex items-center justify-center transition-all duration-100 ease-out" data-plate="1">
+                        <img class="w-[420px] drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjzOO2DnPzJ0xCRKmrhqTpqX3zeuvkQ5awkZHDwNo3ld-7NNwqa9Ex7gng0uw02DZ6QCc3PgZf-t8IWMAnC0YznweJTzN7FgUTQYpf18y3N4a2rGL_d-m7pHdozkvZtFySpvTvZMdQSNJ43h4Jskbn_zHayE5ZDeSAj5x8CgGKbGgWe-mPNFRzaE7o8YkrJC9r6aMSYrbm1l8pnLi0_5PMS9bxdoCm_AoFSS1yUMAUi3paDUm81smteoaRdlJ8TThgvS5mUOuWCMyH"/>
+                    </div>
+                    <div class="ritual-carousel-item absolute flex items-center justify-center transition-all duration-100 ease-out" data-plate="2">
+                        <img class="w-[340px] drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPwjhYTZh2fAjy8IOJe6Zl747eyGddtFwlxPk716YVLBedY3W8NnJXh9V3AubfVTMRIshztdsZeAAYiP2awudCIevfzzfkSwx_-PhZmOX61Yn4sdWCW2wkw4FFOCkVYtVQKL9W5-7sD4w82aPp484Tg99HF9xbaHYF63y75NvXFPmv2Kfwoc1carLe-SghhXIQVng_E0Sc0Pdytvet2IBIvzxAL2dXPY8FwI8bRp7FQ-99eHHxW5jMlzNUYsXe6KkZKqtKKR6zR2iD"/>
+                    </div>
+                    <div class="ritual-carousel-item absolute flex items-center justify-center transition-all duration-100 ease-out" data-plate="3">
+                        <img class="w-[260px] drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5XnpqvZy0t3z1-nv7nfzWJqBWB8cRqcwL84bIU3at9-ZDSLMtf3eNY43r7z0PUrchlwBZOPemgssAu2lR-RSwrME4LwYvOojfQ9jfzcXg1YIKctLS9hkmgYSmiZcqhn8Hw2kgvTdzONobpOjwdRcr2REPzgnPauoyaIHC1xlJRC8Z0VnQTUjPuXZQi2NPbp1SE6dlYWqGpEKyTv1ibtOh72HxAB-8Bcc3tv-0fTk1lDiv3Stf9bsh9tQoMDsiDWTMEv-Jzh-YPw18"/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 </div>
-<div class="relative max-w-4xl mx-auto h-[600px] flex items-center justify-center">
-<!-- Stacked Layers Simulation -->
-<div class="ritual-plate absolute z-0 transition-all duration-[1200ms] ease-out delay-100 scale-75 -translate-y-64 opacity-0" data-start-classes="-translate-y-64 opacity-0" data-end-classes="-translate-y-48 opacity-40">
-<img class="w-96" data-alt="Top view of a large white presentation plate with a gold edge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb3F5pmHU8A9EqPtlN9R7-vrHpe4vYmkfzGDmjmDpLhFXEjF-K0qS-Yz1ZvHULdPc0I5djmYrDx1h63JNtJKXXmym2luk3-W6fCnfDtFC1Q66D61ph6Hpavfl-i_cRVbHWduY5XaZXars07o8-QzIMOLg9OEn5JpqMS7ZzdgN-OIWEzpx2hphhFXzmLDc22j6apHgQ6hAIDTXe1XVQs_Oz-ef0qC-YQpE93SIyBzVN0LCsDuIbFi-M84yUd-e8ylNVONPNSQte5F1X"/>
-</div>
-<div class="ritual-plate absolute z-10 transition-all duration-[1200ms] ease-out delay-300 scale-90 -translate-y-40 opacity-0" data-start-classes="-translate-y-40 opacity-0" data-end-classes="-translate-y-24 opacity-70">
-<img class="w-80" data-alt="Top view of a medium white dinner plate with a gold edge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjzOO2DnPzJ0xCRKmrhqTpqX3zeuvkQ5awkZHDwNo3ld-7NNwqa9Ex7gng0uw02DZ6QCc3PgZf-t8IWMAnC0YznweJTzN7FgUTQYpf18y3N4a2rGL_d-m7pHdozkvZtFySpvTvZMdQSNJ43h4Jskbn_zHayE5ZDeSAj5x8CgGKbGgWe-mPNFRzaE7o8YkrJC9r6aMSYrbm1l8pnLi0_5PMS9bxdoCm_AoFSS1yUMAUi3paDUm81smteoaRdlJ8TThgvS5mUOuWCMyH"/>
-</div>
-<div class="ritual-plate absolute z-20 transition-all duration-[1200ms] ease-out delay-500 scale-100 -translate-y-16 opacity-0" data-start-classes="-translate-y-16 opacity-0" data-end-classes="translate-y-0 opacity-100">
-<img class="w-64" data-alt="Top view of a small white appetizer plate with a gold edge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPwjhYTZh2fAjy8IOJe6Zl747eyGddtFwlxPk716YVLBedY3W8NnJXh9V3AubfVTMRIshztdsZeAAYiP2awudCIevfzzfkSwx_-PhZmOX61Yn4sdWCW2wkw4FFOCkVYtVQKL9W5-7sD4w82aPp484Tg99HF9xbaHYF63y75NvXFPmv2Kfwoc1carLe-SghhXIQVng_E0Sc0Pdytvet2IBIvzxAL2dXPY8FwI8bRp7FQ-99eHHxW5jMlzNUYsXe6KkZKqtKKR6zR2iD"/>
-</div>
-<div class="ritual-plate absolute z-30 transition-all duration-[1200ms] ease-out delay-700 scale-100 translate-y-8 opacity-0" data-start-classes="translate-y-8 opacity-0" data-end-classes="translate-y-24 opacity-80">
-<img class="w-48" data-alt="Small white bowl sitting on top of a plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5XnpqvZy0t3z1-nv7nfzWJqBWB8cRqcwL84bIU3at9-ZDSLMtf3eNY43r7z0PUrchlwBZOPemgssAu2lR-RSwrME4LwYvOojfQ9jfzcXg1YIKctLS9hkmgYSmiZcqhn8Hw2kgvTdzONobpOjwdRcr2REPzgnPauoyaIHC1xlJRC8Z0VnQTUjPuXZQi2NPbp1SE6dlYWqGpEKyTv1ibtOh72HxAB-8Bcc3tv-0fTk1lDiv3Stf9bsh9tQoMDsiDWTMEv-Jzh-YPw18"/>
-</div>
-<div class="absolute right-0 top-1/2 -translate-y-1/2 text-left space-y-stack-md hidden md:block">
-<div class="ritual-text border-l border-tertiary pl-6 transition-all duration-1000 ease-out delay-200 translate-x-5 opacity-0" data-start-classes="translate-x-5 opacity-0" data-end-classes="translate-x-0 opacity-100">
-<p class="font-label-caps text-xs text-secondary">01</p>
-<p class="font-headline-md text-sm uppercase tracking-widest">Base Layer</p>
-</div>
-<div class="ritual-text border-l border-stone-200 pl-6 transition-all duration-1000 ease-out delay-400 translate-x-5 opacity-0" data-start-classes="translate-x-5 opacity-0" data-end-classes="translate-x-0 opacity-30">
-<p class="font-label-caps text-xs">02</p>
-<p class="font-headline-md text-sm uppercase tracking-widest">Dinner Service</p>
-</div>
-<div class="ritual-text border-l border-stone-200 pl-6 transition-all duration-1000 ease-out delay-[800ms] translate-x-5 opacity-0" data-start-classes="translate-x-5 opacity-0" data-end-classes="translate-x-0 opacity-30">
-<p class="font-label-caps text-xs">03</p>
-<p class="font-headline-md text-sm uppercase tracking-widest">Finishing Bowl</p>
-</div>
-</div>
-</div>
-<div class="mt-stack-lg text-center">
-<p class="font-body-lg text-on-surface-variant max-w-xl mx-auto italic mb-stack-lg">
-                    Each piece is engineered to nest with mathematical precision, creating a symphony of heights and textures.
-                </p>
-<button class="border border-primary text-primary px-12 py-4 font-label-caps tracking-[0.2em] uppercase hover:bg-stone-100 transition-colors">
-                    Build Your Set
-                </button>
-</div>
-</section>
 <!-- Product Showcase Grid -->
 <section class="py-section-gap px-margin-edge bg-white">
 <div class="max-w-container-max mx-auto">
@@ -463,29 +498,67 @@
                     silentHostScroll.style.transform = `translateX(-${progress * maxTranslate}px)`;
                 }
             }
+
+            // --- 3. Choreographed Table Vertical Carousel ---
+            const ritualContainer = document.getElementById('ritual-scroll-container');
+            const ritualPlates = document.querySelectorAll('.ritual-carousel-item');
+            const ritualSteps = document.querySelectorAll('.ritual-step');
+
+            if (ritualContainer && ritualPlates.length > 0) {
+                const rect = ritualContainer.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                const stickyTop = 96; // matches top-24
+                const sectionHeight = windowHeight - stickyTop;
+                const totalScroll = rect.height - sectionHeight;
+                let progress = 0;
+
+                // Progress starts when the parent container hits the sticky threshold
+                if (rect.top <= stickyTop) {
+                    progress = Math.min(1, Math.abs(rect.top - stickyTop) / totalScroll);
+                }
+
+                const numPlates = ritualPlates.length;
+                
+                ritualPlates.forEach((plate, idx) => {
+                    // Each plate has a focus point
+                    const startRange = 0.1;
+                    const endRange = 0.9;
+                    const focusPoint = startRange + (idx / (numPlates - 1)) * (endRange - startRange);
+                    
+                    const diff = progress - focusPoint;
+                    
+                    // translateY: moves from bottom to top
+                    let translateY = diff * 800; 
+                    let scale = 1 - Math.abs(diff) * 2.5;
+                    let opacity = 1 - Math.abs(diff) * 5;
+                    
+                    scale = Math.max(0.4, scale);
+                    opacity = Math.max(0, opacity);
+                    
+                    plate.style.transform = `translateY(${translateY}px) scale(${scale})`;
+                    plate.style.opacity = opacity;
+                    plate.style.zIndex = Math.round(opacity * 100);
+
+                    // Sync text steps with the same carousel logic
+                    if (ritualSteps[idx]) {
+                        let textTranslateY = diff * 200; // Slower vertical movement for text
+                        let textOpacity = 1 - Math.abs(diff) * 4;
+                        textOpacity = Math.max(0, textOpacity);
+                        
+                        ritualSteps[idx].style.transform = `translateY(${textTranslateY}px)`;
+                        ritualSteps[idx].style.opacity = textOpacity;
+                    }
+                });
+            }
         }
 
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll(); // initialize positions
 
-        // --- 3. Choreographed Table Intersection Observer ---
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const startClasses = entry.target.getAttribute('data-start-classes');
-                    const endClasses = entry.target.getAttribute('data-end-classes');
-                    if (startClasses && endClasses) {
-                        entry.target.classList.remove(...startClasses.split(' '));
-                        entry.target.classList.add(...endClasses.split(' '));
-                    }
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-
-        document.querySelectorAll('.ritual-plate, .ritual-text').forEach(el => {
-            observer.observe(el);
-        });
+        // Removed old intersection observer for ritual-plate
+        // document.querySelectorAll('.ritual-plate, .ritual-text').forEach(el => {
+        //     observer.observe(el);
+        // });
     })();
 </script>
 </body></html>
