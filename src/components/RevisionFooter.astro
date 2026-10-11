@@ -1,0 +1,208 @@
+---
+import { studioConfig } from "../data/config";
+---
+
+<footer class="revision-footer hairline-top">
+  <div class="sheet-container">
+    <!-- Technical Revision Table -->
+    <div class="revision-table-wrap ink-border">
+      <div class="table-header hairline-bottom">
+        <span class="header-label label-mono">SHEET REVISION HISTORY</span>
+        <span class="header-id mono">[SPEC: AUDIT TRAIL]</span>
+      </div>
+
+      <table class="revision-table">
+        <thead>
+          <tr>
+            <th class="col-rev label-mono">REV</th>
+            <th class="col-status label-mono">STATUS DESCRIPTION</th>
+            <th class="col-date label-mono">DATE</th>
+            <th class="col-app label-mono">APPROVED</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono font-bold">{studioConfig.revision}</td>
+            <td class="status-desc">{studioConfig.revisionStatus}</td>
+            <td class="mono">{studioConfig.revisionDate}</td>
+            <td class="mono font-bold">RELEASED</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Navigation & Studio Directory -->
+    <div class="footer-nav-grid">
+      <div class="nav-col">
+        <span class="col-heading label-mono">CAPABILITIES</span>
+        <ul class="col-links">
+          <li><a href="/services/web">Web Architecture</a></li>
+          <li><a href="/services/seo">Technical SEO</a></li>
+          <li><a href="/services/marketing">Marketing Operations</a></li>
+          <li><a href="/services/automation">Automation and Agents</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-col">
+        <span class="col-heading label-mono">INSPECTION</span>
+        <ul class="col-links">
+          <li><a href="/usecases">Reference Builds</a></li>
+          <li><a href="/demo">Concept Builds</a></li>
+          <li><a href="/about">Studio Philosophy</a></li>
+          <li><a href="/contact">Contact Node</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-col">
+        <span class="col-heading label-mono">LEGAL SPECIFICATIONS</span>
+        <ul class="col-links">
+          <li><a href="/privacy">Privacy Notice</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-col studio-meta-col">
+        <span class="col-heading label-mono">STUDIO IDENTITY</span>
+        <p class="studio-desc">
+          {studioConfig.studioName} is a new studio. All public workflow graphs and templates are inspectable reference builds.
+        </p>
+        <span class="copyright-line mono">
+          2026 {studioConfig.studioName}. All rights reserved.
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .revision-footer {
+    background-color: var(--paper);
+    padding: 3.5rem 0 2.5rem 0;
+    margin-top: auto;
+    position: relative;
+    z-index: 5;
+  }
+
+  .revision-table-wrap {
+    background-color: var(--paper-shade);
+    margin-bottom: 3rem;
+  }
+
+  .table-header {
+    padding: 0.65rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--paper);
+  }
+
+  .header-label {
+    color: var(--ink);
+  }
+
+  .header-id {
+    font-size: 0.6875rem;
+    color: var(--graphite);
+  }
+
+  .revision-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8125rem;
+    text-align: left;
+  }
+
+  .revision-table th {
+    padding: 0.65rem 1rem;
+    background-color: var(--paper-shade);
+    color: var(--graphite);
+    font-size: 0.6875rem;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .revision-table th:last-child {
+    border-right: none;
+  }
+
+  .revision-table td {
+    padding: 0.75rem 1rem;
+    border-right: 1px solid var(--rule);
+    color: var(--ink);
+  }
+
+  .revision-table td:last-child {
+    border-right: none;
+  }
+
+  .font-bold {
+    font-weight: 600;
+  }
+
+  .status-desc {
+    color: var(--graphite);
+  }
+
+  .footer-nav-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .footer-nav-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-nav-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .nav-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .col-heading {
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .col-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .col-links a {
+    font-size: 0.875rem;
+    color: var(--graphite);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .col-links a:hover {
+    color: var(--vermilion);
+  }
+
+  .studio-meta-col {
+    gap: 0.5rem;
+  }
+
+  .studio-desc {
+    font-size: 0.8125rem;
+    color: var(--graphite);
+    line-height: 1.5;
+  }
+
+  .copyright-line {
+    font-size: 0.6875rem;
+    color: var(--graphite);
+    margin-top: 0.5rem;
+  }
+</style>

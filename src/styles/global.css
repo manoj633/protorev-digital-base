@@ -1,0 +1,177 @@
+@import "./tokens.css";
+@import "./typography.css";
+
+/* Base CSS Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--paper);
+  color: var(--graphite);
+  font-size: 16px;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--paper);
+}
+
+/* Accessible visible focus indicator */
+:focus-visible {
+  outline: 2px solid var(--vermilion);
+  outline-offset: 2px;
+}
+
+/* Hairline Grid & Engineering Sheet Background */
+.sheet-background {
+  background-color: var(--paper);
+  background-image: 
+    linear-gradient(to right, var(--rule) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--rule) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: -1px -1px;
+}
+
+/* Architectural Sheet Container */
+.sheet-container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+}
+
+/* Outer Border Frame */
+.drawing-frame {
+  border: 1px solid var(--ink);
+  background-color: var(--paper);
+  position: relative;
+  margin: 1rem auto;
+}
+
+/* Technical Hairline Rules */
+.hairline-top {
+  border-top: 1px solid var(--rule);
+}
+.hairline-bottom {
+  border-bottom: 1px solid var(--rule);
+}
+.hairline-left {
+  border-left: 1px solid var(--rule);
+}
+.hairline-right {
+  border-right: 1px solid var(--rule);
+}
+
+.ink-border {
+  border: 1px solid var(--ink);
+}
+
+/* Stamps */
+.stamp {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 2px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  background-color: var(--paper);
+}
+
+.stamp-draft {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.stamp-simulated {
+  border-color: var(--graphite);
+  color: var(--graphite);
+}
+
+.stamp-success {
+  border-color: var(--verdigris);
+  color: var(--verdigris);
+}
+
+.stamp-error {
+  border-color: var(--vermilion);
+  color: var(--vermilion);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border-radius: 2px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+
+.btn-primary {
+  background-color: var(--vermilion);
+  color: var(--paper);
+  border-color: var(--vermilion);
+}
+
+.btn-primary:hover {
+  opacity: 0.92;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.btn-secondary:hover {
+  background-color: var(--paper-shade);
+}
+
+/* Form Controls - strictly using ink/graphite borders for >10:1 contrast */
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--ink);
+  background-color: var(--paper);
+  border: 1px solid var(--graphite);
+  border-radius: 2px;
+}
+
+.input-field:focus {
+  border-color: var(--ink);
+  outline: 2px solid var(--vermilion);
+  outline-offset: 1px;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

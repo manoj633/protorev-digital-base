@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactWebhook from "../components/ContactWebhook.astro";
+---
+
+<BaseLayout
+  title="Initiate Contact Node | Protorev Digital"
+  description="Submit project inquiries directly to the studio ingress queue. Automated webhook trigger with cryptographic authentication."
+  sheetNumber="06"
+  totalSheets="06"
+  sheetTitle="INGRESS SPECIFICATION: CONTACT NODE"
+>
+  <div class="contact-page-wrapper">
+    <ContactWebhook />
+  </div>
+</BaseLayout>
+
+<style>
+  .contact-page-wrapper {
+    background-color: var(--paper);
+    padding: 1rem 0;
+  }
+</style>

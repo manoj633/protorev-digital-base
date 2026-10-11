@@ -1,0 +1,109 @@
+---
+interface Props {
+  slotId: string;
+  ratio?: "1:1" | "16:9";
+  label: string;
+  imageSrc?: string;
+}
+
+const { slotId, ratio = "1:1", label, imageSrc } = Astro.props;
+---
+
+<div class={`framed-slot ratio-${ratio.replace(":", "-")}`} aria-label={label}>
+  {imageSrc ? (
+    <img 
+      src={imageSrc} 
+      alt={label} 
+      class="slot-image" 
+      loading="lazy" 
+      width={ratio === "16:9" ? 960 : 600} 
+      height={ratio === "16:9" ? 540 : 600} 
+    />
+  ) : (
+    <div class="slot-placeholder">
+      <svg class="slot-geometry" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+        <!-- Technical Cross Guide Lines -->
+        <line x1="100" y1="20" x2="100" y2="180" stroke="var(--rule)" stroke-width="1" stroke-dasharray="4 4" />
+        <line x1="20" y1="100" x2="180" y2="100" stroke="var(--rule)" stroke-width="1" stroke-dasharray="4 4" />
+        <!-- Inner Drafting Rectangle -->
+        <rect x="40" y="40" width="120" height="120" stroke="var(--rule)" stroke-width="1" />
+        <!-- Center Pivot Dot -->
+        <circle cx="100" cy="100" r="3" fill="var(--graphite)" />
+      </svg>
+      <div class="slot-meta">
+        <span class="slot-id mono">[{slotId}]</span>
+        <span class="slot-label">{label}</span>
+      </div>
+    </div>
+  )}
+</div>
+
+<style>
+  .framed-slot {
+    position: relative;
+    border: 1px solid var(--ink);
+    background-color: var(--paper-shade);
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ratio-1-1 {
+    aspect-ratio: 1 / 1;
+  }
+
+  .ratio-16-9 {
+    aspect-ratio: 16 / 9;
+  }
+
+  .slot-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: multiply;
+  }
+
+  .slot-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem;
+    position: relative;
+  }
+
+  .slot-geometry {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .slot-meta {
+    margin-top: auto;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    text-align: center;
+  }
+
+  .slot-id {
+    font-size: 0.6875rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .slot-label {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--graphite);
+  }
+</style>

@@ -1,0 +1,244 @@
+---
+import { studioConfig } from "../data/config";
+import Stamp from "./Stamp.astro";
+---
+
+<section class="pilot-section" id="pilot">
+  <div class="sheet-container">
+    <div class="section-title-bar hairline-bottom">
+      <div class="title-left">
+        <span class="sheet-badge mono">SHEET 05 OF 06</span>
+        <h2 class="section-heading">Fixed Scope <em>Pilot</em></h2>
+      </div>
+      <span class="spec-id mono">[SPECIFICATION: PILOT ENGAGEMENT]</span>
+    </div>
+
+    <div class="pilot-frame ink-border">
+      <div class="pilot-header hairline-bottom">
+        <div class="header-main">
+          <span class="pilot-tag mono">[PILOT SPECIFICATION]</span>
+          <h3 class="pilot-title">Technical Audit and Architecture Prototype</h3>
+        </div>
+        <div class="header-status">
+          <Stamp text="PILOT PROPOSAL" variant="draft" />
+        </div>
+      </div>
+
+      <div class="pilot-grid">
+        <div class="pilot-details">
+          <p class="pilot-desc">
+            A focused engagement to audit your existing digital bottlenecks, construct one working n8n workflow prototype, and deliver a production readiness plan before larger build commitments.
+          </p>
+
+          <div class="scope-deliverables">
+            <span class="scope-title label-mono">CORE PILOT SCOPE</span>
+            <ul class="scope-list">
+              <li class="scope-item">
+                <span class="bullet-dot mono">•</span>
+                <span>Full technical crawl of current site and index status</span>
+              </li>
+              <li class="scope-item">
+                <span class="bullet-dot mono">•</span>
+                <span>One functional n8n automation pipeline delivered in simulation</span>
+              </li>
+              <li class="scope-item">
+                <span class="bullet-dot mono">•</span>
+                <span>Complete code repository inspection and handover runbook</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pilot-parameters hairline-left">
+          <div class="param-row hairline-bottom">
+            <span class="param-label label-mono">PILOT INVESTMENT</span>
+            <span class="param-value mono">{studioConfig.pilot.price}</span>
+            <span class="param-note mono">[Awaiting client confirmation]</span>
+          </div>
+
+          <div class="param-row hairline-bottom">
+            <span class="param-label label-mono">ESTIMATED DURATION</span>
+            <span class="param-value mono">{studioConfig.pilot.duration}</span>
+            <span class="param-note mono">[Awaiting client confirmation]</span>
+          </div>
+
+          <div class="param-row action-row">
+            <span class="param-label label-mono">NEXT STEP</span>
+            <p class="action-desc">
+              Request pilot availability through the contact node below.
+            </p>
+            <a href="#contact" class="btn btn-primary pilot-cta-btn">
+              Initiate Pilot Enquiry
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pilot-section {
+    padding: 3.5rem 0;
+    position: relative;
+  }
+
+  .section-title-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    gap: 1rem;
+  }
+
+  .title-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .sheet-badge {
+    font-size: 0.75rem;
+    color: var(--graphite);
+    letter-spacing: 0.08em;
+  }
+
+  .section-heading {
+    font-size: 1.75rem;
+  }
+
+  .spec-id {
+    font-size: 0.75rem;
+    color: var(--graphite);
+  }
+
+  .pilot-frame {
+    background-color: var(--paper);
+  }
+
+  .pilot-header {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--paper-shade);
+    gap: 1rem;
+  }
+
+  .header-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .pilot-tag {
+    font-size: 0.6875rem;
+    color: var(--graphite);
+  }
+
+  .pilot-title {
+    font-size: 1.25rem;
+    line-height: 1.25;
+  }
+
+  .pilot-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 840px) {
+    .pilot-grid {
+      grid-template-columns: 1.4fr 1fr;
+    }
+  }
+
+  .pilot-details {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .pilot-desc {
+    font-size: 0.9375rem;
+    color: var(--graphite);
+    line-height: 1.6;
+  }
+
+  .scope-deliverables {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .scope-title {
+    color: var(--graphite);
+  }
+
+  .scope-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .scope-item {
+    font-size: 0.875rem;
+    color: var(--ink);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .bullet-dot {
+    color: var(--graphite);
+  }
+
+  .pilot-parameters {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--paper-shade);
+  }
+
+  .param-row {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .param-label {
+    color: var(--graphite);
+  }
+
+  .param-value {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .param-note {
+    font-size: 0.6875rem;
+    color: var(--graphite);
+  }
+
+  .action-row {
+    margin-top: auto;
+    gap: 0.75rem;
+  }
+
+  .action-desc {
+    font-size: 0.875rem;
+    color: var(--graphite);
+    line-height: 1.4;
+  }
+
+  .pilot-cta-btn {
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+</style>

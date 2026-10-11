@@ -1,0 +1,198 @@
+---
+import { studioConfig } from "../data/config";
+
+interface Props {
+  sheetNumber?: string;
+  totalSheets?: string;
+  sheetTitle?: string;
+}
+
+const {
+  sheetNumber = "01",
+  totalSheets = "06",
+  sheetTitle = "INDEX AND SPECIFICATION"
+} = Astro.props;
+---
+
+<header class="title-block-header hairline-bottom">
+  <div class="sheet-container">
+    <div class="header-inner">
+      <!-- Title Block Metadata Grid -->
+      <div class="title-block-grid">
+        <div class="meta-cell title-cell">
+          <a href="/" class="brand-link">
+            <span class="brand-name">{studioConfig.studioName}</span>
+          </a>
+          <span class="sheet-subtitle mono">{sheetTitle}</span>
+        </div>
+
+        <div class="meta-cell sheet-cell mono">
+          <span class="meta-label">DRAWING</span>
+          <span class="meta-value">SHEET {sheetNumber} OF {totalSheets}</span>
+        </div>
+
+        <div class="meta-cell rev-cell mono">
+          <span class="meta-label">REVISION</span>
+          <span class="meta-value">{studioConfig.revision}</span>
+        </div>
+
+        <div class="meta-cell date-cell mono">
+          <span class="meta-label">RELEASE DATE</span>
+          <span class="meta-value">{studioConfig.revisionDate}</span>
+        </div>
+      </div>
+
+      <!-- Primary Navigation -->
+      <nav class="primary-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/services/web" class="nav-link">Web</a>
+          </li>
+          <li class="nav-item">
+            <a href="/services/seo" class="nav-link">SEO</a>
+          </li>
+          <li class="nav-item">
+            <a href="/services/marketing" class="nav-link">Marketing Ops</a>
+          </li>
+          <li class="nav-item">
+            <a href="/services/automation" class="nav-link">Automation</a>
+          </li>
+          <li class="nav-item">
+            <a href="/usecases" class="nav-link">Reference Builds</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about" class="nav-link">About</a>
+          </li>
+          <li class="nav-item nav-action">
+            <a href="/contact" class="btn btn-primary nav-contact-btn">Contact Node</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style>
+  .title-block-header {
+    background-color: var(--paper);
+    position: relative;
+    z-index: 10;
+  }
+
+  .header-inner {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+
+  @media (min-width: 992px) {
+    .header-inner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .title-block-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 1px solid var(--ink);
+    background-color: var(--paper);
+  }
+
+  @media (min-width: 640px) {
+    .title-block-grid {
+      grid-template-columns: auto auto auto auto;
+    }
+  }
+
+  .meta-cell {
+    padding: 0.5rem 0.85rem;
+    border-bottom: 1px solid var(--ink);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (min-width: 640px) {
+    .meta-cell {
+      border-bottom: none;
+      border-right: 1px solid var(--ink);
+    }
+    .meta-cell:last-child {
+      border-right: none;
+    }
+  }
+
+  .title-cell {
+    background-color: var(--paper);
+  }
+
+  .brand-link {
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .brand-name {
+    font-family: var(--font-headline);
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    display: block;
+    line-height: 1.2;
+  }
+
+  .sheet-subtitle {
+    font-size: 0.625rem;
+    color: var(--graphite);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .meta-label {
+    font-size: 0.5625rem;
+    color: var(--graphite);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .meta-value {
+    font-size: 0.75rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .primary-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+    list-style: none;
+  }
+
+  .nav-link {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--graphite);
+    text-decoration: none;
+    padding: 0.25rem 0;
+    position: relative;
+    transition: color 0.15s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--ink);
+  }
+
+  .nav-contact-btn {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.8125rem;
+  }
+</style>

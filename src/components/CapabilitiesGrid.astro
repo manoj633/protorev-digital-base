@@ -1,0 +1,257 @@
+---
+import FramedSlot from "./FramedSlot.astro";
+
+const capabilities = [
+  {
+    id: "CAP01",
+    title: "Web Design and Development",
+    slotId: "CAP_WEB",
+    href: "/services/web",
+    summary: "Static web architecture built with strict CSS custom properties and zero unnecessary script weight.",
+    deliverables: [
+      "Semantic HTML structure and accessible markup",
+      "Self hosted font configurations and rapid loading styles",
+      "Production deployment configuration on modern edge hosting"
+    ]
+  },
+  {
+    id: "CAP02",
+    title: "Technical SEO Architecture",
+    slotId: "CAP_SEO",
+    href: "/services/seo",
+    summary: "Search engine crawlability structured through valid metadata and automated verification routines.",
+    deliverables: [
+      "Schema org structured data integration for organization entities",
+      "Automated XML sitemap verification and crawl audits",
+      "Canonical URL standardization and redirect management"
+    ]
+  },
+  {
+    id: "CAP03",
+    title: "Digital Marketing Ops",
+    slotId: "CAP_MARKETING",
+    href: "/services/marketing",
+    summary: "Data pipelines connecting public web forms directly to internal operational data stores.",
+    deliverables: [
+      "Secure webhook event handlers with bot mitigation",
+      "Multi source record normalization and cleanup",
+      "Operational event tracking and pipeline synchronization"
+    ]
+  },
+  {
+    id: "CAP04",
+    title: "Automation and Agents",
+    slotId: "CAP_AUTOMATION",
+    href: "/services/automation",
+    summary: "Deterministic workflow automation built on n8n and structured language model classification nodes.",
+    deliverables: [
+      "Self hosted n8n workflow creation and configuration",
+      "Structured prompt classification and routing logic",
+      "Persistent error handling and dead letter queues"
+    ]
+  }
+];
+---
+
+<section class="capabilities-section" id="capabilities">
+  <div class="sheet-container">
+    <div class="section-title-bar hairline-bottom">
+      <div class="title-left">
+        <span class="sheet-badge mono">SHEET 02 OF 06</span>
+        <h2 class="section-heading">Core Studio <em>Capabilities</em></h2>
+      </div>
+      <span class="spec-id mono">[SPECIFICATION: CAPABILITIES]</span>
+    </div>
+
+    <div class="capabilities-grid">
+      {capabilities.map((cap) => (
+        <article class="cap-panel">
+          <div class="panel-inner">
+            <div class="panel-header hairline-bottom">
+              <span class="cap-id mono">{cap.id}</span>
+              <h3 class="cap-title">{cap.title}</h3>
+            </div>
+
+            <div class="panel-slot-wrap">
+              <FramedSlot slotId={cap.slotId} ratio="1:1" label={cap.title} />
+            </div>
+
+            <p class="cap-summary">{cap.summary}</p>
+
+            <div class="deliverables-block hairline-top">
+              <span class="deliverables-title label-mono">DELIVERABLES INCLUDED</span>
+              <ul class="deliverables-list">
+                {cap.deliverables.map((item) => (
+                  <li class="deliverable-item">
+                    <span class="bullet-dot mono">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="panel-footer hairline-top">
+              <a href={cap.href} class="cap-link mono">
+                <span>View technical specification</span>
+                <span class="link-arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .capabilities-section {
+    padding: 3.5rem 0;
+    position: relative;
+  }
+
+  .section-title-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    gap: 1rem;
+  }
+
+  .title-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .sheet-badge {
+    font-size: 0.75rem;
+    color: var(--graphite);
+    letter-spacing: 0.08em;
+  }
+
+  .section-heading {
+    font-size: 1.75rem;
+  }
+
+  .spec-id {
+    font-size: 0.75rem;
+    color: var(--graphite);
+  }
+
+  .capabilities-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .capabilities-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .cap-panel {
+    border: 1px solid var(--ink);
+    background-color: var(--paper);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .panel-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .panel-header {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background-color: var(--paper-shade);
+  }
+
+  .cap-id {
+    font-size: 0.6875rem;
+    color: var(--graphite);
+  }
+
+  .cap-title {
+    font-size: 1.1875rem;
+    line-height: 1.25;
+  }
+
+  .panel-slot-wrap {
+    padding: 1rem;
+    background-color: var(--paper);
+  }
+
+  .cap-summary {
+    padding: 0 1rem 1rem 1rem;
+    font-size: 0.9375rem;
+    color: var(--graphite);
+    line-height: 1.5;
+  }
+
+  .deliverables-block {
+    padding: 1rem;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background-color: var(--paper-shade);
+  }
+
+  .deliverables-title {
+    color: var(--graphite);
+  }
+
+  .deliverables-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .deliverable-item {
+    font-size: 0.875rem;
+    color: var(--ink);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .bullet-dot {
+    color: var(--graphite);
+  }
+
+  .panel-footer {
+    padding: 0.875rem 1rem;
+    background-color: var(--paper);
+  }
+
+  .cap-link {
+    font-size: 0.8125rem;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+  }
+
+  .cap-link:hover {
+    color: var(--vermilion);
+  }
+
+  .link-arrow {
+    transition: transform 0.15s ease;
+  }
+
+  .cap-link:hover .link-arrow {
+    transform: translateX(4px);
+  }
+</style>

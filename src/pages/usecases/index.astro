@@ -1,0 +1,242 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import Stamp from "../../components/Stamp.astro";
+
+const usecases = await getCollection("usecases");
+const sortedUsecases = usecases.sort((a, b) => a.data.id.localeCompare(b.data.id));
+---
+
+<BaseLayout
+  title="Inspectable Reference Builds | Protorev Digital"
+  description="Master index of open reference builds, simulation runtimes, stacks, and verified failure modes."
+  sheetNumber="03"
+  totalSheets="06"
+  sheetTitle="SPECIFICATION INDEX: REFERENCE BUILDS"
+>
+  <section class="usecases-index-sheet hairline-bottom">
+    <div class="sheet-container">
+      <div class="section-title-bar hairline-bottom">
+        <div class="title-left">
+          <span class="sheet-badge mono">SHEET 03 / ALL ENTRIES</span>
+          <h1 class="section-heading">Inspectable <em>Reference</em> Builds</h1>
+          <p class="section-subtext">
+            A new studio. No client logos yet, so every build is an open reference blueprint you can inspect, verify, and adapt.
+          </p>
+        </div>
+        <span class="spec-id mono">[SPECIFICATION: FULL TABLE]</span>
+      </div>
+
+      <div class="table-wrap ink-border">
+        <table class="reference-table">
+          <thead>
+            <tr>
+              <th class="col-id label-mono">ID</th>
+              <th class="col-name label-mono">BUILD NAME</th>
+              <th class="col-trigger label-mono">TRIGGER</th>
+              <th class="col-stack label-mono">STACK</th>
+              <th class="col-runtime label-mono">RUN TIME</th>
+              <th class="col-cost label-mono">COST PER RUN</th>
+              <th class="col-status label-mono">STATUS</th>
+              <th class="col-action label-mono">BLUEPRINT</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sortedUsecases.map((uc) => (
+              <tr class="table-row">
+                <td class="col-id mono font-bold">
+                  <a href={`/usecases/${uc.data.id}`} class="row-link mono">{uc.data.id}</a>
+                </td>
+                <td class="col-name">
+                  <a href={`/usecases/${uc.data.id}`} class="name-link">{uc.data.title}</a>
+                  <p class="name-summary">{uc.data.summary}</p>
+                </td>
+                <td class="col-trigger mono text-sm">{uc.data.trigger}</td>
+                <td class="col-stack mono text-sm">{uc.data.stack}</td>
+                <td class="col-runtime mono text-sm">{uc.data.runtime}</td>
+                <td class="col-cost mono text-sm">{uc.data.costPerRun}</td>
+                <td class="col-status">
+                  <Stamp text={uc.data.status} variant={uc.data.status === "SIMULATED" ? "simulated" : "draft"} />
+                </td>
+                <td class="col-action mono text-sm">
+                  <a href={`/usecases/${uc.data.id}`} class="view-blueprint-link">
+                    Inspect Drawing →
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="basis-note-box ink-border">
+        <span class="note-label label-mono">ZERO FABRICATION GUARANTEE</span>
+        <p class="note-text">
+          All runtimes and costs are recorded estimates in simulation environments or explicit calculation bases. No numbers are invented. Workflow export JSON files are published only when real n8n node structures are fully compiled.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .usecases-index-sheet {
+    padding: 3.5rem 0;
+    background-color: var(--paper);
+  }
+
+  .section-title-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    gap: 1rem;
+  }
+
+  .title-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 800px;
+  }
+
+  .sheet-badge {
+    font-size: 0.75rem;
+    color: var(--graphite);
+    letter-spacing: 0.08em;
+  }
+
+  .section-heading {
+    font-size: 2.25rem;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  .section-subtext {
+    font-size: 1rem;
+    color: var(--graphite);
+    line-height: 1.5;
+  }
+
+  .spec-id {
+    font-size: 0.75rem;
+    color: var(--graphite);
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    background-color: var(--paper);
+    margin-bottom: 2rem;
+  }
+
+  .reference-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  .reference-table thead {
+    background-color: var(--paper-shade);
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .reference-table th {
+    padding: 0.875rem 1rem;
+    color: var(--ink);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    border-right: 1px solid var(--rule);
+  }
+
+  .reference-table th:last-child {
+    border-right: none;
+  }
+
+  .reference-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    color: var(--graphite);
+    vertical-align: top;
+  }
+
+  .reference-table td:last-child {
+    border-right: none;
+  }
+
+  .table-row:nth-child(even) {
+    background-color: rgba(224, 218, 202, 0.4);
+  }
+
+  .table-row:last-child td {
+    border-bottom: none;
+  }
+
+  .row-link {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .row-link:hover {
+    color: var(--vermilion);
+  }
+
+  .name-link {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    display: inline-block;
+    margin-bottom: 0.25rem;
+  }
+
+  .name-link:hover {
+    color: var(--vermilion);
+  }
+
+  .name-summary {
+    font-size: 0.8125rem;
+    color: var(--graphite);
+    line-height: 1.4;
+  }
+
+  .text-sm {
+    font-size: 0.8125rem;
+  }
+
+  .font-bold {
+    font-weight: 600;
+  }
+
+  .view-blueprint-link {
+    color: var(--vermilion);
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .view-blueprint-link:hover {
+    text-decoration: underline;
+  }
+
+  .basis-note-box {
+    padding: 1.25rem 1.5rem;
+    background-color: var(--paper-shade);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .note-label {
+    color: var(--graphite);
+  }
+
+  .note-text {
+    font-size: 0.875rem;
+    color: var(--graphite);
+    line-height: 1.5;
+  }
+</style>

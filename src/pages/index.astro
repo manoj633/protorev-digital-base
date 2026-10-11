@@ -1,0 +1,178 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import NodeGraph from "../components/NodeGraph.astro";
+import CapabilitiesGrid from "../components/CapabilitiesGrid.astro";
+import ReferenceTable from "../components/ReferenceTable.astro";
+import MethodSection from "../components/MethodSection.astro";
+import PilotSection from "../components/PilotSection.astro";
+import ContactWebhook from "../components/ContactWebhook.astro";
+---
+
+<BaseLayout
+  title="Protorev Digital | Engineering Drawing Specification"
+  description="A new studio for web development, technical SEO, marketing operations, and n8n workflow automation."
+  sheetNumber="01"
+  totalSheets="06"
+  sheetTitle="MASTER SYSTEM SPECIFICATION"
+>
+  <!-- SHEET 01: HERO SECTION -->
+  <section class="hero-sheet hairline-bottom" id="sheet-hero">
+    <div class="sheet-container">
+      <div class="hero-grid">
+        <!-- Hero Text Specification -->
+        <div class="hero-copy-block">
+          <div class="hero-badge-row">
+            <span class="sheet-indicator mono">SHEET 01 OF 06</span>
+            <span class="system-status mono">[SPEC: ACTIVE BLUEPRINT]</span>
+          </div>
+
+          <h1 class="hero-heading">
+            Websites that rank. Workflows that <em>run</em>.
+          </h1>
+
+          <p class="hero-statement">
+            A new studio. No client logos yet, so every build is a reference build you can inspect.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#reference-builds" class="btn btn-secondary">
+              Inspect Reference Table
+            </a>
+            <a href="#contact" class="btn btn-primary">
+              Initiate Contact Node
+            </a>
+          </div>
+
+          <div class="hero-parameters hairline-top">
+            <div class="param-item">
+              <span class="param-key label-mono">DISCIPLINES</span>
+              <span class="param-val mono">Web, SEO, Marketing Ops, n8n Automation</span>
+            </div>
+            <div class="param-item">
+              <span class="param-key label-mono">ASSURANCE</span>
+              <span class="param-val mono">Open Reference Blueprints, Strict Zero Fabrications</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Node Graph Simulation on Ink Panel -->
+        <div class="hero-graph-wrap">
+          <NodeGraph />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHEET 02: CAPABILITIES -->
+  <CapabilitiesGrid />
+
+  <!-- SHEET 03: REFERENCE BUILDS -->
+  <ReferenceTable />
+
+  <!-- SHEET 04: METHOD -->
+  <MethodSection />
+
+  <!-- SHEET 05: PILOT -->
+  <PilotSection />
+
+  <!-- SHEET 06: CONTACT NODE -->
+  <ContactWebhook />
+</BaseLayout>
+
+<style>
+  .hero-sheet {
+    padding: 3.5rem 0 4rem 0;
+    position: relative;
+    background-color: var(--paper);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  @media (min-width: 992px) {
+    .hero-grid {
+      grid-template-columns: 1fr 1.25fr;
+      gap: 3rem;
+    }
+  }
+
+  .hero-copy-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .hero-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .sheet-indicator {
+    font-size: 0.75rem;
+    color: var(--graphite);
+    letter-spacing: 0.08em;
+  }
+
+  .system-status {
+    font-size: 0.75rem;
+    color: var(--graphite);
+  }
+
+  .hero-heading {
+    font-size: 2.75rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  @media (min-width: 768px) {
+    .hero-heading {
+      font-size: 3.25rem;
+    }
+  }
+
+  .hero-statement {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--graphite);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 0.5rem;
+  }
+
+  .hero-parameters {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .param-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .param-key {
+    color: var(--graphite);
+  }
+
+  .param-val {
+    font-size: 0.8125rem;
+    color: var(--ink);
+  }
+
+  .hero-graph-wrap {
+    width: 100%;
+  }
+</style>

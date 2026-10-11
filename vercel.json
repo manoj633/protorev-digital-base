@@ -1,0 +1,25 @@
+{
+  "redirects": [
+    {
+      "source": "/portfolio.html",
+      "destination": "/usecases",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolio",
+      "destination": "/usecases",
+      "statusCode": 301
+    }
+  ],
+  "headers": [
+    {
+      "source": "/demo/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ]
+}

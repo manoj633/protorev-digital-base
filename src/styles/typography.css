@@ -1,0 +1,46 @@
+/* Self-hosted fonts with font-display: swap via fontsource */
+@import "@fontsource/newsreader/400.css";
+@import "@fontsource/newsreader/400-italic.css";
+@import "@fontsource/newsreader/600.css";
+@import "@fontsource/newsreader/600-italic.css";
+
+@import "@fontsource/schibsted-grotesk/400.css";
+@import "@fontsource/schibsted-grotesk/500.css";
+@import "@fontsource/schibsted-grotesk/600.css";
+
+@import "@fontsource/martian-mono/400.css";
+@import "@fontsource/martian-mono/500.css";
+
+/* Typography styles */
+body {
+  font-family: var(--font-body);
+  color: var(--graphite);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-headline);
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Headings rule: italic for exactly one emphasised word */
+h1 em, h2 em, h3 em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+}
+
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}

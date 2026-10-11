@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hospitality &amp; Gifting | L'ART DE LA TABLE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;1,300;1,400&amp;family=Manrope:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#474746",
+                    "inverse-surface": "#2f312e",
+                    "tertiary-fixed": "#e3e2e0",
+                    "on-secondary-container": "#745c00",
+                    "on-primary-container": "#858383",
+                    "outline": "#747878",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#c7c6c4",
+                    "surface-variant": "#e3e2df",
+                    "surface-bright": "#faf9f5",
+                    "outline-variant": "#c4c7c7",
+                    "secondary": "#735c00",
+                    "surface-container": "#efeeea",
+                    "secondary-fixed": "#ffe088",
+                    "background": "#faf9f5",
+                    "inverse-primary": "#c8c6c5",
+                    "on-secondary-fixed": "#241a00",
+                    "surface-container-high": "#e9e8e4",
+                    "on-secondary-fixed-variant": "#574500",
+                    "on-tertiary-container": "#848482",
+                    "tertiary": "#000000",
+                    "on-background": "#1b1c1a",
+                    "tertiary-container": "#1b1c1b",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-tertiary-fixed-variant": "#464746",
+                    "primary-container": "#1c1b1b",
+                    "surface": "#faf9f5",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#fed65b",
+                    "on-tertiary-fixed": "#1b1c1b",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f4f4f0",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#dbdad6",
+                    "primary": "#000000",
+                    "on-surface": "#1b1c1a",
+                    "on-primary-fixed": "#1c1b1b",
+                    "surface-container-highest": "#e3e2df",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#444748",
+                    "surface-tint": "#5f5e5e",
+                    "primary-fixed": "#e5e2e1",
+                    "inverse-on-surface": "#f2f1ed",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "128px",
+                    "margin-edge": "64px",
+                    "unit": "8px",
+                    "gutter": "32px",
+                    "stack-sm": "12px",
+                    "stack-md": "24px",
+                    "stack-lg": "48px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Manrope"],
+                    "display-xl": ["Noto Serif"],
+                    "headline-md": ["Noto Serif"],
+                    "body-lg": ["Manrope"],
+                    "headline-lg": ["Noto Serif"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                    "display-xl": ["84px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(250, 249, 245, 0) 0%, rgba(250, 249, 245, 1) 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-950/80 backdrop-blur-xl border-b border-stone-100 dark:border-stone-900 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 ease-in-out">
+<div class="flex justify-between items-center h-24 px-12 w-full max-w-[1440px] mx-auto">
+<div class="flex space-x-12 items-center">
+<a class="font-sans uppercase tracking-widest text-[10px] text-stone-400 dark:text-stone-500 hover:text-stone-600 dark:hover:text-stone-300 transition-all duration-700 ease-in-out" href="#">Collections</a>
+<a class="font-sans uppercase tracking-widest text-[10px] text-stone-400 dark:text-stone-500 hover:text-stone-600 dark:hover:text-stone-300 transition-all duration-700 ease-in-out" href="#">Heritage</a>
+</div>
+<div class="text-2xl font-serif tracking-[0.3em] uppercase text-stone-950 dark:text-stone-50">L'ART DE LA TABLE</div>
+<div class="flex space-x-12 items-center">
+<div class="flex space-x-8">
+<a class="text-stone-950 dark:text-stone-50 border-b border-stone-950 dark:border-stone-50 pb-1 font-sans uppercase tracking-widest text-[10px]" href="#">The Curator</a>
+<a class="font-sans uppercase tracking-widest text-[10px] text-stone-400 dark:text-stone-500 hover:text-stone-600 dark:hover:text-stone-300 transition-all duration-700 ease-in-out" href="#">Bespoke</a>
+</div>
+<div class="flex items-center space-x-6 ml-8">
+<span class="material-symbols-outlined text-stone-900 dark:text-stone-50 cursor-pointer">shopping_bag</span>
+<span class="material-symbols-outlined text-stone-900 dark:text-stone-50 cursor-pointer">person</span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative w-full h-screen overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0">
+<img alt="" class="w-full h-full object-cover" data-alt="Cinematic wide shot of a grand banquet table set with white linen, fine bone china, and crystal glassware in a sun-drenched historic manor hall." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd_EOjohMggNqSjqePv4bH1S6Nw5zKFi0vBxdXgpJoyF5KlaoYAA-prArhdIkXTo3pAg9uak4td2IBarGK4jz_F33Y-ZEX2cWva6yDyhQlPdYcsVUk5THkU87vFJjtjBCdzd1mrufuSXtBlaqrE8KA1zKoFIJ0ZcbnPa35Gpwp7L1a2YUqLivOwNPe51kZtvInCuNbS7SCrgYCeeLKqRduGC-JrzM5u6ptYXGEw5HJCc-z68JO5OMIon0zPE6sHAjcViXPNI965puw"/>
+<div class="absolute inset-0 bg-black/10"></div>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 text-center px-4 max-w-4xl">
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-stack-md">UNPARALLELED ELEGANCE</span>
+<h1 class="font-display-xl text-display-xl text-primary mb-stack-lg italic">Hospitality &amp; Gifting</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-stack-lg">Providing the world's most prestigious hotels and private residences with the definitive art of the set table.</p>
+<div class="flex justify-center gap-gutter">
+<button class="bg-primary text-on-primary px-12 py-4 font-label-caps uppercase transition-all duration-500 hover:opacity-90">Inquire Now</button>
+</div>
+</div>
+</header>
+<!-- Hospitality Section -->
+<section class="py-section-gap px-margin-edge max-w-container-max mx-auto">
+<div class="grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-12 md:col-span-5 mb-stack-lg md:mb-0">
+<span class="font-label-caps text-label-caps text-secondary mb-stack-sm block">FOR THE SILENT HOST</span>
+<h2 class="font-headline-lg text-headline-lg mb-stack-md">Hospitality Reimagined</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg pr-12">
+                    We partner with luxury hospitality leaders to create bespoke dining experiences. From Michelin-starred restaurants to boutique hotels, our collections are engineered for the rigors of professional service without sacrificing the delicacy of artisan craft.
+                </p>
+<div class="space-y-4">
+<div class="flex items-center space-x-4 border-b border-outline-variant pb-4">
+<span class="material-symbols-outlined text-secondary">restaurant</span>
+<span class="font-label-caps text-label-caps">BESPOKE TABLETOP CURATION</span>
+</div>
+<div class="flex items-center space-x-4 border-b border-outline-variant pb-4">
+<span class="material-symbols-outlined text-secondary">inventory</span>
+<span class="font-label-caps text-label-caps">PRIORITY BULK ACQUISITION</span>
+</div>
+<div class="flex items-center space-x-4 border-b border-outline-variant pb-4">
+<span class="material-symbols-outlined text-secondary">support_agent</span>
+<span class="font-label-caps text-label-caps">DEDICATED ATELIER CONCIERGE</span>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-7 relative">
+<div class="aspect-[4/5] overflow-hidden shadow-2xl">
+<img alt="" class="w-full h-full object-cover grayscale-[20%] hover:scale-105 transition-transform duration-[2000ms]" data-alt="High-end restaurant table setting close-up with gold-rimmed plates, charcoal linen napkins, and minimalist silver cutlery in soft morning light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIGGlSX7-ax2r_z0w3ntT4AygGlV-1WFCaASgq9IPO6vWZBH-Ivouk8VnssZg4mYlILZkzEDv1dXR9TKG0MqlIltwdOBsPwz8VIV_vc1zyDtlxbDOnxqg91eOwipt4RAx5PQTG4U2Z1t2oG8eWprqgIxpuKDiXVgqJ7KOGll1CtN9Ax9SiB8AeDqPOggTA_q_oSLLo1HO0NOol1-aQp438lJob4hCS3vjlurC1e8f9it27Kslo5blwMs13eaHNqMooDwUXMu2lrhz8"/>
+</div>
+<div class="absolute -bottom-12 -left-12 bg-surface-container p-12 max-w-xs shadow-xl hidden md:block">
+<p class="font-headline-md text-headline-md italic mb-4">"The foundation of every memorable meal."</p>
+<span class="font-label-caps text-label-caps text-on-surface-variant">— DIRECTOR OF SERVICE, THE RITZ-CARLTON</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Gifting Section: Bento Grid -->
+<section class="bg-surface-container-low py-section-gap px-margin-edge">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-section-gap">
+<span class="font-label-caps text-label-caps text-secondary block mb-stack-sm">THE ART OF GIVING</span>
+<h2 class="font-headline-lg text-headline-lg">Curated Gifting &amp; Packaging</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Large Card: Corporate -->
+<div class="md:col-span-2 relative group overflow-hidden bg-surface-container-highest aspect-[16/9]">
+<img alt="" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Exquisite corporate gift boxes stacked neatly, featuring matte black paper, champagne gold embossed logos, and thick silk ribbons in a minimalist studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx2nbbVE0wr3OS68J5YXI1IFqmMtu6GRS5OKDbALI5WWbzuwX9xGDIs8q2fNSz3Tv_QYM-Nws8jhWPqxaJeUEzLq1FUqN5EJB-K3nhk13N0LtwWIk0ULKD-fgAEe7M5oZr5xTk63yYTK8DR89ngRHK8Kfxr3Vaej3ATcqvvHntimVRF9ZkYeYR7N1QuZtVAppQRKci2aQhPKn5SQVkHhfSwnaewsJ6YYqF4fujDq0CntnnVmTEy6Ep4jM7iX0S7wCky82FdVUZkCXP"/>
+<div class="absolute inset-0 bg-black/30 flex flex-col justify-end p-12">
+<h3 class="font-headline-md text-headline-md text-white mb-stack-sm">Corporate Gifting</h3>
+<p class="text-white/80 font-body-md max-w-md mb-stack-md">Refined gestures of appreciation for your most valued partners. Customizable and elegantly presented.</p>
+<button class="w-fit border border-white text-white px-8 py-3 font-label-caps uppercase hover:bg-white hover:text-primary transition-colors">Explore Solutions</button>
+</div>
+</div>
+<!-- Wedding Registry -->
+<div class="relative group overflow-hidden bg-surface-container-highest aspect-[4/5] md:aspect-auto">
+<img alt="" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Overhead view of delicate white china tea set on a marble table with white peonies and a soft ivory wedding invitation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYu5DyxsPw-ap-YsvXjdtprDmc_6oJsAc48pa24ssiE1pJMrp2dQksvXs9i-qySlGaCOMee9V3K2YLMHvnWQW-t_ZDLCMuEjgs-fc7FTv9Nph-5Pzq5ufg-3A-cJ62f817OvfzXjBlGQyjkwBR9i9DCj16xPjTCMd-Kv8AHTn_d32ephIGLMwXyV8_uJK6Eni98wSfI2ss-i5UyTyEItg_xfRdQAqclunIEiTXez8p_gbjRTup9pSWBIkDRElaYVu7Qk5nz4y2yz8u"/>
+<div class="absolute inset-0 bg-black/20 flex flex-col justify-end p-12">
+<h3 class="font-headline-md text-headline-md text-white mb-stack-sm">The Registry</h3>
+<p class="text-white/80 font-body-md mb-stack-md">Curate a heritage for your home with our exclusive concierge service.</p>
+<button class="w-fit border border-white text-white px-8 py-3 font-label-caps uppercase hover:bg-white hover:text-primary transition-colors">Create Registry</button>
+</div>
+</div>
+<!-- Signature Packaging -->
+<div class="relative group overflow-hidden bg-surface-container-highest aspect-[4/5] md:aspect-auto">
+<img alt="" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Close-up of hands tying a thick velvet ribbon on a champagne-colored gift box with gold foil lettering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNyl0A9da5JPfxhQbghg1580EgntJT8yvXNG7ymLZu4lggvPrNarVpKGTafTPOQjof_yyyDI6MF5c521aUkeIBM8VvqUHsGi5ua7qbTWzreFMD0Fr_uCAXuNcgYoLSWacCY6Z9z-tZ4ChSSQC0-SmqVeFPsdCEdFfzYBQoc76Ewgx5tMRBxfYt1MYqXLK7j1ywYSeHpht8dBW_84K5OGqF4nXuejucZldSVuH-UoMnty_6RLLYCCqgKY2W_B4H-FO8kWXIN32LqWnU"/>
+<div class="absolute inset-0 bg-stone-900/40 flex flex-col justify-center items-center text-center p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+<span class="font-label-caps text-label-caps text-white mb-4">SIGNATURE ATELIER PACKAGING</span>
+<p class="text-white font-body-md">Every gift is hand-wrapped in our signature marble paper and silk velvet ribbon.</p>
+</div>
+</div>
+<!-- Personal Gifting -->
+<div class="md:col-span-2 relative group overflow-hidden bg-surface-container-highest aspect-[16/9]">
+<img alt="" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Warmly lit scene of a gift being opened at a dinner party, showing the interior of a luxury box with tissue paper and gold seal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc77kBwtKn8C0i64WW6VAdYBMHnkigKwrYIvwsUsLvy1nAys3tel9AhHd52OkmfF6mzG9WR4CXmwffj7Amf2Um_o5kaLnTmURPRRmGr9gnqtob-oywlDMK9sZpHsHSNI42Ri37bgdkX--UYE8kCvrTOSwbysX5Tr182JIKpyvllVmxiPgQhQLT42vbh4Z9XA94A1nRXOAIKKObDvVcXSOw4tv2bowdMpuCDHkuHJ0XzfxTdfsiAnlbAcy92qnLmX6FgCNsc02Nl3BH"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-12">
+<h3 class="font-headline-md text-headline-md text-white mb-stack-sm">Private Gifting</h3>
+<p class="text-white/80 font-body-md max-w-md mb-stack-md">From anniversary milestones to housewarming celebrations, find the perfect piece of art for their home.</p>
+<button class="w-fit border border-white text-white px-8 py-3 font-label-caps uppercase hover:bg-white hover:text-primary transition-colors">Shop Selection</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Host With Distinction CTA Section -->
+<section class="relative w-full py-32 overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0">
+<img alt="" class="w-full h-full object-cover" data-alt="Extreme close-up of a pure white porcelain plate edge with subtle hand-carved texture and a hint of gold glaze, dramatic shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACSvNbIK5u520tkuS2O3PtXbZHZLzIm0rdvHrYujgvXT4UfozhKBpPXjwJR9u7rM5jofaEoi1HBMo6bldEmTJiy6w_-iXbbKFGGUnOoZRVj1dOg7Po_x0hNVs3OzeBalyi_rWdwghgiYbsowvZjGoMC-puTnTKnbUfZceeug_6hFF4Dzk0u-EWmJfsanOV_Hz1zAg_5TsvNS8-JKTQ7UUBlgTa4cpQtzsFDh5XpyfOudka-dkeVScczy9-LyhOqAUgC3wcbbt0rtse"/>
+<div class="absolute inset-0 bg-stone-950/60"></div>
+</div>
+<div class="relative z-10 max-w-3xl text-center px-margin-edge">
+<h2 class="font-display-xl text-display-xl text-white italic mb-stack-lg">Host With Distinction</h2>
+<p class="text-white/90 font-body-lg mb-12">Whether furnishing a grand hotel or selecting a single gift, our team of curators is at your disposal to ensure every detail is flawless.</p>
+<div class="flex flex-col md:flex-row justify-center gap-6">
+<button class="bg-white text-primary px-16 py-5 font-label-caps uppercase tracking-widest hover:bg-stone-100 transition-colors">Request a Consultation</button>
+<button class="border border-white text-white px-16 py-5 font-label-caps uppercase tracking-widest hover:bg-white/10 transition-colors">View Digital Catalog</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-24 px-12 border-t border-stone-200 dark:border-stone-900 bg-stone-50 dark:bg-stone-950">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-16 max-w-7xl mx-auto items-start text-center md:text-left">
+<div class="col-span-1">
+<div class="font-serif italic text-xl text-stone-900 dark:text-stone-50 mb-8">L'ART DE LA TABLE</div>
+<p class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-500 dark:text-stone-400">
+                    The silent host to your most cherished memories. Crafting heritage for the modern dining room.
+                </p>
+</div>
+<div>
+<h4 class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-900 dark:text-stone-50 font-bold mb-6">Concierge</h4>
+<ul class="space-y-4">
+<li><a class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-500 dark:text-stone-400 hover:text-stone-950 dark:hover:text-stone-50 transition-colors duration-500" href="#">Provenance</a></li>
+<li><a class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-500 dark:text-stone-400 hover:text-stone-950 dark:hover:text-stone-50 transition-colors duration-500" href="#">Shipping &amp; Returns</a></li>
+<li><a class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-500 dark:text-stone-400 hover:text-stone-950 dark:hover:text-stone-50 transition-colors duration-500" href="#">Private Appointments</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-900 dark:text-stone-50 font-bold mb-6">Policies</h4>
+<ul class="space-y-4">
+<li><a class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-500 dark:text-stone-400 hover:text-stone-950 dark:hover:text-stone-50 transition-colors duration-500" href="#">Sustainability</a></li>
+<li><a class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-500 dark:text-stone-400 hover:text-stone-950 dark:hover:text-stone-50 transition-colors duration-500" href="#">Care Guide</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-900 dark:text-stone-50 font-bold mb-6">Newsletter</h4>
+<div class="relative">
+<input class="w-full bg-transparent border-b border-stone-300 dark:border-stone-800 py-2 focus:outline-none focus:border-stone-900 dark:focus:border-stone-50 transition-colors font-sans text-[10px] tracking-[0.2em]" placeholder="YOUR EMAIL" type="email"/>
+<button class="absolute right-0 bottom-2">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-24 pt-8 border-t border-stone-100 dark:border-stone-900 flex justify-between items-center">
+<div class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-500 dark:text-stone-400">
+                © 2024 L'ART DE LA TABLE. ATELIER OF ELEGANCE.
+            </div>
+<div class="flex space-x-6">
+<span class="material-symbols-outlined text-stone-500 text-lg">public</span>
+<span class="material-symbols-outlined text-stone-500 text-lg">share</span>
+</div>
+</div>
+</footer>
+</body></html>

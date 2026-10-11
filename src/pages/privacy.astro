@@ -1,0 +1,333 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Stamp from "../components/Stamp.astro";
+import { studioConfig } from "../data/config";
+---
+
+<BaseLayout
+  title="Privacy Specification | Protorev Digital"
+  description="Draft privacy policy and data governance disclosure under India DPDP Act and EU GDPR."
+  sheetNumber="06"
+  totalSheets="06"
+  sheetTitle="LEGAL SPECIFICATION: DATA PRIVACY"
+>
+  <article class="legal-sheet hairline-bottom">
+    <div class="sheet-container">
+      <div class="legal-header hairline-bottom">
+        <div class="badge-row">
+          <span class="sheet-tag mono">REGULATORY SPECIFICATION</span>
+          <Stamp text="DRAFT SPECIFICATION" variant="draft" />
+        </div>
+        <h1 class="legal-title">
+          Privacy Policy and Data <em>Governance</em>
+        </h1>
+        <p class="legal-summary">
+          Draft privacy disclosure formulated under the Digital Personal Data Protection Act of India and the General Data Protection Regulation of the European Union.
+        </p>
+      </div>
+
+      <div class="legal-grid">
+        <div class="legal-main-col">
+          <div class="legal-section">
+            <h2 class="section-title label-mono">01 / DATA CONTROLLER IDENTITY</h2>
+            <p class="body-text">
+              The data controller responsible for the processing of personal data captured on this website is {studioConfig.studioName}. You can route privacy inquiries to our designated contact point at {studioConfig.privacy.privacyOfficerContact}.
+            </p>
+          </div>
+
+          <div class="legal-section hairline-top">
+            <h2 class="section-title label-mono">02 / CATEGORIES OF COLLECTED DATA</h2>
+            <p class="body-text">
+              We collect personal data strictly when you provide it directly through our contact form. The categories comprise:
+            </p>
+            <ul class="legal-list">
+              <li>Your name</li>
+              <li>Your contact email address</li>
+              <li>Your current website URL</li>
+              <li>Your submitted project scope description</li>
+              <li>Explicit consent timestamp and confirmation state</li>
+            </ul>
+          </div>
+
+          <div class="legal-section hairline-top">
+            <h2 class="section-title label-mono">03 / PURPOSE AND LEGAL BASIS FOR PROCESSING</h2>
+            <p class="body-text">
+              Personal data submitted through the contact ingress node is processed solely to evaluate and respond to your commercial project enquiry. The legal basis for this processing is your explicit freely given consent provided via the mandatory consent checkbox prior to form transmission.
+            </p>
+          </div>
+
+          <div class="legal-section hairline-top">
+            <h2 class="section-title label-mono">04 / DISCLOSURE OF INFRASTRUCTURE PROCESSORS</h2>
+            <p class="body-text">
+              To operate our digital surface and process web inquiries safely, we engage specific infrastructure processors:
+            </p>
+            <div class="processors-table-wrap ink-border">
+              <table class="processors-table">
+                <thead>
+                  <tr>
+                    <th class="label-mono">PROCESSOR</th>
+                    <th class="label-mono">ROLE</th>
+                    <th class="label-mono">DATA TRANSFERRED</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="mono font-bold">Vercel Inc</td>
+                    <td>Edge web hosting and DNS routing</td>
+                    <td>IP address and request headers</td>
+                  </tr>
+                  <tr>
+                    <td class="mono font-bold">Cloudflare Inc</td>
+                    <td>Turnstile automated bot mitigation</td>
+                    <td>Telemetry token for verification</td>
+                  </tr>
+                  <tr>
+                    <td class="mono font-bold">n8n Engine</td>
+                    <td>Self hosted workflow routing and data store</td>
+                    <td>Form payload details</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="legal-section hairline-top">
+            <h2 class="section-title label-mono">05 / RETENTION POLICY</h2>
+            <p class="body-text">
+              Contact enquiry payloads are stored only for the duration necessary to address your communication. Standard operational data retention period: {studioConfig.privacy.dataRetentionPeriod}. Records are erased upon resolution or upon request.
+            </p>
+          </div>
+
+          <div class="legal-section hairline-top">
+            <h2 class="section-title label-mono">06 / YOUR INDIVIDUAL RIGHTS</h2>
+            <p class="body-text">
+              Under applicable statutory regulations, you hold the right to request access to your personal data, rectify inaccurate records, request permanent deletion, or withdraw your previously granted consent at any time without detriment.
+            </p>
+          </div>
+        </div>
+
+        <aside class="legal-sidebar-col hairline-left">
+          <div class="status-box ink-border">
+            <div class="card-header hairline-bottom">
+              <span class="card-title label-mono">DOCUMENT STATUS</span>
+            </div>
+            <div class="card-body">
+              <span class="status-stamp mono">[STATUS: DRAFT // PENDING LEGAL REVIEW]</span>
+              <p class="status-note">
+                This document is a drafting baseline and is subject to formal legal counsel verification prior to final commercial execution.
+              </p>
+            </div>
+          </div>
+
+          <div class="privacy-contact-box ink-border">
+            <div class="card-header hairline-bottom">
+              <span class="card-title label-mono">PRIVACY CONTACT</span>
+            </div>
+            <div class="card-body">
+              <span class="contact-label label-mono">DESIGNATED OFFICER</span>
+              <span class="contact-val mono">{studioConfig.privacy.privacyOfficerContact}</span>
+
+              <span class="contact-label label-mono hairline-top" style="padding-top: 0.75rem;">DIRECT TRANSMISSION</span>
+              <a href={`mailto:${studioConfig.contactEmail}`} class="contact-val mono mail-link">
+                {studioConfig.contactEmail}
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .legal-sheet {
+    padding: 3rem 0;
+    background-color: var(--paper);
+  }
+
+  .legal-header {
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .badge-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .sheet-tag {
+    font-size: 0.75rem;
+    color: var(--graphite);
+    letter-spacing: 0.08em;
+  }
+
+  .legal-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .legal-summary {
+    font-size: 1.125rem;
+    color: var(--graphite);
+    max-width: 800px;
+    line-height: 1.6;
+  }
+
+  .legal-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 900px) {
+    .legal-grid {
+      grid-template-columns: 1.8fr 1fr;
+    }
+  }
+
+  .legal-main-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .legal-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  .legal-section:first-child {
+    padding-top: 0;
+  }
+
+  .section-title {
+    color: var(--graphite);
+  }
+
+  .body-text {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--graphite);
+  }
+
+  .legal-list {
+    margin-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.9375rem;
+    color: var(--ink);
+  }
+
+  .processors-table-wrap {
+    overflow-x: auto;
+    background-color: var(--paper-shade);
+    margin-top: 0.5rem;
+  }
+
+  .processors-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8125rem;
+    text-align: left;
+  }
+
+  .processors-table th {
+    padding: 0.75rem 1rem;
+    background-color: var(--paper-shade);
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    border-right: 1px solid var(--rule);
+  }
+
+  .processors-table th:last-child {
+    border-right: none;
+  }
+
+  .processors-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    color: var(--graphite);
+  }
+
+  .processors-table td:last-child {
+    border-right: none;
+  }
+
+  .processors-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .font-bold {
+    font-weight: 600;
+  }
+
+  .legal-sidebar-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-left: 0;
+  }
+
+  @media (min-width: 900px) {
+    .legal-sidebar-col {
+      padding-left: 2rem;
+    }
+  }
+
+  .status-box,
+  .privacy-contact-box {
+    background-color: var(--paper);
+  }
+
+  .card-header {
+    padding: 0.75rem 1rem;
+    background-color: var(--paper-shade);
+  }
+
+  .card-title {
+    color: var(--ink);
+  }
+
+  .card-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .status-stamp {
+    font-size: 0.6875rem;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    padding: 0.25rem 0.5rem;
+    background-color: var(--paper-shade);
+    display: inline-block;
+  }
+
+  .status-note {
+    font-size: 0.8125rem;
+    color: var(--graphite);
+    line-height: 1.45;
+  }
+
+  .contact-label {
+    color: var(--graphite);
+  }
+
+  .contact-val {
+    font-size: 0.8125rem;
+    color: var(--ink);
+  }
+
+  .mail-link {
+    text-decoration: underline;
+  }
+</style>

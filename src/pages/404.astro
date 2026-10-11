@@ -1,0 +1,112 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Stamp from "../components/Stamp.astro";
+---
+
+<BaseLayout
+  title="404 Unrouted Coordinate | Protorev Digital"
+  description="Requested coordinate does not exist in master specification index."
+  sheetNumber="00"
+  totalSheets="06"
+  sheetTitle="ERROR: UNROUTED COORDINATE"
+  noindex={true}
+>
+  <section class="error-sheet hairline-bottom">
+    <div class="sheet-container">
+      <div class="error-box ink-border">
+        <div class="error-header hairline-bottom">
+          <div class="header-left">
+            <span class="error-code mono">STATUS 404</span>
+            <span class="error-tag mono">[ERROR: UNROUTED COORDINATE]</span>
+          </div>
+          <Stamp text="NOT FOUND" variant="error" />
+        </div>
+
+        <div class="error-body">
+          <h1 class="error-title">
+            Coordinate not found in master <em>index</em>
+          </h1>
+          <p class="error-desc">
+            The requested technical drawing sheet or resource path does not exist in this specification release. Check the requested URL path or return to the master index.
+          </p>
+
+          <div class="error-actions hairline-top">
+            <a href="/" class="btn btn-primary mono">
+              Return to Master Sheet 01
+            </a>
+            <a href="/usecases" class="btn btn-secondary mono">
+              Inspect Reference Table
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .error-sheet {
+    padding: 5rem 0;
+    background-color: var(--paper);
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .error-box {
+    background-color: var(--paper);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .error-header {
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--paper-shade);
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .error-code {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--vermilion);
+  }
+
+  .error-tag {
+    font-size: 0.6875rem;
+    color: var(--graphite);
+  }
+
+  .error-body {
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .error-title {
+    font-size: 2rem;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+
+  .error-desc {
+    font-size: 1rem;
+    color: var(--graphite);
+    line-height: 1.6;
+  }
+
+  .error-actions {
+    padding-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+</style>

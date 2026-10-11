@@ -1,0 +1,1677 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumière — Fine Jewelry</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+      :root {
+        --gold: #b8892a;
+        --gold-mid: #c9a055;
+        --gold-light: #e2c07a;
+        --gold-pale: #f0deb0;
+        --gold-line: rgba(184, 137, 42, 0.3);
+        --ink: #1a1410;
+        --ink2: #2c2418;
+        --warm-dark: #221c14;
+        --parchment: #faf6ef;
+        --parchment2: #f2ead8;
+        --sand: #e8dcc8;
+        --body-text: #3d3025;
+        --muted: #7a6a55;
+        --muted2: #a0906e;
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--parchment);
+        color: var(--ink);
+        font-family: "Jost", sans-serif;
+        font-weight: 300;
+        overflow-x: hidden;
+        cursor: none;
+      }
+
+      /* ─── CURSOR ─── */
+      #cur {
+        position: fixed;
+        width: 8px;
+        height: 8px;
+        background: var(--gold);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+      }
+      #ring {
+        position: fixed;
+        width: 36px;
+        height: 36px;
+        border: 1px solid rgba(184, 137, 42, 0.5);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition:
+          width 0.3s,
+          height 0.3s,
+          border-color 0.3s;
+      }
+      body.hov #ring {
+        width: 54px;
+        height: 54px;
+        border-color: var(--gold);
+      }
+
+      /* ─── NAV ─── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        padding: 26px 56px;
+        transition:
+          background 0.5s,
+          box-shadow 0.5s;
+      }
+      nav.scrolled {
+        background: rgba(250, 246, 239, 0.95);
+        box-shadow: 0 1px 0 var(--gold-line);
+        backdrop-filter: blur(12px);
+      }
+      nav.dark-hero {
+        /* on dark hero */
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+      }
+      .nav-links-right {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+        justify-content: flex-end;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: var(--parchment);
+        font-size: 10px;
+        letter-spacing: 3.5px;
+        text-transform: uppercase;
+        font-weight: 300;
+        opacity: 0.85;
+        transition:
+          opacity 0.3s,
+          color 0.3s;
+      }
+      .nav-link:hover {
+        opacity: 1;
+      }
+      nav.scrolled .nav-link {
+        color: var(--ink);
+      }
+
+      .nav-logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 23px;
+        font-weight: 300;
+        letter-spacing: 8px;
+        text-transform: uppercase;
+        color: var(--parchment);
+        text-align: center;
+        text-decoration: none;
+        transition: color 0.5s;
+      }
+      .nav-logo em {
+        font-style: italic;
+      }
+      nav.scrolled .nav-logo {
+        color: var(--gold);
+      }
+
+      /* ─── HERO ─── */
+      .hero {
+        height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        /* Real editorial jewelry photo — woman with necklace, dramatic lighting */
+        background:
+          linear-gradient(
+            to bottom,
+            rgba(15, 10, 5, 0.15) 0%,
+            rgba(15, 10, 5, 0.55) 60%,
+            rgba(15, 10, 5, 0.85) 100%
+          ),
+          url("./pearl_necklace.png") center/cover no-repeat;
+        transform: scale(1.07);
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 820px;
+        padding: 0 32px;
+      }
+
+      .hero-eyebrow {
+        display: block;
+        font-size: 10px;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        color: var(--gold-pale);
+        margin-bottom: 24px;
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      .hero-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(52px, 7.5vw, 108px);
+        font-weight: 300;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: #fff;
+        margin-bottom: 24px;
+        opacity: 0;
+        transform: translateY(28px);
+        text-shadow: 0 2px 40px rgba(0, 0, 0, 0.35);
+      }
+      .hero-title em {
+        font-style: italic;
+        color: var(--gold-pale);
+      }
+
+      .hero-sub {
+        font-size: 14px;
+        font-weight: 200;
+        letter-spacing: 2px;
+        color: rgba(255, 255, 255, 0.72);
+        margin-bottom: 50px;
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      .btn-primary {
+        display: inline-block;
+        padding: 16px 46px;
+        font-family: "Jost", sans-serif;
+        font-size: 10px;
+        font-weight: 300;
+        letter-spacing: 4.5px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--ink);
+        background: var(--gold-pale);
+        border: 1px solid transparent;
+        position: relative;
+        overflow: hidden;
+        transition:
+          background 0.4s,
+          color 0.4s,
+          transform 0.3s;
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      .btn-primary:hover {
+        background: transparent;
+        color: var(--gold-pale);
+        border-color: rgba(240, 222, 176, 0.6);
+        transform: translateY(-2px);
+      }
+
+      .btn-ghost-dark {
+        display: inline-block;
+        padding: 15px 44px;
+        font-family: "Jost", sans-serif;
+        font-size: 10px;
+        font-weight: 300;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--ink);
+        border: 1px solid var(--gold-line);
+        position: relative;
+        overflow: hidden;
+        transition:
+          color 0.4s,
+          border-color 0.4s,
+          background 0.4s;
+      }
+      .btn-ghost-dark::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--ink);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+      }
+      .btn-ghost-dark:hover::before {
+        transform: scaleX(1);
+      }
+      .btn-ghost-dark:hover {
+        color: #fff;
+        border-color: var(--ink);
+      }
+      .btn-ghost-dark span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-scroll {
+        position: absolute;
+        bottom: 32px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        z-index: 2;
+        opacity: 0;
+      }
+      .hero-scroll span {
+        font-size: 9px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .scroll-bar {
+        width: 1px;
+        height: 46px;
+        background: linear-gradient(
+          to bottom,
+          rgba(240, 222, 176, 0.8),
+          transparent
+        );
+        animation: sA 2s ease-in-out infinite;
+      }
+      @keyframes sA {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scaleY(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scaleY(0.55);
+        }
+      }
+
+      /* ─── SECTION SHARED ─── */
+      .sec-label {
+        display: block;
+        font-size: 9.5px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 14px;
+      }
+      .gold-rule {
+        width: 52px;
+        height: 1px;
+        background: var(--gold-line);
+      }
+      .gold-rule.center {
+        margin: 0 auto;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(44px);
+      }
+      .reveal-left {
+        opacity: 0;
+        transform: translateX(-44px);
+      }
+      .reveal-right {
+        opacity: 0;
+        transform: translateX(44px);
+      }
+
+      /* ─── INTRO BAND ─── */
+      .intro-band {
+        background: var(--parchment);
+        padding: 70px 56px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+      .intro-band h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(36px, 3.5vw, 54px);
+        font-weight: 300;
+        line-height: 1.2;
+      }
+      .intro-band h2 em {
+        font-style: italic;
+        color: var(--gold);
+      }
+      .intro-band p {
+        font-size: 14px;
+        line-height: 2;
+        color: var(--muted);
+      }
+
+      /* ─── COLLECTIONS ─── */
+      .collections {
+        padding: 0 0 120px;
+        background: var(--parchment);
+      }
+
+      .collections-head {
+        text-align: center;
+        padding: 0 56px 64px;
+      }
+      .collections-head h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(34px, 4vw, 58px);
+        font-weight: 300;
+        margin: 14px 0 26px;
+      }
+      .collections-head h2 em {
+        font-style: italic;
+        color: var(--gold);
+      }
+      .collections-head p {
+        font-size: 13px;
+        color: var(--muted);
+        letter-spacing: 0.5px;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .col-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3px;
+      }
+
+      .col-card {
+        position: relative;
+        aspect-ratio: 3/4;
+        overflow: hidden;
+        cursor: none;
+      }
+
+      .col-card-img {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .col-card:hover .col-card-img {
+        transform: scale(1.06);
+      }
+
+      /* Real Unsplash photos for each card */
+      .card-neck .col-card-img {
+        background-image:
+          linear-gradient(
+            to top,
+            rgba(15, 10, 5, 0.88) 0%,
+            rgba(15, 10, 5, 0.1) 55%
+          ),
+          url("https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80&fit=crop");
+      }
+      .card-rings .col-card-img {
+        background-image:
+          linear-gradient(
+            to top,
+            rgba(15, 10, 5, 0.88) 0%,
+            rgba(15, 10, 5, 0.1) 55%
+          ),
+          url("https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80&fit=crop");
+      }
+      .card-brace .col-card-img {
+        background-image:
+          linear-gradient(
+            to top,
+            rgba(15, 10, 5, 0.88) 0%,
+            rgba(15, 10, 5, 0.1) 55%
+          ),
+          url("https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=80&fit=crop");
+      }
+
+      .card-glow {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: radial-gradient(
+          ellipse 60% 50% at 50% 65%,
+          rgba(184, 137, 42, 0.22) 0%,
+          transparent 70%
+        );
+        opacity: 0;
+        transition: opacity 0.6s;
+      }
+      .col-card:hover .card-glow {
+        opacity: 1;
+      }
+
+      .card-foot {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        padding: 44px 36px 36px;
+      }
+      .card-num {
+        font-size: 9px;
+        letter-spacing: 4px;
+        color: var(--gold-light);
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 8px;
+      }
+      .card-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 30px;
+        font-weight: 300;
+        color: #fff;
+        letter-spacing: 0.03em;
+        margin-bottom: 6px;
+      }
+      .card-desc {
+        font-size: 11px;
+        font-weight: 200;
+        letter-spacing: 0.8px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .card-arrow {
+        position: absolute;
+        bottom: 34px;
+        right: 34px;
+        z-index: 3;
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: translateX(-10px);
+        transition:
+          opacity 0.4s,
+          transform 0.4s,
+          border-color 0.3s;
+      }
+      .col-card:hover .card-arrow {
+        opacity: 1;
+        transform: translateX(0);
+        border-color: var(--gold-light);
+      }
+
+      /* ─── SIGNATURE ─── */
+      .signature {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 86vh;
+        background: var(--parchment2);
+      }
+
+      .sig-img {
+        position: relative;
+        overflow: hidden;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(250, 246, 239, 0.08) 0%,
+            transparent 50%
+          ),
+          url("https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=1000&q=85&fit=crop")
+            center/cover no-repeat;
+      }
+      .sig-img::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to right,
+          transparent 60%,
+          var(--parchment2) 100%
+        );
+        z-index: 1;
+      }
+
+      .sig-corner {
+        position: absolute;
+        width: 52px;
+        height: 52px;
+        border-color: var(--gold-line);
+        border-style: solid;
+        z-index: 2;
+      }
+      .sig-tl {
+        top: 26px;
+        left: 26px;
+        border-width: 1px 0 0 1px;
+      }
+      .sig-br {
+        bottom: 26px;
+        right: 26px;
+        border-width: 0 1px 1px 0;
+      }
+
+      .sig-text {
+        padding: 96px 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .sig-text .sec-label {
+        margin-bottom: 34px;
+      }
+      .sig-text h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(38px, 3.5vw, 64px);
+        font-weight: 300;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        margin-bottom: 30px;
+        color: var(--ink);
+      }
+      .sig-text h2 em {
+        font-style: italic;
+        color: var(--gold);
+      }
+      .sig-text p {
+        font-size: 14px;
+        line-height: 2;
+        color: var(--muted);
+        max-width: 440px;
+        margin-bottom: 16px;
+      }
+
+      .sig-stats {
+        display: flex;
+        gap: 48px;
+        margin-top: 46px;
+      }
+      .stat {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .stat-num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 44px;
+        font-weight: 300;
+        color: var(--gold);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 9px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      /* ─── EDITORIAL STRIP ─── */
+      .editorial {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        height: 60vh;
+        overflow: hidden;
+      }
+      .ed-panel {
+        position: relative;
+        overflow: hidden;
+      }
+      .ed-panel-bg {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .ed-panel:hover .ed-panel-bg {
+        transform: scale(1.06);
+      }
+      .ed-panel:nth-child(1) .ed-panel-bg {
+        background-image:
+          linear-gradient(rgba(15, 10, 5, 0.3), rgba(15, 10, 5, 0.3)),
+          url("https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=800&q=80&fit=crop");
+      }
+      .ed-panel:nth-child(2) .ed-panel-bg {
+        background-image:
+          linear-gradient(rgba(15, 10, 5, 0.25), rgba(15, 10, 5, 0.25)),
+          url("https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&q=80&fit=crop");
+      }
+      .ed-panel:nth-child(3) .ed-panel-bg {
+        background-image:
+          linear-gradient(rgba(15, 10, 5, 0.3), rgba(15, 10, 5, 0.3)),
+          url("https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=800&q=80&fit=crop");
+      }
+      .ed-panel-label {
+        position: absolute;
+        bottom: 28px;
+        left: 28px;
+        z-index: 2;
+        font-size: 9px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* ─── CRAFTSMANSHIP ─── */
+      .craft {
+        padding: 120px 56px;
+        background: var(--ink);
+      }
+
+      .craft-intro {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: end;
+        max-width: 1280px;
+        margin: 0 auto 80px;
+      }
+      .craft-intro h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(40px, 4vw, 68px);
+        font-weight: 300;
+        line-height: 1.1;
+        color: var(--parchment);
+      }
+      .craft-intro h2 em {
+        font-style: italic;
+        color: var(--gold-light);
+      }
+      .craft-intro p {
+        font-size: 14px;
+        line-height: 2;
+        color: rgba(250, 246, 239, 0.55);
+        max-width: 400px;
+      }
+      .craft-intro .sec-label {
+        color: var(--gold-mid);
+      }
+
+      .craft-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        max-width: 1280px;
+        margin: 0 auto;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .craft-card {
+        background: #1e1710;
+        padding: 44px 36px;
+        border-right: 1px solid rgba(255, 255, 255, 0.06);
+        position: relative;
+        overflow: hidden;
+      }
+      .craft-card:last-child {
+        border-right: none;
+      }
+      .craft-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(to right, var(--gold), transparent);
+        transform: scaleX(0);
+        transition: transform 0.6s ease;
+      }
+      .craft-card:hover::after {
+        transform: scaleX(1);
+      }
+
+      .craft-num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 64px;
+        font-weight: 300;
+        color: rgba(184, 137, 42, 0.14);
+        line-height: 1;
+        margin-bottom: 24px;
+      }
+      .craft-icon {
+        width: 26px;
+        height: 26px;
+        margin-bottom: 20px;
+        opacity: 0.55;
+      }
+      .craft-card-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 22px;
+        color: var(--parchment);
+        margin-bottom: 12px;
+      }
+      .craft-card-text {
+        font-size: 12px;
+        line-height: 1.95;
+        color: rgba(250, 246, 239, 0.5);
+      }
+
+      /* ─── PARALLAX QUOTE ─── */
+      .quote-section {
+        position: relative;
+        height: 52vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .quote-bg {
+        position: absolute;
+        inset: -20%;
+        background:
+          linear-gradient(rgba(15, 10, 5, 0.6), rgba(15, 10, 5, 0.6)),
+          url("https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=1800&q=80&fit=crop")
+            center/cover no-repeat;
+      }
+      .quote-inner {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        max-width: 760px;
+        padding: 0 40px;
+      }
+      .quote-inner blockquote {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(28px, 4vw, 52px);
+        font-weight: 300;
+        font-style: italic;
+        color: #fff;
+        line-height: 1.3;
+      }
+      .quote-inner blockquote em {
+        color: var(--gold-pale);
+        font-style: normal;
+      }
+      .quote-rule {
+        width: 52px;
+        height: 1px;
+        background: var(--gold-mid);
+        margin: 28px auto 0;
+      }
+
+      /* ─── BRAND STORY ─── */
+      .story {
+        background: var(--parchment);
+        padding: 130px 56px;
+      }
+      .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 100px;
+        align-items: center;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .story-left h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(38px, 4vw, 62px);
+        font-weight: 300;
+        line-height: 1.12;
+        margin-bottom: 32px;
+        color: var(--ink);
+      }
+      .story-left h2 em {
+        font-style: italic;
+        color: var(--gold);
+      }
+      .story-left p {
+        font-size: 14px;
+        line-height: 2.1;
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+      .story-left .sec-label {
+        margin-bottom: 24px;
+      }
+
+      .story-right {
+        position: relative;
+      }
+      .story-img-main {
+        width: 100%;
+        aspect-ratio: 4/5;
+        object-fit: cover;
+        display: block;
+        box-shadow: 24px 24px 0 var(--sand);
+      }
+      .story-img-accent {
+        position: absolute;
+        bottom: -36px;
+        left: -36px;
+        width: 50%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border: 6px solid var(--parchment);
+        box-shadow: 0 12px 40px rgba(26, 20, 16, 0.18);
+      }
+
+      /* ─── FOOTER ─── */
+      footer {
+        background: var(--ink);
+        padding: 80px 56px 48px;
+        border-top: 1px solid rgba(184, 137, 42, 0.2);
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 56px;
+        margin-bottom: 60px;
+      }
+      .footer-logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 26px;
+        font-weight: 300;
+        letter-spacing: 7px;
+        text-transform: uppercase;
+        color: var(--gold-light);
+        margin-bottom: 16px;
+        display: block;
+      }
+      .footer-logo em {
+        font-style: italic;
+      }
+      .footer-brand p {
+        font-size: 12px;
+        line-height: 2;
+        color: rgba(250, 246, 239, 0.45);
+        max-width: 270px;
+      }
+
+      .footer-col h4 {
+        font-size: 9px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--gold-mid);
+        margin-bottom: 24px;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col ul li {
+        margin-bottom: 12px;
+      }
+      .footer-col ul li a {
+        font-size: 12.5px;
+        font-weight: 200;
+        color: rgba(250, 246, 239, 0.5);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      .footer-col ul li a:hover {
+        color: var(--parchment);
+      }
+
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 36px;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .footer-bottom p {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        color: rgba(250, 246, 239, 0.28);
+      }
+      .footer-socials {
+        display: flex;
+        gap: 26px;
+      }
+      .footer-socials a {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: rgba(250, 246, 239, 0.45);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      .footer-socials a:hover {
+        color: var(--gold-light);
+      }
+
+      /* ─── RESPONSIVE ─── */
+      @media (max-width: 960px) {
+        nav {
+          padding: 18px 24px;
+        }
+        .nav-links,
+        .nav-links-right {
+          display: none;
+        }
+        .intro-band {
+          grid-template-columns: 1fr;
+          gap: 24px;
+          padding: 50px 24px;
+        }
+        .collections {
+          padding-bottom: 60px;
+        }
+        .collections-head {
+          padding: 0 24px 48px;
+        }
+        .col-grid {
+          grid-template-columns: 1fr;
+        }
+        .signature {
+          grid-template-columns: 1fr;
+        }
+        .sig-img {
+          min-height: 50vh;
+        }
+        .sig-img::before {
+          background: linear-gradient(
+            to bottom,
+            transparent 60%,
+            var(--parchment2) 100%
+          );
+        }
+        .sig-text {
+          padding: 48px 24px;
+        }
+        .editorial {
+          grid-template-columns: 1fr;
+          height: auto;
+        }
+        .ed-panel {
+          height: 220px;
+        }
+        .craft {
+          padding: 80px 24px;
+        }
+        .craft-intro {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .craft-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .story {
+          padding: 80px 24px;
+        }
+        .story-grid {
+          grid-template-columns: 1fr;
+          gap: 60px;
+        }
+        .story-img-accent {
+          display: none;
+        }
+        footer {
+          padding: 60px 24px 40px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 36px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          cursor: auto;
+        }
+
+        #cur,
+        #ring {
+          display: none;
+        }
+
+        nav {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .hero {
+          width: 100%;
+          overflow: hidden;
+        }
+
+        .hero-inner {
+          max-width: 100%;
+          padding: 0 20px;
+        }
+
+        .hero-bg {
+          position: absolute;
+          top: 0;
+          left: -5%;
+          width: 110%;
+          height: 100%;
+          background-position: center;
+          transform: scale(1.05);
+        }
+
+        .hero-inner {
+          padding: 0 18px;
+        }
+
+        .hero-title {
+          font-size: 38px;
+          line-height: 1.15;
+        }
+
+        .hero-sub {
+          font-size: 12px;
+          letter-spacing: 1.5px;
+          margin-bottom: 32px;
+        }
+
+        .btn-primary {
+          width: 100%;
+          max-width: 280px;
+          padding: 14px 20px;
+        }
+
+        .hero-scroll {
+          bottom: 20px;
+        }
+      }
+
+      @media (max-width: 1100px) {
+        .hero-title {
+          font-size: clamp(44px, 6vw, 72px);
+        }
+
+        .hero-sub {
+          font-size: 13px;
+        }
+
+        .btn-primary {
+          padding: 14px 36px;
+          font-size: 9px;
+        }
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(15, 10, 5, 0.2) 0%,
+          rgba(15, 10, 5, 0.6) 60%,
+          rgba(15, 10, 5, 0.85) 100%
+        );
+        z-index: 1;
+      }
+
+      .btn-primary {
+        backdrop-filter: blur(4px);
+        box-shadow: 0 8px 30px rgba(184, 137, 42, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cur"></div>
+    <div id="ring"></div>
+
+    <!-- ── NAV ── -->
+    <nav id="nav">
+      <ul class="nav-links">
+        <li><a href="#collections" class="nav-link">Collections</a></li>
+        <li><a href="#craft" class="nav-link">Craftsmanship</a></li>
+      </ul>
+      <a href="#" class="nav-logo">Lumi<em>è</em>re</a>
+      <ul class="nav-links-right">
+        <li><a href="#story" class="nav-link">About</a></li>
+        <li><a href="#" class="nav-link">Visit Store</a></li>
+      </ul>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-inner">
+        <span class="hero-eyebrow" id="hEye">Fine Jewelry — Est. 1987</span>
+        <h1 class="hero-title" id="hTitle">
+          Jewelry That<br /><em>Holds Memories</em>
+        </h1>
+        <p class="hero-sub" id="hSub">
+          Crafted to celebrate the moments that matter.
+        </p>
+        <a href="#collections" class="btn-primary" id="hCta"
+          >Explore Collections</a
+        >
+      </div>
+      <div class="hero-scroll" id="hScroll">
+        <div class="scroll-bar"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ── INTRO BAND ── -->
+    <div class="intro-band">
+      <div class="reveal">
+        <span class="sec-label">Our Philosophy</span>
+        <h2>
+          Every piece begins with a <em>moment you never want to forget</em>
+        </h2>
+      </div>
+      <div class="reveal">
+        <p>
+          Lumière has been creating fine jewelry in Paris since 1987. We believe
+          a jewel should carry more than beauty — it should hold the weight of a
+          memory, the warmth of a promise, the quiet certainty of love.
+        </p>
+        <br />
+        <a href="#story" class="btn-ghost-dark"><span>Our Story</span></a>
+      </div>
+    </div>
+
+    <!-- ── COLLECTIONS ── -->
+    <section class="collections" id="collections">
+      <div class="collections-head">
+        <span class="sec-label reveal">Our Collections</span>
+        <h2 class="reveal">Timeless Pieces, <em>Endless Stories</em></h2>
+        <p class="reveal">
+          Three collections. One promise — crafted to be worn for a lifetime and
+          passed to the next.
+        </p>
+      </div>
+      <div class="col-grid">
+        <div class="col-card card-neck">
+          <div class="col-card-img"></div>
+          <div class="card-glow"></div>
+          <div class="card-foot">
+            <span class="card-num">01</span>
+            <h3 class="card-title">Necklaces</h3>
+            <p class="card-desc">From delicate chains to statement pendants</p>
+          </div>
+          <div class="card-arrow">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+              <path
+                d="M1 6.5H12M12 6.5L6.5 1M12 6.5L6.5 12"
+                stroke="#e2c07a"
+                stroke-width="1"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="col-card card-rings">
+          <div class="col-card-img"></div>
+          <div class="card-glow"></div>
+          <div class="card-foot">
+            <span class="card-num">02</span>
+            <h3 class="card-title">Rings</h3>
+            <p class="card-desc">Bands of meaning, worn for a lifetime</p>
+          </div>
+          <div class="card-arrow">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+              <path
+                d="M1 6.5H12M12 6.5L6.5 1M12 6.5L6.5 12"
+                stroke="#e2c07a"
+                stroke-width="1"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="col-card card-brace">
+          <div class="col-card-img"></div>
+          <div class="card-glow"></div>
+          <div class="card-foot">
+            <span class="card-num">03</span>
+            <h3 class="card-title">Bracelets</h3>
+            <p class="card-desc">Grace, wrapped around your wrist</p>
+          </div>
+          <div class="card-arrow">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+              <path
+                d="M1 6.5H12M12 6.5L6.5 1M12 6.5L6.5 12"
+                stroke="#e2c07a"
+                stroke-width="1"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SIGNATURE PIECE ── -->
+    <section class="signature">
+      <div class="sig-img reveal-left">
+        <div class="sig-corner sig-tl"></div>
+        <div class="sig-corner sig-br"></div>
+      </div>
+      <div class="sig-text reveal-right">
+        <span class="sec-label">Signature Piece</span>
+        <h2>The <em>Étoile</em><br />Pendant</h2>
+        <p>
+          Conceived beneath the Parisian night sky, the Étoile is our most
+          celebrated creation — a single pear-cut diamond suspended in an
+          18-karat gold halo setting, hand-selected for its brilliance.
+        </p>
+        <p>
+          Each Étoile is set by craftsmen with over two decades of experience.
+          No two are exactly alike.
+        </p>
+        <div class="sig-stats">
+          <div class="stat">
+            <span class="stat-num">18k</span
+            ><span class="stat-label">Gold Setting</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">2.4</span
+            ><span class="stat-label">Carat Stone</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">72h</span
+            ><span class="stat-label">To Handcraft</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EDITORIAL STRIP ── -->
+    <div class="editorial">
+      <div class="ed-panel">
+        <div class="ed-panel-bg"></div>
+        <span class="ed-panel-label">New Arrivals</span>
+      </div>
+      <div class="ed-panel">
+        <div class="ed-panel-bg"></div>
+        <span class="ed-panel-label">Engagement</span>
+      </div>
+      <div class="ed-panel">
+        <div class="ed-panel-bg"></div>
+        <span class="ed-panel-label">Gifting</span>
+      </div>
+    </div>
+
+    <!-- ── CRAFTSMANSHIP ── -->
+    <section class="craft" id="craft">
+      <div class="craft-intro">
+        <div>
+          <span class="sec-label reveal">The Art of Making</span>
+          <h2 class="reveal">Where <em>Precision</em><br />Meets Passion</h2>
+        </div>
+        <div class="reveal">
+          <p>
+            Every Lumière piece passes through four stages of creation — each
+            one a discipline in its own right. From first pencil stroke to final
+            polish, nothing is left to chance.
+          </p>
+        </div>
+      </div>
+      <div class="craft-grid">
+        <div class="craft-card">
+          <div class="craft-num">01</div>
+          <svg class="craft-icon" viewBox="0 0 26 26" fill="none">
+            <path
+              d="M13 2L15 9H22L17 14L19 21L13 17L7 21L9 14L4 9H11Z"
+              stroke="#c9a055"
+              stroke-width="1"
+              fill="none"
+            />
+          </svg>
+          <h3 class="craft-card-title">Design</h3>
+          <p class="craft-card-text">
+            Every creation begins as a hand-drawn sketch in our Parisian
+            atelier. Our designers work in pencil and ink until the form feels
+            inevitable.
+          </p>
+        </div>
+        <div class="craft-card">
+          <div class="craft-num">02</div>
+          <svg class="craft-icon" viewBox="0 0 26 26" fill="none">
+            <circle cx="13" cy="13" r="9" stroke="#c9a055" stroke-width="1" />
+            <circle cx="13" cy="13" r="5" stroke="#c9a055" stroke-width=".8" />
+            <circle cx="13" cy="13" r="2" fill="#c9a055" opacity=".5" />
+          </svg>
+          <h3 class="craft-card-title">Selection</h3>
+          <p class="craft-card-text">
+            Our gemologist travels globally to source only the finest stones.
+            Fewer than 1 in 100 evaluated diamonds makes it into a Lumière
+            creation.
+          </p>
+        </div>
+        <div class="craft-card">
+          <div class="craft-num">03</div>
+          <svg class="craft-icon" viewBox="0 0 26 26" fill="none">
+            <path
+              d="M3 21L13 3L23 21H3Z"
+              stroke="#c9a055"
+              stroke-width="1"
+              fill="none"
+            />
+            <path d="M7 15H19" stroke="#c9a055" stroke-width=".8" />
+          </svg>
+          <h3 class="craft-card-title">Setting</h3>
+          <p class="craft-card-text">
+            Our master setters — each with over 20 years of practice —
+            hand-place every stone with jeweler's precision. The setting is as
+            considered as the stone itself.
+          </p>
+        </div>
+        <div class="craft-card">
+          <div class="craft-num">04</div>
+          <svg class="craft-icon" viewBox="0 0 26 26" fill="none">
+            <path
+              d="M13 3C13 3 5 9 5 16C5 20.4 8.6 24 13 24C17.4 24 21 20.4 21 16C21 9 13 3 13 3Z"
+              stroke="#c9a055"
+              stroke-width="1"
+              fill="none"
+            />
+            <path d="M13 11V18" stroke="#c9a055" stroke-width="1" />
+          </svg>
+          <h3 class="craft-card-title">Finishing</h3>
+          <p class="craft-card-text">
+            A 48-hour final polish and quality review under daylight-spectrum
+            lighting. Only then does the piece receive our hallmark and leave
+            the atelier.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── QUOTE PARALLAX ── -->
+    <div class="quote-section">
+      <div class="quote-bg" id="qBg"></div>
+      <div class="quote-inner reveal">
+        <blockquote>
+          "We do not make jewelry.<br />We make
+          <em>the object someone will point to</em><br />and say — this is when
+          it began."
+        </blockquote>
+        <div class="quote-rule"></div>
+      </div>
+    </div>
+
+    <!-- ── BRAND STORY ── -->
+    <section class="story" id="story">
+      <div class="story-grid">
+        <div class="story-left">
+          <span class="sec-label reveal">Our Story</span>
+          <h2 class="reveal">
+            Born from a belief that <em>beauty outlasts time</em>
+          </h2>
+          <p class="reveal">
+            Founded in Paris in 1987, Lumière began as a single atelier on the
+            Rue de la Paix. Our founder, Élise Moreau, believed that a jewel
+            should carry more than beauty — it should carry meaning.
+          </p>
+          <p class="reveal">
+            Thirty-seven years on, that philosophy guides every piece we create.
+            From engagement rings to anniversary gifts, Lumière has been present
+            for life's most luminous moments.
+          </p>
+          <br />
+          <a href="#" class="btn-ghost-dark reveal"
+            ><span>Meet the Maison</span></a
+          >
+        </div>
+        <div class="story-right reveal-right">
+          <img
+            class="story-img-main"
+            src="https://images.unsplash.com/photo-1584302179602-e4c3d3fd629d?w=800&q=85&fit=crop"
+            alt="Jewelry atelier"
+          />
+          <img
+            class="story-img-accent"
+            src="https://images.unsplash.com/photo-1593121925328-369cc8459c08?w=400&q=80&fit=crop"
+            alt="Craftsmanship detail"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="footer-logo">Lumi<em>è</em>re</span>
+          <p>
+            Fine jewelry, handcrafted in Paris since 1987. Each piece is a
+            promise — to beauty, to memory, and to the person who wears it.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul>
+            <li><a href="#">Necklaces</a></li>
+            <li><a href="#">Rings</a></li>
+            <li><a href="#">Bracelets</a></li>
+            <li><a href="#">Earrings</a></li>
+            <li><a href="#">Bespoke</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Maison</h4>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Craftsmanship</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Visit</h4>
+          <ul>
+            <li><a href="#">Paris Flagship</a></li>
+            <li><a href="#">London</a></li>
+            <li><a href="#">New York</a></li>
+            <li><a href="#">Tokyo</a></li>
+            <li><a href="#">Book Appointment</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Lumière Fine Jewelry. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#">Instagram</a>
+          <a href="#">Pinterest</a>
+          <a href="#">WeChat</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      /* ── cursor ── */
+      const cur = document.getElementById("cur");
+      const ring = document.getElementById("ring");
+      let mx = 0,
+        my = 0,
+        rx = 0,
+        ry = 0;
+      document.addEventListener("mousemove", (e) => {
+        mx = e.clientX;
+        my = e.clientY;
+        gsap.to(cur, { x: mx, y: my, duration: 0.07 });
+      });
+      gsap.ticker.add(() => {
+        rx += (mx - rx) * 0.11;
+        ry += (my - ry) * 0.11;
+        gsap.set(ring, { x: rx, y: ry });
+      });
+      document
+        .querySelectorAll("a,button,.col-card,.ed-panel")
+        .forEach((el) => {
+          el.addEventListener("mouseenter", () =>
+            document.body.classList.add("hov"),
+          );
+          el.addEventListener("mouseleave", () =>
+            document.body.classList.remove("hov"),
+          );
+        });
+
+      /* ── hero entrance ── */
+      gsap
+        .timeline({ delay: 0.15 })
+        .to("#hEye", { opacity: 1, y: 0, duration: 1, ease: "power3.out" })
+        .to(
+          "#hTitle",
+          { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" },
+          "-=.5",
+        )
+        .to(
+          "#hSub",
+          { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+          "-=.65",
+        )
+        .to(
+          "#hCta",
+          { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" },
+          "-=.5",
+        )
+        .to("#hScroll", { opacity: 1, duration: 0.8 }, "-=.3");
+
+      /* ── parallax: hero bg ── */
+      gsap.to("#heroBg", {
+        yPercent: 18,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+
+      /* ── parallax: quote bg ── */
+      gsap.to("#qBg", {
+        yPercent: 22,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".quote-section",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+
+      /* ── nav ── */
+      const nav = document.getElementById("nav");
+      ScrollTrigger.create({
+        start: "top -70",
+        onEnter: () => nav.classList.add("scrolled"),
+        onLeaveBack: () => nav.classList.remove("scrolled"),
+      });
+
+      /* ── scroll reveals ── */
+      document.querySelectorAll(".reveal").forEach((el) => {
+        gsap.to(el, {
+          opacity: 1,
+          y: 0,
+          duration: 1.1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 88%",
+            toggleActions: "play none none none",
+          },
+        });
+      });
+      document.querySelectorAll(".reveal-left").forEach((el) => {
+        gsap.to(el, {
+          opacity: 1,
+          x: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 82%",
+            toggleActions: "play none none none",
+          },
+        });
+      });
+      document.querySelectorAll(".reveal-right").forEach((el) => {
+        gsap.to(el, {
+          opacity: 1,
+          x: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 82%",
+            toggleActions: "play none none none",
+          },
+        });
+      });
+
+      /* ── collection cards stagger ── */
+      gsap.from(".col-card", {
+        opacity: 0,
+        y: 60,
+        stagger: 0.15,
+        duration: 1.1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".col-grid",
+          start: "top 82%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      /* ── craft cards stagger ── */
+      gsap.from(".craft-card", {
+        opacity: 0,
+        y: 60,
+        stagger: 0.18,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".craft-grid",
+          start: "top 80%",
+        },
+      });
+
+      /* ── editorial panels ── */
+      gsap.from(".ed-panel", {
+        opacity: 0,
+        stagger: 0.18,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".editorial",
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      });
+    </script>
+  </body>
+</html>

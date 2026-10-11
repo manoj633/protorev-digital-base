@@ -1,0 +1,236 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Stamp from "../components/Stamp.astro";
+import { studioConfig } from "../data/config";
+---
+
+<BaseLayout
+  title="Terms of Service | Protorev Digital"
+  description="Draft terms of service and engagement governing reference blueprints and commercial pilots."
+  sheetNumber="06"
+  totalSheets="06"
+  sheetTitle="LEGAL SPECIFICATION: TERMS OF SERVICE"
+>
+  <article class="legal-sheet hairline-bottom">
+    <div class="sheet-container">
+      <div class="legal-header hairline-bottom">
+        <div class="badge-row">
+          <span class="sheet-tag mono">REGULATORY SPECIFICATION</span>
+          <Stamp text="DRAFT SPECIFICATION" variant="draft" />
+        </div>
+        <h1 class="legal-title">
+          Terms of Service and <em>Engagement</em>
+        </h1>
+        <p class="legal-summary">
+          Draft terms governing the inspection of open reference blueprints and commercial engagements with {studioConfig.studioName}.
+        </p>
+      </div>
+
+      <div class="legal-grid">
+        <div class="legal-main-col">
+          <div class="legal-section">
+            <h2 class="section-title label-mono">01 / NATURE OF PUBLIC REFERENCE BUILDS</h2>
+            <p class="body-text">
+              All workflow topologies, simulation logs, and code snippets published across this domain are reference builds created for inspection and demonstration. They are provided as is without warranty of uninterrupted execution or suitability for any particular purpose outside verified sandbox environments.
+            </p>
+          </div>
+
+          <div class="legal-section hairline-top">
+            <h2 class="section-title label-mono">02 / INTELLECTUAL PROPERTY AND OPEN BLUEPRINTS</h2>
+            <p class="body-text">
+              Reference blueprints and workflow diagrams marked as open reference models may be inspected and adapted for your internal operations. The underlying proprietary branding, trademarks, and typography styling of {studioConfig.studioName} remain the exclusive property of the studio.
+            </p>
+          </div>
+
+          <div class="legal-section hairline-top">
+            <h2 class="section-title label-mono">03 / PILOT ENGAGEMENT PARAMETERS</h2>
+            <p class="body-text">
+              Formal commercial engagements commence with a defined scope pilot governed by mutual written statement of work. Commercial terms, pricing milestones, and project timelines are established directly with each prospective client.
+            </p>
+          </div>
+
+          <div class="legal-section hairline-top">
+            <h2 class="section-title label-mono">04 / LIMITATION OF LIABILITY</h2>
+            <p class="body-text">
+              To the maximum extent permitted by applicable statutory law, {studioConfig.studioName} shall not be liable for any indirect, incidental, or consequential damages resulting from the use or adaptation of sample workflow logic or simulation payloads.
+            </p>
+          </div>
+
+          <div class="legal-section hairline-top">
+            <h2 class="section-title label-mono">05 / JURISDICTION AND DISPUTE RESOLUTION</h2>
+            <p class="body-text">
+              These terms shall be governed by and construed in accordance with the statutory laws of the relevant jurisdiction. Any disputes arising shall be subject to amicable mutual conciliation prior to formal proceedings.
+            </p>
+          </div>
+        </div>
+
+        <aside class="legal-sidebar-col hairline-left">
+          <div class="status-box ink-border">
+            <div class="card-header hairline-bottom">
+              <span class="card-title label-mono">DOCUMENT STATUS</span>
+            </div>
+            <div class="card-body">
+              <span class="status-stamp mono">[STATUS: DRAFT // PENDING LEGAL REVIEW]</span>
+              <p class="status-note">
+                This document is a drafting baseline and is subject to formal legal counsel review prior to commercial execution.
+              </p>
+            </div>
+          </div>
+
+          <div class="action-card ink-border">
+            <div class="card-header hairline-bottom">
+              <span class="card-title label-mono">QUESTIONS</span>
+            </div>
+            <div class="card-body">
+              <p class="action-text">
+                For legal inquiries or commercial clarifications, reach out directly to the studio mailbox.
+              </p>
+              <a href={`mailto:${studioConfig.contactEmail}`} class="btn btn-secondary action-btn mono">
+                Transmit Legal Query
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .legal-sheet {
+    padding: 3rem 0;
+    background-color: var(--paper);
+  }
+
+  .legal-header {
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .badge-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .sheet-tag {
+    font-size: 0.75rem;
+    color: var(--graphite);
+    letter-spacing: 0.08em;
+  }
+
+  .legal-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .legal-summary {
+    font-size: 1.125rem;
+    color: var(--graphite);
+    max-width: 800px;
+    line-height: 1.6;
+  }
+
+  .legal-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 900px) {
+    .legal-grid {
+      grid-template-columns: 1.8fr 1fr;
+    }
+  }
+
+  .legal-main-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .legal-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  .legal-section:first-child {
+    padding-top: 0;
+  }
+
+  .section-title {
+    color: var(--graphite);
+  }
+
+  .body-text {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--graphite);
+  }
+
+  .legal-sidebar-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-left: 0;
+  }
+
+  @media (min-width: 900px) {
+    .legal-sidebar-col {
+      padding-left: 2rem;
+    }
+  }
+
+  .status-box,
+  .action-card {
+    background-color: var(--paper);
+  }
+
+  .card-header {
+    padding: 0.75rem 1rem;
+    background-color: var(--paper-shade);
+  }
+
+  .card-title {
+    color: var(--ink);
+  }
+
+  .card-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .status-stamp {
+    font-size: 0.6875rem;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    padding: 0.25rem 0.5rem;
+    background-color: var(--paper-shade);
+    display: inline-block;
+  }
+
+  .status-note {
+    font-size: 0.8125rem;
+    color: var(--graphite);
+    line-height: 1.45;
+  }
+
+  .action-text {
+    font-size: 0.8125rem;
+    color: var(--graphite);
+    line-height: 1.45;
+  }
+
+  .action-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+  }
+</style>

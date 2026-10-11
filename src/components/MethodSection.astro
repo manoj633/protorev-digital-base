@@ -1,0 +1,221 @@
+---
+const revisions = [
+  {
+    rev: "REV A",
+    phase: "Audit and Inventory",
+    timeline: "Week 01",
+    summary: "Complete baseline assessment of existing web assets, data bottlenecks, and crawl errors.",
+    deliverables: [
+      "Technical asset inventory report",
+      "Baseline crawl log with identified errors",
+      "Target system architecture blueprint"
+    ]
+  },
+  {
+    rev: "REV B",
+    phase: "Prototype Build",
+    timeline: "Week 02",
+    summary: "Rapid creation of static page templates and working n8n automation pathways in simulation.",
+    deliverables: [
+      "Static template code and layout sheets",
+      "Initial workflow diagram with validated triggers",
+      "Normalized input and output data schemas"
+    ]
+  },
+  {
+    rev: "REV C",
+    phase: "Review and Fault Testing",
+    timeline: "Week 03",
+    summary: "Simulated load runs, failure mode analysis, and contrast verification against specifications.",
+    deliverables: [
+      "Failure mode simulation test results",
+      "Accessibility and contrast ratio confirmation",
+      "Interactive inspection session with source review"
+    ]
+  },
+  {
+    rev: "REV D",
+    phase: "Harden and Handover",
+    timeline: "Week 04",
+    summary: "Final static compilation, server environment configuration, and clean repository delivery.",
+    deliverables: [
+      "Production deployment to designated edge host",
+      "Self hosted n8n workflow credentials and setup",
+      "Complete operational documentation and runbook"
+    ]
+  }
+];
+---
+
+<section class="method-section" id="method">
+  <div class="sheet-container">
+    <div class="section-title-bar hairline-bottom">
+      <div class="title-left">
+        <span class="sheet-badge mono">SHEET 04 OF 06</span>
+        <h2 class="section-heading">Engineering <em>Method</em></h2>
+      </div>
+      <span class="spec-id mono">[SPECIFICATION: REVISION CYCLE]</span>
+    </div>
+
+    <div class="method-grid">
+      {revisions.map((item) => (
+        <article class="revision-card ink-border">
+          <div class="card-header hairline-bottom">
+            <span class="rev-badge mono">{item.rev}</span>
+            <span class="timeline-tag mono">{item.timeline}</span>
+          </div>
+
+          <div class="card-body">
+            <h3 class="phase-title">{item.phase}</h3>
+            <p class="phase-summary">{item.summary}</p>
+
+            <div class="deliverables-block hairline-top">
+              <span class="deliverables-heading label-mono">CLIENT RECEIVES</span>
+              <ul class="deliverables-list">
+                {item.deliverables.map((deliv) => (
+                  <li class="deliverable-entry">
+                    <span class="bullet-dot mono">•</span>
+                    <span>{deliv}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .method-section {
+    padding: 3.5rem 0;
+    position: relative;
+  }
+
+  .section-title-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    gap: 1rem;
+  }
+
+  .title-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .sheet-badge {
+    font-size: 0.75rem;
+    color: var(--graphite);
+    letter-spacing: 0.08em;
+  }
+
+  .section-heading {
+    font-size: 1.75rem;
+  }
+
+  .spec-id {
+    font-size: 0.75rem;
+    color: var(--graphite);
+  }
+
+  .method-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .method-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .method-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .revision-card {
+    background-color: var(--paper);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-header {
+    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--paper-shade);
+  }
+
+  .rev-badge {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .timeline-tag {
+    font-size: 0.6875rem;
+    color: var(--graphite);
+  }
+
+  .card-body {
+    padding: 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .phase-title {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+  }
+
+  .phase-summary {
+    font-size: 0.875rem;
+    color: var(--graphite);
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+
+  .deliverables-block {
+    margin-top: auto;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .deliverables-heading {
+    color: var(--graphite);
+  }
+
+  .deliverables-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .deliverable-entry {
+    font-size: 0.8125rem;
+    color: var(--ink);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.35;
+  }
+
+  .bullet-dot {
+    color: var(--graphite);
+  }
+</style>

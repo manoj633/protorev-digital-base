@@ -1,0 +1,269 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import FramedSlot from "../../components/FramedSlot.astro";
+import Stamp from "../../components/Stamp.astro";
+---
+
+<BaseLayout
+  title="Automation and Agents Specification | Protorev Digital"
+  description="Deterministic workflow automation built on n8n and structured language model classification nodes."
+  sheetNumber="02"
+  totalSheets="06"
+  sheetTitle="SERVICE SPECIFICATION: AUTOMATION AND AGENTS"
+>
+  <article class="service-sheet hairline-bottom">
+    <div class="sheet-container">
+      <div class="spec-header hairline-bottom">
+        <div class="badge-row">
+          <span class="sheet-tag mono">SHEET 02 / CAP04</span>
+          <Stamp text="ACTIVE SPECIFICATION" variant="draft" />
+        </div>
+        <h1 class="spec-title">
+          Workflow Automation and <em>Agents</em>
+        </h1>
+        <p class="spec-summary">
+          Deterministic workflow automation built on n8n and structured language model classification nodes.
+        </p>
+      </div>
+
+      <div class="spec-body-grid">
+        <div class="spec-main-col">
+          <div class="spec-section">
+            <h2 class="section-title label-mono">SCOPE OVERVIEW</h2>
+            <p class="body-text">
+              We build operational automations that eliminate manual clerical tasks across your infrastructure. Workflows run on self hosted n8n instances with clear error handling, deterministic routing, and optional language model classification steps with strict JSON output schemas.
+            </p>
+          </div>
+
+          <div class="spec-section hairline-top">
+            <h2 class="section-title label-mono">DELIVERABLES INCLUDED</h2>
+            <ul class="spec-list">
+              <li class="spec-list-item">
+                <span class="bullet mono">•</span>
+                <span>Self hosted n8n workflow creation, secret management, and server setup</span>
+              </li>
+              <li class="spec-list-item">
+                <span class="bullet mono">•</span>
+                <span>Structured prompt classification nodes with strict JSON output schema validation</span>
+              </li>
+              <li class="spec-list-item">
+                <span class="bullet mono">•</span>
+                <span>Persistent error handling, dead letter notification queues, and automated retries</span>
+              </li>
+              <li class="spec-list-item">
+                <span class="bullet mono">•</span>
+                <span>Complete workflow export JSON delivery and operations runbook for independent ownership</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="spec-section hairline-top">
+            <h2 class="section-title label-mono">TECHNICAL SPECIFICATIONS</h2>
+            <div class="params-table-wrap ink-border">
+              <table class="params-table">
+                <tbody>
+                  <tr>
+                    <td class="param-key mono">CORE ENGINE</td>
+                    <td class="param-val mono">n8n self hosted or managed workflow runtime</td>
+                  </tr>
+                  <tr>
+                    <td class="param-key mono">AGENT METHOD</td>
+                    <td class="param-val mono">Structured JSON schema prompts with zero hallucination constraints</td>
+                  </tr>
+                  <tr>
+                    <td class="param-key mono">AUTH AND SECRETS</td>
+                    <td class="param-val mono">Encrypted environment variables and verified header signatures</td>
+                  </tr>
+                  <tr>
+                    <td class="param-key mono">FAILSAFE DESIGN</td>
+                    <td class="param-val mono">Automatic fallback routing and operator notification dispatches</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <aside class="spec-sidebar-col hairline-left">
+          <div class="sidebar-slot">
+            <FramedSlot slotId="CAP_AUTO_SPEC" ratio="1:1" label="Workflow Topology Schematic" />
+          </div>
+
+          <div class="sidebar-box hairline-top">
+            <span class="box-label label-mono">ENGAGEMENT MODEL</span>
+            <p class="box-text">
+              Included in the fixed scope pilot or constructed as standalone automation pipelines.
+            </p>
+            <a href="/contact" class="btn btn-primary cta-btn">
+              Initiate Project Enquiry
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .service-sheet {
+    padding: 3rem 0;
+    background-color: var(--paper);
+  }
+
+  .spec-header {
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .badge-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .sheet-tag {
+    font-size: 0.75rem;
+    color: var(--graphite);
+    letter-spacing: 0.08em;
+  }
+
+  .spec-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .spec-summary {
+    font-size: 1.125rem;
+    color: var(--graphite);
+    max-width: 800px;
+    line-height: 1.6;
+  }
+
+  .spec-body-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 900px) {
+    .spec-body-grid {
+      grid-template-columns: 1.8fr 1fr;
+    }
+  }
+
+  .spec-main-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .spec-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  .spec-section:first-child {
+    padding-top: 0;
+  }
+
+  .section-title {
+    color: var(--graphite);
+  }
+
+  .body-text {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--graphite);
+  }
+
+  .spec-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .spec-list-item {
+    font-size: 0.9375rem;
+    color: var(--ink);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .bullet {
+    color: var(--graphite);
+  }
+
+  .params-table-wrap {
+    overflow-x: auto;
+    background-color: var(--paper-shade);
+  }
+
+  .params-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8125rem;
+  }
+
+  .params-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .params-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .param-key {
+    width: 35%;
+    color: var(--graphite);
+    border-right: 1px solid var(--rule);
+  }
+
+  .param-val {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .spec-sidebar-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-left: 0;
+  }
+
+  @media (min-width: 900px) {
+    .spec-sidebar-col {
+      padding-left: 2rem;
+    }
+  }
+
+  .sidebar-box {
+    padding: 1.5rem;
+    background-color: var(--paper-shade);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .box-label {
+    color: var(--graphite);
+  }
+
+  .box-text {
+    font-size: 0.875rem;
+    color: var(--graphite);
+    line-height: 1.5;
+  }
+
+  .cta-btn {
+    width: 100%;
+  }
+</style>

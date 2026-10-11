@@ -1,0 +1,134 @@
+---
+import { studioConfig } from "../data/config";
+import TitleBlockHeader from "../components/TitleBlockHeader.astro";
+import RegistrationMarks from "../components/RegistrationMarks.astro";
+import RevisionFooter from "../components/RevisionFooter.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  sheetNumber?: string;
+  totalSheets?: string;
+  sheetTitle?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical = studioConfig.canonicalUrl,
+  ogImage = "/assets/og_base.png",
+  sheetNumber = "01",
+  totalSheets = "06",
+  sheetTitle = "INDEX AND SPECIFICATION",
+  noindex = false
+} = Astro.props;
+
+const siteUrl = studioConfig.canonicalUrl;
+const fullOgImageUrl = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
+
+// Structured Data: WebSite & Organization (no ISO dates, no copy hyphens)
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      "name": studioConfig.studioName,
+      "url": siteUrl,
+      "email": studioConfig.contactEmail,
+      "description": studioConfig.siteDescription
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      "url": siteUrl,
+      "name": studioConfig.studioName,
+      "publisher": {
+        "@id": `${siteUrl}/#organization`
+      }
+    }
+  ]
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Open Graph (PNG format 1200x630) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={fullOgImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content={studioConfig.studioName} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullOgImageUrl} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Schema.org JSON LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+    <!-- Cloudflare Turnstile script (only when needed) -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+  </head>
+  <body class="sheet-background">
+    <div class="sheet-frame-wrapper">
+      <RegistrationMarks />
+      <TitleBlockHeader 
+        sheetNumber={sheetNumber} 
+        totalSheets={totalSheets} 
+        sheetTitle={sheetTitle} 
+      />
+      <main id="main-content" class="main-drawing-area">
+        <slot />
+      </main>
+      <RevisionFooter />
+    </div>
+  </body>
+</html>
+
+<style>
+  .sheet-frame-wrapper {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--ink);
+    margin: 8px;
+    background-color: var(--paper);
+  }
+
+  @media (min-width: 1440px) {
+    .sheet-frame-wrapper {
+      margin: 12px;
+    }
+  }
+
+  .main-drawing-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+  }
+</style>

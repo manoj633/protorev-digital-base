@@ -1,0 +1,213 @@
+---
+import { getCollection } from 'astro:content';
+import Stamp from "./Stamp.astro";
+
+const usecases = await getCollection('usecases');
+// Sort by ID
+const sortedUsecases = usecases.sort((a, b) => a.data.id.localeCompare(b.data.id));
+---
+
+<section class="reference-section" id="reference-builds">
+  <div class="sheet-container">
+    <div class="section-title-bar hairline-bottom">
+      <div class="title-left">
+        <span class="sheet-badge mono">SHEET 03 OF 06</span>
+        <h2 class="section-heading">Inspectable <em>Reference</em> Builds</h2>
+      </div>
+      <span class="spec-id mono">[SPECIFICATION: REFERENCE TABLE]</span>
+    </div>
+
+    <div class="notice-box ink-border">
+      <span class="notice-text">
+        New studio. No client logos yet, so every build is a reference build you can inspect.
+      </span>
+    </div>
+
+    <!-- Technical Data Table -->
+    <div class="table-wrap ink-border">
+      <table class="reference-table">
+        <thead>
+          <tr>
+            <th class="col-id label-mono">ID</th>
+            <th class="col-name label-mono">BUILD NAME</th>
+            <th class="col-trigger label-mono">TRIGGER</th>
+            <th class="col-stack label-mono">STACK</th>
+            <th class="col-runtime label-mono">RUN TIME</th>
+            <th class="col-cost label-mono">COST PER RUN</th>
+            <th class="col-status label-mono">STATUS</th>
+            <th class="col-file label-mono">WORKFLOW FILE</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sortedUsecases.map((uc) => (
+            <tr class="table-row">
+              <td class="col-id mono font-bold">
+                <a href={`/usecases/${uc.data.id}`} class="row-link mono">{uc.data.id}</a>
+              </td>
+              <td class="col-name">
+                <a href={`/usecases/${uc.data.id}`} class="name-link">{uc.data.title}</a>
+              </td>
+              <td class="col-trigger mono text-sm">{uc.data.trigger}</td>
+              <td class="col-stack mono text-sm">{uc.data.stack}</td>
+              <td class="col-runtime mono text-sm">{uc.data.runtime}</td>
+              <td class="col-cost mono text-sm">{uc.data.costPerRun}</td>
+              <td class="col-status">
+                <Stamp text={uc.data.status} variant={uc.data.status === "SIMULATED" ? "simulated" : "draft"} />
+              </td>
+              <td class="col-file mono text-sm">
+                {uc.data.workflowFile ? (
+                  <a href={uc.data.workflowFile} class="download-link" download>Download JSON</a>
+                ) : (
+                  <span class="status-unpublished">Workflow file: not yet published</span>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  .reference-section {
+    padding: 3.5rem 0;
+    position: relative;
+  }
+
+  .section-title-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+  }
+
+  .title-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .sheet-badge {
+    font-size: 0.75rem;
+    color: var(--graphite);
+    letter-spacing: 0.08em;
+  }
+
+  .section-heading {
+    font-size: 1.75rem;
+  }
+
+  .spec-id {
+    font-size: 0.75rem;
+    color: var(--graphite);
+  }
+
+  .notice-box {
+    padding: 0.875rem 1.25rem;
+    background-color: var(--paper-shade);
+    margin-bottom: 1.5rem;
+  }
+
+  .notice-text {
+    font-size: 0.9375rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    background-color: var(--paper);
+  }
+
+  .reference-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.875rem;
+  }
+
+  .reference-table thead {
+    background-color: var(--paper-shade);
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .reference-table th {
+    padding: 0.875rem 1rem;
+    color: var(--ink);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    border-right: 1px solid var(--rule);
+  }
+
+  .reference-table th:last-child {
+    border-right: none;
+  }
+
+  .reference-table td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    color: var(--graphite);
+    vertical-align: middle;
+  }
+
+  .reference-table td:last-child {
+    border-right: none;
+  }
+
+  .table-row:nth-child(even) {
+    background-color: rgba(224, 218, 202, 0.4);
+  }
+
+  .table-row:last-child td {
+    border-bottom: none;
+  }
+
+  .row-link {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .row-link:hover {
+    color: var(--vermilion);
+  }
+
+  .name-link {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .name-link:hover {
+    color: var(--vermilion);
+  }
+
+  .text-sm {
+    font-size: 0.8125rem;
+  }
+
+  .font-bold {
+    font-weight: 600;
+  }
+
+  .status-unpublished {
+    font-size: 0.6875rem;
+    color: var(--graphite);
+    font-style: normal;
+  }
+
+  .download-link {
+    color: var(--vermilion);
+    text-decoration: none;
+  }
+
+  .download-link:hover {
+    text-decoration: underline;
+  }
+</style>

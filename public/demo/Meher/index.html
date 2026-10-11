@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;1,400&amp;family=Manrope:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, rgba(250,249,245,1) 100%);
+        }
+        .gold-sheen {
+            background: linear-gradient(135deg, #d4af37 0%, #f1e5ac 50%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-float-img {
+            position: absolute;
+            pointer-events: none;
+            will-change: transform;
+            transition: transform 0.05s linear;
+        }
+        /* Custom Scrollbar */
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d4af37; 
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #b5952f; 
+        }
+        .custom-scrollbar {
+            scrollbar-width: thin;
+            scrollbar-color: #d4af37 transparent;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#474746",
+                        "inverse-surface": "#2f312e",
+                        "tertiary-fixed": "#e3e20",
+                        "on-secondary-container": "#745c00",
+                        "on-primary-container": "#858383",
+                        "outline": "#747878",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#c7c6c4",
+                        "surface-variant": "#e3e2df",
+                        "surface-bright": "#faf9f5",
+                        "outline-variant": "#c4c7c7",
+                        "secondary": "#735c00",
+                        "surface-container": "#efeeea",
+                        "secondary-fixed": "#ffe088",
+                        "background": "#faf9f5",
+                        "inverse-primary": "#c8c6c5",
+                        "on-secondary-fixed": "#241a00",
+                        "surface-container-high": "#e9e8e4",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-tertiary-container": "#848482",
+                        "tertiary": "#000000",
+                        "on-background": "#1b1c1a",
+                        "tertiary-container": "#1b1c1b",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-tertiary-fixed-variant": "#464746",
+                        "primary-container": "#1c1b1b",
+                        "surface": "#faf9f5",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#fed65b",
+                        "on-tertiary-fixed": "#1b1c1b",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f4f4f0",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dbdad6",
+                        "primary": "#000000",
+                        "on-surface": "#1b1c1a",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-container-highest": "#e3e2df",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#444748",
+                        "surface-tint": "#5f5e5e",
+                        "primary-fixed": "#e5e2e1",
+                        "inverse-on-surface": "#f2f1ed",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "128px",
+                        "margin-edge": "64px",
+                        "unit": "8px",
+                        "gutter": "32px",
+                        "stack-sm": "12px",
+                        "stack-md": "24px",
+                        "stack-lg": "48px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Manrope"],
+                        "display-xl": ["Noto Serif"],
+                        "headline-md": ["Noto Serif"],
+                        "body-lg": ["Manrope"],
+                        "headline-lg": ["Noto Serif"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                        "display-xl": ["84px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface selection:bg-secondary-container/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-950/80 backdrop-blur-xl border-b border-stone-100 dark:border-stone-900 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 ease-in-out">
+<div class="flex justify-between items-center h-24 px-12 w-full max-w-[1440px] mx-auto">
+<div class="flex gap-8 items-center">
+<a class="text-stone-400 dark:text-stone-500 font-sans uppercase tracking-widest text-[10px] hover:text-stone-600 dark:hover:text-stone-300 transition-all duration-700 ease-in-out" href="collection.html">Collections</a>
+<a class="text-stone-400 dark:text-stone-500 font-sans uppercase tracking-widest text-[10px] hover:text-stone-600 dark:hover:text-stone-300 transition-all duration-700 ease-in-out" href="#">Heritage</a>
+</div>
+<div class="text-2xl font-serif tracking-[0.3em] uppercase text-stone-950 dark:text-stone-50">
+                L'ART DE LA TABLE
+            </div>
+<div class="flex gap-8 items-center">
+<a class="text-stone-400 dark:text-stone-500 font-sans uppercase tracking-widest text-[10px] hover:text-stone-600 dark:hover:text-stone-300 transition-all duration-700 ease-in-out" href="#">The Curator</a>
+<a class="text-stone-400 dark:text-stone-500 font-sans uppercase tracking-widest text-[10px] hover:text-stone-600 dark:hover:text-stone-300 transition-all duration-700 ease-in-out" href="#">Bespoke</a>
+<div class="flex gap-6 ml-8">
+<span class="material-symbols-outlined cursor-pointer text-stone-900" data-icon="shopping_bag">shopping_bag</span>
+<span class="material-symbols-outlined cursor-pointer text-stone-900" data-icon="person">person</span>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<div id="hero-scroll-container" class="relative w-full" style="height: 400vh;">
+<section id="hero" class="sticky top-24 h-[calc(100svh-96px)] w-full flex items-start justify-center overflow-hidden hero-gradient pt-12 pb-12">
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+<img id="hero-img-1" class="absolute hero-float-img w-64 h-64 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7AS_8N13gWaLL2ERdkSRmOthKvv9cDjw2WqcwY6fFnX8UxsD4VuLlzawwoV0MtgM3Dni8gagcFKcV7M8oAeXHyqGJ6RwEdzM69md5RyhElFF5FOFYjNuhH4_bF-7Ln2N1Nky7cOr6TI5wbpiZ_0d38jq0BNWwp1xEzdohdC7mzYIMCRJXmgvg-5En98g6ZXo23z7kIpVVzvmPMUrREN7gkTtysF4zNXEzZYyV4DRY-eg4ZngHVF9ewAKfoSiZKDOXrjSOetVw3jxZ"/>
+<img id="hero-img-2" class="absolute hero-float-img w-80 h-80 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_xrhnGlB0069DRA1sfNoX4-VgKxA7pIWa7TsZfRGlAvkl7yqBgdzdvZu3jOBhpfhp7r6UWaUTSn17eUafwtB56QggoLJlnvBXnZqYhZyCJl5WMubvpW170f_U8AnK6V4EAkDHcvA5_8ko_JEZiKqLZ-5Guvm0g2-jGxHTAmjDeAYOkrQbqZbdz6zjK0QYzTHZ6NAC9HQRK6OdnSf7ssR_lGvJ1h2kyrvzkioRvTEXcmTTfwyDNUjdKDUrhuTq8ONdXvzx9v_Ei6Ov"/>
+<img id="hero-img-3" class="absolute hero-float-img w-48 h-48 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfZu_yKORHForiB6Bc6kCf5LyfF3wfAopgR4Q5GNvw2-04B3b6ia1DpKn-OycPmEwyt_V8-m2E9-EWRHu4EqtRfd4HxTynT6OP14nWqA1L7kIPD8VVS1eWctFaCN4bCZ2FqtahjB2FyPZT3eafVckPKYkrLHmXn-E3hl5_rIsEqBFZVM2bNrCi3-PLq98TkPGyWvwhELRtq2ISibrXA787ZB0GEvRkDZN9rajIDB1p-3wQmPJoxRUzIvHXFN3d7xL2bJjjiCcbBVgC"/>
+<div id="main-plate-wrapper" class="absolute hero-float-img w-[300px] h-[300px] md:w-[450px] md:h-[450px] flex items-center justify-center pointer-events-auto">
+<div class="absolute inset-0 bg-white/40 blur-3xl rounded-full scale-110 pointer-events-none"></div>
+<img id="main-plate-img" class="w-full h-full object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.1)]" data-alt="Stunning centered top-down view of a premium bone china dinner plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzUQlwHDShp4eN0-02EQrPKKW-m4dQeQnszRCWr5lN6w-qsr8NAWqeNEw28xiJcsLh_-hTR3MNTE9VER8HhV32ap5ICB8dwbX5ixJb1svP5xY1DsPoapiVEczSlo-EJrSZNUNM7EuuMkpKF0d_IuVtykUkncJ6Kfqo2yepTyUs6UDbTf_Dje6KLV0_NGip9HPKi6_FOJ-dnPdTyCr1dvpqrwhyk-tuDfFYgGsj2eDzc44opV2_s9vYKVJBLztHHuASFCvqopjaG5Ff"/>
+</div>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center pointer-events-none my-auto">
+<span class="font-label-caps text-label-caps text-on-primary-container mb-stack-md block uppercase">The Grand Service No. 1</span>
+<h1 class="font-display-xl text-display-xl text-tertiary mb-stack-lg leading-tight">CHOREOGRAPHED<br/><span class="italic font-light">ELEGANCE</span></h1>
+<div class="w-[300px] h-[300px] md:w-[450px] md:h-[450px]"></div>
+<div class="mt-stack-lg flex flex-col items-center gap-stack-md pointer-events-auto">
+<button class="bg-primary text-on-primary px-12 py-4 font-label-caps tracking-[0.2em] uppercase transition-all duration-500 hover:tracking-[0.3em] hover:bg-stone-800">
+                        Explore Collection
+                    </button>
+<span class="material-symbols-outlined text-stone-300 animate-bounce mt-8" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</section>
+</div>
+<!-- The Silent Host - Magazine Section -->
+<div id="silent-host-scroll-container" class="relative w-full" style="height: 300vh;">
+<section class="silent-host-section sticky top-24 h-[calc(100svh-96px)] flex flex-col justify-center py-section-gap px-margin-edge bg-surface overflow-hidden">
+<div class="max-w-container-max mx-auto w-full">
+<div class="grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-12 md:col-span-5 mb-stack-lg md:mb-0">
+<span class="font-label-caps text-label-caps text-secondary mb-stack-sm block">THE CURATOR'S NOTE</span>
+<h2 class="font-headline-lg text-headline-lg text-tertiary mb-stack-md leading-tight">The <span class="italic">Silent</span> Host</h2>
+<div class="font-display-xl text-headline-md italic text-on-primary-container mb-stack-lg">"True luxury does not speak; it facilitates."</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                            Our porcelain serves as the invisible stage for your culinary narrative. Meticulously crafted over twelve weeks, each piece is balanced to provide a tactile experience that complements the weight of heritage and the lightness of modern living.
+                        </p>
+</div>
+<div class="col-span-12 md:col-span-7 relative overflow-hidden">
+<div class="silent-host-scroll flex gap-gutter flex-nowrap pb-stack-lg" style="will-change: transform; transition: transform 0.1s ease-out;">
+<div class="min-w-[400px]">
+<img class="w-full aspect-[3/4] object-cover mb-stack-md" data-alt="Close-up of an artisan hand-painting a delicate gold rim on a white porcelain plate with a fine brush in a sunlit atelier" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4pDDds1FWaSo0zgC_6-6HmoSdvnYBqrGYb0hWUrAJrGoOyJie9iDjH3J6goeDjPvVeIAfleKPvVbd3G0Cy6GSj0lXGnSnM_QuBTC3nWrzoYJm6uocIt-yPxsIptDa9eiOn8x93xeVVVk4eNfva_vFozrjg5QkEmcPZhoElqUfOeh2MRZJXXOkHbYSIo4DUWD63-PuH1p8L8dZwkzH9FdjdGtN5PCOlncjxc9t0HlPKRTdBcZWGEO5d3lJVIFAl3V75lBidoZHV6oC"/>
+<span class="font-label-caps text-[10px] text-stone-400">01 / PROVENANCE</span>
+</div>
+<div class="min-w-[400px] pt-stack-lg">
+<img class="w-full aspect-[3/4] object-cover mb-stack-md" data-alt="A stack of ivory white china plates with gold edges arranged in an asymmetrical artistic composition on a dark marble surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClqJL8mPiutvJyGdp9COk5TOMErT6yJ8rwcHdMQXBo23Zra8sv7FYh00YGXgDU2NGXgqZt5Q4KYDJ8OqiJf9HDkXEoXsf6ICUed-oyaEQrJUqxB6nbNW9w8i0sM4_c2OE1WF_28phB97-5A5NTa6QIKdsbrPz0RIVhEE3UU5jypruFzqjmaxB-kOar23HwdxjF6X-8T4DWtaBia99YfhzEaJq-MIorU7jRNY81m2H65A1LJ8M2Kz694rbXRd7HQTZw-lwEp1OqvY70"/>
+<span class="font-label-caps text-[10px] text-stone-400">02 / COMPOSITION</span>
+</div>
+<div class="min-w-[400px] pt-24 pr-12">
+<img class="w-full aspect-[3/4] object-cover mb-stack-md" data-alt="Macro detail of the texture of bone china showing its translucency and the fine grain of the material under warm spotlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYwySg0yHK8fmuZ5_vFYFirL2O4UiZ1ZJR69namo-F5JdnDmZUgMQbMzB16FJF2rJK7P7ZHAzkXlYtzUGOAZX1MpVKmXvDMkgBaK_2JevwboF5VSKPXuYQhFootcVwj7YNe4rqGowaIn12xLg3iqjs4nIiFlE1rjgHv5s-tWHlRejmtL4wjtqAVQvocVPBiB9rjrPv5YSkdWSI42qY_qAfMY8OakgFi92rbIFars3p66hoHXwGOnFMMdBShyXS8p4rYpLBV2qmZxoq"/>
+<span class="font-label-caps text-[10px] text-stone-400">03 / MATERIALITY</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Choreographed Table Section -->
+<div id="ritual-scroll-container" class="relative w-full" style="height: 400vh;">
+    <section class="sticky top-24 h-[calc(100vh-96px)] bg-surface-container-low flex flex-col justify-center overflow-hidden z-10">
+        <div class="max-w-container-max mx-auto w-full px-margin-edge grid grid-cols-12 gap-gutter items-center h-full">
+            
+            <!-- Left side: Descriptive Text -->
+            <div class="col-span-12 md:col-span-5 flex flex-col justify-between py-24 h-full">
+                <div>
+                    <span class="font-label-caps text-label-caps text-secondary mb-stack-sm block uppercase">THE RITUAL</span>
+                    <h2 class="font-headline-lg text-headline-lg text-tertiary leading-tight">The Choreographed Table</h2>
+                </div>
+                
+                <div id="ritual-text-steps" class="relative h-[250px] w-full">
+                    <div class="ritual-step absolute inset-0 flex flex-col justify-center transition-all duration-100 ease-out pointer-events-none" data-step="0">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="font-label-caps text-xs text-stone-400">01</span>
+                            <div class="h-[1px] w-8 bg-stone-200"></div>
+                        </div>
+                        <h3 class="font-headline-md text-2xl uppercase tracking-widest mb-4">Base Layer</h3>
+                        <p class="font-body-md text-on-surface-variant max-w-sm">The foundation of the evening. A broad canvas of fine bone china that sets the scale for the journey ahead.</p>
+                    </div>
+                    
+                    <div class="ritual-step absolute inset-0 flex flex-col justify-center transition-all duration-100 ease-out pointer-events-none" data-step="1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="font-label-caps text-xs text-stone-400">02</span>
+                            <div class="h-[1px] w-8 bg-stone-200"></div>
+                        </div>
+                        <h3 class="font-headline-md text-2xl uppercase tracking-widest mb-4">Dinner Service</h3>
+                        <p class="font-body-md text-on-surface-variant max-w-sm">The heart of the meal. Precisely weighted to feel substantial yet ethereal, rimmed with 24k gold.</p>
+                    </div>
+                    
+                    <div class="ritual-step absolute inset-0 flex flex-col justify-center transition-all duration-100 ease-out pointer-events-none" data-step="2">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="font-label-caps text-xs text-stone-400">03</span>
+                            <div class="h-[1px] w-8 bg-stone-200"></div>
+                        </div>
+                        <h3 class="font-headline-md text-2xl uppercase tracking-widest mb-4">Appetizer Plate</h3>
+                        <p class="font-body-md text-on-surface-variant max-w-sm">Intricate patterns for the opening act. A delicate balance of form and function.</p>
+                    </div>
+
+                    <div class="ritual-step absolute inset-0 flex flex-col justify-center transition-all duration-100 ease-out pointer-events-none" data-step="3">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="font-label-caps text-xs text-stone-400">04</span>
+                            <div class="h-[1px] w-8 bg-stone-200"></div>
+                        </div>
+                        <h3 class="font-headline-md text-2xl uppercase tracking-widest mb-4">Finishing Bowl</h3>
+                        <p class="font-body-md text-on-surface-variant max-w-sm">The final touch. A sculptural piece that nests perfectly within the stack, completing the ritual.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="border border-primary text-primary px-12 py-4 font-label-caps tracking-[0.2em] uppercase hover:bg-stone-100 transition-colors">
+                        Build Your Set
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right side: Vertical Carousel Viewport -->
+            <div class="col-span-12 md:col-span-7 relative h-full flex items-center justify-center overflow-hidden">
+                <div id="ritual-carousel-viewport" class="relative w-full h-full flex items-center justify-center">
+                    <!-- Plates will be animated via JS -->
+                    <div class="ritual-carousel-item absolute flex items-center justify-center transition-all duration-100 ease-out" data-plate="0">
+                        <img class="w-[500px] drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb3F5pmHU8A9EqPtlN9R7-vrHpe4vYmkfzGDmjmDpLhFXEjF-K0qS-Yz1ZvHULdPc0I5djmYrDx1h63JNtJKXXmym2luk3-W6fCnfDtFC1Q66D61ph6Hpavfl-i_cRVbHWduY5XaZXars07o8-QzIMOLg9OEn5JpqMS7ZzdgN-OIWEzpx2hphhFXzmLDc22j6apHgQ6hAIDTXe1XVQs_Oz-ef0qC-YQpE93SIyBzVN0LCsDuIbFi-M84yUd-e8ylNVONPNSQte5F1X"/>
+                    </div>
+                    <div class="ritual-carousel-item absolute flex items-center justify-center transition-all duration-100 ease-out" data-plate="1">
+                        <img class="w-[420px] drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjzOO2DnPzJ0xCRKmrhqTpqX3zeuvkQ5awkZHDwNo3ld-7NNwqa9Ex7gng0uw02DZ6QCc3PgZf-t8IWMAnC0YznweJTzN7FgUTQYpf18y3N4a2rGL_d-m7pHdozkvZtFySpvTvZMdQSNJ43h4Jskbn_zHayE5ZDeSAj5x8CgGKbGgWe-mPNFRzaE7o8YkrJC9r6aMSYrbm1l8pnLi0_5PMS9bxdoCm_AoFSS1yUMAUi3paDUm81smteoaRdlJ8TThgvS5mUOuWCMyH"/>
+                    </div>
+                    <div class="ritual-carousel-item absolute flex items-center justify-center transition-all duration-100 ease-out" data-plate="2">
+                        <img class="w-[340px] drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPwjhYTZh2fAjy8IOJe6Zl747eyGddtFwlxPk716YVLBedY3W8NnJXh9V3AubfVTMRIshztdsZeAAYiP2awudCIevfzzfkSwx_-PhZmOX61Yn4sdWCW2wkw4FFOCkVYtVQKL9W5-7sD4w82aPp484Tg99HF9xbaHYF63y75NvXFPmv2Kfwoc1carLe-SghhXIQVng_E0Sc0Pdytvet2IBIvzxAL2dXPY8FwI8bRp7FQ-99eHHxW5jMlzNUYsXe6KkZKqtKKR6zR2iD"/>
+                    </div>
+                    <div class="ritual-carousel-item absolute flex items-center justify-center transition-all duration-100 ease-out" data-plate="3">
+                        <img class="w-[260px] drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5XnpqvZy0t3z1-nv7nfzWJqBWB8cRqcwL84bIU3at9-ZDSLMtf3eNY43r7z0PUrchlwBZOPemgssAu2lR-RSwrME4LwYvOojfQ9jfzcXg1YIKctLS9hkmgYSmiZcqhn8Hw2kgvTdzONobpOjwdRcr2REPzgnPauoyaIHC1xlJRC8Z0VnQTUjPuXZQi2NPbp1SE6dlYWqGpEKyTv1ibtOh72HxAB-8Bcc3tv-0fTk1lDiv3Stf9bsh9tQoMDsiDWTMEv-Jzh-YPw18"/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+<!-- Product Showcase Grid -->
+<section class="py-section-gap px-margin-edge bg-white">
+<div class="max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-tertiary">Selected Works</h2>
+<a class="font-label-caps text-label-caps text-on-primary-container hover:text-primary transition-colors pb-2 border-b border-stone-200" href="#">View All Collections</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Product Card -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden bg-stone-50 mb-stack-md relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-in-out" data-alt="Ethereal image of a fine china teacup with a gold handle, steam rising softly, on a minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiPPHIKssFVPcUs8n3zwLtIGnO9xUKb7iHkIKo1oY5jeijgrkQEIBUC9pqn7-DgW7_mF-CyuGcHwWby-mZV57gLCze_DeZfXRoFsQCSaUgLL3JKu5yDfsQW5epPkzfDerRDPfiXHc5L2OAoALe_ZhGzywH-FCm5Tqsy4pkWy_L6fUeFEf7YHkmbeqr6zrVQYP6cS_XnCqY4kk_arEJf5E3C7bt8vDltb18Bozj4ZqdZHvggj79nKn-sgIzSr7KK0FsCPQ-8QLk6gGJ"/>
+<div class="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/5 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
+<button class="bg-white/90 backdrop-blur text-primary px-8 py-3 font-label-caps text-[10px] tracking-widest uppercase">Quick View</button>
+</div>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-lg mb-1">Celestial Gold Teacup</h3>
+<p class="font-label-caps text-stone-400 text-xs">$245.00</p>
+<div class="mt-2 flex justify-center gap-2">
+<span class="w-4 h-4 bg-stone-200 block border border-stone-300"></span>
+<span class="w-4 h-4 bg-stone-500 block border border-stone-300"></span>
+</div>
+</div>
+</div>
+<!-- Product Card -->
+<div class="group cursor-pointer translate-y-12">
+<div class="aspect-[4/5] overflow-hidden bg-stone-50 mb-stack-md relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-in-out" data-alt="Top view of four elegant dessert plates with alternating gold and marble patterns on a textured ivory surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuuqRdEi9AExP-2aVtdjDQ9DtUI0oW6M2T7yF4FXFUWpjOMejbMhoNLw-gBcXZINNGxuXhXiqL2RMxdF50Hh_0Nwg9WiVWJLXkKzfAD5rwySlyxpzkpicDzhAiH_U2HxQtEjqReVBhOko7M9ORw4Wm9I0-EuFyK8958--q8_HighUVfFYoeJGOmrthV1W1hrpLr_RHwr6YrDZZu4dg_Ya6InWZ4_2Uv_6J7Y_QxNq0bJRdovJ2FihIGETIcVmLuWd80aafzHUkK430"/>
+<div class="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/5 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
+<button class="bg-white/90 backdrop-blur text-primary px-8 py-3 font-label-caps text-[10px] tracking-widest uppercase">Quick View</button>
+</div>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-lg mb-1">Marble Onyx Service</h3>
+<p class="font-label-caps text-stone-400 text-xs">$1,180.00</p>
+<div class="mt-2 flex justify-center gap-2">
+<span class="w-4 h-4 bg-stone-900 block border border-stone-700"></span>
+<span class="w-4 h-4 bg-stone-100 block border border-stone-300"></span>
+</div>
+</div>
+</div>
+<!-- Product Card -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden bg-stone-50 mb-stack-md relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-in-out" data-alt="Modern geometric white porcelain teapot with an architectural gold spout and handle, studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD54b7IoOvNTiTorv-WSnRsB5ziFNv_-quRbt6T2D8L0_UixeP2RUJ7PkcViowWxIU1VCVdM-FEVs6GkVpNPCio0Fq_Lc63YBi3Y0BdejoMZACX9r1ATtSaa7gD_uLn7LaK4dqlnNoxWuIrVuVK7D2IkyblbRB-II5qTJfkmFfHkvhPlxMwMzBuRonB9gfZFzeltTmS-UijWxg9Y_LS71_kS7RRjh9dkdUynMjYngjcVOOO-rjNB-laMQJGZS4djB10BYsxZ8BIe2BL"/>
+<div class="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/5 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
+<button class="bg-white/90 backdrop-blur text-primary px-8 py-3 font-label-caps text-[10px] tracking-widest uppercase">Quick View</button>
+</div>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-lg mb-1">Architectural Teapot</h3>
+<p class="font-label-caps text-stone-400 text-xs">$395.00</p>
+<div class="mt-2 flex justify-center gap-2">
+<span class="w-4 h-4 bg-white block border border-stone-300"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bespoke Section -->
+<section class="bg-stone-950 py-section-gap px-margin-edge text-white relative overflow-hidden">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<img class="w-full h-full object-cover" data-alt="Atmospheric dark smoke and soft lighting on a black background to create a sense of mystery and exclusivity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSrrN7HGGVDpwii9UnmdGdJnqJbIxjtrD3C-dL-dd4mVPk72M3QyYb-zH8x6tLJyBA_wc1PUieShv8snccusoPys4zt4dkzGOn129Dbev9efX7qClBIs6Kp1vB26_u6jueMhYt6pArvHINJR6c1uMIswEuiQC-IL7lx7VQbs688Ev26LZkvR4tgkzc764G0aTz2zjoI6_yzxx9JtD3zi8TPI2vXz2gja3d2Zqz1bVCE9w-TLBWg8DvhEnJyg7yV1mUGxi6v6b7yQZa"/>
+</div>
+<div class="relative z-10 max-w-2xl mx-auto text-center">
+<span class="font-label-caps text-label-caps text-stone-500 mb-stack-sm block tracking-[0.4em]">EXCLUSIVITY</span>
+<h2 class="font-display-xl text-headline-lg text-white mb-stack-md italic">The Bespoke Atelier</h2>
+<p class="font-body-lg text-stone-400 mb-stack-lg leading-relaxed">
+                    Commission a legacy. Work directly with our master ceramicists and gilders to create a family crest or a unique pattern that defined your lineage.
+                </p>
+<div class="flex flex-col md:flex-row justify-center gap-stack-md">
+<button class="bg-white text-stone-950 px-12 py-4 font-label-caps uppercase tracking-widest hover:bg-stone-200 transition-colors">Request Appointment</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-24 px-12 bg-stone-50 dark:bg-stone-950 border-t border-stone-200 dark:border-stone-900">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-16 max-w-7xl mx-auto items-start text-center md:text-left">
+<div class="space-y-6">
+<div class="font-serif italic text-xl text-stone-900 dark:text-stone-50">L'ART DE LA TABLE</div>
+<p class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-500 leading-relaxed">Defining the contemporary ritual of fine dining since 1892.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-caps text-[10px] text-stone-950 dark:text-white uppercase mb-4">The Maison</h4>
+<ul class="space-y-3">
+<li><a class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-500 hover:text-stone-950 dark:hover:text-stone-50 transition-colors duration-500" href="#">Provenance</a></li>
+<li><a class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-500 hover:text-stone-950 dark:hover:text-stone-50 transition-colors duration-500" href="#">Sustainability</a></li>
+<li><a class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-500 hover:text-stone-950 dark:hover:text-stone-50 transition-colors duration-500" href="#">Care Guide</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-caps text-[10px] text-stone-950 dark:text-white uppercase mb-4">Services</h4>
+<ul class="space-y-3">
+<li><a class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-500 hover:text-stone-950 dark:hover:text-stone-50 transition-colors duration-500" href="#">Shipping &amp; Returns</a></li>
+<li><a class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-500 hover:text-stone-950 dark:hover:text-stone-50 transition-colors duration-500" href="#">Private Appointments</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-label-caps text-[10px] text-stone-950 dark:text-white uppercase mb-4">Newsletter</h4>
+<div class="border-b border-stone-300 pb-2 flex justify-between items-center">
+<input class="bg-transparent border-none p-0 focus:ring-0 text-[10px] uppercase tracking-widest w-full" placeholder="Email Address" type="email"/>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-24 pt-8 border-t border-stone-100 dark:border-stone-900 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-400">© 2024 L'ART DE LA TABLE. ATELIER OF ELEGANCE.</p>
+<div class="flex gap-8">
+<span class="material-symbols-outlined text-stone-400" data-icon="public">public</span>
+<span class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-400">Instagram</span>
+<span class="font-sans uppercase tracking-[0.2em] text-[10px] text-stone-400">Pinterest</span>
+</div>
+</div>
+</footer>
+<script>
+    (function () {
+        // --- 1. Sticky Hero Carousel ---
+        const scrollContainer = document.getElementById('hero-scroll-container');
+        const heroImgs = [
+            { el: document.getElementById('main-plate-wrapper'), baseScale: 1 },
+            { el: document.getElementById('hero-img-1'), baseScale: 1.75 },
+            { el: document.getElementById('hero-img-2'), baseScale: 1.4 },
+            { el: document.getElementById('hero-img-3'), baseScale: 2.34 }
+        ];
+
+        const POSITIONS = [
+            { x: 0, y: 0, r: 0, s: 1, o: 1, z: 20 }, // Center
+            { x: -35, y: -35, r: -12, s: 0.5, o: 0.2, z: 0 }, // Top Left
+            { x: 30, y: 30, r: 45, s: 0.6, o: 0.25, z: 0 }, // Bottom Right
+            { x: 40, y: -10, r: -6, s: 0.8, o: 0.15, z: 0 } // Right
+        ];
+
+        // --- 2. Silent Host Horizontal Scroll ---
+        const silentHostContainer = document.getElementById('silent-host-scroll-container');
+        const silentHostScroll = document.querySelector('.silent-host-scroll');
+
+        function onScroll() {
+            // Update Hero Carousel
+            if (scrollContainer) {
+                const rect = scrollContainer.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                const totalScroll = rect.height - windowHeight;
+                let progress = 0;
+                
+                if (rect.top <= 0) {
+                    progress = Math.min(1, Math.abs(rect.top) / totalScroll);
+                }
+                
+                const totalStates = POSITIONS.length;
+                const offset = progress * (totalStates - 1); 
+                
+                heroImgs.forEach((img, idx) => {
+                    let vIdx = idx - offset;
+                    while (vIdx < 0) vIdx += totalStates;
+                    while (vIdx >= totalStates) vIdx -= totalStates;
+                    
+                    const idx1 = Math.floor(vIdx);
+                    let idx2 = idx1 + 1;
+                    if (idx2 >= totalStates) idx2 = 0;
+                    
+                    const p = vIdx - idx1;
+                    const ease = (1 - Math.cos(Math.PI * p)) / 2;
+                    
+                    const p1 = POSITIONS[idx1];
+                    const p2 = POSITIONS[idx2];
+                    
+                    const x = p1.x + (p2.x - p1.x) * ease;
+                    const y = p1.y + (p2.y - p1.y) * ease;
+                    const r = p1.r + (p2.r - p1.r) * ease;
+                    const s = (p1.s + (p2.s - p1.s) * ease) * img.baseScale;
+                    const o = p1.o + (p2.o - p1.o) * ease;
+                    const z = p < 0.5 ? p1.z : p2.z;
+                    
+                    if (img.el) {
+                        img.el.style.transform = `translate(${x}vw, ${y}vh) rotate(${r}deg) scale(${s})`;
+                        img.el.style.opacity = o;
+                        img.el.style.zIndex = z;
+                    }
+                });
+            }
+
+            // Update Silent Host Scroll
+            if (silentHostContainer && silentHostScroll) {
+                const rect = silentHostContainer.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // container is 300vh. Pinned scroll distance is rect.height - windowHeight.
+                const totalScroll = rect.height - windowHeight;
+                let progress = 0;
+                
+                if (rect.top <= 0) {
+                    progress = Math.min(1, Math.abs(rect.top) / totalScroll);
+                }
+                
+                // Max translation distance
+                const maxTranslate = silentHostScroll.scrollWidth - silentHostScroll.parentElement.clientWidth;
+                
+                if (maxTranslate > 0) {
+                    silentHostScroll.style.transform = `translateX(-${progress * maxTranslate}px)`;
+                }
+            }
+
+            // --- 3. Choreographed Table Vertical Carousel ---
+            const ritualContainer = document.getElementById('ritual-scroll-container');
+            const ritualPlates = document.querySelectorAll('.ritual-carousel-item');
+            const ritualSteps = document.querySelectorAll('.ritual-step');
+
+            if (ritualContainer && ritualPlates.length > 0) {
+                const rect = ritualContainer.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                const stickyTop = 96; // matches top-24
+                const sectionHeight = windowHeight - stickyTop;
+                const totalScroll = rect.height - sectionHeight;
+                let progress = 0;
+
+                // Progress starts when the parent container hits the sticky threshold
+                if (rect.top <= stickyTop) {
+                    progress = Math.min(1, Math.abs(rect.top - stickyTop) / totalScroll);
+                }
+
+                const numPlates = ritualPlates.length;
+                
+                ritualPlates.forEach((plate, idx) => {
+                    // Each plate has a focus point
+                    const startRange = 0.1;
+                    const endRange = 0.9;
+                    const focusPoint = startRange + (idx / (numPlates - 1)) * (endRange - startRange);
+                    
+                    const diff = progress - focusPoint;
+                    
+                    // translateY: moves from bottom to top
+                    let translateY = diff * 800; 
+                    let scale = 1 - Math.abs(diff) * 2.5;
+                    let opacity = 1 - Math.abs(diff) * 5;
+                    
+                    scale = Math.max(0.4, scale);
+                    opacity = Math.max(0, opacity);
+                    
+                    plate.style.transform = `translateY(${translateY}px) scale(${scale})`;
+                    plate.style.opacity = opacity;
+                    plate.style.zIndex = Math.round(opacity * 100);
+
+                    // Sync text steps with the same carousel logic
+                    if (ritualSteps[idx]) {
+                        let textTranslateY = diff * 200; // Slower vertical movement for text
+                        let textOpacity = 1 - Math.abs(diff) * 4;
+                        textOpacity = Math.max(0, textOpacity);
+                        
+                        ritualSteps[idx].style.transform = `translateY(${textTranslateY}px)`;
+                        ritualSteps[idx].style.opacity = textOpacity;
+                    }
+                });
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll(); // initialize positions
+
+        // Removed old intersection observer for ritual-plate
+        // document.querySelectorAll('.ritual-plate, .ritual-text').forEach(el => {
+        //     observer.observe(el);
+        // });
+    })();
+</script>
+</body></html>

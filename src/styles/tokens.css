@@ -1,0 +1,32 @@
+/*
+ * STRICT COLOR TOKENS FOR PROTOREV DIGITAL
+ * Only these 8 custom properties are permitted throughout the application.
+ * Values:
+ * --paper: #ECE7DA
+ * --paper-shade: #E0DACA
+ * --ink: #11130F
+ * --graphite: #2A2D26
+ * --rule: #B9B3A0
+ * --signal-amber: #F5A300 (live data flow only on dark --ink)
+ * --vermilion: #B8310F (primary buttons and errors)
+ * --verdigris: #2E6F5E (success states)
+ */
+
+:root {
+  --paper: #ECE7DA;
+  --paper-shade: #E0DACA;
+  --ink: #11130F;
+  --graphite: #2A2D26;
+  --rule: #B9B3A0;
+  --signal-amber: #F5A300;
+  --vermilion: #B8310F;
+  --verdigris: #2E6F5E;
+
+  /* Typography tokens */
+  --font-headline: "Newsreader", Georgia, serif;
+  --font-body: "Schibsted Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "Martian Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Focus ring definition */
+  --focus-ring: var(--vermilion);
+}

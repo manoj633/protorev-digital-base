@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aurum — Residences of Distinction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ── NAVIGATION ─────────────────────────── -->
+    <nav id="nav">
+      <a href="#hero" class="nav-logo">AURUM</a>
+      <ul class="nav-links">
+        <li><a href="#projects">Residences</a></li>
+        <li><a href="#browse">Browse</a></li>
+        <li><a href="#lifestyle">Living</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+      <a href="#cta" class="nav-cta">Private Tour</a>
+      <button
+        class="nav-hamburger"
+        id="navHamburger"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile drawer -->
+    <div class="nav-scrim" id="navScrim"></div>
+    <div class="nav-drawer" id="navDrawer" aria-hidden="true">
+      <button
+        class="nav-drawer-close"
+        id="navDrawerClose"
+        aria-label="Close menu"
+      >
+        &#x2715;
+      </button>
+      <ul class="nav-links">
+        <li><a href="#projects">Residences</a></li>
+        <li><a href="#browse">Browse</a></li>
+        <li><a href="#lifestyle">Living</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+      <a href="#cta" class="nav-cta">Private Tour</a>
+    </div>
+
+    <!-- ── HERO ───────────────────────────────── -->
+    <section id="hero">
+      <video
+        class="hero-bg"
+        id="heroBg"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80&fit=crop"
+      >
+        <source src="hero.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-inner">
+        <!-- LEFT: headline + CTA -->
+        <div class="hero-content">
+          <div class="hero-eyebrow">Residences of Distinction</div>
+          <h1 class="hero-title">
+            Where stillness<br />becomes <em>home.</em>
+          </h1>
+          <p class="hero-sub">
+            Every residence we build begins not with a blueprint — but with a
+            feeling. The hush of morning light. The weight of a doorway that
+            knows you're home.
+          </p>
+          <a href="#projects" class="hero-cta">
+            Explore Residences
+            <svg
+              width="18"
+              height="10"
+              viewBox="0 0 18 10"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M1 5h16M12 1l5 4-5 4"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <!-- RIGHT: featured residence card + badge -->
+        <div class="hero-right">
+          <div class="hero-card">
+            <div class="hero-card-label">Featured Residence</div>
+            <div class="hero-card-name">The Meridian</div>
+            <div class="hero-card-loc">Whitefield, Bengaluru</div>
+            <div class="hero-card-divider"></div>
+            <div class="hero-card-stats">
+              <div class="hero-card-stat">
+                <div class="hero-card-val">2,400 <span>sq ft</span></div>
+                <div class="hero-card-key">Starting Size</div>
+              </div>
+              <div class="hero-card-stat">
+                <div class="hero-card-val">₹4.2 <span>Cr</span></div>
+                <div class="hero-card-key">From</div>
+              </div>
+              <div class="hero-card-stat">
+                <div class="hero-card-val">3–5 <span>BHK</span></div>
+                <div class="hero-card-key">Configurations</div>
+              </div>
+            </div>
+            <a href="#projects" class="hero-card-cta">View Residence →</a>
+          </div>
+
+          <div class="hero-badge">
+            <div class="hero-badge-num">61</div>
+            <div class="hero-badge-text">Projects<br />Delivered</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PHILOSOPHY ─────────────────────────── -->
+    <section id="philosophy" class="reveal">
+      <div class="phil-text">
+        <div class="section-label">Our Philosophy</div>
+        <h2 class="phil-heading">
+          Built on restraint.<br /><em>Defined by intention.</em>
+        </h2>
+        <div class="phil-body">
+          <p>
+            We don't build homes. We shape environments where life unfolds —
+            slowly, intentionally, beautifully. Every space we create carries
+            the weight of deliberate thought and the lightness of considered
+            design.
+          </p>
+          <p>
+            For over two decades, Aurum has been synonymous with architectural
+            integrity and enduring value. Our work speaks not through excess,
+            but through precision.
+          </p>
+        </div>
+        <div class="phil-stats">
+          <div>
+            <div class="stat-num">24</div>
+            <div class="stat-label">Years of Legacy</div>
+          </div>
+          <div>
+            <div class="stat-num">61</div>
+            <div class="stat-label">Projects Delivered</div>
+          </div>
+          <div>
+            <div class="stat-num">3.2k</div>
+            <div class="stat-label">Families Housed</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phil-image">
+        <!-- Interior architecture — warm light through tall windows -->
+        <img
+          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80&fit=crop"
+          alt="Architectural detail of an Aurum residence"
+          loading="lazy"
+        />
+        <div class="phil-image-accent"></div>
+      </div>
+    </section>
+
+    <!-- ── FEATURED PROJECTS ──────────────────── -->
+    <section id="projects">
+      <div class="projects-header reveal">
+        <div>
+          <div class="section-label">Selected Works</div>
+          <h2 class="projects-title">Featured Residences</h2>
+        </div>
+        <a href="#browse" class="projects-link">View All Projects →</a>
+      </div>
+
+      <!-- Project 1 -->
+      <div class="featured-project reveal">
+        <div class="proj-img">
+          <!-- Modern villa exterior with cantilevered terrace -->
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80&fit=crop"
+            alt="The Meridian"
+            loading="lazy"
+          />
+          <div class="proj-overlay"></div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-tag">Flagship Residence · 2024</div>
+          <h3 class="proj-name">The Meridian</h3>
+          <div class="proj-location">Whitefield, Bengaluru</div>
+          <p class="proj-desc">
+            A landmark of considered restraint — where cantilevered terraces
+            frame the horizon and double-height living spaces dissolve the
+            boundary between inside and sky.
+          </p>
+          <div class="proj-details">
+            <div class="proj-detail-item">
+              <div class="proj-detail-val">3–5</div>
+              <div class="proj-detail-key">Bedrooms</div>
+            </div>
+            <div class="proj-detail-item">
+              <div class="proj-detail-val">2,400+</div>
+              <div class="proj-detail-key">Sq Ft</div>
+            </div>
+            <div class="proj-detail-item">
+              <div class="proj-detail-val">From ₹4.2Cr</div>
+              <div class="proj-detail-key">Starting Price</div>
+            </div>
+          </div>
+          <a href="#" class="proj-cta">
+            View Residence
+            <svg
+              width="16"
+              height="8"
+              viewBox="0 0 16 8"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M1 4h14M10 1l4 3-4 3"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="featured-project reverse reveal">
+        <div class="proj-img">
+          <!-- Lush green garden residence -->
+          <img
+            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80&fit=crop"
+            alt="Halcyon Grove"
+            loading="lazy"
+          />
+          <div class="proj-overlay"></div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-tag">Garden Residences · 2023</div>
+          <h3 class="proj-name">Halcyon Grove</h3>
+          <div class="proj-location">Sarjapur Road, Bengaluru</div>
+          <p class="proj-desc">
+            An intimate enclave of 48 residences surrounded by curated green
+            corridors. Architecture that recedes so nature may step forward —
+            where your garden is part of the structure.
+          </p>
+          <div class="proj-details">
+            <div class="proj-detail-item">
+              <div class="proj-detail-val">4</div>
+              <div class="proj-detail-key">Bedrooms</div>
+            </div>
+            <div class="proj-detail-item">
+              <div class="proj-detail-val">3,200+</div>
+              <div class="proj-detail-key">Sq Ft</div>
+            </div>
+            <div class="proj-detail-item">
+              <div class="proj-detail-val">From ₹6.8Cr</div>
+              <div class="proj-detail-key">Starting Price</div>
+            </div>
+          </div>
+          <a href="#" class="proj-cta">
+            View Residence
+            <svg
+              width="16"
+              height="8"
+              viewBox="0 0 16 8"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M1 4h14M10 1l4 3-4 3"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── BROWSE ──────────────────────────────── -->
+    <section id="browse">
+      <div class="browse-header reveal">
+        <div class="section-label">All Residences</div>
+        <h2 class="browse-title">Explore by Interest</h2>
+        <p class="browse-sub">Filter to find the residence that resonates.</p>
+      </div>
+
+      <div class="filters reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="apartment">Apartments</button>
+        <button class="filter-btn" data-filter="villa">Villas</button>
+        <button class="filter-btn" data-filter="penthouse">Penthouses</button>
+        <button class="filter-btn" data-filter="plot">Plotted</button>
+      </div>
+
+      <div class="browse-grid" id="browseGrid">
+        <div class="browse-card" data-type="penthouse">
+          <img
+            src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80&fit=crop"
+            alt="Atelier Sky"
+            loading="lazy"
+          />
+          <div class="browse-card-overlay">
+            <div class="bc-tag">Penthouse</div>
+            <div class="bc-name">Atelier Sky</div>
+            <div class="bc-loc">Indiranagar, Bengaluru</div>
+            <div class="bc-price">From ₹12.4 Cr</div>
+          </div>
+        </div>
+
+        <div class="browse-card" data-type="villa">
+          <img
+            src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80&fit=crop"
+            alt="Terrain House"
+            loading="lazy"
+          />
+          <div class="browse-card-overlay">
+            <div class="bc-tag">Villa</div>
+            <div class="bc-name">Terrain House</div>
+            <div class="bc-loc">Kanakapura Road, Bengaluru</div>
+            <div class="bc-price">From ₹8.2 Cr</div>
+          </div>
+        </div>
+
+        <div class="browse-card" data-type="apartment">
+          <img
+            src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80&fit=crop"
+            alt="The Lumen"
+            loading="lazy"
+          />
+          <div class="browse-card-overlay">
+            <div class="bc-tag">Apartment</div>
+            <div class="bc-name">The Lumen</div>
+            <div class="bc-loc">HSR Layout, Bengaluru</div>
+            <div class="bc-price">From ₹3.6 Cr</div>
+          </div>
+        </div>
+
+        <div class="browse-card" data-type="apartment">
+          <img
+            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80&fit=crop"
+            alt="Solaris"
+            loading="lazy"
+          />
+          <div class="browse-card-overlay">
+            <div class="bc-tag">Apartment</div>
+            <div class="bc-name">Solaris</div>
+            <div class="bc-loc">Koramangala, Bengaluru</div>
+            <div class="bc-price">From ₹4.9 Cr</div>
+          </div>
+        </div>
+
+        <div class="browse-card" data-type="plot">
+          <img
+            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80&fit=crop"
+            alt="Verdant Fields"
+            loading="lazy"
+          />
+          <div class="browse-card-overlay">
+            <div class="bc-tag">Plotted</div>
+            <div class="bc-name">Verdant Fields</div>
+            <div class="bc-loc">Devanahalli, Bengaluru</div>
+            <div class="bc-price">From ₹1.8 Cr</div>
+          </div>
+        </div>
+
+        <div class="browse-card" data-type="villa">
+          <img
+            src="https://images.unsplash.com/photo-1449844908441-8829872d2607?w=600&q=80&fit=crop"
+            alt="Caldera"
+            loading="lazy"
+          />
+          <div class="browse-card-overlay">
+            <div class="bc-tag">Villa</div>
+            <div class="bc-name">Caldera</div>
+            <div class="bc-loc">Yelahanka, Bengaluru</div>
+            <div class="bc-price">From ₹9.5 Cr</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LIFESTYLE ───────────────────────────── -->
+    <section id="lifestyle">
+      <div class="lifestyle-intro reveal">
+        <div class="section-label">The Aurum Life</div>
+        <h2>Living, refined.</h2>
+      </div>
+
+      <div class="lifestyle-row text-left">
+        <div class="ls-text reveal">
+          <div class="section-label">Morning</div>
+          <h3 class="ls-heading">
+            Light that arrives<br /><em>without asking.</em>
+          </h3>
+          <p class="ls-body">
+            East-facing living spaces are oriented to receive the first hours of
+            daylight — warm, unhurried, generous. The morning in an Aurum home
+            is something you experience before you think about it.
+          </p>
+        </div>
+        <div class="ls-img">
+          <!-- Warm morning light through tall interior windows -->
+          <img
+            src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&q=80&fit=crop"
+            alt="Morning light through an open living space"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <div class="lifestyle-row">
+        <div class="ls-img">
+          <!-- Lush private garden with architectural elements -->
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&fit=crop"
+            alt="Private green sanctuary"
+            loading="lazy"
+          />
+        </div>
+        <div class="ls-text reveal">
+          <div class="section-label">Outdoors</div>
+          <h3 class="ls-heading">Private green<br /><em>sanctuaries.</em></h3>
+          <p class="ls-body">
+            Each community is designed around curated landscape corridors — not
+            as decoration, but as living infrastructure. Space to breathe, to
+            slow down, and to remember what matters.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TESTIMONIALS ────────────────────────── -->
+    <section id="testimonials">
+      <div class="testimonials-inner">
+        <div class="gold-line"></div>
+        <div id="testiQuote" class="testi-quote">
+          "Moving into The Meridian didn't feel like buying a home. It felt like
+          arriving at a version of ourselves we'd been working towards for
+          years."
+        </div>
+        <div id="testiAuthor" class="testi-author">
+          Arjun &amp; Meera Raghunathan
+        </div>
+        <div id="testiRole" class="testi-role">
+          The Meridian, Whitefield · 2023
+        </div>
+        <div class="testi-dots" id="testiDots">
+          <div
+            class="testi-dot active"
+            data-i="0"
+            aria-label="Testimonial 1"
+          ></div>
+          <div class="testi-dot" data-i="1" aria-label="Testimonial 2"></div>
+          <div class="testi-dot" data-i="2" aria-label="Testimonial 3"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── GALLERY ─────────────────────────────── -->
+    <section id="gallery">
+      <div class="gallery-header reveal">
+        <div class="section-label">Visual Journal</div>
+        <h2 class="gallery-title">Spaces That Stay With You</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gal-item">
+          <!-- Wide shot: dramatic cantilevered modern home -->
+          <img
+            src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1000&q=80&fit=crop"
+            alt="Aurum residence exterior"
+            loading="lazy"
+          />
+        </div>
+        <div class="gal-item">
+          <!-- Intimate: warm interior living room with green plants -->
+          <img
+            src="https://images.unsplash.com/photo-1616137466211-f939a420be84?w=800&q=80&fit=crop"
+            alt="Interior living space"
+            loading="lazy"
+          />
+        </div>
+        <div class="gal-item">
+          <!-- Detail: concrete and greenery architecture -->
+          <img
+            src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=700&q=80&fit=crop"
+            alt="Architectural detail"
+            loading="lazy"
+          />
+        </div>
+        <div class="gal-item">
+          <!-- Garden terrace at dusk -->
+          <img
+            src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=700&q=80&fit=crop"
+            alt="Evening terrace"
+            loading="lazy"
+          />
+        </div>
+        <div class="gal-item">
+          <!-- Bedroom: serene minimal with natural light -->
+          <img
+            src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=700&q=80&fit=crop"
+            alt="Serene bedroom"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CALL TO ACTION ──────────────────────── -->
+    <section id="cta">
+      <div class="reveal">
+        <div class="section-label" style="color: var(--sage)">Begin Here</div>
+        <h2 class="cta-heading">Schedule a<br /><em>private tour.</em></h2>
+        <p class="cta-body">
+          Our advisors are available for confidential, unhurried conversations.
+          No pressure. Just clarity about what's possible.
+        </p>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="cta-form">
+          <div class="cta-row">
+            <input type="text" class="cta-input" placeholder="First Name" />
+            <input type="text" class="cta-input" placeholder="Last Name" />
+          </div>
+          <input type="email" class="cta-input" placeholder="Email Address" />
+          <input type="tel" class="cta-input" placeholder="Phone Number" />
+          <select class="cta-select">
+            <option value="" disabled selected>
+              Select Residence of Interest
+            </option>
+            <option>The Meridian</option>
+            <option>Halcyon Grove</option>
+            <option>Atelier Sky</option>
+            <option>The Lumen</option>
+            <option>Caldera</option>
+          </select>
+          <button class="cta-btn">Request Private Tour</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ──────────────────────────────── -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-logo">AURUM</span>
+          <p class="footer-tagline">
+            An address that reflects more than status — it reflects intent.
+            Building with care since 2001.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Residences</div>
+          <ul class="footer-links">
+            <li><a href="#">The Meridian</a></li>
+            <li><a href="#">Halcyon Grove</a></li>
+            <li><a href="#">Atelier Sky</a></li>
+            <li><a href="#">The Lumen</a></li>
+            <li><a href="#">Caldera</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="#">Philosophy</a></li>
+            <li><a href="#">Our Process</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><a href="tel:+918042000000">+91 80 4200 0000</a></li>
+            <li>
+              <a
+                href="/cdn-cgi/l/email-protection#ef878a838380af8e9a9d9a82c18681"
+                ><span
+                  class="__cf_email__"
+                  data-cfemail="365e535a5a5976574344435b185f58"
+                  >[email&#160;protected]</span
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#">Experience Centre,<br />Indiranagar, Bengaluru</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy"
+          >© 2024 Aurum Developments Pvt. Ltd. All rights reserved.</span
+        >
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

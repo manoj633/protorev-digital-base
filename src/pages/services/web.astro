@@ -1,0 +1,271 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import FramedSlot from "../../components/FramedSlot.astro";
+import Stamp from "../../components/Stamp.astro";
+---
+
+<BaseLayout
+  title="Web Architecture Specification | Protorev Digital"
+  description="Technical specification for static web design, accessible semantic markup, and performance tuning."
+  sheetNumber="02"
+  totalSheets="06"
+  sheetTitle="SERVICE SPECIFICATION: WEB ARCHITECTURE"
+>
+  <article class="service-sheet hairline-bottom">
+    <div class="sheet-container">
+      <div class="spec-header hairline-bottom">
+        <div class="header-main">
+          <div class="badge-row">
+            <span class="sheet-tag mono">SHEET 02 / CAP01</span>
+            <Stamp text="ACTIVE SPECIFICATION" variant="draft" />
+          </div>
+          <h1 class="spec-title">
+            Web Design and <em>Architecture</em>
+          </h1>
+          <p class="spec-summary">
+            Static web architecture built with strict CSS custom properties and zero unnecessary script weight.
+          </p>
+        </div>
+      </div>
+
+      <div class="spec-body-grid">
+        <div class="spec-main-col">
+          <div class="spec-section">
+            <h2 class="section-title label-mono">SCOPE OVERVIEW</h2>
+            <p class="body-text">
+              We design and construct static digital surfaces optimized for maximum crawl speed, clean typography, and zero maintenance overhead. Every layout relies on semantic markup and native browser capabilities rather than complex client runtime frameworks.
+            </p>
+          </div>
+
+          <div class="spec-section hairline-top">
+            <h2 class="section-title label-mono">DELIVERABLES INCLUDED</h2>
+            <ul class="spec-list">
+              <li class="spec-list-item">
+                <span class="bullet mono">•</span>
+                <span>Semantic HTML structure and accessible markup following strict WCAG standards</span>
+              </li>
+              <li class="spec-list-item">
+                <span class="bullet mono">•</span>
+                <span>Self hosted font configurations and rapid loading styles with zero render blocking CSS</span>
+              </li>
+              <li class="spec-list-item">
+                <span class="bullet mono">•</span>
+                <span>Responsive layouts tested across mobile, tablet, and ultra wide viewports</span>
+              </li>
+              <li class="spec-list-item">
+                <span class="bullet mono">•</span>
+                <span>Production deployment configuration on modern edge hosting environments</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="spec-section hairline-top">
+            <h2 class="section-title label-mono">TECHNICAL SPECIFICATIONS</h2>
+            <div class="params-table-wrap ink-border">
+              <table class="params-table">
+                <tbody>
+                  <tr>
+                    <td class="param-key mono">TARGET RUNTIME</td>
+                    <td class="param-val mono">Static HTML, Zero Client JavaScript Overhead</td>
+                  </tr>
+                  <tr>
+                    <td class="param-key mono">CSS FRAMEWORK</td>
+                    <td class="param-val mono">Native CSS Custom Properties and Scoped Rules</td>
+                  </tr>
+                  <tr>
+                    <td class="param-key mono">ACCESSIBILITY TARGET</td>
+                    <td class="param-val mono">WCAG 2.1 AA Compliance with 4.5 to 1 Text Contrast</td>
+                  </tr>
+                  <tr>
+                    <td class="param-key mono">HOSTING ENVIRONMENT</td>
+                    <td class="param-val mono">Vercel Edge Network or Static Storage Bucket</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <aside class="spec-sidebar-col hairline-left">
+          <div class="sidebar-slot">
+            <FramedSlot slotId="CAP_WEB_SPEC" ratio="1:1" label="Web Architecture Schematic" />
+          </div>
+
+          <div class="sidebar-box hairline-top">
+            <span class="box-label label-mono">ENGAGEMENT MODEL</span>
+            <p class="box-text">
+              Included as part of the four week fixed scope pilot or modular standalone blueprint deployment.
+            </p>
+            <a href="/contact" class="btn btn-primary cta-btn">
+              Initiate Project Enquiry
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .service-sheet {
+    padding: 3rem 0;
+    background-color: var(--paper);
+  }
+
+  .spec-header {
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .badge-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .sheet-tag {
+    font-size: 0.75rem;
+    color: var(--graphite);
+    letter-spacing: 0.08em;
+  }
+
+  .spec-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .spec-summary {
+    font-size: 1.125rem;
+    color: var(--graphite);
+    max-width: 800px;
+    line-height: 1.6;
+  }
+
+  .spec-body-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 900px) {
+    .spec-body-grid {
+      grid-template-columns: 1.8fr 1fr;
+    }
+  }
+
+  .spec-main-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .spec-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  .spec-section:first-child {
+    padding-top: 0;
+  }
+
+  .section-title {
+    color: var(--graphite);
+  }
+
+  .body-text {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--graphite);
+  }
+
+  .spec-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .spec-list-item {
+    font-size: 0.9375rem;
+    color: var(--ink);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .bullet {
+    color: var(--graphite);
+  }
+
+  .params-table-wrap {
+    overflow-x: auto;
+    background-color: var(--paper-shade);
+  }
+
+  .params-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8125rem;
+  }
+
+  .params-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .params-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .param-key {
+    width: 35%;
+    color: var(--graphite);
+    border-right: 1px solid var(--rule);
+  }
+
+  .param-val {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .spec-sidebar-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-left: 0;
+  }
+
+  @media (min-width: 900px) {
+    .spec-sidebar-col {
+      padding-left: 2rem;
+    }
+  }
+
+  .sidebar-box {
+    padding: 1.5rem;
+    background-color: var(--paper-shade);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .box-label {
+    color: var(--graphite);
+  }
+
+  .box-text {
+    font-size: 0.875rem;
+    color: var(--graphite);
+    line-height: 1.5;
+  }
+
+  .cta-btn {
+    width: 100%;
+  }
+</style>

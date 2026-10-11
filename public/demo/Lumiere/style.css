@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    font-family: 'Playfair Display', serif;
+    overflow-x: hidden;
+}
+
+/* HERO */
+
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* BACKGROUND */
+
+.hero-bg {
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    background-image: url("../bg.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+/* CONTENT */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* DIAMOND */
+
+.diamond {
+    width: 120px;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(-60px) scale(0.8);
+    filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.4));
+}
+
+/* TEXT */
+
+.hero-text {
+    color: #e8dfd4;
+    font-size: clamp(48px, 4.5vw, 82px);
+    line-height: 1.25;
+}
+
+/* MASK */
+
+.line-wrapper {
+    overflow: hidden;
+}
+
+.line {
+    display: inline-block;
+    transform: translateY(120%);
+    opacity: 0;
+}
+
+/* SCROLL SPACE */
+
+.scroll-space {
+    height: 350vh;
+}

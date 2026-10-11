@@ -1,0 +1,56 @@
+---
+interface Props {
+  text: string;
+  variant?: "draft" | "simulated" | "estimate" | "success" | "error";
+  class?: string;
+}
+
+const { text, variant = "draft", class: className = "" } = Astro.props;
+---
+
+<span class={`stamp stamp-${variant} ${className}`}>
+  [{text}]
+</span>
+
+<style>
+  .stamp {
+    display: inline-block;
+    padding: 0.15rem 0.45rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 2px;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    background-color: var(--paper);
+    white-space: nowrap;
+  }
+
+  .stamp-draft {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+
+  .stamp-simulated {
+    border-color: var(--graphite);
+    color: var(--graphite);
+  }
+
+  .stamp-estimate {
+    border-color: var(--graphite);
+    color: var(--graphite);
+  }
+
+  .stamp-success {
+    border-color: var(--verdigris);
+    color: var(--verdigris);
+  }
+
+  .stamp-error {
+    border-color: var(--vermilion);
+    color: var(--vermilion);
+  }
+</style>

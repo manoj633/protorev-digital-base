@@ -1,0 +1,483 @@
+---
+import { studioConfig } from "../data/config";
+import Stamp from "./Stamp.astro";
+
+// Cloudflare test site key for local development
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
+---
+
+<section class="contact-section" id="contact">
+  <div class="sheet-container">
+    <div class="section-title-bar hairline-bottom">
+      <div class="title-left">
+        <span class="sheet-badge mono">SHEET 06 OF 06</span>
+        <h2 class="section-heading">Initiate Contact <em>Node</em></h2>
+      </div>
+      <span class="spec-id mono">[SPECIFICATION: INGRESS WEBHOOK]</span>
+    </div>
+
+    <div class="contact-frame ink-border">
+      <div class="contact-node-header hairline-bottom">
+        <div class="node-meta">
+          <span class="node-protocol mono">POST /api/contact</span>
+          <span class="node-title mono">INGRESS TRIGGER NODE</span>
+        </div>
+        <div class="node-status">
+          <Stamp text="TRIGGER READY" variant="draft" />
+        </div>
+      </div>
+
+      <div class="contact-content-grid">
+        <div class="contact-intro">
+          <p class="intro-text">
+            Submit your enquiry directly to the studio ingress queue. The payload triggers a review of your requirements and current digital stack.
+          </p>
+
+          <div class="specs-block hairline-top">
+            <span class="specs-title label-mono">INGRESS SPECIFICATIONS</span>
+            <ul class="specs-list mono">
+              <li>METHOD: POST (JSON Encoded)</li>
+              <li>DESTINATION: Internal ops webhook</li>
+              <li>VALIDATION: Client side schema plus server auth</li>
+              <li>ENCRYPTION: Transport Layer Security</li>
+            </ul>
+          </div>
+
+          <!-- Fallback direct email notice -->
+          <div class="email-fallback-notice hairline-top">
+            <span class="fallback-label label-mono">MANUAL DISPATCH FALLBACK</span>
+            <p class="fallback-text">
+              Direct transmissions can be routed to
+              <a href={`mailto:${studioConfig.contactEmail}`} class="email-link mono">{studioConfig.contactEmail}</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap hairline-left">
+          <form class="webhook-form" id="contact-webhook-form" novalidate>
+            <!-- Honeypot Field for Bot Mitigation -->
+            <div class="hp-field" aria-hidden="true" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;">
+              <label for="hp-company">Company</label>
+              <input type="text" id="hp-company" name="_hp_company" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div class="form-group">
+              <label for="contact-name" class="field-label label-mono">YOUR NAME</label>
+              <input 
+                type="text" 
+                id="contact-name" 
+                name="name" 
+                class="input-field" 
+                required 
+                placeholder="Full name" 
+              />
+              <span class="field-error mono" id="name-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email" class="field-label label-mono">CONTACT EMAIL</label>
+              <input 
+                type="email" 
+                id="contact-email" 
+                name="email" 
+                class="input-field" 
+                required 
+                placeholder="name@example.com" 
+              />
+              <span class="field-error mono" id="email-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-site" class="field-label label-mono">CURRENT SITE URL</label>
+              <input 
+                type="url" 
+                id="contact-site" 
+                name="currentSite" 
+                class="input-field" 
+                placeholder="https://example.com" 
+              />
+              <span class="field-error mono" id="site-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-scope" class="field-label label-mono">WHAT YOU WANT BUILT</label>
+              <textarea 
+                id="contact-scope" 
+                name="scope" 
+                class="input-field textarea-field" 
+                rows="4" 
+                required 
+                placeholder="Outline requirements, target outcomes, or workflow scope"
+              ></textarea>
+              <span class="field-error mono" id="scope-error"></span>
+            </div>
+
+            <!-- Mandatory Data Privacy Consent Checkbox (DPDP & GDPR Compliant) -->
+            <div class="consent-group">
+              <label class="consent-label">
+                <input 
+                  type="checkbox" 
+                  id="contact-consent" 
+                  name="consent" 
+                  class="consent-checkbox" 
+                  required 
+                />
+                <span class="consent-text">
+                  I agree that the details submitted will be used exclusively to reply to this project enquiry.
+                </span>
+              </label>
+              <span class="field-error mono" id="consent-error"></span>
+            </div>
+
+            <!-- Cloudflare Turnstile Container -->
+            <div class="turnstile-wrap" id="turnstile-container">
+              <div 
+                class="cf-turnstile" 
+                data-sitekey={turnstileSiteKey} 
+                data-theme="light"
+              ></div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary submit-btn" id="contact-submit-btn">
+                <span>Dispatch Webhook</span>
+              </button>
+            </div>
+
+            <!-- Response Announcer -->
+            <div class="form-response" id="form-response-area" role="alert" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    padding: 3.5rem 0;
+    position: relative;
+  }
+
+  .section-title-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    gap: 1rem;
+  }
+
+  .title-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .sheet-badge {
+    font-size: 0.75rem;
+    color: var(--graphite);
+    letter-spacing: 0.08em;
+  }
+
+  .section-heading {
+    font-size: 1.75rem;
+  }
+
+  .spec-id {
+    font-size: 0.75rem;
+    color: var(--graphite);
+  }
+
+  .contact-frame {
+    background-color: var(--paper);
+  }
+
+  .contact-node-header {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--paper-shade);
+    gap: 1rem;
+  }
+
+  .node-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .node-protocol {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .node-title {
+    font-size: 0.6875rem;
+    color: var(--graphite);
+  }
+
+  .contact-content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 860px) {
+    .contact-content-grid {
+      grid-template-columns: 1fr 1.35fr;
+    }
+  }
+
+  .contact-intro {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: var(--paper);
+  }
+
+  .intro-text {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--graphite);
+  }
+
+  .specs-block {
+    padding-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .specs-title {
+    color: var(--graphite);
+  }
+
+  .specs-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    color: var(--ink);
+  }
+
+  .email-fallback-notice {
+    padding-top: 1.25rem;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .fallback-label {
+    color: var(--graphite);
+  }
+
+  .fallback-text {
+    font-size: 0.8125rem;
+    color: var(--graphite);
+    line-height: 1.4;
+  }
+
+  .email-link {
+    color: var(--ink);
+    text-decoration: underline;
+  }
+
+  .contact-form-wrap {
+    padding: 1.5rem;
+    background-color: var(--paper-shade);
+  }
+
+  .webhook-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .field-label {
+    color: var(--graphite);
+  }
+
+  .textarea-field {
+    resize: vertical;
+    min-height: 90px;
+  }
+
+  .field-error {
+    font-size: 0.6875rem;
+    color: var(--vermilion);
+    min-height: 1rem;
+  }
+
+  .consent-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .consent-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    cursor: pointer;
+  }
+
+  .consent-checkbox {
+    margin-top: 0.2rem;
+    accent-color: var(--vermilion);
+  }
+
+  .consent-text {
+    font-size: 0.8125rem;
+    color: var(--graphite);
+    line-height: 1.4;
+  }
+
+  .turnstile-wrap {
+    min-height: 65px;
+  }
+
+  .form-actions {
+    display: flex;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+
+  .form-response {
+    margin-top: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.4;
+  }
+</style>
+
+<script>
+  // Form submission client logic with honest execution ID handling
+  const form = document.getElementById('contact-webhook-form') as HTMLFormElement | null;
+  const submitBtn = document.getElementById('contact-submit-btn');
+  const responseArea = document.getElementById('form-response-area');
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Clear errors
+      const errorSpans = form.querySelectorAll('.field-error');
+      errorSpans.forEach(el => el.textContent = '');
+
+      // Validation
+      const nameInput = form.querySelector('#contact-name') as HTMLInputElement;
+      const emailInput = form.querySelector('#contact-email') as HTMLInputElement;
+      const scopeInput = form.querySelector('#contact-scope') as HTMLTextAreaElement;
+      const consentInput = form.querySelector('#contact-consent') as HTMLInputElement;
+      const hpInput = form.querySelector('#hp-company') as HTMLInputElement;
+
+      let hasError = false;
+
+      if (!nameInput.value.trim()) {
+        const err = form.querySelector('#name-error');
+        if (err) err.textContent = 'Name is required';
+        hasError = true;
+      }
+
+      if (!emailInput.value.trim() || !emailInput.value.includes('@')) {
+        const err = form.querySelector('#email-error');
+        if (err) err.textContent = 'Valid email is required';
+        hasError = true;
+      }
+
+      if (!scopeInput.value.trim()) {
+        const err = form.querySelector('#scope-error');
+        if (err) err.textContent = 'Scope description is required';
+        hasError = true;
+      }
+
+      if (!consentInput.checked) {
+        const err = form.querySelector('#consent-error');
+        if (err) err.textContent = 'Consent is required to submit';
+        hasError = true;
+      }
+
+      // Check honeypot
+      if (hpInput && hpInput.value) {
+        // Silent drop for bots
+        return;
+      }
+
+      if (hasError) return;
+
+      if (submitBtn) {
+        submitBtn.setAttribute('disabled', 'true');
+        submitBtn.textContent = 'Transmitting...';
+      }
+
+      if (responseArea) {
+        responseArea.textContent = 'Transmitting payload to ingress node...';
+        responseArea.style.color = 'var(--graphite)';
+      }
+
+      try {
+        const currentSiteInput = form.querySelector('#contact-site') as HTMLInputElement;
+        const formData = new FormData(form);
+        const turnstileToken = formData.get('cf-turnstile-response') || '';
+
+        const payload = {
+          name: nameInput.value.trim(),
+          email: emailInput.value.trim(),
+          currentSite: currentSiteInput.value.trim(),
+          scope: scopeInput.value.trim(),
+          consent: consentInput.checked,
+          turnstileToken
+        };
+
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json().catch(() => null);
+
+        if (res.ok && data && data.ok) {
+          form.reset();
+          if (responseArea) {
+            responseArea.style.color = 'var(--verdigris)';
+            if (data.executionId) {
+              responseArea.innerHTML = `<span class="stamp stamp-success">[STATUS 200 OK]</span> Payload received. Execution ID: <strong class="mono">${data.executionId}</strong>`;
+            } else {
+              responseArea.innerHTML = `<span class="stamp stamp-success">[STATUS 200 OK]</span> Payload received and queued for review.`;
+            }
+          }
+        } else {
+          throw new Error(data?.message || 'Submission endpoint unavailable');
+        }
+      } catch (err: any) {
+        if (responseArea) {
+          responseArea.style.color = 'var(--vermilion)';
+          responseArea.innerHTML = `<span class="stamp stamp-error">[NOTICE: Webhook paused]</span> ${err.message || 'Transmission failed.'} Please send your enquiry directly to <a href="mailto:hello@protorevdigital.com" style="color:var(--ink); text-decoration:underline;">hello@protorevdigital.com</a>`;
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.removeAttribute('disabled');
+          submitBtn.textContent = 'Dispatch Webhook';
+        }
+      }
+    });
+  }
+</script>
